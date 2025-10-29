@@ -1,0 +1,411 @@
+<section class="ingredients-index" data-section-id="{{ section.id }}">
+  <div class="page-width">
+
+    {%- comment -%} Resolve blogs (use pickers, fallback to typical handles) {%- endcomment -%}
+    {%- assign supp_handle = section.settings.supp_blog | default: 'supplement-ingredients' -%}
+    {%- assign skin_handle = section.settings.skin_blog  | default: 'skincare-ingredients' -%}
+    {%- assign supp_blog   = blogs[supp_handle] -%}
+    {%- assign skin_blog   = blogs[skin_handle] -%}
+
+    <div class="ingredients-index__flex">
+
+      <div class="ingredients-index__flex-left">
+        <!-- Tabs -->
+        <div class="ingr-tabs">
+          <button class="tab-btn active" data-tab="supp-{{ section.id }}">Supplements</button>
+          <button class="tab-btn" data-tab="skin-{{ section.id }}">Skincare</button>
+        </div>
+        <div>
+          {% if section.settings.supp_intro != blank %}
+            <div class="rte ingr-intro" data-intro-for="supp">{{ section.settings.supp_intro }}</div>
+          {% endif %}
+          {% if section.settings.skin_intro != blank %}
+            <div class="rte ingr-intro hidden" data-intro-for="skin">{{ section.settings.skin_intro }}</div>
+          {% endif %}
+          <div class="trust-ticks">
+            <ul><li>Commited to 100% clean</li><li>Expert selection</li><li>Triple tested</li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ingredients-index__flex-right">
+      
+        {%- assign letters = 'A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|0-9' | split: '|' -%}
+
+        <!-- SUPPLEMENTS -->
+        <div class="tab-panel" id="supp-{{ section.id }}">
+
+          <ul class="letters" role="tablist" aria-label="Filter by letter">
+            {% for l in letters %}
+              <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
+            {% endfor %}
+          </ul>
+
+          {% if supp_blog and supp_blog.articles_count > 0 %}
+            {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
+            <div class="ingredients-list" data-list-for="supplements">
+              {% for article in supp_sorted limit: 1000 %}
+                {% if article.handle != blank %}
+                  {% assign first = article.title | slice: 0, 1 | upcase %}
+                  {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                    {% assign first = '0-9' %}
+                  {% endif %}
+
+                  {% assign img_url = '' %}
+                  {% if article.image %}
+                    {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+                  {% endif %}
+                  {% assign excerpt_txt = article.excerpt | strip_html %}
+
+                  <article
+                    class="ingredient-row"
+                    data-letter="{{ first }}"
+                    data-title="{{ article.title | escape }}"
+                    data-url="{{ article.url }}"
+                    data-image="{{ img_url }}"
+                    data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                    data-excerpt="{{ excerpt_txt | escape }}"
+                    tabindex="0"
+                  >
+                    <div class="row-line">
+                      <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                    </div>
+
+                    <div class="row-content">
+                      {% if img_url != blank %}
+                        <a href="{{ article.url }}" class="row-media">
+                          <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" loading="lazy">
+                        </a>
+                      {% endif %}
+                      {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                        <div class="row-excerpt">{{ excerpt_txt }}</div>
+                      {% endif %}
+                    </div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No published articles in <code>{{ supp_handle }}</code>.</p>
+          {% endif %}
+        </div>
+
+        <!-- SKINCARE -->
+        <div class="tab-panel hidden" id="skin-{{ section.id }}">
+
+          <ul class="letters" role="tablist" aria-label="Filter by letter">
+            {% for l in letters %}
+              <li><button class="letter{% if l == 'A' %} active{% endif %}" data-letter="{{ l }}">{{ l }}</button></li>
+            {% endfor %}
+          </ul>
+
+          {% if skin_blog and skin_blog.articles_count > 0 %}
+            {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
+            <div class="ingredients-list" data-list-for="skincare">
+              {% for article in skin_sorted limit: 1000 %}
+                {% if article.handle != blank %}
+                  {% assign first = article.title | slice: 0, 1 | upcase %}
+                  {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
+                    {% assign first = '0-9' %}
+                  {% endif %}
+
+                  {% assign img_url = '' %}
+                  {% if article.image %}
+                    {% assign img_url = article.image | image_url: width: 960, height: 640, crop: 'center' %}
+                  {% endif %}
+                  {% assign excerpt_txt = article.excerpt | strip_html %}
+
+                  <article
+                    class="ingredient-row"
+                    data-letter="{{ first }}"
+                    data-title="{{ article.title | escape }}"
+                    data-url="{{ article.url }}"
+                    data-image="{{ img_url }}"
+                    data-image-alt="{{ article.image.alt | default: article.title | escape }}"
+                    data-excerpt="{{ excerpt_txt | escape }}"
+                    tabindex="0"
+                  >
+                    <div class="row-line">
+                      <a class="ingredient-link" href="{{ article.url }}">{{ article.title }}</a>
+                    </div>
+
+                    <div class="row-content">
+                      {% if img_url != blank %}
+                        <a href="{{ article.url }}" class="row-media">
+                          <img class="row-img" src="{{ img_url }}" alt="{{ article.image.alt | default: article.title }}" loading="lazy">
+                        </a>
+                      {% endif %}
+                      {% if section.settings.show_excerpt and excerpt_txt != blank %}
+                        <div class="row-excerpt">{{ excerpt_txt }}</div>
+                      {% endif %}
+                    </div>
+                  </article>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No published articles in <code>{{ skin_handle }}</code>.</p>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    /* ---- Scoped styles ---- */
+    .ingredients-index__flex { display: flex; margin: 3rem 0 12rem; }
+    .ingredients-index__flex-left, .ingredients-index__flex-right { flex: 0 0 50%; }
+    [data-section-id="{{ section.id }}"] .ingr-tabs { 
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      height: 65px;
+      border-top: 1px solid rgba(211, 211, 211, 1);
+      border-bottom: 1px solid rgba(211, 211, 211, 1); 
+    }
+    [data-section-id="{{ section.id }}"] .tab-btn { 
+      background:none; border:0; cursor:pointer; padding: 0; 
+      font-family: var(--font-heading-family);
+      font-weight: 500;
+      font-size: 3.2rem;
+      opacity: 0.25; 
+      color: rgb(var(--color-foreground));
+      transition: opacity 0.4s ease;
+    }
+    [data-section-id="{{ section.id }}"] .tab-btn:hover { opacity: 0.5; }
+    [data-section-id="{{ section.id }}"] .tab-btn.active { opacity:1; }
+    [data-section-id="{{ section.id }}"] .hidden { display:none !important; }
+    [data-section-id="{{ section.id }}"] .ingr-hr { margin: 0 0 3rem; }
+    [data-section-id="{{ section.id }}"] .ingr-intro p { font-size: 2.4rem; line-height: 1.3; max-width: 55rem; }
+    [data-section-id="{{ section.id }}"] .letters { 
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      margin: 0 0 2rem;
+      padding: 0;
+      height: 65px;
+      border-top: 1px solid rgba(211, 211, 211, 1);
+      border-bottom: 1px solid rgba(211, 211, 211, 1); 
+    }
+    [data-section-id="{{ section.id }}"] .letters li { list-style:none; }
+    [data-section-id="{{ section.id }}"] .letter { 
+      background:none; border:0; cursor:pointer;
+      font-family: var(--font-heading-family);
+      font-weight: 500;
+      font-size: 2.4rem;
+      line-height: 1;
+      opacity: 0.25; 
+      color: rgb(var(--color-foreground));
+      padding: 0;
+      transition: opacity 0.4s ease;
+    }
+    [data-section-id="{{ section.id }}"] .letter:hover { opacity: 0.5; }
+    [data-section-id="{{ section.id }}"] .letter.active { opacity:1; }
+    [data-section-id="{{ section.id }}"] .ingredients-list { display:grid; }
+    [data-section-id="{{ section.id }}"] .ingredient-row { border-bottom: 1px solid rgba(211, 211, 211, 1); padding: 1rem 0; outline: none; }
+    [data-section-id="{{ section.id }}"] .ingredient-row.is-open .ingredient-link { text-decoration: underline; }
+    .trust-ticks { max-width: 430px; }
+    .trust-ticks ul {
+      list-style: none;
+      padding-left: 0;
+      border-top: 1px solid rgba(31, 25, 71, .4);
+      margin: 2rem 0 4rem;
+    }
+    .trust-ticks ul li {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      padding: 5px 6rem 5px 0;
+      border-bottom: 1px solid rgba(31, 25, 71, .4);
+    }
+    .trust-ticks ul li:before {
+      content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
+      height: 12px;
+      width: 12px;
+      margin-right: 10px;
+    }
+    [data-section-id="{{ section.id }}"] .row-line { display:flex; justify-content: space-between; align-items:center; gap:12px; }
+    [data-section-id="{{ section.id }}"] .ingredient-link { 
+      font-family: var(--font-heading-family);
+      font-weight: 500;
+      font-size: 3.2rem;
+      line-height: 1.3;
+      text-decoration: none;
+      color: rgb(var(--color-foreground));
+    }
+
+    /* Accordion content */
+    [data-section-id="{{ section.id }}"] .row-content { display:block; }
+    [data-section-id="{{ section.id }}"] .row-excerpt { 
+      margin-top: 3rem;
+      font-size: 1.6rem;
+      line-height: 1.3;
+    }
+    [data-section-id="{{ section.id }}"] .ingredient-row .row-img { width: 100%; height: auto; border-radius: 10px; display:block; }
+    [data-section-id="{{ section.id }}"] .ingredient-row .row-media {
+      display: block; 
+      width: 35%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    [data-section-id="{{ section.id }}"] .ingredient-row .row-media .row-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 749px) {
+      [data-section-id="{{ section.id }}"] .ingr-tabs { gap: 1.5rem; height: 45px; margin-bottom: 0; border-bottom: none; }
+      [data-section-id="{{ section.id }}"] .ingr-tabs .tab-btn { font-size: 2rem; }
+    }
+    @media (max-width: 989px) {
+      .ingredients-index__flex { flex-direction: column; margin: 0 0 8rem; }
+      .ingredients-index__flex-left { display: flex; flex-direction: column-reverse; }
+      [data-section-id="{{ section.id }}"] .ingr-intro p { font-size: 1.6rem; }
+      [data-section-id="{{ section.id }}"] .letters { 
+        align-items: flex-start;
+        align-content: flex-start;
+        height: 100px;
+        padding: 1rem 0;
+        margin-bottom: 0;
+      }
+      [data-section-id="{{ section.id }}"] .row-excerpt { display: none; }
+      [data-section-id="{{ section.id }}"] .ingredient-row .ingredient-link { font-size: 2rem; text-decoration: none !important; line-height: 1.1; }
+      [data-section-id="{{ section.id }}"] .ingredient-row { display: flex; justify-content: space-between; gap: 2rem; }
+      [data-section-id="{{ section.id }}"] .row-line { flex: 0 0 calc(50% - 1rem); align-items: flex-start; }
+      [data-section-id="{{ section.id }}"] .ingredient-row .row-media { width: 100%; border-radius: 8px; }
+    }
+    @media (min-width: 990px) {
+      [data-section-id="{{ section.id }}"] .row-content { display:none; }
+      [data-section-id="{{ section.id }}"] .ingr-intro { margin-bottom: 6rem; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-content { display:flex; gap:2rem; align-items: flex-end; flex-direction: row-reverse; margin: 1rem 0; }
+      [data-section-id="{{ section.id }}"] .ingredient-row.is-open .row-excerpt { flex:1; }
+    }
+    @media (min-width: 1350px) {
+      [data-section-id="{{ section.id }}"] .letters { 
+        justify-content: space-around;
+      }
+    }
+  </style>
+
+  <script>
+    (function(){
+      const root = document.querySelector('[data-section-id="{{ section.id }}"]');
+      if (!root) return;
+
+      const mqDesktop = window.matchMedia('(min-width: 990px)');
+      const tabs = Array.from(root.querySelectorAll('.tab-btn'));
+      const panels = {};
+      tabs.forEach(t => panels[t.dataset.tab] = root.querySelector('#' + t.dataset.tab));
+
+      function showTab(id){
+        tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+        Object.keys(panels).forEach(k => panels[k]?.classList.toggle('hidden', k !== id));
+
+        const introSupp = root.querySelector('.ingr-intro[data-intro-for="supp"]');
+        const introSkin = root.querySelector('.ingr-intro[data-intro-for="skin"]');
+        if (introSupp) introSupp.classList.toggle('hidden', id !== 'supp-{{ section.id }}');
+        if (introSkin) introSkin.classList.toggle('hidden', id !== 'skin-{{ section.id }}');
+
+        const panel = panels[id];
+        applyLetter(panel, 'A', true);
+        openFirstVisible(panel);
+      }
+
+      function applyLetter(panel, letter, allowFallback){
+        panel.querySelectorAll('.letters .letter').forEach(b=>{
+          b.classList.toggle('active', b.dataset.letter === letter);
+        });
+        const rows = Array.from(panel.querySelectorAll('.ingredients-list .ingredient-row'));
+        let visible = 0;
+        rows.forEach(r => {
+          const show = (r.dataset.letter || '').toUpperCase() === letter.toUpperCase();
+          r.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        if (allowFallback && visible === 0) {
+          const order = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0-9'];
+          const counts = new Map();
+          rows.forEach(r => { const L = (r.dataset.letter || '').toUpperCase(); counts.set(L, (counts.get(L)||0)+1); });
+          const fb = order.find(L => (counts.get(L)||0) > 0);
+          if (fb) {
+            panel.querySelectorAll('.letters .letter').forEach(b=>b.classList.toggle('active', b.dataset.letter === fb));
+            rows.forEach(r => r.style.display = ((r.dataset.letter || '').toUpperCase() === fb) ? '' : 'none');
+          }
+        }
+      }
+
+      function openRow(panel, row){
+        // desktop: true accordion (single open)
+        if (mqDesktop.matches) {
+          panel.querySelectorAll('.ingredient-row.is-open').forEach(el => el.classList.remove('is-open'));
+        }
+        row.classList.add('is-open');
+      }
+
+      function openFirstVisible(panel){
+        const first = Array.from(panel.querySelectorAll('.ingredients-list .ingredient-row'))
+          .find(r => r.style.display !== 'none');
+        if (first) openRow(panel, first);
+      }
+
+      // Events
+      root.addEventListener('click', e => {
+        const t = e.target.closest('.tab-btn');
+        if (t) { e.preventDefault(); showTab(t.dataset.tab); return; }
+
+        const letterBtn = e.target.closest('.letters .letter');
+        if (letterBtn) {
+          const panel = e.target.closest('.tab-panel');
+          if (panel) { e.preventDefault(); applyLetter(panel, letterBtn.dataset.letter, false); openFirstVisible(panel); }
+          return;
+        }
+      });
+
+      // Desktop hover -> open that row
+      root.addEventListener('mouseenter', e => {
+        const rowLine = e.target.closest('.ingredient-row .row-line');
+        if (!rowLine || !mqDesktop.matches) return;
+        const row = rowLine.parentElement;
+        const panel = row.closest('.tab-panel');
+        openRow(panel, row);
+      }, true);
+
+      // Keyboard focus on row or its link also opens it
+      root.addEventListener('focusin', e => {
+        const row = e.target.closest('.ingredient-row');
+        if (!row) return;
+        const panel = row.closest('.tab-panel');
+        openRow(panel, row);
+      });
+
+      // Keep accordion semantics on desktop when resizing
+      mqDesktop.addEventListener?.('change', () => {
+        const panel = Object.values(panels).find(p => !p.classList.contains('hidden'));
+        if (!panel) return;
+        if (mqDesktop.matches) openFirstVisible(panel);
+      });
+
+      // Boot
+      showTab(tabs[0]?.dataset.tab);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients index",
+  "settings": [
+    { "type": "blog", "id": "supp_blog", "label": "Supplements blog" },
+    { "type": "richtext", "id": "supp_intro", "label": "Supplements intro" },
+    { "type": "blog", "id": "skin_blog", "label": "Skincare blog" },
+    { "type": "richtext", "id": "skin_intro", "label": "Skincare intro" },
+    { "type": "checkbox", "id": "show_excerpt", "label": "Show excerpts", "default": true }
+  ],
+  "presets": [{ "name": "Ingredients index" }]
+}
+{% endschema %}

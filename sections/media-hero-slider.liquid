@@ -1,0 +1,375 @@
+{% comment %}
+  Media Hero Slider (image/video per slide)
+  - No <script> here. Assumes your global Swiper init reads data-* attributes.
+  - Dot pagination overlaps bottom-right inside the media.
+{% endcomment %}
+
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+#MediaHero-{{ section.id }} .banner__box {
+    background: transparent;
+}
+#MediaHero-{{ section.id }} .banner__heading {
+    max-width: 500px;
+    line-height: 1;
+}
+#MediaHero-{{ section.id }} .banner__media video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+#MediaHero-{{ section.id }} .banner--stacked img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+@media (min-width: 750px) {
+    #MediaHero-{{ section.id }} .banner--large {
+        min-height: calc(100vh - 83px);
+        align-items: center;
+    }
+    #MediaHero-{{ section.id }} .banner__content {
+        padding-top: 125px;
+    }
+    #MediaHero-{{ section.id }} .subtitle {
+      max-width: 330px;
+    }
+    #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left {
+      margin: auto;
+    }
+    #MediaHero-{{ section.id }} .banner--stacked .subtitle {
+      max-width: 30vw;
+    }
+}
+@media (max-width: 749px) {
+  #MediaHero-{{ section.id }} .banner__content {
+    justify-content: flex-end;
+  }
+  #MediaHero-{{ section.id }} .banner__heading {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  #MediaHero-{{ section.id }} .subtitle {
+    max-width: 275px;
+    margin: 2rem auto 0;
+  }
+  #MediaHero-{{ section.id }} .banner--stacked .banner__box {
+    display: none;
+  }
+  #MediaHero-{{ section.id }} .banner--stacked .banner {
+    height: auto;
+  }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile {
+    padding: 4rem 2rem;
+  }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 {
+    max-width: calc(100% - 2rem);
+    margin: 0;
+    font-size: 2.8rem;
+  }
+  #MediaHero-{{ section.id }} .mhs-stacked-mobile p {
+    max-width: calc(100% - 2rem);
+    margin: 1.5rem 0;
+    font-size: 1.6rem;
+  }
+}
+
+/* Full-bleed helper */
+#MediaHero-{{ section.id }} .is-fullbleed{
+  width: 100vw;
+}
+.section-{{ section.id }}-padding { overflow-x: clip; }
+
+/* Let Dawn handle layout; just style dots */
+#MediaHero-{{ section.id }} .hero-pagination.swiper-pagination{
+    position: absolute;
+    left: auto;
+    right: 30px;
+    bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+/* Overlay per slide banner */
+#MediaHero-{{ section.id }} .banner::after{
+  content:""; position:absolute; inset:0; background:#000;
+  opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  pointer-events:none;
+}
+#MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 999px; 
+    background: white; 
+    opacity: 0.4;
+}
+#MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet-active {
+    background: white; 
+    opacity: 1;
+    width: 46px;
+}
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{% if section.settings.wide_container %}<div class="nav__offset_bg color-{{ section.settings.color_scheme }}"><div class="page-width--wide">{% endif %}
+
+<section id="MediaHero-{{ section.id }}" class="section section-{{ section.id }}-padding"
+         data-swiper-root>
+  <div
+    class="swiper ts2-swiper hero-swiper is-fullbleed"
+    data-swiper
+    data-mode="fixed"
+    data-gap="{{ section.settings.gap | default: 0 }}"
+    data-speed="{{ section.settings.speed | default: 500 }}"
+    data-autoplay="{{ section.settings.autoplay | default: false }}"
+    data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+    data-dots="true"
+    data-pagination=".hero-pagination"
+  >
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        {% liquid
+          assign sizes = '100vw'
+          assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+          assign adapt_pad = ''
+          if section.settings.image_height == 'adapt'
+            if b.image != blank
+              assign adapt_pad = 1 | divided_by: b.image.aspect_ratio | times: 100 | append: '%'
+            else
+              assign adapt_pad = b.video_adapt_ratio | default: 56.25 | append: '%'
+            endif
+          endif
+          assign fetch_priority = 'auto'
+          if section.index == 1
+            assign fetch_priority = 'high'
+          endif
+        %}
+        <div class="swiper-slide" {{ block.shopify_attributes }}>
+          <!-- Each slide is a proper Dawn banner -->
+          <div
+            class="
+              banner
+              banner--{{ section.settings.image_height }}
+              {% if section.settings.show_text_box == false %}banner--desktop-transparent{% endif %}
+              {% if section.settings.stack_text_on_mobile %}banner--stacked{% endif %}
+              color-{{ section.settings.color_scheme }}
+            "
+          >
+            <div class="banner__media media">
+              {% if section.settings.image_height == 'adapt' %}
+                <div style="padding-bottom: {{ adapt_pad }};"></div>
+              {% endif %}
+              {% if b.video_mp4 != blank %}
+                <video autoplay muted loop playsinline preload="metadata"
+                  {% if b.video_poster != blank %}poster="{{ b.video_poster | image_url: width: 1920 }}"{% endif %}>
+                  <source src="{{ b.video_mp4 | escape }}" type="video/mp4">
+                </video>
+              {% elsif b.image != blank %}
+                <picture>
+                  {% if b.image_mobile != blank %}
+                    <source
+                      media="(max-width: 749px)"
+                      srcset="{{ b.image_mobile | image_url: width: 1100 }}">
+                  {% endif %}
+                  {% if b.image_tablet != blank %}
+                    <source
+                      media="(min-width: 750px) and (max-width: 990px)"
+                      srcset="{{ b.image_tablet | image_url: width: 1500 }}">
+                  {% endif %}
+                  <img
+                    src="{{ b.image | image_url: width: 3840 }}"
+                    alt="{{ b.image.alt | escape }}"
+                    width="{{ b.image.width }}"
+                    height="{{ b.image.height }}"
+                    sizes="{{ sizes }}"
+                    srcset="
+                      {{ b.image | image_url: width: 750 }} 750w,
+                      {{ b.image | image_url: width: 1100 }} 1100w,
+                      {{ b.image | image_url: width: 1500 }} 1500w,
+                      {{ b.image | image_url: width: 2000 }} 2000w,
+                      {{ b.image | image_url: width: 3000 }} 3000w,
+                      {{ b.image | image_url: width: 3840 }} 3840w
+                    "
+                    fetchpriority="{{ fetch_priority }}"
+                    class="media-hero__img"
+                  >
+                </picture>
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+
+            <div class="banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}">
+              <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
+                <div class="banner__box content-container content-container--full-width-mobile gradient">
+                  {% if b.heading != blank %}
+                    <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
+                  {% endif %}
+                  {% if b.text != blank %}
+                    <div class="banner__text rte {{ b.text_style }}"><p class="subtitle">{{ b.text }}</p></div>
+                  {% endif %}
+
+                  {% if b.button_label_1 != blank or b.button_label_2 != blank %}
+                    <div class="banner__buttons{% if b.button_label_1 != blank and b.button_label_2 != blank %} banner__buttons--multiple{% endif %}">
+                      {% if b.button_label_1 != blank %}
+                        <a {% if b.button_link_1 == blank %}role="link" aria-disabled="true"{% else %}href="{{ b.button_link_1 }}"{% endif %}
+                           class="button{% if b.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ b.button_label_1 | escape }}</a>
+                      {% endif %}
+                      {% if b.button_label_2 != blank %}
+                        <a {% if b.button_link_2 == blank %}role="link" aria-disabled="true"{% else %}href="{{ b.button_link_2 }}"{% endif %}
+                           class="button{% if b.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ b.button_label_2 | escape }}</a>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+            {% if section.settings.stack_text_on_mobile and b.text != blank %}
+              <div class="mhs-stacked-mobile banner__text rte {{ b.text_style }}">
+                  {% if b.heading != blank %}
+                    <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
+                  {% endif %}
+                  {% if b.text != blank %}
+                    <div class="banner__text rte {{ b.text_style }}"><p class="subtitle">{{ b.text }}</p></div>
+                  {% endif %}
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="page-width--wide" style="position: relative;">
+        <div class="hero-pagination swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+{% if section.settings.wide_container %}</div></div>{% endif %}
+
+{% schema %}
+{
+  "name": "Video + Image Hero Slider",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header","footer"] },
+  "settings": [
+    { "type": "checkbox", "id": "wide_container", "default": false, "label": "Enable wide container" },
+    {
+      "type": "range", "id": "image_overlay_opacity",
+      "min": 0, "max": 100, "step": 10, "unit": "%",
+      "label": "Overlay opacity", "default": 0
+    },
+    {
+      "type": "select", "id": "image_height", "label": "Banner height",
+      "options": [
+        { "value": "adapt", "label": "Adapt to media" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select", "id": "desktop_content_position", "label": "Desktop content position",
+      "options": [
+        { "value": "top-left", "label": "Top left" },
+        { "value": "top-center", "label": "Top center" },
+        { "value": "top-right", "label": "Top right" },
+        { "value": "middle-left", "label": "Middle left" },
+        { "value": "middle-center", "label": "Middle center" },
+        { "value": "middle-right", "label": "Middle right" },
+        { "value": "bottom-left", "label": "Bottom left" },
+        { "value": "bottom-center", "label": "Bottom center" },
+        { "value": "bottom-right", "label": "Bottom right" }
+      ],
+      "default": "middle-center"
+    },
+    {
+      "type": "select", "id": "desktop_content_alignment", "label": "Desktop content alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    { "type": "checkbox", "id": "show_text_box", "default": true, "label": "Show text box" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "stack_text_on_mobile", "default": true, "label": "Show text below media on mobile" },
+
+    { "type": "header", "content": "Slider behavior (read by your global Swiper init)" },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (ms)", "min": 1500, "max": 8000, "step": 100, "default": 4000 },
+    { "type": "checkbox", "id": "loop", "label": "Loop slides", "default": true },
+    { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 150, "max": 1200, "step": 50, "default": 500 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (desktop, fallback)" },
+        { "type": "image_picker", "id": "image_tablet", "label": "Tablet image (750px–990px)" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (<750px)" },
+        { "type": "image_picker", "id": "video_poster", "label": "Video poster (optional)" },
+        { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
+        { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
+
+        { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your headline here" },
+        {
+          "type": "select", "id": "heading_size", "label": "Heading size",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h1", "label": "H1" },
+            { "value": "h0", "label": "H0" },
+            { "value": "hxl", "label": "HXL" },
+            { "value": "hxxl", "label": "HXXL" }
+          ],
+          "default": "h1"
+        },
+        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Add supporting copy here." },
+        {
+          "type": "select", "id": "text_style", "label": "Text style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "caption-with-letter-spacing", "label": "Caption (spaced)" }
+          ],
+          "default": "body"
+        },
+
+        { "type": "header", "content": "Primary button" },
+        { "type": "text", "id": "button_label_1", "label": "Label", "default": "Shop now" },
+        { "type": "url", "id": "button_link_1", "label": "Link" },
+        { "type": "checkbox", "id": "button_style_secondary_1", "label": "Use secondary style", "default": false },
+
+        { "type": "header", "content": "Secondary button" },
+        { "type": "text", "id": "button_label_2", "label": "Label" },
+        { "type": "url", "id": "button_link_2", "label": "Link" },
+        { "type": "checkbox", "id": "button_style_secondary_2", "label": "Use secondary style", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    { 
+        "name": "Video + Image Hero Slider", 
+        "blocks": [ { "type": "slide" }, { "type": "slide" } ] }
+  ]
+}
+{% endschema %}

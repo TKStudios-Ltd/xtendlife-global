@@ -1,0 +1,133 @@
+{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  [data-anchor-target] { scroll-margin-top: {{ section.settings.anchor_offset | default: 120 }}px; }
+
+  .article-list {
+    display: flex;
+    gap: 6rem;
+    align-items: start;
+    flex-direction: column;
+    margin-bottom: 6rem;
+  }
+  @media (min-width: 990px) {
+    .article-list {
+      flex-direction: row;
+      gap: 2rem;
+      margin-bottom: 12rem;
+    }
+    .article-list__title {
+      flex: 0 0 calc(25% - 2rem);
+    }
+  }
+
+  .article-list__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .article-list__item {
+    margin: 0;
+    padding: .75rem 0;
+    border-bottom: 1px solid rgba(211, 211, 211, 1);
+  }
+  .article-list__item:first-child {
+    padding-top: 0;
+  }
+  .article-list__link {
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: rgba(31, 25, 70, 1);
+    display: inline-block;
+    display: inline-block;
+    text-decoration: none !important;
+    transition: color .2s ease;
+  }
+  .article-list__link:hover {
+    color: rgba(95, 196, 255, 1);
+  }
+  @media (max-width: 989px) {
+    .article-list__link {
+      font-size: 2rem;
+    }
+    .article-list__item {
+      padding: 1.25rem 0;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div
+    class="isolate{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding"
+    {% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | handleize }}" data-anchor-target{% endif %}
+  >
+    <div class="content-container color-{{ section.settings.color_scheme }}{% if section.settings.full_width %} content-container--full-width{% endif %}">
+      <div class="article-list">
+        <div class="article-list__title {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </div>
+
+        <div style="width: 100%;">
+          {%- if section.settings.blog -%}
+            {%- paginate section.settings.blog.articles by 1000 -%}
+              {%- assign all_sorted = section.settings.blog.articles | sort: 'title' -%}
+              <ul class="article-list__items">
+                {%- for article in all_sorted -%}
+                  <li class="article-list__item">
+                    <a class="article-list__link" href="{{ article.url }}">{{ article.title }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endpaginate -%}
+          {%- else -%}
+            <p class="rte">Select a blog in the section settings to list its articles.</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Full article list",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "title", "label": "Title", "default": "All Health Concerns" },
+    { "type": "blog", "id": "blog", "label": "Blog" },
+
+    { "type": "select", "id": "heading_size", "label": "Title size",
+      "options": [
+        { "value": "h3", "label": "H3" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" }
+      ],
+      "default": "h2"
+    },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+  ],
+  "presets": [
+    { "name": "Full article list" }
+  ]
+}
+{% endschema %}

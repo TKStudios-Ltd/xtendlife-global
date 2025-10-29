@@ -1,0 +1,334 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+{%- assign crumb_tag = '' -%}
+
+{%- for tag in article.tags -%}
+  {%- if tag contains 'Label::' -%}
+    {%- assign crumb_tag = tag | split: '::' | last -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if crumb_tag == '' -%}
+  {%- for tag in article.tags -%}
+    {%- assign first_char = tag | slice: 0, 1 -%}
+    {%- assign first_char_up = first_char | upcase -%}
+    {%- if first_char == first_char_up -%}
+      {%- assign crumb_tag = tag -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if current_tags and current_tags.first -%}
+  {%- assign crumb_tag = current_tags.first -%}
+{%- endif -%}
+
+{%- assign crumb_handle = crumb_tag | handleize -%}
+
+<div class="article-breadcrumbs">
+  <nav class="breadcrumbs page-width" aria-label="Breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a>
+    <span class="breadcrumbs__sep">›</span>
+    <a href="{{ blog.url }}">Journal</a>
+    {%- if crumb_tag != '' -%}
+      <span class="breadcrumbs__sep">›</span>
+      <a href="{{ blog.url }}/tagged/{{ crumb_handle }}">{{ crumb_tag }}</a>
+    {%- endif -%}
+    <span class="breadcrumbs__sep">›</span>
+    <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
+  </nav>
+</div>
+
+<article class="article-template">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when '@app' -%}
+        <div class="page-width page-width--narrow">
+          {% render block %}
+        </div>
+      {%- when 'title' -%}
+        <header
+          class="article-template__header"
+          {{ block.shopify_attributes }}
+        >
+          <div class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+          {%- comment -%} Choose pill tag (Label:: override -> first tag) {%- endcomment -%}
+            {%- assign pill_tag = '' -%}
+
+            {%- for tag in article.tags -%}
+              {%- if tag contains 'Label::' -%}
+                {%- assign pill_tag = tag | split: '::' | last -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if pill_tag == '' -%}
+              {%- for tag in article.tags -%}
+                {%- assign first_char = tag | slice: 0, 1 -%}
+                {%- assign first_char_up = first_char | upcase -%}
+                {%- if first_char == first_char_up -%}
+                  {%- assign pill_tag = tag -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if pill_tag != '' -%}
+              {%- assign pill_handle = pill_tag | handleize -%}
+              <a class="article-card__pill"
+                href="{{ blog.url | append: '/tagged/' | append: pill_handle }}">
+                {{ pill_tag }}
+              </a>
+            {%- endif -%}
+
+            <h1 class="article-template__title">{{ article.title | escape }}</h1>
+
+            {%- if block.settings.blog_show_date -%}
+              <span class="small-text">
+                {{- article.published_at | time_tag: format: 'date' -}}
+              </span>
+            {%- endif -%}
+            {%- if block.settings.blog_show_author -%}
+              <span class="small-text"><span>{{ article.author }}</span></span>
+            {%- endif -%}
+          </div>
+        </header>
+
+      {%- when 'featured_image' -%}
+        {%- if article.image -%}
+          <div
+            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if article.metafields.custom.article_subheading != blank -%}
+              <p class="article-template__subheading">
+                {{ article.metafields.custom.article_subheading }}
+              </p>
+            {%- endif -%}
+
+            <div
+              class="article-template__hero-{{ block.settings.image_height }} media"
+              {% if block.settings.image_height == 'adapt' and article.image %}
+                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+              {% endif %}
+            >
+              <img
+                srcset="
+                  {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                  {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                  {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                  {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                  {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                  {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                  {{ article.image | image_url }} {{ article.image.width }}w
+                "
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                src="{{ article.image | image_url: width: 1100 }}"
+                loading="eager"
+                fetchpriority="high"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+                alt="{{ article.image.alt | escape }}"
+              >
+            </div>
+          </div>
+        {%- endif -%}
+
+      {%- when 'content' -%}
+        <div
+          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {{ article.content }}
+        </div>
+
+      {%- when 'share' -%}
+        <div class="article-template__social-sharing">
+          <div
+            class="page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- assign share_url = request.origin | append: article.url -%}
+            {%- assign share_title = article.title | url_param_escape -%}
+
+            <div class="social-share">
+              <span class="social-share__label">Share</span>
+              <ul class="social-share__list">
+                <li>
+                  {% assign share_url = request.origin | append: article.url %}
+                  {% render 'share-button', block: block, share_link: share_url %}
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | url_encode }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <img src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_Share-Button-Linkedin.svg">
+                    <span class="visually-hidden">Share on LinkedIn</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&text={{ share_title }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <img src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_Share-Button-X.svg">
+                    <span class="visually-hidden">Share on X (Twitter)</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}"
+                    target="_blank" rel="noopener"
+                    class="social-share__btn"
+                  >
+                    <img src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_Share-Button-FB.svg">
+                    <span class="visually-hidden">Share on Facebook</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {%- comment -%} Robust prev/next: use Shopify built-ins, fallback to manual lookup {%- endcomment -%}
+            {%- assign prev_article = article.previous -%}
+            {%- assign next_article = article.next -%}
+
+            {%- if prev_article == blank or next_article == blank -%}
+              {%- assign last_seen = blank -%}
+              {%- assign hit_current = false -%}
+              {%- for a in blog.articles -%}
+                {%- if a.id == article.id -%}
+                  {%- assign next_article = last_seen -%}
+                  {%- assign hit_current = true -%}
+                {%- elsif hit_current and prev_article == blank -%}
+                  {%- assign prev_article = a -%}
+                  {%- break -%}
+                {%- endif -%}
+                {%- assign last_seen = a -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+            <nav class="article-pager{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-label="Article pagination">
+              <div class="article-pager__grid">
+                {%- if next_article -%}
+                  <a class="article-pager__item article-pager__item--prev" href="{{ next_article.url }}">
+                    <h4 class="h2 article-pager__title">{{ next_article.title | escape }}</h4>
+                    <p class="article-pager__kicker">Previous post</p>
+                  </a>
+                {%- else -%}
+                  <span class="article-pager__item article-pager__item--prev is-empty" aria-hidden="true"></span>
+                {%- endif -%}
+
+                {%- if prev_article -%}
+                  <a class="article-pager__item article-pager__item--next" href="{{ prev_article.url }}">
+                    <h4 class="h2 article-pager__title">{{ prev_article.title | escape }}</h4>
+                    <p class="article-pager__kicker">Next post</p>
+                  </a>
+                {%- else -%}
+                  <span class="article-pager__item article-pager__item--next is-empty" aria-hidden="true"></span>
+                {%- endif -%}
+              </div>
+
+              {%- unless next_article or prev_article -%}
+                <div class="article-pager__back center element-margin-top">
+                  <a href="{{ blog.url }}" class="link">Back to {{ blog.title }}</a>
+                </div>
+              {%- endunless -%}
+            </nav>
+
+          </div>
+        </div>
+
+    {%- endcase -%}
+  {%- endfor -%}
+
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "t:sections.main-article.blocks.share.settings.text.default"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

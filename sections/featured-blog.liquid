@@ -1,0 +1,417 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  @media (max-width: 989px) {
+    .section-{{ section.id }}-padding {
+      flex-direction: column;
+    }
+    .section-{{ section.id }}-padding .swiper-slide:first-child {
+      padding-left: 2rem;
+    }
+    .section-{{ section.id }}-padding .swiper-pagination-progressbar {
+      margin: 4rem 2rem 0;
+      width: calc(100% - 4rem) !important;
+    }
+    .section-{{ section.id }}-padding .title-wrapper-with-link {
+      flex: 0 0 100%;
+      width: calc(100% - 4rem);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin: 0 2rem;
+    }
+    .section-{{ section.id }}-padding .swiper-slide.swiper-slide-active {
+      opacity: 1;
+    }
+    .section-{{ section.id }}-padding .swiper-slide {
+      opacity: 0.5;
+      transition: opacity ease .4s;
+    }
+  }
+  @media (max-width: 749px) {
+    .section-{{ section.id }}-padding .title-wrapper-with-link h2 {
+      max-width: 200px;
+      line-height: 1;
+    }
+  }
+  .section-{{ section.id }}-padding {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 2rem;
+  }
+  .section-{{ section.id }}-padding .blog__content { 
+    width: 100%; 
+  }
+  .section-{{ section.id }}-padding .grid__item.article .article-card-wrapper {
+    width: 100%;
+  }
+  @media (min-width: 990px) {
+    .section-{{ section.id }}-padding .title-wrapper-with-link { flex:0 0 25%; }
+    .section-{{ section.id }}-padding .blog__content { flex: 0 0 calc(75% - 2rem); }
+    .section-{{ section.id }}-padding .blog__view-all {
+      margin-top: 1.5rem;
+    }
+    .section-{{ section.id }}-padding .articles-wrapper {
+      margin-top: 0;
+    }
+  }
+
+  /* Mobile/Tablet Swiper */
+  .fb-mobile { overflow:hidden; width:100%; position:relative; }
+  .fb-mobile .swiper { overflow:visible; }
+  .fb-mobile .swiper-wrapper { display:flex; }
+  .fb-mobile .swiper-slide { height:auto; }
+
+{%- endstyle -%}
+
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count or section.settings.post_limit <= 4
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+
+<div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
+  <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
+    {%- unless section.settings.heading == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--no-top-margin">
+        <h2
+          id="SectionHeading-{{ section.id }}"
+          class="blog__title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}
+        >
+          {{ section.settings.heading }}
+        </h2>
+        {%- if section.settings.blog != blank
+          and section.settings.show_view_all
+          and section.settings.post_limit < section.settings.blog.articles_count
+        -%}
+          <div class="blog__view-all large-up-hide">
+            <a
+              href="{{ section.settings.blog.url }}"
+              id="ViewAll-{{ section.id }}"
+              class="blog__button button button--secondary"
+              aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+            >
+              Read more
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+
+    <div class="blog__content">
+      {%- comment -%} Desktop grid (≥ 990px) {%- endcomment -%}
+      <ul
+        class="articles-wrapper contains-card contains-card--article{% if settings.blog_card_style == 'standard' %} contains-card--standard{% endif %} grid grid--{{ section.settings.columns_desktop }}-col-desktop small-hide medium-hide"
+        role="list"
+      >
+        {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
+          {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+            <li class="grid__item article">
+              {% render 'article-card',
+                blog: section.settings.blog,
+                article: article,
+                media_aspect_ratio: 1.66,
+                show_image: section.settings.show_image,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                show_excerpt: true
+              %}
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {% for i in (1..section.settings.post_limit) -%}
+            {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+            {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
+            <li class="grid__item article">
+              <div class="article-card-wrapper card-wrapper">
+                <div class="card article-card card--{{ settings.blog_card_style }} {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} {% if section.settings.show_image %} card--media{% else %} card--text{% endif %}">
+                  <div class="card__inner{% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} ratio" style="--ratio-percent: 80%;">
+                    {%- if section.settings.show_image -%}
+                      <div class="article-card__image-wrapper card__media">
+                        <div class="article-card__image media">
+                          {{ placeholder_image | placeholder_svg_tag: 'blog-placeholder-svg' }}
+                        </div>
+                      </div>
+                    {%- endif -%}
+                    <div class="card__content">
+                      <div class="card__information">
+                        <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card__content">
+                    <div class="card__information">
+                      <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+      {%- comment -%} Mobile/Tablet Swiper (< 990px) {%- endcomment -%}
+      <div class="fb-mobile large-up-hide">
+        <div class="swiper" id="fb-swiper-{{ section.id }}">
+          <div class="swiper-wrapper">
+            {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
+              {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+                <div class="swiper-slide">
+                  {% render 'article-card',
+                    blog: section.settings.blog,
+                    article: article,
+                    media_aspect_ratio: 1.66,
+                    show_image: section.settings.show_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: true
+                  %}
+                </div>
+              {%- endfor -%}
+            {%- else -%}
+              {% for i in (1..section.settings.post_limit) -%}
+                {%- assign placeholder_image_index = forloop.index0 | modulo: 3 | plus: 1 -%}
+                {%- assign placeholder_image = 'blog-apparel-' | append: placeholder_image_index -%}
+                <div class="swiper-slide">
+                  <div class="article-card-wrapper card-wrapper">
+                    <div class="card article-card card--{{ settings.blog_card_style }} {% if settings.blog_card_style == 'card' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} {% if section.settings.show_image %} card--media{% else %} card--text{% endif %}">
+                      <div class="card__inner{% if settings.blog_card_style == 'standard' %} color-{{ settings.blog_card_color_scheme }} gradient{% endif %} ratio" style="--ratio-percent: 80%;">
+                        {%- if section.settings.show_image -%}
+                          <div class="article-card__image-wrapper card__media">
+                            <div class="article-card__image media">
+                              {{ placeholder_image | placeholder_svg_tag: 'blog-placeholder-svg' }}
+                            </div>
+                          </div>
+                        {%- endif -%}
+                        <div class="card__content">
+                          <div class="card__information">
+                            <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card__content">
+                        <div class="card__information">
+                          <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+        <div id="fb-pagination-{{ section.id }}" class="swiper-pagination"></div>
+      </div>
+
+      {%- if section.settings.blog != blank
+        and section.settings.show_view_all
+        and section.settings.post_limit < section.settings.blog.articles_count
+      -%}
+        <div class="blog__view-all small-hide medium-hide">
+          <a
+            href="{{ section.settings.blog.url }}"
+            id="ViewAll-{{ section.id }}"
+            class="blog__button button button--secondary"
+            aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}"
+          >
+            Read more
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const el = document.querySelector('#fb-swiper-{{ section.id }}');
+  if (!el) return;
+
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
+    if (el.dataset.swiperReady === '1') return;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 1.3,
+      spaceBetween: 20,
+      speed: 500,
+      watchOverflow: true,
+      breakpoints: {
+        750: { slidesPerView: 2.3 }
+        // ≥990 not needed; swiper is hidden on desktop
+      },
+      pagination: {
+        el: '#fb-pagination-{{ section.id }}',
+        type: 'progressbar'
+      }
+    });
+
+    el.dataset.swiperReady = '1';
+
+    // keep layout tight as images/fonts load
+    const update = () => { try { sw.update(); } catch(e) {} };
+    window.addEventListener('load', update, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+    });
+  }
+
+  init();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.featured-blog.name",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "range",
+      "id": "post_limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.post_limit.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-blog.settings.text_header.content"
+    },            
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.featured-blog.settings.heading.default",
+      "label": "t:sections.featured-blog.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-blog.settings.layout_header.content"
+    },        
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "t:sections.featured-blog.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_view_all.label",
+      "info": "t:sections.featured-blog.settings.show_view_all.info"
+    },    
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.featured-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.featured-blog.settings.show_author.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },    
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-blog.presets.name"
+    }
+  ]
+}
+{% endschema %}

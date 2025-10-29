@@ -1,0 +1,443 @@
+{% comment %} Comparison Chart (fixed-width columns + Swiper) {% endcomment %}
+
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+.section-{{ section.id }}-padding{
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+@media (min-width:750px){
+    .section-{{ section.id }}-padding{
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+}
+#cc-{{ section.id }}{
+    --col-w: {{ section.settings.col_width | default: 280 }}px;
+    --gap: {{ section.settings.gap | default: 20 }}px;
+    --header-h: 200px;
+    --row-h: 56px;
+    --border: 1px solid rgba(31,25,70,.12);
+    --tick-on: #2CAEF6;
+    --tick-off: #DBEEFF;
+}
+#cc-{{ section.id }} .cc-head{     
+    margin-bottom: 3rem;
+    font-size: 40px;
+    line-height: 1.2;
+    max-width: 500px; 
+}
+#cc-{{ section.id }} .cc-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    font-size: 20px;
+    gap: 1rem;
+}
+#cc-{{ section.id }} .cc-footer a {
+    font-weight: 400;
+    text-decoration: none;
+    color: rgba(95, 196, 255, 1);
+}
+#cc-{{ section.id }} .cc-bleed { width: calc(100vw - ((100vw - 1600px) / 2)); }
+@media (max-width: 1399px){
+    #cc-{{ section.id }} .cc-bleed{
+        /* --right-gutter: max(0px, calc((100vw - var(--page-width)) / 2 + var(--page-width-margin))); */
+        width: calc(100% + 2rem);
+        margin-right: 2rem;
+    }
+}
+#cc-{{ section.id }} .cc-frame{
+    display: flex;
+    gap: var(--gap);
+    align-items: start;
+}
+#cc-{{ section.id }} .cc-labels{
+    flex: 0 0 280px;
+    border: var(--border);
+    border-radius: 0;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0;
+}
+#cc-{{ section.id }} .cc-label{
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-bottom: var(--border);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    background: #fff;
+    height: 3.5rem;
+}
+#cc-{{ section.id }} .cc-label:first-child {
+    height: 18rem;
+    border-bottom: var(--border);
+}
+#cc-{{ section.id }} .cc-label--spacer{ border: 0; padding: 0; background: #fff;  height: 0; }
+#cc-{{ section.id }} .cc-labels .cc-label:last-child{ border-bottom: 0; }
+.cc-labels, .cc-col { grid-template-rows: auto repeat(7, minmax(48px, auto)) auto; }
+
+/* Right (swiper) */
+#cc-{{ section.id }} .cc-swiper .swiper-wrapper{ display:flex; }
+#cc-{{ section.id }} .cc-swiper .swiper-slide{
+    width: var(--col-w);
+    min-width: var(--col-w);
+    height: auto;
+}
+#cc-{{ section.id }} { overflow-x: clip; }
+#cc-{{ section.id }} .cc-right-wrap { position: relative; overflow: hidden }
+#cc-{{ section.id }} .cc-swiper { overflow: hidden; }
+#cc-{{ section.id }} .cc-col{
+    background: #fff;
+    border-top: var(--border);
+    border-left: 0;
+    border-radius: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0;
+}
+#cc-{{ section.id }} .cc-col > *{ border-bottom: var(--border); }
+#cc-{{ section.id }} .cc-col > *:last-child{ border-bottom: 0; height: 6rem; border-right: 0; }
+#cc-{{ section.id }} .cc-header{
+    padding: 0 1rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: left;
+    background: #fff;
+    height: calc(18rem - 1px);
+    border-right: var(--border);
+}
+ #cc-{{ section.id }} .cc-media{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: #F5F6FA;
+    overflow: hidden;
+    height: 14rem;
+    width: 120px;
+    min-width: 120px;
+}
+#cc-{{ section.id }} .cc-media img{ width: 100%; height: 100%; object-fit: contain; }
+#cc-{{ section.id }} .cc-title{ margin: 0; font-weight: 500; font-size: 16px; line-height: 1.2; }
+#cc-{{ section.id }} .cc-cell{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    text-align: center;
+    height: calc(3.5rem - 1px);
+    border-right: var(--border);
+}
+#cc-{{ section.id }} .cc-ticks{ display: inline-flex; gap: .75rem; }
+#cc-{{ section.id }} .cc-tick{
+    width: 16px; 
+    height: 16px;
+    position: relative; 
+    display:inline-block;
+}
+#cc-{{ section.id }} .cc-tick.is-on svg g path {
+    fill: rgba(95, 196, 255, 1);
+}
+#cc-{{ section.id }} .cc-progress { position: static; width: 100%; max-width: calc(1360px - 280px); height: 4px; }
+#cc-{{ section.id }} .cc-progress .swiper-pagination-progressbar-fill {
+  background: #1F1946; border-radius: 999px; transform-origin: left top;
+}
+
+@media (max-width: 1400px) {
+  #cc-{{ section.id }} .cc-progress { 
+    width: calc(100% - 2rem);
+  }
+}
+@media (max-width: 749px){
+    #cc-{{ section.id }} .cc-labels{
+        flex: 0 0 190px !important;
+    }
+    #cc-{{ section.id }} .cc-label {
+        font-size: 16px !important;
+    }
+    #cc-{{ section.id }} .cc-media {
+        height: 13rem !important;
+        width: 100px !important;
+        min-width: 100px !important;
+    }
+    #cc-{{ section.id }} .cc-header,
+    #cc-{{ section.id }} .cc-label:first-child {
+        height: 15rem !important;
+    }
+    #cc-{{ section.id }} .cc-head{  
+        font-size: 28px !important;
+        max-width: 340px !important; 
+    }
+    #cc-{{ section.id }} .cc-title,
+    #cc-{{ section.id }} .cc-cell {
+        font-size: 14px !important;
+    }
+    #cc-{{ section.id }} .cc-swiper .swiper-slide {
+        width: calc(var(--col-w) - 80px) !important;
+        min-width: calc(var(--col-w) - 80px) !important;
+    }
+}
+/* .cc-labels,
+.cc-col {
+    display: grid;
+    grid-template-rows: auto repeat(7, minmax(48px, auto)) auto;
+    row-gap: 0;
+} */
+.cc-price { font-weight: 500; }
+.cc-cell--cta .button { width: fit-content; padding: 0.75rem 1.75rem; }
+
+{%- endstyle -%}
+
+<section id="cc-{{ section.id }}" class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="cc-head {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+
+  <div class="page-width">
+    <div class="cc-bleed">
+      <div class="cc-frame">
+        <!-- Left labels -->
+        <div class="cc-labels">
+          <!-- spacer for product header row -->
+          <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
+
+          {%- for i in (1..5) -%}
+            {%- assign row_key = 'row' | append: i | append: '_label' -%}
+            <div class="cc-label">{{ section.settings[row_key] }}</div>
+          {%- endfor -%}
+
+          {%- if section.settings.row6extra_label != blank -%}
+            <div class="cc-label">{{ section.settings.row6extra_label }}</div>
+          {%- endif -%}
+
+          {%- if section.settings.row7extra_label != blank -%}
+            <div class="cc-label">{{ section.settings.row7extra_label }}</div>
+          {%- endif -%}
+
+          <!-- existing Dosage label -->
+          <div class="cc-label">{{ section.settings.row6_label }}</div>
+
+          <div class="cc-label">Price</div>
+
+          <!-- spacer for CTA row -->
+          <div class="cc-label cc-label--spacer" aria-hidden="true"></div>
+        </div>
+
+        <!-- Right slider -->
+        <div class="cc-right-wrap">
+          <div
+            id="cc-swiper-{{ section.id }}"
+            class="swiper tswiper cc-swiper"
+            data-mode="fixed"
+            data-gap="0"
+            data-speed="500"
+            >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- assign p = block.settings.product -%}
+                <div class="swiper-slide">
+                  <div class="cc-col">
+                    <!-- Header row (unchanged) -->
+                    <div class="cc-header">
+                        {%- assign fm = nil -%}
+                        {%- if p -%}{%- assign fm = p.selected_or_first_available_variant.featured_media | default: p.featured_media -%}{%- endif -%}
+                        <div class="cc-media">
+                            {%- if fm -%}
+                            {{ fm | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,400,500,600', alt: p.title | default: 'Product image' }}
+                            {%- else -%}
+                            {{ 'product-apparel-1' | placeholder_svg_tag }}
+                            {%- endif -%}
+                        </div>
+                        <p class="cc-title">{{ p.title | default: 'Product name' }}</p>
+                    </div>
+
+                    <!-- Rows 1–5 (ticks) -->
+                    {%- for r in (1..5) -%}
+                      {%- capture tick_key -%}row{{ r }}_ticks{%- endcapture -%}
+                      {%- assign ticks = block.settings[tick_key] | default: 0 | plus: 0 -%}
+                      {%- assign on_class = '' -%}
+                      {%- if ticks >= 3 -%}{%- assign on_class = ' is-on' -%}{%- endif -%}
+                      <div class="cc-cell">
+                        <span class="cc-ticks">
+                          {%- for i in (1..ticks) -%}
+                            <span class="cc-tick{{ on_class }}" aria-hidden="true">
+                              <!-- tick SVG -->
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4464_4484)"><path d="M8 15C6.14348 15 4.36301 14.2625 3.05025 12.9497C1.7375 11.637 1 9.85652 1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14348 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16Z" fill="#292256"/><path d="M10.9703 4.96979L10.9503 4.99179L7.47734 9.41679L5.38434 7.32279C5.24216 7.19031 5.05412 7.11819 4.85982 7.12162C4.66551 7.12505 4.48013 7.20376 4.34272 7.34117C4.2053 7.47858 4.12659 7.66397 4.12316 7.85827C4.11974 8.05257 4.19186 8.24062 4.32434 8.38279L6.97034 11.0298C7.04162 11.1009 7.1265 11.157 7.21992 11.1946C7.31334 11.2323 7.41339 11.2507 7.51408 11.2488C7.61478 11.247 7.71407 11.2249 7.80604 11.1838C7.898 11.1427 7.98074 11.0835 8.04934 11.0098L12.0413 6.01979C12.1773 5.87712 12.2516 5.68669 12.2482 5.48966C12.2449 5.29263 12.1641 5.10484 12.0234 4.96689C11.8827 4.82893 11.6933 4.7519 11.4963 4.75244C11.2992 4.75299 11.1103 4.83106 10.9703 4.96979Z" fill="#292256"/></g><defs><clipPath id="clip0_4464_4484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+                            </span>
+                          {%- endfor -%}
+                        </span>
+                      </div>
+                    {%- endfor -%}
+
+                    {%- if section.settings.row6extra_label != blank -%}
+                      {%- assign ticks = block.settings.row6extra_ticks | default: 0 | plus: 0 -%}
+                      {%- assign on_class = '' -%}
+                      {%- if ticks >= 3 -%}{%- assign on_class = ' is-on' -%}{%- endif -%}
+                      <div class="cc-cell">
+                        <span class="cc-ticks">
+                          {%- for i in (1..ticks) -%}
+                            <span class="cc-tick{{ on_class }}" aria-hidden="true">
+                              <!-- tick SVG (same as above) -->
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4464_4484)"><path d="M8 15C6.14348 15 4.36301 14.2625 3.05025 12.9497C1.7375 11.637 1 9.85652 1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14348 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15 9.85652 14.2625 11.637 12.9497 12.9497C11.637 14.2625 9.85652 15 8 15ZM8 16C10.1217 16 12.1566 15.1571 13.6569 13.6569C15.1571 12.1566 16 10.1217 16 8C16 5.87827 15.1571 3.84344 13.6569 2.34315C12.1566 0.842855 10.1217 0 8 0C5.87827 0 3.84344 0.842855 2.34315 2.34315C0.842855 3.84344 0 5.87827 0 8C0 10.1217 0.842855 12.1566 2.34315 13.6569C3.84344 15.1571 5.87827 16 8 16Z" fill="#292256"/><path d="M10.9703 4.96979L10.9503 4.99179L7.47734 9.41679L5.38434 7.32279C5.24216 7.19031 5.05412 7.11819 4.85982 7.12162C4.66551 7.12505 4.48013 7.20376 4.34272 7.34117C4.2053 7.47858 4.12659 7.66397 4.12316 7.85827C4.11974 8.05257 4.19186 8.24062 4.32434 8.38279L6.97034 11.0298C7.04162 11.1009 7.1265 11.157 7.21992 11.1946C7.31334 11.2323 7.41339 11.2507 7.51408 11.2488C7.61478 11.247 7.71407 11.2249 7.80604 11.1838C7.898 11.1427 7.98074 11.0835 8.04934 11.0098L12.0413 6.01979C12.1773 5.87712 12.2516 5.68669 12.2482 5.48966C12.2449 5.29263 12.1641 5.10484 12.0234 4.96689C11.8827 4.82893 11.6933 4.7519 11.4963 4.75244C11.2992 4.75299 11.1103 4.83106 10.9703 4.96979Z" fill="#292256"/></g><defs><clipPath id="clip0_4464_4484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>
+                            </span>
+                          {%- endfor -%}
+                        </span>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if section.settings.row7extra_label != blank -%}
+                      <div class="cc-cell">
+                        {{ block.settings.row7extra_text | default: '-' }}
+                      </div>
+                    {%- endif -%}
+
+                    <!-- Existing Dosage (plain text) -->
+                    <div class="cc-cell">
+                      {{ block.settings.row6_text | default: '–' }}
+                    </div>
+                        
+                    <!-- PRICE – auto from product -->
+                      {%- assign price_val = blank -%}
+                      {%- if p -%}
+                      {%- assign price_val = p.selected_or_first_available_variant.price | default: p.price -%}
+                      {%- endif -%}
+                      <div class="cc-cell cc-price">
+                        {%- if price_val -%}{{ price_val | money_with_currency }}{%- else -%}- {%- endif -%}
+                      </div>
+                        
+                    <!-- CTA button -->
+                    <div class="cc-cell cc-cell--cta">
+                        {%- if p -%}
+                            <a href="{{ p.url }}" class="button button--primary">{{ section.settings.shop_cta | default: 'Shop now' }}</a>
+                        {%- else -%}
+                            <span class="button button--disabled" aria-disabled="true">{{ section.settings.shop_cta | default: 'Shop now' }}</span>
+                        {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+            <div class="swiper-pagination cc-progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-width">
+    <h5 class="cc-footer">Need help? <a href="/contact" target="_blank">Contact us</a></h5>
+  </div>
+
+</section>
+
+<script>
+(() => {
+  const el = document.getElementById('cc-swiper-{{ section.id }}');
+  if (!el) return;
+
+  function go() {
+    const existing = el.swiper;
+    if (!existing) return setTimeout(go, 40);
+
+    // Kill the hydrator's bullet instance cleanly
+    try { existing.destroy(true, true); } catch(_) {}
+
+    // Clean any bullet markup/classes left by hydrator
+    const pag = el.querySelector('.swiper-pagination');
+    if (pag) {
+      pag.className = 'swiper-pagination cc-progress';
+      pag.innerHTML = '';
+    }
+
+    // Create OUR instance with a progressbar + no gap
+    const sw = new Swiper(el, {
+      slidesPerView: 'auto',    // fixed-width slides
+      spaceBetween: 0,          // no gap
+      speed: 500,
+      watchOverflow: false,     // keep progressbar visible even if not overflowing
+      pagination: {
+        el: pag,
+        type: 'progressbar'
+      }
+    });
+
+    const upd = () => { try { sw.update(); sw.pagination?.update(); } catch(_){} };
+    if (document.readyState === 'complete') setTimeout(upd, 0);
+    else window.addEventListener('load', upd, { once: true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', upd, { once: true });
+    });
+  }
+  go();
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "Comparison Chart",
+  "class": "section",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Which product is right for me?" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2", "options": [
+      { "value":"h2","label":"H2" }, { "value":"h1","label":"H1" }, { "value":"h0","label":"H0" }, { "value":"hxl","label":"HXL" }, { "value":"hxxl","label":"HXXL" }
+    ]},
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+
+    { "type": "header", "content": "Chart rows" },
+    { "type": "text", "id": "row1_label", "label": "Row 1", "default": "Prevent Calcification" },
+    { "type": "text", "id": "row2_label", "label": "Row 2", "default": "Cholesterol" },
+    { "type": "text", "id": "row3_label", "label": "Row 3", "default": "Blood Circulation" },
+    { "type": "text", "id": "row4_label", "label": "Row 4", "default": "Inflammation" },
+    { "type": "text", "id": "row5_label", "label": "Row 5", "default": "Statin Support" },
+    { "type": "text", "id": "row6extra_label", "label": "Row 6 (extra tick) label" },
+    { "type": "text", "id": "row7extra_label", "label": "Row 7 (extra text) label" },
+    { "type": "text", "id": "row6_label", "label": "Dosage", "default": "Dosage Per Day" },
+    { "type": "text", "id": "shop_cta", "label": "CTA text", "default": "Shop now" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "col_width", "label": "Column width (px)", "min": 220, "max": 360, "step": 10, "default": 280 },
+    { "type": "range", "id": "gap", "label": "Column gap (px)", "min": 0, "max": 40, "step": 2, "default": 20 },
+    { "type": "range", "id": "max_ticks", "label": "Max ticks per row", "min": 3, "max": 6, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Section padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Product column",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+
+        { "type": "header", "content": "Ticks (rows 1–5)" },
+        { "type": "range", "id": "row1_ticks", "label": "Row 1 ticks", "min": 0, "max": 6, "step": 1, "default": 4 },
+        { "type": "range", "id": "row2_ticks", "label": "Row 2 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
+        { "type": "range", "id": "row3_ticks", "label": "Row 3 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
+        { "type": "range", "id": "row4_ticks", "label": "Row 4 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
+        { "type": "range", "id": "row5_ticks", "label": "Row 5 ticks", "min": 0, "max": 6, "step": 1, "default": 3 },
+        { "type": "range", "id": "row6extra_ticks", "label": "Row 6 (extra) ticks", "min": 0, "max": 6, "step": 1, "default": 0 },
+        { "type": "header", "content": "Text values" },
+        { "type": "text", "id": "row7extra_text", "label": "Row 7 (extra) text" },
+        { "type": "text", "id": "row6_text", "label": "Dosage", "default": "3" },
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [{ "name": "Comparison Chart", "blocks": [ { "type":"column" }, { "type":"column" }, { "type":"column" } ] }]
+}
+{% endschema %}

@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_DKEV6V": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_h9iRzH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Using Science to get the best out of Nature",
+            "heading_size": "h1"
+          }
+        },
+        "text_wMgUTy": {
+          "type": "text",
+          "settings": {
+            "text": "At Xtendlife, we ensure that only the best goes into our quality supplements. No expense is spared in the sourcing of raw ingredients, and each is carefully selected for purity, potency and bioavailability. We then optimize these ingredients by blending them with complementary ingredients to ensure optimal synergy within the formulations.",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_h9iRzH",
+        "text_wMgUTy"
+      ],
+      "custom_css": [
+        ".banner__box {max-width: 100%; display: flex; align-items: flex-start; gap: 2rem;}",
+        "img {transform: scaleX(-1);}",
+        "@media (min-width: 750px) {.banner__heading {flex: 0 0 50%; padding-right: 4rem; line-height: 1.1; } .banner__text.subtitle {margin-top: 0; padding-right: 4rem; }}",
+        "@media (max-width: 749px) {.banner__heading {font-size: 2.4rem; line-height: 1.1; } .banner__text.subtitle {margin-top: 2rem; } .banner--stacked--mobile {margin-bottom: 2rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_14_2e27a8a4-43ab-4dcb-b5a4-9153aab0b854.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "ingredients_page_UWQnDk": {
+      "type": "ingredients-index",
+      "name": "Ingredients Page",
+      "settings": {
+        "supp_blog": "supplement-ingredients",
+        "supp_intro": "<p>Find out the important roles each ingredient plays in Xtendlife formulations. Use this section to learn more about individual ingredients: their many benefits, ingredient origins and the Xtendlife products they feature in. All ingredients are listed alphabetically, simply click on an ingredient to learn more.</p>",
+        "skin_blog": "skincare-ingredients",
+        "skin_intro": "<p>Find out the important roles each ingredient plays in Xtendlife formulations. Use this section to learn more about individual ingredients: their many benefits, ingredient origins and the Xtendlife products they feature in. All ingredients are listed alphabetically, simply click on an ingredient to learn more.</p>",
+        "show_excerpt": true
+      }
+    },
+    "newsletter_PeWE9y": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_Jndr4i": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_VE7xGf": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_HEw9Rm": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_Jndr4i",
+        "paragraph_VE7xGf",
+        "email_form_HEw9Rm"
+      ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
+        ".h1 {display: none;}",
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_DKEV6V",
+    "ingredients_page_UWQnDk",
+    "newsletter_PeWE9y"
+  ]
+}

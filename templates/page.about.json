@@ -1,0 +1,842 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_GTdJkt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_AFtAD9": {
+          "type": "heading",
+          "settings": {
+            "heading": "The search for better health and wellness through science started it all",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AFtAD9"
+      ],
+      "custom_css": [
+        ".banner__box {max-width: 90rem; margin-top: 5rem;}",
+        "h2 {line-height: 1.2;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_1_25c6a730-9b9a-4854-9de5-601b625a8366.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "medium",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_hALQxi": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XH3XN3": {
+          "type": "heading",
+          "settings": {
+            "heading": "The search for longevity started it all",
+            "heading_size": "hxl"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XH3XN3"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".rich-text__blocks {max-width: 80rem; margin-top: 6rem;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "rich_text_HppqU6": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 0,
+        "padding_top": 40,
+        "padding_bottom": 60
+      }
+    },
+    "sticky_anchor_nav_hYGgLL": {
+      "type": "sticky-anchor-nav",
+      "blocks": {
+        "anchor_button_3LQgTi": {
+          "type": "anchor_button",
+          "settings": {
+            "button_label": "Our Story",
+            "anchor_id": "our-story",
+            "button_style_secondary": false
+          }
+        },
+        "anchor_button_BdVRen": {
+          "type": "anchor_button",
+          "settings": {
+            "button_label": "Our Guarantee",
+            "anchor_id": "our-guarantee",
+            "button_style_secondary": false
+          }
+        },
+        "anchor_button_gyF3nE": {
+          "type": "anchor_button",
+          "settings": {
+            "button_label": "Our Service",
+            "anchor_id": "our-service",
+            "button_style_secondary": false
+          }
+        },
+        "anchor_button_DjiQUG": {
+          "type": "anchor_button",
+          "settings": {
+            "button_label": "Our Quality",
+            "anchor_id": "our-quality",
+            "button_style_secondary": false
+          }
+        },
+        "anchor_button_7VVeQP": {
+          "type": "anchor_button",
+          "settings": {
+            "button_label": "Our Scientists",
+            "anchor_id": "our-scientists",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "anchor_button_3LQgTi",
+        "anchor_button_BdVRen",
+        "anchor_button_gyF3nE",
+        "anchor_button_DjiQUG",
+        "anchor_button_7VVeQP"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 100%; justify-content: center;}",
+        ".rich-text__buttons {margin-top: 0; padding: 0.75rem; width: auto;}",
+        "@media (max-width: 749px) {.rich-text__buttons {padding: 0.5rem; } .button {font-size: 1.2rem; padding: 0.5rem 1.5rem; }}"
+      ],
+      "name": "Sticky Anchor Nav",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
+        "full_width": true,
+        "sticky_top": 0,
+        "activation_bias": -80,
+        "scroll_offset": 0,
+        "add_shadow": false
+      }
+    },
+    "rich_text_d3NGdF": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xWmiWB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Story</strong> We’re not in the supplement business. We’re in the best life business.</p><p>Because when you’re healthy, everything feels easier, more possible, and a whole lot more fun.</p><p>That simple but powerful idea is what got Warren Matthews (Xtendlife’s founder) started. He wanted to feel better and get more out of life. So he dug into the science to create supplements that support long-term wellbeing.</p><p>More than 25 years later, that mission is still going strong. We’re always learning, always finding new ways to help you stay well, feel good, and live fully, whatever your age or stage.</p><p>Xtendlife was never just about adding years to life. It’s about filling those years with more vitality, more adventures, and more of what matters to you.</p><p>From everyday energy to targeted support, we believe it’s never too early, or too late, to feel your best. We’re here for lasting health, not quick fixes or passing fads.</p><p>Every supplement we make blends the best of nature and science. We hand-pick premium, traceable ingredients, back them with research, and combine them in ways your body can truly use. And because we make everything ourselves, we know exactly what goes in and what you get out.</p><p>Most importantly, we’re in it with you. We care deeply. That means real, personal support that lasts well beyond your first order. Many of our customers have been with us for decades. That’s no accident; it’s the result of trust, care, and consistency over time.<br/><br/>Because when you’re feeling good, life opens up. And helping you get there is what we love most.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_xWmiWB"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-story",
+        "anchor_offset": 100,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "collage_QFYQLH": {
+      "type": "collage",
+      "blocks": {
+        "image_9NWcxX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/iStock-1162745024_2.jpg"
+          }
+        },
+        "image_aabbLN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kevin-angelso-OIFMEW_z36Y-unsplash_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_9NWcxX",
+        "image_aabbLN"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.page-width {max-width: none; padding-left: 0; } .collage {grid-template-columns: repeat(2, minmax(0, 1fr)); } .collage__item--left:nth-child(3n-1) {grid-column-start: 2; grid-row: span 1; padding: 0 6vw; } .collage__item--left:nth-child(3n-2) {grid-column: 1 / span 1; grid-row: span 1; margin-left: -2rem; }}",
+        "@media (max-width: 749px) {.collage {grid-row-gap: 2rem; }}",
+        ".collage__item--left .media {border-radius: 14px;}"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_pTcALB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9XJ4Lg": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Guarantee</strong> At Xtendlife, we believe trust starts with transparency, and that includes standing behind every product we make.<br/><br/>We pride ourselves on having one of the fairest and strongest guarantees in the industry. If you’re unhappy with any product for any reason, you have 365 days to request a refund. While we can’t guarantee identical results for every individual, we do guarantee this:</p>"
+          }
+        },
+        "heading_xCwEgQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Quality Ingredients",
+            "heading_size": "h1"
+          }
+        },
+        "text_GpCG7k": {
+          "type": "text",
+          "settings": {
+            "text": "<p>You’ll always receive pure, high-quality ingredients, carefully sourced, rigorously tested, and crafted to the highest standards.</p>"
+          }
+        },
+        "heading_eiFUHy": {
+          "type": "heading",
+          "settings": {
+            "heading": "True to Label",
+            "heading_size": "h1"
+          }
+        },
+        "text_cWNJWh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every product is made exactly as stated on the label. We oversee every step, from sourcing and formulation to manufacturing, to ensure integrity, consistency, and excellence in everything we create.<br/><br/>Because your health deserves products that deliver on every promise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9XJ4Lg",
+        "heading_xCwEgQ",
+        "text_GpCG7k",
+        "heading_eiFUHy",
+        "text_cWNJWh"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
+        ".h1 {margin-top: 4rem; font-size: 3.2rem;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
+        "@media (max-width: 749px) {p, .h1 {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-guarantee",
+        "anchor_offset": 90,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "image_hotspots_9TbyJz": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_bcKaTz": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Quality Ingredients",
+            "link_url": "",
+            "x": 75,
+            "y": 60,
+            "open_default": true
+          }
+        },
+        "hotspot_e97iLc": {
+          "type": "hotspot",
+          "settings": {
+            "title": "True to label",
+            "link_url": "",
+            "x": 50,
+            "y": 32,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_bcKaTz",
+        "hotspot_e97iLc"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".hotspots__pin-label {width: 250px;}",
+        ".hotspots__grid {align-items: center;}",
+        ".hotspots__media {order: 1;}",
+        ".hotspots__panel {order: 2;}",
+        ".hotspots__panel-card {max-width: 50rem;}",
+        "@media (min-width: 750px) {.hotspots__panel-desc p {font-size: 20px; line-height: 1.4; } .page-width {margin-bottom: 8rem !important; }}",
+        ".page-width {margin-bottom: 4rem;}"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "body": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients",
+        "cta_url": "",
+        "panel_bg": "#f2f6f9",
+        "panel_text": "#1f1946",
+        "color_scheme": "color-scheme-1"
+      }
+    },
+    "rich_text_D7wric": {
+      "type": "rich-text",
+      "blocks": {
+        "text_HbCdD7": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Service</strong> We are up-to-the minute with science and technology but still abide by the old-fashioned principle of exceptional personal service and taking care of our customers, no matter where in the world they may live. We operate globally. Our quality guarantees have always been the best in this industry, and we intend to keep it that way.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_HbCdD7"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-service",
+        "anchor_offset": 100,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_CjmVRz": {
+      "type": "image-banner",
+      "custom_css": [
+        ".page-width--wide {max-width: 114rem; margin-bottom: 8rem;}",
+        "@media screen and (max-width: 749px) {.banner__media {height: 60vw; } .page-width--wide {margin-bottom: 4rem !important; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Hiking-1185397615_5.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_XRCKpg": {
+      "type": "rich-text",
+      "blocks": {
+        "text_4ezAqB": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Quality</strong> Xtendlife is an FDA registered and GMP certified facility</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_4ezAqB"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-quality",
+        "anchor_offset": 100,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_EapeUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_QNdBXj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>New Zealand is known for its strict and comprehensive regulatory requirements to ensure food safety and product quality. The Ministry of Primary Industries (MPI) and Food Standards Australia New Zealand (FSANZ) are responsible for food safety in New Zealand. They also protect and promote public health and safety as well as facilitate access to markets around the globe.</p><p>Xtendlife is also ISO 9001 Accredited. Our systems, processes and procedures are continuously improved to ensure we continue to deliver the highest quality and safe products.</p><p>Xtendlife has the necessary regulatory and quality certifications demonstrating our high standard of manufacturing operations that will exceed your expectations.</p><p>We are an MPI registered facility, and we undergo regular auditing by MPI of our systems, facilities, and processes to ensure we meet the requirements of our certifications under the Food Act and Animal Products Act.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_QNdBXj"
+      ],
+      "custom_css": [
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; } p {font-size: 2rem; } .image-with-text__grid--reverse {flex-direction: row; } .image-with-text__text-item > .page-width {margin: 0 auto 0 0; } .image-with-text__media-item {margin-right: 0; }}",
+        "@media (min-width: 1400px) {.image-with-text__media-item {margin-left: calc((100vw - 1400px) / -2); }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; }}",
+        ".image-with-text__media img {border-radius: 14px;}",
+        ".image-with-text {z-index: 1;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Dedication-to-food-safety_1_1_acb1949a-6cd4-4363-a8a5-6f726690d58a.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
+    "image_infinite_scroll_4bijFC": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_HkePd8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_756.jpg",
+            "link": ""
+          }
+        },
+        "image_MaHnEq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_755.jpg",
+            "link": ""
+          }
+        },
+        "image_dtYf33": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_754.jpg",
+            "link": ""
+          }
+        },
+        "image_cPmfrm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_752.jpg",
+            "link": ""
+          }
+        },
+        "image_TTpqUV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_751.jpg",
+            "link": ""
+          }
+        },
+        "image_yRxgkC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_750.jpg",
+            "link": ""
+          }
+        },
+        "image_wrMmLm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_749.jpg",
+            "link": "https://www.sgs.com/en/certified-clients-and-products/certified-client-directory"
+          }
+        }
+      },
+      "block_order": [
+        "image_HkePd8",
+        "image_MaHnEq",
+        "image_dtYf33",
+        "image_cPmfrm",
+        "image_TTpqUV",
+        "image_yRxgkC",
+        "image_wrMmLm"
+      ],
+      "custom_css": [
+        ".image-scroll-section {position: relative; z-index: 0;}",
+        "@media (min-width: 1240px) {.image-scroll-section {margin-top: -200px; margin-bottom: 4rem !important; }}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#ffffff",
+        "image_size_constraint": "height",
+        "image_max_size": 100,
+        "scroll_speed": 30,
+        "repeat_count": 3,
+        "image_gap": 16,
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_cYkFfa": {
+      "type": "rich-text",
+      "blocks": {
+        "text_JQgN3Y": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Our Scientists</strong> Behind every Xtendlife product is a team of scientists, researchers, and product innovators who transform cutting-edge research into real-world wellness solutions.<br/><br/>Our scientific team combines decades of expertise in nutrition, physiology, molecular biology, and natural product formulation. Guided by global research and ongoing testing, they ensure every ingredient we use is proven, purposeful, and synergistic, working together for results you can truly feel.<br/><br/>We’re continually exploring new ingredients, delivery systems, and formulations to stay ahead of evolving health needs. It’s science and innovation in constant motion, all focused on helping you live healthier, longer, and better.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_JQgN3Y"
+      ],
+      "custom_css": [
+        ".rich-text__blocks {max-width: 110rem;}",
+        "p {font-size: 3.2rem; line-height: 1.3;}",
+        "strong {background: rgba(219, 238, 255, 1); border-radius: 40px; font-size: 1.5rem !important; font-weight: 500; padding: 0.45rem 1.2rem; display: inline-block; line-height: 1.4; margin: 0 1rem 0 0; vertical-align: middle; position: relative; top: -0.25em;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; } strong {font-size: 1rem !important; padding: 0.25rem 1.2rem; margin: 0px 1rem 0 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "our-scientists",
+        "anchor_offset": 100,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_KgjtXM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_tp6cXX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/DSF6381_2200x_9.jpg",
+            "title": "Dr. Joel Kahn",
+            "text": "<p>MD Cardiologist</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_Wwj3f6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_1.jpg",
+            "title": "Dr. Amanda Wiggins",
+            "text": "<p>Chief Research Scientist</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_xYTEY8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ben_Greenfield_Kelsey_Photo-4_1.jpg",
+            "title": "Ben Greenfield",
+            "text": "<p>Health & Fitness Biohacker</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_qyR4iF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/37722783_10156375781197696_7172744217821708288_n_1.jpg",
+            "title": "Ivor Cummins",
+            "text": "<p>Chemical Engineer</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_YwH6Gx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/a0C6S00001vgX2kUAE-scaled-e1663084335886-1024x1018_1.jpg",
+            "title": "Dr. Barrrie Tan",
+            "text": "<p>PhD Scientist & Researcher</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_tp6cXX",
+        "column_Wwj3f6",
+        "column_xYTEY8",
+        "column_qyR4iF",
+        "column_YwH6Gx"
+      ],
+      "custom_css": [
+        ".page-width {max-width: 114rem;}",
+        ".media {border-radius: 10px;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "disabled": true,
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Us on the Journey",
+            "heading_size": "h1"
+          }
+        },
+        "text_kJGkfw": {
+          "type": "text",
+          "settings": {
+            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_kJGkfw",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
+        ".subtitle {line-height: 1.2; max-width: 740px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_GTdJkt",
+    "rich_text_hALQxi",
+    "multicolumn_A6pqFF",
+    "rich_text_HppqU6",
+    "sticky_anchor_nav_hYGgLL",
+    "rich_text_d3NGdF",
+    "collage_QFYQLH",
+    "rich_text_pTcALB",
+    "image_hotspots_9TbyJz",
+    "rich_text_D7wric",
+    "image_banner_CjmVRz",
+    "rich_text_XRCKpg",
+    "image_with_text_EapeUP",
+    "image_infinite_scroll_4bijFC",
+    "rich_text_cYkFfa",
+    "multicolumn_KgjtXM",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNN"
+  ]
+}

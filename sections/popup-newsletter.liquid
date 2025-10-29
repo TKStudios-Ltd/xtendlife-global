@@ -1,0 +1,397 @@
+{% comment %}
+  sections/popup-newsletter.liquid
+  Bottom-right popup newsletter using Dawn UI + Klaviyo attach (no Klaviyo embed).
+{% endcomment %}
+
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+.popup-newsletter {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 70;
+  max-width: min(90vw, 420px);
+  border-radius: 16px;
+}
+.popup-newsletter__card {
+  border-radius: 16px;
+}
+.popup-newsletter__inner {
+  padding: 2rem 3rem;
+}
+.popup-newsletter__heading {
+  margin: 0 0 4rem;
+}
+.popup-newsletter__copy p {
+  font-size: 1.8rem;
+  line-height: 1.35;
+  margin: 0 0 2rem;
+}
+
+/* Close (X) */
+.popup-newsletter__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.popup-newsletter__close svg {
+  width: 2.5rem; height: 2.5rem;
+}
+.popup-newsletter__close svg path {
+    stroke: rgb(var(--color-foreground));
+}
+
+/* Keep success hidden until JS shows it */
+.newsletter-form__message[hidden] { display: none !important; }
+
+/* Responsive tweaks */
+@media (max-width: 749px) {
+  .popup-newsletter { width: calc(100% - 4rem); }
+  .popup-newsletter__inner { padding: 2rem; }
+}
+
+/* Optional image background like in the mockup */
+.popup-newsletter__bg {
+  position: absolute; inset: 0; overflow: hidden; border-radius: inherit;
+}
+.popup-newsletter__bg img { width: 100%; height: 100%; object-fit: cover; }
+.popup-newsletter__overlay {
+  position: absolute; inset: 0; border-radius: inherit;
+  /* Soft tint over image; adjustable in settings via opacity var */
+  background: var(--popup-tint, rgba(255,255,255,.6));
+}
+/* Content sits above bg */
+.popup-newsletter__content { position: relative; }
+{%- endstyle -%}
+
+{%- assign form_dom_id = 'PopupNewsletterForm--' | append: section.id -%}
+
+{%- liquid
+  assign should_render = true
+
+  if section.settings.hide_on_mobile and request.design_mode == false
+    if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
+      assign should_render = false
+    endif
+  endif
+
+  if section.settings.exclude_paths != blank and request.design_mode == false
+    assign current_path = request.path | downcase
+    assign lines = section.settings.exclude_paths | newline_to_br | split: '<br />'
+    for l in lines
+      assign p = l | strip | downcase
+      if p != blank and current_path contains p
+        assign should_render = false
+      endif
+    endfor
+  endif
+-%}
+
+{%- if should_render -%}
+<div
+  id="PopupNewsletter-{{ section.id }}"
+  class="popup-newsletter color-{{ section.settings.color_scheme }}"
+  data-delay="{{ section.settings.show_delay_ms }}"
+  data-hide-days="{{ section.settings.hide_days }}"
+  data-scroll="{{ section.settings.trigger_scroll_percent }}"
+  data-exit="{{ section.settings.enable_exit_intent }}"
+  data-session="{{ section.settings.once_per_session }}"
+  data-key="pnl_{{ section.id }}"
+  style="display:none"
+>
+  <div class="popup-newsletter__card gradient">
+    {%- if section.settings.bg_image != blank -%}
+      <div class="popup-newsletter__bg">
+        <img
+          src="{{ section.settings.bg_image | image_url: width: 1200 }}"
+          alt="{{ section.settings.bg_image.alt | escape }}"
+          loading="lazy"
+        >
+        <div class="popup-newsletter__overlay" style="--popup-tint: rgba(255,255,255,{{ section.settings.bg_tint_opacity | divided_by: 100.0 }})"></div>
+      </div>
+    {%- endif -%}
+
+    <button class="popup-newsletter__close" aria-label="Close" type="button">
+      {{ 'icon-close.svg' | inline_asset_content | default: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' }}
+    </button>
+
+    <div class="popup-newsletter__inner popup-newsletter__content">
+      {%- if section.settings.heading != blank -%}
+        <h3 class="popup-newsletter__heading h2">{{ section.settings.heading }}</h3>
+      {%- endif -%}
+      {%- if section.settings.copy != blank -%}
+        <span class="popup-newsletter__copy">{{ section.settings.copy }}</span>
+      {%- endif -%}
+
+      {%- comment -%} Dawn UI form; Klaviyo attach mode will hook this ID {%- endcomment -%}
+      {% assign popup_form_id = 'PopupNewsletterForm--' | append: section.id %}
+      {% form 'customer', id: popup_form_id, class: 'newsletter-form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter-form__field-wrapper">
+          <div class="field">
+            <input
+              id="PopupEmail--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="field__input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              placeholder="{{ section.settings.input_placeholder | default: 'Email' }}"
+              required
+            >
+            <input type="hidden" name="g" value="{{ section.settings.klaviyo_list_id | escape }}">
+            <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
+            <label class="field__label" for="PopupEmail--{{ section.id }}">
+              {{ section.settings.input_label | default: 'Enter your email' }}
+            </label>
+            <button
+              type="submit"
+              class="newsletter-form__button field__button"
+              name="commit"
+              id="PopupSubscribe--{{ section.id }}"
+              aria-label="{{ 'newsletter.button_label' | t }}"
+            >
+              <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+            </button>
+          </div>
+        </div>
+
+        <h3
+          class="newsletter-form__message newsletter-form__message--success form__message"
+          id="PopupNewsletter-success--{{ section.id }}"
+          hidden
+        >
+          <span class="svg-wrapper">{{ 'icon-success.svg' | inline_asset_content }}</span>
+          {{ section.settings.success_copy | default: 'Thanks for subscribing' }}
+        </h3>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var root = document.getElementById('PopupNewsletter-{{ section.id }}');
+  // --- FORCE post to a specific Klaviyo list regardless of attachToForms ---
+  function forceSubscribeToKlaviyo(listId, email, extra) {
+    if (!email || !listId) return;
+    var url = 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe';
+    var fd = new FormData();
+    fd.append('g', listId);         // list id
+    fd.append('email', email);      // plain email
+    // optional metadata
+    if (extra && typeof extra === 'object') {
+      Object.keys(extra).forEach(function(k){
+        try { fd.append(k, typeof extra[k] === 'string' ? extra[k] : JSON.stringify(extra[k])); } catch(e){}
+      });
+    }
+    // Fire-and-forget; do NOT prevent Shopify submit
+    fetch(url, { method:'POST', body: fd, mode:'cors', credentials:'omit' })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(json){ console.log('[Klaviyo forced subscribe]', json); })
+      .catch(function(err){ console.warn('[Klaviyo forced subscribe] failed', err); });
+  }
+
+  if (!root) return;
+
+  var key = root.dataset.key;
+  var delay = parseInt(root.dataset.delay || '0', 10);
+  var hideDays = parseInt(root.dataset['hideDays'] || '0', 10);
+  var triggerScroll = parseInt(root.dataset.scroll || '0', 10);
+  var useExit = root.dataset.exit === 'true' || root.dataset.exit === '1';
+  var oncePerSession = root.dataset.session === 'true' || root.dataset.session === '1';
+
+  function now() { return Date.now(); }
+  function ms(days) { return days * 24 * 60 * 60 * 1000; }
+  function getStore() { try { return window.localStorage; } catch(e) { return null; } }
+  var store = getStore();
+
+  function hiddenUntil() {
+    if (!store) return 0;
+    var v = store.getItem(key);
+    return v ? parseInt(v, 10) : 0;
+  }
+  function hideForDays(days) {
+    if (!store) return;
+    var until = now() + ms(days);
+    store.setItem(key, String(until));
+  }
+  function hideForSession() {
+    try { sessionStorage.setItem(key+'_s', '1'); } catch(e){}
+  }
+  function isSessionHidden() {
+    try { return sessionStorage.getItem(key+'_s') === '1'; } catch(e){ return false; }
+  }
+
+  function canShow() {
+    if (Shopify && Shopify.designMode) return true; // always show in editor
+    if (oncePerSession && isSessionHidden()) return false;
+    var until = hiddenUntil();
+    return now() > until;
+  }
+
+  function show() {
+    if (root.style.display !== 'none') return;
+    root.style.display = 'block';
+    // basic focus management
+    try { root.querySelector('input[type="email"]').focus(); } catch(e){}
+  }
+
+  function scheduleShow() {
+    if (!canShow()) return;
+
+    var scheduled = false;
+
+    // Exit intent
+    function onExit(e) {
+      if (scheduled) return;
+      if (!useExit) return;
+      if (e.clientY <= 0) {
+        scheduled = true;
+        setTimeout(show, delay);
+        document.removeEventListener('mouseout', onExit);
+      }
+    }
+    if (useExit) document.addEventListener('mouseout', onExit);
+
+    // Scroll trigger
+    function onScroll() {
+      if (scheduled) return;
+      if (triggerScroll <= 0) return;
+      var scrolled = (window.scrollY || document.documentElement.scrollTop) / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+      if (scrolled >= triggerScroll) {
+        scheduled = true;
+        setTimeout(show, delay);
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+    if (triggerScroll > 0) window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Fallback: time delay
+    if (!useExit && triggerScroll <= 0) {
+      setTimeout(show, delay);
+    }
+  }
+
+  // Close button
+  var closeBtn = root.querySelector('.popup-newsletter__close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      root.style.display = 'none';
+      if (oncePerSession) { hideForSession(); }
+      else if (hideDays > 0) { hideForDays(hideDays); }
+    });
+  }
+
+  // Attach Klaviyo
+  (function attachKlaviyo() {
+    if (!window.__kl_subscribe_loading) {
+      window.__kl_subscribe_loading = true;
+      var s = document.createElement('script');
+      s.src = "//www.klaviyo.com/media/js/public/klaviyo_subscribe.js";
+      s.async = true;
+      document.head.appendChild(s);
+    }
+    function showSuccess() {
+      var successEl = document.getElementById('PopupNewsletter-success--{{ section.id }}');
+      if (successEl) { successEl.hidden = false; successEl.style.display = 'block'; }
+      // Hide after success
+      if (oncePerSession) { hideForSession(); }
+      else if (hideDays > 0) { hideForDays(hideDays); }
+      setTimeout(function(){ root.style.display = 'none'; }, {{ section.settings.auto_close_ms | default: 2000 }});
+    }
+    function tryAttach() {
+      if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
+        try {
+          KlaviyoSubscribe.attachToForms('#PopupNewsletterForm--{{ section.id }}', {
+            hide_form_on_success: true,
+            custom_success_message: true,
+            list_id: "{{ section.settings.klaviyo_list_id | escape }}",
+            success: function(){ showSuccess(); },
+            extra_properties: {
+              $source: "{{ section.settings.source_tag | default: 'popup_newsletter' | escape }}",
+              section_id: "{{ section.id }}",
+              theme: "dawn"
+            }
+          });
+        } catch(e) { console.warn('Klaviyo attach failed:', e); }
+      } else {
+        setTimeout(tryAttach, 200);
+      }
+    }
+    tryAttach();
+    // Also push directly to the target list on submit (belt & suspenders)
+    var popupForm = document.getElementById('PopupNewsletterForm--{{ section.id }}');
+    if (popupForm) {
+      popupForm.addEventListener('submit', function() {
+        var emailEl = document.getElementById('PopupEmail--{{ section.id }}');
+        var email = emailEl ? (emailEl.value || '').trim() : '';
+        forceSubscribeToKlaviyo('{{ section.settings.klaviyo_list_id | escape }}', email, {
+          $source: '{{ section.settings.source_tag | default: "popup_newsletter" | escape }}',
+          section_id: '{{ section.id }}',
+          theme: 'dawn'
+        });
+      });
+    }
+  })();
+
+  // Start logic
+  scheduleShow();
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Popup newsletter",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["footer"] },
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional)" },
+    { "type": "range", "id": "bg_tint_opacity", "label": "Image tint opacity", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 60 },
+
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Stay connected" },
+   { "type": "richtext", "id": "copy", "label": "Text", "default": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>" },
+    { "type": "text", "id": "input_label", "label": "Input label", "default": "Enter your email" },
+    { "type": "text", "id": "input_placeholder", "label": "Placeholder", "default": "Enter your email" },
+    { "type": "text", "id": "success_copy", "label": "Success message", "default": "Thanks for subscribing" },
+
+    /* Triggers */
+    { "type": "number", "id": "show_delay_ms", "label": "Delay before showing (ms)", "default": 800 },
+    { "type": "number", "id": "trigger_scroll_percent", "label": "Show after scroll % (0 to disable)", "default": 0 },
+    { "type": "checkbox", "id": "enable_exit_intent", "label": "Show on exit-intent (desktop)", "default": false },
+    { "type": "checkbox", "id": "once_per_session", "label": "Only once per browser session", "default": false },
+
+    /* Hiding */
+    { "type": "range", "id": "hide_days", "label": "Hide for (days) after close/success", "min": 0, "max": 90, "step": 1, "default": 14 },
+    { "type": "number", "id": "auto_close_ms", "label": "Auto-close after success (ms)", "default": 2000 },
+
+    /* Targeting */
+    { "type": "checkbox", "id": "hide_on_mobile", "label": "Hide on mobile", "default": false },
+    { "type": "textarea", "id": "exclude_paths", "label": "Exclude on URL paths (one per line, partial match)", "default": "/cart\n/checkout\n/account" },
+
+    /* Klaviyo */
+    { "type": "text", "id": "klaviyo_list_id", "label": "Klaviyo List ID", "default": "Ram9Tc" },
+    { "type": "text", "id": "source_tag", "label": "Source tag", "default": "popup_newsletter" }
+  ],
+  "presets": [{ "name": "Popup newsletter" }]
+}
+{% endschema %}

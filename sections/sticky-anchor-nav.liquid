@@ -1,0 +1,280 @@
+{% comment %}
+  Sticky Anchor Nav (Dawn) — v3 hybrid
+  - Uses position: sticky when possible
+  - Falls back to position: fixed with a placeholder to avoid layout jump
+{% endcomment %}
+
+{%- style -%}
+  /* keep sticky alive */
+  #shopify-section-{{ section.id }} { overflow: visible; position: relative; z-index: 2; }
+
+  .sticky-anchor-nav__wrap--{{ section.id }}{
+    position: -webkit-sticky;
+    position: sticky;
+    top: {{ section.settings.sticky_top | default: 80 }}px; /* ensure non-zero default */
+    z-index: 2;
+  }
+  .sn-fixed-placeholder--{{ section.id }}{ height: 0; }
+
+  .sticky-anchor-nav--{{ section.id }}.has-shadow { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+
+  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks{
+    display:flex; gap:10px; align-items:center; white-space:nowrap;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  #sticky-anchor-nav-{{ section.id }} {     
+    width: calc(100% - 40px) !important; 
+    max-width: 1560px;
+    border-radius: 8px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    /* box-shadow: 0px 0px 8px 0px #00000024; */
+  }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__blocks::-webkit-scrollbar{display:none;}
+  .sticky-anchor-nav--{{ section.id }} .rich-text__buttons{display:inline-flex;}
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active { background: rgba(31, 25, 70, 1); color: white; }
+  .sticky-anchor-nav--{{ section.id }} a.button.is-active:after { box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)), 0 0 0 var(--buttons-border-width) rgba(31, 25, 70, 1); }
+  .sticky-anchor-nav--{{ section.id }} .rich-text__wrapper{ padding: 2rem 0; }
+  html:focus-within{ scroll-behavior:smooth; }
+{%- endstyle -%}
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %} small-hide">
+  <!-- placeholder to preserve height when we switch to fixed -->
+  <div class="sn-fixed-placeholder--{{ section.id }}" aria-hidden="true"></div>
+
+  <!-- sticky wrapper (works if ancestors allow it) -->
+  <div class="sticky-anchor-nav__wrap--{{ section.id }}" data-sticky-wrap>
+    <nav
+      id="sticky-anchor-nav-{{ section.id }}"
+      class="rich-text content-container color-{{ section.settings.color_scheme }} {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} sticky-anchor-nav--{{ section.id }}{% if section.settings.add_shadow %} has-shadow{% endif %}"
+      data-scroll-offset="{{ section.settings.scroll_offset | default: section.settings.sticky_top | default: 80 }}"
+      data-activation-bias="{{ section.settings.activation_bias | default: -40 }}"
+      aria-label="Section navigation"
+    >
+      <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}">
+        <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+          {%- assign order = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'anchor_button' -%}
+              {%- assign order = order | plus: 1 -%}
+              <div class="rich-text__buttons{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                   {{ block.shopify_attributes }}
+                   {% if settings.animations_reveal_on_scroll %} data-cascade style="--animation-order: {{ order }};"{% endif %}>
+                {%- assign label = block.settings.button_label | strip -%}
+                {%- assign target = block.settings.anchor_id | handleize -%}
+                {%- if label != blank -%}
+                  <a
+                    {% if target == blank %}role="link" aria-disabled="true"{% else %}href="#{{ target }}"{% endif %}
+                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}{% if forloop.first %} is-active{% endif %}"
+                    data-anchor="{{ target }}"
+                    {% if forloop.first %}aria-current="true"{% endif %}
+                  >{{- label | escape -}}</a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+(() => {
+  const nav = document.getElementById('sticky-anchor-nav-{{ section.id }}');
+  if (!nav) return;
+
+  const wrap = nav.closest('[data-sticky-wrap]');
+  const placeholder = document.querySelector('.sn-fixed-placeholder--{{ section.id }}');
+
+  const offsetAttr = nav.dataset.scrollOffset;
+  const offset = parseFloat(offsetAttr || '{{ section.settings.sticky_top | default: 80 }}') || 80;
+
+  // Activation bias: negative = earlier activation, positive = later
+  const biasAttr = nav.dataset.activationBias;
+  const activationBias = parseFloat(biasAttr || '0') || 0;
+
+  // Normalize links -> data-anchor
+  const links = Array.from(nav.querySelectorAll('a.button[href^="#"], a[data-anchor]'));
+  const getIdFromLink = (a) => {
+    const href = (a.getAttribute('href') || '').trim();
+    if (href.startsWith('#') && href.length > 1) return href.slice(1);
+    return (a.dataset.anchor || '').trim();
+  };
+  links.forEach(a => { const id = getIdFromLink(a); if (id) a.dataset.anchor = id; });
+
+  // Targets (rebuilt lazily)
+  let items = []; // [{ a, id, el, top }]
+  const buildItems = () => {
+    items = links.map(a => {
+      const id = a.dataset.anchor;
+      const el = id ? document.getElementById(id) : null;
+      if (!el) return null;
+      return { a, id, el, top: 0 };
+    }).filter(Boolean);
+  };
+
+  const computeTops = () => {
+    if (!items.length) return;
+    items.forEach(it => { it.top = it.el.getBoundingClientRect().top + window.pageYOffset; });
+    items.sort((a,b) => a.top - b.top);
+  };
+
+  let currentId = null;
+  const setActiveId = (id) => {
+    if (!id || id === currentId) return;
+    currentId = id;
+    links.forEach(l => {
+      const on = (l.dataset.anchor === id);
+      l.classList.toggle('is-active', on);
+      if (on) l.setAttribute('aria-current','true'); else l.removeAttribute('aria-current');
+    });
+  };
+
+  const updateActiveByScroll = () => {
+    if (!items.length) return;
+    // earlier activation when activationBias is negative
+    const y = window.scrollY + offset - activationBias + 1;
+    let chosen = items[0];
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].top <= y) chosen = items[i]; else break;
+    }
+    setActiveId(chosen.id);
+  };
+
+  // Click: smooth scroll w/ offset + immediate active
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.dataset.anchor;
+      const el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActiveId(id);
+      try { history.replaceState(null, '', '#' + id); } catch(_) {}
+      el.setAttribute('tabindex','-1'); el.focus({ preventScroll: true });
+    });
+  });
+
+  // Hybrid sticky/fixed (unchanged)
+  let usingFixed = false;
+  const measure = () => {
+    const container = nav.closest('.isolate') || nav.parentElement;
+    const rect = container.getBoundingClientRect();
+    const wrapRect = (wrap || nav).getBoundingClientRect();
+    return {
+      left: rect.left + window.pageXOffset,
+      width: rect.width,
+      height: nav.offsetHeight,
+      start: (wrapRect.top + window.pageYOffset) - offset
+    };
+  };
+  const applyFixed = ({left, width, height}) => {
+    if (usingFixed) return;
+    usingFixed = true;
+    if (placeholder) placeholder.style.height = height + 'px';
+    nav.style.position = 'fixed';
+    nav.style.top = offset + 'px';
+    nav.style.left = left + 'px';
+    nav.style.width = width + 'px';
+    nav.style.zIndex = 2;
+  };
+  const removeFixed = () => {
+    if (!usingFixed) return;
+    usingFixed = false;
+    if (placeholder) placeholder.style.height = '0px';
+    nav.style.position = '';
+    nav.style.top = '';
+    nav.style.left = '';
+    nav.style.width = '';
+    nav.style.zIndex = '';
+  };
+  const onScrollStick = () => {
+    const m = measure();
+    const shouldFix = window.scrollY >= m.start;
+    if (shouldFix) applyFixed(m); else removeFixed();
+  };
+
+  // Init + retries (so anchors below are picked up)
+  const init = () => {
+    buildItems();
+    computeTops();
+    updateActiveByScroll();
+    onScrollStick();
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('load', init);
+  window.addEventListener('resize', () => { computeTops(); updateActiveByScroll(); onScrollStick(); });
+  window.addEventListener('scroll', () => { updateActiveByScroll(); onScrollStick(); }, { passive: true });
+
+  setTimeout(init, 200);
+  setTimeout(init, 800);
+  setTimeout(init, 1600);
+
+  if (location.hash) {
+    const id = location.hash.slice(1);
+    setTimeout(() => { if (document.getElementById(id)) setActiveId(id); }, 300);
+  }
+})();
+</script>
+
+
+
+
+{% schema %}
+{
+  "name": "Sticky Anchor Nav",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "select", "id": "desktop_content_position", "label": "Desktop content position",
+      "options": [ { "value": "left","label":"Left" }, { "value":"center","label":"Center" }, { "value":"right","label":"Right" } ],
+      "default": "center"
+    },
+    { "type": "select", "id": "content_alignment", "label": "Content alignment",
+      "options": [ { "value":"left","label":"Left" }, { "value":"center","label":"Center" }, { "value":"right","label":"Right" } ],
+      "default": "center"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "default": true, "label": "Full width" },
+    { "type": "range", "id": "sticky_top", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Sticky top offset", "default": 80 },
+    {
+      "type": "range",
+      "id": "activation_bias",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Active-state bias",
+      "info": "Negative = earlier activation; Positive = later",
+      "default": -40
+    },
+    { "type": "range", "id": "scroll_offset", "min": 0, "max": 200, "step": 10, "unit": "px", "label": "Scroll offset for anchors", "info": "Usually equals your sticky top offset. Increase if you have a sticky header above this.", "default": 80 },
+    { "type": "checkbox", "id": "add_shadow", "label": "Add subtle shadow", "default": true }
+  ],
+  "blocks": [
+    { "type": "anchor_button", "name": "Anchor button", "limit": 10,
+      "settings": [
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Our Story" },
+        { "type": "text", "id": "anchor_id", "label": "Anchor ID (target)", "info": "Matches the Anchor ID on the target section (e.g. our-story)" },
+        { "type": "checkbox", "id": "button_style_secondary", "label": "Secondary style", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Sticky Anchor Nav",
+      "blocks": [
+        { "type": "anchor_button", "settings": { "button_label": "Our Story", "anchor_id": "our-story" } },
+        { "type": "anchor_button", "settings": { "button_label": "Our Guarantee", "anchor_id": "our-guarantee" } },
+        { "type": "anchor_button", "settings": { "button_label": "Our Service", "anchor_id": "our-service" } },
+        { "type": "anchor_button", "settings": { "button_label": "Our Quality", "anchor_id": "our-quality" } },
+        { "type": "anchor_button", "settings": { "button_label": "Our Scientists", "anchor_id": "our-scientists" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

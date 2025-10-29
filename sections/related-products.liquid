@@ -1,0 +1,322 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* ===== Swiper layout & Dawn grid neutralizer (scoped) ===== */
+  #related-{{ section.id }} .rp-swiper { width: 100%; overflow: hidden; touch-action: pan-y; }
+  #related-{{ section.id }} .rp-swiper .swiper-wrapper { display: flex; }
+  #related-{{ section.id }} .rp-swiper .swiper-slide { flex-shrink: 0; height: auto; }
+  #related-{{ section.id }} .rp-swiper .swiper-slide > .grid__item {
+    width: calc(100% - 2rem) !important;
+    max-width: 100%;
+    flex: 0 0 auto;
+  }
+  /* Nuke Dawn grid wrappers inside this Swiper */
+  #related-{{ section.id }} .rp-swiper .grid,
+  #related-{{ section.id }} .rp-swiper [class*="grid--"] {
+    display: contents !important;
+  }
+  #related-{{ section.id }} .rp-swiper .grid__item {
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Mobile affordances to match featured-collection */
+  @media (max-width: 989px) {
+    #related-{{ section.id }} .related-products.page-width {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      width: auto;
+    }
+    #related-{{ section.id }} .swiper-pagination-progressbar {
+      margin: 4rem 2rem 0;
+      width: calc(100% - 4rem);
+    }
+    #related-{{ section.id }} .swiper-slide.swiper-slide-active { opacity: 1; }
+    #related-{{ section.id }} .swiper-slide { opacity: 0.5; transition: opacity .4s ease; }
+    #related-{{ section.id }} .rp-swiper .swiper-slide:first-child { margin-left: 2rem; }
+  }
+{%- endstyle -%}
+
+<div id="related-{{ section.id }}" class="color-{{ section.settings.color_scheme }} gradient">
+  <product-recommendations
+    class="related-products page-width isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
+    data-section-id="{{ section.id }}"
+    data-product-id="{{ product.id }}"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+
+      <!-- Swiper wrapper (server-rendered fallback AND used by AJAX response) -->
+      <div class="swiper rp-swiper section-{{ section.id }}-padding" id="rp-swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <div class="swiper-slide">
+              <div class="grid__item">
+                {% render 'card-product',
+                  card_product: recommendation,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  quick_add: section.settings.quick_add,
+                  skip_styles: skip_card_product_styles
+                %}
+              </div>
+            </div>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </div>
+        <div id="rp-pagination-{{ section.id }}" class="swiper-pagination swiper-pagination-progressbar"></div>
+      </div>
+    {% endif %}
+  </product-recommendations>
+
+  {% if section.settings.image_shape == 'arch' %}
+    {{ 'mask-arch.svg' | inline_asset_content }}
+  {%- endif -%}
+</div>
+
+<script>
+(function(){
+  const sectionId = '{{ section.id }}';
+  const host = document.querySelector(`product-recommendations[data-section-id="${sectionId}"]`);
+  if (!host) return;
+
+  function initSwiper(){
+    const el = host.querySelector(`#rp-swiper-${sectionId}`);
+    if (!el) return;                         // Wait until AJAX injects it
+    if (el.dataset.swiperReady === '1') return;
+
+    function actuallyInit(){
+      if (typeof window.Swiper === 'undefined') { setTimeout(actuallyInit, 50); return; }
+      const sw = new Swiper(el, {
+        slidesPerView: 1.3,
+        spaceBetween: 0,
+        speed: 500,
+        watchOverflow: true,
+        breakpoints: {
+          750: { slidesPerView: 2.3 },
+          990: { slidesPerView: {{ section.settings.columns_desktop | default: 4 }} }
+        },
+        pagination: {
+          el: `#rp-pagination-${sectionId}`,
+          type: 'progressbar'
+        }
+      });
+      el.dataset.swiperReady = '1';
+      const update = () => { try { sw.update(); } catch(e){} };
+      window.addEventListener('load', update, { once:true, passive:true });
+      el.querySelectorAll('img').forEach(img => {
+        if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+      });
+    }
+    actuallyInit();
+  }
+
+  // Fire when the recommendations HTML arrives
+  const mo = new MutationObserver(() => initSwiper());
+  mo.observe(host, { childList: true, subtree: true });
+
+  // Theme editor: re-init on section load
+  document.addEventListener('shopify:section:load', (e) => {
+    if (e.detail && e.detail.sectionId === sectionId) initSwiper();
+  });
+
+  // If fallback rendered server-side (no AJAX), init immediately
+  initSwiper();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.related-products.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.related-products.settings.paragraph__1.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.related-products.settings.paragraph__1.default",
+      "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+        { "value": "hxl", "label": "t:sections.all.heading_size.options__4.label" },
+        { "value": "hxxl", "label": "t:sections.all.heading_size.options__5.label" }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.related-products.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.related-products.settings.columns_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.related-products.settings.columns_mobile.label",
+      "options": [
+        { "value": "1", "label": "t:sections.related-products.settings.columns_mobile.options__1.label" },
+        { "value": "2", "label": "t:sections.related-products.settings.columns_mobile.options__2.label" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.related-products.settings.header__2.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "t:sections.related-products.settings.image_ratio.options__1.label" },
+        { "value": "portrait", "label": "t:sections.related-products.settings.image_ratio.options__2.label" },
+        { "value": "square", "label": "t:sections.related-products.settings.image_ratio.options__3.label" }
+      ],
+      "default": "adapt",
+      "label": "t:sections.related-products.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        { "value": "default", "label": "t:sections.all.image_shape.options__1.label" },
+        { "value": "arch", "label": "t:sections.all.image_shape.options__2.label" },
+        { "value": "blob", "label": "t:sections.all.image_shape.options__3.label" },
+        { "value": "chevronleft", "label": "t:sections.all.image_shape.options__4.label" },
+        { "value": "chevronright", "label": "t:sections.all.image_shape.options__5.label" },
+        { "value": "diamond", "label": "t:sections.all.image_shape.options__6.label" },
+        { "value": "parallelogram", "label": "t:sections.all.image_shape.options__7.label" },
+        { "value": "round", "label": "t:sections.all.image_shape.options__8.label" }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.related-products.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.related-products.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.related-products.settings.show_rating.label",
+      "info": "t:sections.related-products.settings.show_rating.info"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        { "value": "none", "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1" },
+        { "value": "standard", "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2" },
+        { "value": "bulk", "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

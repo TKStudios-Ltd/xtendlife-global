@@ -1,0 +1,305 @@
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .collection-list-wrapper { flex-direction: row !important; }
+  }
+  @media (max-width: 749px) {
+    .collection-list-wrapper .title-wrapper--no-top-margin-only {
+      margin-bottom: 3rem;
+      padding: 0 2rem;
+    }
+  }
+  .collection-list-wrapper { display:flex; flex-direction: column; }
+  .collection-list-wrapper .title-wrapper--no-top-margin-only {
+    flex: 0 0 25%;
+    display:flex; justify-content:flex-start; align-items:flex-start;
+  }
+  .collection-list-wrapper .collection-list-desktop {
+    flex: 0 0 75%;
+    width:100%;
+  }
+  .collection-list-mobile .swiper-slide-active .card-wrapper .card__heading .icon-wrap,
+  .collection-list-mobile .swiper-slide-active .card-wrapper .card__heading {
+    opacity: 1;
+  }
+  .collection-list-mobile { 
+    overflow:hidden; 
+    width:100%; 
+    position:relative; 
+    padding: 0 2rem;
+  }
+  .collection-list-mobile .swiper { overflow:visible; }
+  .collection-list-mobile .swiper-wrapper { display:flex; }
+  .collection-list-mobile .swiper-slide { height:auto; }
+
+  #cl-pagination-{{ section.id }}.swiper-pagination-progressbar {
+    margin-top: 4rem;
+  }
+  .pw-border {
+    border-top: 1px solid rgba(211, 211, 211, 1);
+    border-bottom: 1px solid rgba(211, 211, 211, 1);
+  }
+
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+    <div class="page-width">
+        <div class="collection-list-wrapper pw-border isolate{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false %} no-mobile-link{% endif %} section-{{ section.id }}-padding">  
+            {%- unless section.settings.title == blank -%}
+            <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin-only">
+                <h2
+                id="SectionHeading-{{ section.id }}"
+                class="collection-list-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                >
+                {{ section.settings.title }}
+                </h2>
+            </div>
+            {%- endunless -%}
+
+            {%- comment -%} ===== DESKTOP GRID (≥ 990px) ===== {%- endcomment -%}
+            <div class="collection-list-desktop small-hide medium-hide">
+            <ul class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop contains-card">
+                {%- for block in section.blocks -%}
+                    {%- assign ratio_percent = 100 -%}
+                    {%- case section.settings.image_ratio -%}
+                    {%- when 'square' -%}{%- assign ratio_percent = 100 -%}
+                    {%- when 'portrait' -%}{%- assign ratio_percent = 125 -%}
+                    {%- else -%}{%- assign ratio_percent = 100 -%}
+                    {%- endcase -%}
+                    {%- assign art = block.settings.article -%}
+                    {%- assign img = block.settings.custom_image | default: art.image -%}
+                    {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
+                    <li class="collection-list__item grid__item" {{ block.shopify_attributes }}>
+                        <div class="card-wrapper animate-arrow collection-card-wrapper">
+                            <div class="card card--standard card--media" style="--ratio-percent: {{ ratio_percent }}%;">
+                                <div class="card__inner gradient ratio" style="--ratio-percent: {{ ratio_percent }}%; background-color: transparent !important; transform: none !important;">
+                                    <div class="card__media">
+                                        <div class="media media--transparent media--hover-effect">
+                                        {%- if img -%}
+                                            {{ img | image_url: width: 750 | image_tag: loading: 'lazy', class: 'motion-reduce', alt: alt_text, widths: '360, 533, 720, 750, 940, 1200' }}
+                                        {%- else -%}
+                                            {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {%- endif -%}
+                                        </div>
+                                    </div>
+                                    <div class="card__content">
+                                        <div class="card__information">
+                                        <h3 class="card__heading">
+                                            {%- if art -%}
+                                            <a href="{{ art.url }}" class="full-unstyled-link">{{ block.settings.custom_title | default: art.title }}</a>
+                                            {%- else -%}
+                                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                            {%- endif -%}
+                                        </h3>
+                                        {%- if art -%}
+                                            <p class="card__caption">{{ art.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+                                        {%- endif -%}
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="card__content">
+                                    <div class="card__information">
+                                        <h3 class="card__heading h2">
+                                        {%- if art -%}
+                                            <a href="{{ art.url }}" class="full-unstyled-link">
+                                            {{ block.settings.custom_title | default: art.title }}
+                                            <span class="icon-wrap">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                                            </a>
+                                        {%- else -%}
+                                            <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                        {%- endif -%}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {%- endfor -%}
+            </ul>
+            </div>
+
+            {%- comment -%} ===== MOBILE/TABLET SWIPER (< 990px) ===== {%- endcomment -%}
+            <div class="collection-list-mobile large-up-hide">
+            <div class="swiper" id="cl-swiper-{{ section.id }}">
+                <div class="swiper-wrapper">
+                {%- for block in section.blocks -%}
+                    {%- assign art = block.settings.article -%}
+                    {%- assign img = block.settings.custom_image | default: art.image -%}
+                    {%- assign alt_text = block.settings.custom_title | default: art.title | escape -%}
+                    <div class="swiper-slide" {{ block.shopify_attributes }}>
+                        <div class="card-wrapper animate-arrow collection-card-wrapper">
+                            <div class="card card--standard card--media" style="--ratio-percent: {{ ratio_percent }}%;">
+                                <div class="card__inner gradient ratio" style="--ratio-percent: {{ ratio_percent }}%; background-color: transparent !important; transform: none !important;">
+                                <div class="card__media">
+                                    <div class="media media--transparent media--hover-effect">
+                                    {%- if img -%}
+                                        {{ img | image_url: width: 750 | image_tag: loading: 'lazy', class: 'motion-reduce', alt: alt_text, widths: '360, 533, 720, 750, 940, 1200' }}
+                                    {%- else -%}
+                                        {{ 'collection-apparel-' | append: forloop.index0 | modulo: 4 | plus: 1 | placeholder_svg_tag: 'placeholder-svg' }}
+                                    {%- endif -%}
+                                    </div>
+                                </div>
+                                <div class="card__content">
+                                    <div class="card__information">
+                                    <h3 class="card__heading">
+                                        {%- if art -%}
+                                        <a href="{{ art.url }}" class="full-unstyled-link">{{ block.settings.custom_title | default: art.title }}</a>
+                                        {%- else -%}
+                                        <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                        {%- endif -%}
+                                    </h3>
+                                    {%- if art -%}
+                                        <p class="card__caption">{{ art.excerpt_or_content | strip_html | truncatewords: 20 }}</p>
+                                    {%- endif -%}
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="card__content">
+                                <div class="card__information">
+                                    <h3 class="card__heading h2">
+                                    {%- if art -%}
+                                        <a href="{{ art.url }}" class="full-unstyled-link">
+                                        {{ block.settings.custom_title | default: art.title }}
+                                        <span class="icon-wrap">
+                                            <!-- inline SVG arrow (same as your collection-list) -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-arrow" viewBox="0 0 13 11"><path fill="currentColor" fill-rule="evenodd" d="M0.5 5.74704C0.5 5.54813 0.579018 5.35736 0.71967 5.21671C0.860322 5.07606 1.05109 4.99704 1.25 4.99704H9.9395L6.719 1.77804C6.57817 1.63721 6.49905 1.44621 6.49905 1.24704C6.49905 1.04788 6.57817 0.856871 6.719 0.716041C6.85983 0.575211 7.05084 0.496094 7.25 0.496094C7.44916 0.496094 7.64017 0.575211 7.781 0.716041L12.281 5.21604C12.3508 5.28571 12.4063 5.36847 12.4441 5.45959C12.4819 5.55071 12.5013 5.64839 12.5013 5.74704C12.5013 5.84569 12.4819 5.94337 12.4441 6.03449C12.4063 6.12561 12.3508 6.20837 12.281 6.27804L7.781 10.778C7.64017 10.9189 7.44916 10.998 7.25 10.998C7.05084 10.998 6.85983 10.9189 6.719 10.778C6.57817 10.6372 6.49905 10.4462 6.49905 10.247C6.49905 10.0479 6.57817 9.85687 6.719 9.71604L9.9395 6.49704H1.25C1.05109 6.49704 0.860322 6.41802 0.71967 6.27737C0.579018 6.13672 0.5 5.94595 0.5 5.74704Z" clip-rule="evenodd"/></svg>
+                                        </span>
+                                        </a>
+                                    {%- else -%}
+                                        <span class="full-unstyled-link">{{ block.settings.custom_title | default: 'Select an article' }}</span>
+                                    {%- endif -%}
+                                    </h3>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {%- endfor -%}
+                </div>
+            </div>
+            <div id="cl-pagination-{{ section.id }}" class="swiper-pagination"></div>
+            </div>
+
+            {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+            <div class="center collection-list-view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %}data-cascade{% endif %}>
+                <a href="{{ section.settings.view_all_link }}" class="button" id="ViewAllButton-{{ section.id }}" aria-labelledby="ViewAllButton-{{ section.id }} SectionHeading-{{ section.id }}">
+                {{ 'sections.collection_list.view_all' | t | default: 'View all' }}
+                </a>
+            </div>
+            {%- endif -%}
+
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+  const el = document.querySelector('#cl-swiper-{{ section.id }}');
+
+  if (!el) return;
+
+  function init(){
+    if (typeof window.Swiper === 'undefined') { setTimeout(init, 50); return; }
+    if (el.dataset.swiperReady === '1') return;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 1.3,
+      spaceBetween: 16,
+      speed: 500,
+      watchOverflow: true,
+      breakpoints: { 750: { slidesPerView: 2.3 } },
+      pagination: { el: '#cl-pagination-{{ section.id }}', type: 'progressbar' }
+    });
+
+    el.dataset.swiperReady = '1';
+    const update = () => { try { sw.update(); } catch(e) {} };
+    window.addEventListener('load', update, { once:true, passive:true });
+    el.querySelectorAll('img').forEach(img => {
+      if (!img.complete) img.addEventListener('load', update, { once:true, passive:true });
+    });
+  }
+
+  init();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Featured article list",
+  "tag": "section",
+  "class": "section section-collection-list",
+  "max_blocks": 15,
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "title", "default": "Featured reads", "label": "Heading" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "Display" },
+        { "value": "hxl", "label": "XL" },
+        { "value": "hxxl", "label": "XXL" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" }
+      ],
+      "default": "square",
+      "label": "Image ratio"
+    },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 3, "label": "Columns (desktop)" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "info": "Cards use this scheme’s surfaces", "default": "scheme-1" },
+    { "type": "checkbox", "id": "show_view_all", "default": false, "label": "Show “View all” button" },
+    { "type": "url", "id": "view_all_link", "label": "View all link (e.g., /blogs/news)" },
+    { "type": "header", "content": "Mobile" },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ],
+      "default": "1",
+      "label": "Columns (mobile)"
+    },
+    { "type": "checkbox", "id": "swipe_on_mobile", "default": false, "label": "Swipe on mobile (parity only)" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+  ],
+  "blocks": [
+    {
+      "type": "featured_article",
+      "name": "Article",
+      "settings": [
+        { "type": "article", "id": "article", "label": "Article" },
+        { "type": "image_picker", "id": "custom_image", "label": "Custom image (optional)" },
+        { "type": "text", "id": "custom_title", "label": "Custom title (optional)" },
+        { "type": "color", "id": "background_color", "label": "Background color (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Featured article list", "blocks": [ { "type": "featured_article" }, { "type": "featured_article" }, { "type": "featured_article" } ] }
+  ]
+}
+{% endschema %}

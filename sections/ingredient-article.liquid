@@ -1,0 +1,176 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+<nav class="ingredient-breadcrumbs breadcrumbs page-width" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span class="breadcrumbs__sep">›</span>
+  <a href="/pages/ingredients">Ingredients Index</a>
+  <span class="breadcrumbs__sep">›</span>
+  <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
+</nav>
+
+<article class="ingredient-article-template page-width">
+    <div class="ingredient-article-template__left">
+    {%- for block in section.blocks -%}
+        {%- case block.type -%}
+        {%- when '@app' -%}
+            <div class="">
+            {% render block %}
+            </div>
+        {%- when 'featured_image' -%}
+            {%- if article.image -%}
+            <div
+                class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                {{ block.shopify_attributes }}
+            >
+                <div
+                class="article-template__hero-{{ block.settings.image_height }} media"
+                {% if block.settings.image_height == 'adapt' and article.image %}
+                    style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+                {% endif %}
+                >
+                <img
+                    srcset="
+                    {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                    {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                    {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                    {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                    {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                    {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                    {{ article.image | image_url }} {{ article.image.width }}w
+                    "
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                    src="{{ article.image | image_url: width: 1100 }}"
+                    loading="eager"
+                    fetchpriority="high"
+                    width="{{ article.image.width }}"
+                    height="{{ article.image.height }}"
+                    alt="{{ article.image.alt | escape }}"
+                >
+                </div>
+            </div>
+            {%- endif -%}
+
+        {%- when 'title' -%}
+            <header
+            class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            {{ block.shopify_attributes }}
+            >
+            <h1
+                class="article-template__title"
+            >
+                {{ article.title | escape }}
+            </h1>
+            {%- if block.settings.blog_show_date -%}
+                <span class="circle-divider caption-with-letter-spacing">
+                {{- article.published_at | time_tag: format: 'date' -}}
+                </span>
+            {%- endif -%}
+            {%- if block.settings.blog_show_author -%}
+                <span class="caption-with-letter-spacing">
+                <span>{{ article.author }}</span>
+                </span>
+            {%- endif -%}
+            </header>
+
+        {%- when 'share' -%}
+            <div
+            class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ block.shopify_attributes }}
+            >
+            {% assign share_url = request.origin | append: article.url %}
+            {% render 'share-button', block: block, share_link: share_url %}
+            </div>
+        {%- endcase -%}
+    {%- endfor -%}
+    </div>
+    <div class="ingredient-article-template__right">
+        <div class="ingredient-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {{ block.shopify_attributes }}
+        >
+            {{ article.content }}
+        </div>
+    </div>
+
+  
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "Ingredient article",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "t:sections.main-article.blocks.share.settings.text.default"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

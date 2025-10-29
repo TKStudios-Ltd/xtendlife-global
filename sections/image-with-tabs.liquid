@@ -1,0 +1,568 @@
+{% comment %}
+  Image With Tabs (Swiper-synced)
+  - Requires Swiper on the theme (core + Pagination + Autoplay + EffectFade + Controller)
+  - Vertical left tabs on desktop, horizontal on mobile
+  - Hover / focus / click on a tab syncs the image
+{% endcomment %}
+
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Layout */
+  .tabs-with-image--grid {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: 1fr;
+  }
+  .tabs-with-image--grid .grid__item { 
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+  @media (min-width: 990px) {
+    .tabs-with-image--grid {
+      grid-template-columns: minmax(0, {{ section.settings.left_col_width }}fr) minmax(0, {{ section.settings.right_col_width }}fr);
+      align-items: stretch;
+    }
+    #TabsSwiper-{{ section.id }} .swiper-wrapper { 
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    #TabsSwiper-{{ section.id }} .swiper-slide { 
+        width: 100% !important;
+        height: auto !important;
+    }
+    .tabs-with-image--grid .title-wrapper-with-link {
+        margin: 0 0 8rem;
+    }
+  }
+
+  /* Left tabs (Swiper) */
+  #TabsSwiper-{{ section.id }} {
+    height: auto;
+  }
+  .tabs-list {
+    width: 100%;
+    border-top: 1px solid rgba(31, 25, 71, 0.3);
+    border-bottom: 1px solid rgba(31, 25, 71, 0.3);
+  }
+  .tabs-slide {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border-bottom: 1px solid rgba(31, 25, 71, 0.3);
+    padding: 12px 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  .tabs-slide:last-child {
+    border-bottom: none;
+  }
+  .tabs-title {
+    font-family: var(--font-body-family);
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: rgb(var(--color-foreground));
+    text-decoration: none !important;
+    transition: opacity ease 0.4s;
+  }
+  .tabs-slide.is-active .tabs-title {
+    opacity: 1;
+  }
+  .tabs-slide:not(.is-active) .tabs-title {
+    opacity: .25;
+  }
+  /* .tabs-slide:not(.is-active) .tabs-btn {
+    opacity: 0;
+  } */
+
+  /* Right image (Swiper) */
+  .image-pane {
+    position: relative;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .image-slide {
+    width: 100%;
+    height: 100%;
+  }
+  .image-slide .media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .image-slide .tabs-btn {
+    z-index: 2;
+    position: absolute;
+    bottom: 2rem;
+    left: 2.5rem;
+    padding: 1rem 4rem;
+    display: block;
+  }
+  .tabs__image-text {
+    z-index: 2;
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    display: block;
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: 0;
+    color: rgb(var(--color-foreground));
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+  .image-slide .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+
+  /* Pagination over image (vertical desktop, inline mobile) */
+  .image-pagination-{{ section.id }} {
+    position: absolute;
+    right: 2rem;
+    bottom: 3rem !important;
+    top: auto !important;
+    left: auto !important;
+    z-index: 3;
+    display: flex;
+    gap: 8px;
+    width: 10px !important;
+    flex-direction: column;
+  }
+  .image-pagination-{{ section.id }} .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    opacity: .4;
+    border-radius: 10px;
+    background: white !important;
+  }
+  .image-pagination-{{ section.id }} .swiper-pagination-bullet-active {
+    opacity: 1;
+    height: 46px;
+  }
+  @media (max-width: 989px) {
+    .image-pagination-{{ section.id }} {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: auto;
+      bottom: 10px;
+      transform: none;
+      flex-direction: row;
+      justify-content: center;
+    }
+    #TabsSwiper-{{ section.id }} .swiper-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    #TabsSwiper-{{ section.id }} .swiper-slide {
+      width: 100% !important;
+      height: auto !important;
+    }
+    .tabs-title {
+      font-size: 40px !important;
+    }
+    .tabs-btn {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  /* Optional rounded image corners like your mock */
+  .image-pane {
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    border-radius: 16px;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="tabs-with-image isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="tabs-with-image--grid{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+
+        {%- comment -%} LEFT: Tabs (Swiper) {%- endcomment -%}
+        <div class="grid__item">
+          <div class="title-wrapper-with-link">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+          </div>
+
+          <div id="TabsSwiper-{{ section.id }}" class="swiper tabs-list"
+               data-autoplay="{{ section.settings.autoplay }}"
+               data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+               data-loop="{{ section.settings.loop }}">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide tabs-slide" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
+                  <a {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="tabs-title">{{ block.settings.title }}</a>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} RIGHT: Image Pane (Swiper) {%- endcomment -%}
+        <div class="grid__item small-hide medium-hide">
+          <div id="ImageSwiper-{{ section.id }}" class="swiper image-pane">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div class="swiper-slide image-slide">
+                  <div class="media">
+                    {%- if block.settings.image != blank -%}
+                      {%- assign widths = '432, 642, 900, 1284, 1500, 1800' -%}
+                      {%- capture sizes -%}
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.667 }}px,
+                        (min-width: 750px) calc((100vw - 130px) / 1.667),
+                        calc((100vw - 50px))
+                      {%- endcapture -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1800
+                        | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                      }}
+                    {%- else -%}
+                      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.image_text != blank -%}
+                    <span class="tabs__image-text h2"{% if block.settings.image_text_color != blank %} style="color: {{ block.settings.image_text_color }}"{% endif %}>
+                      {{ block.settings.image_text | escape }}
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.button_label != blank -%}
+                    <a
+                      {% if block.settings.button_link == blank %}
+                        role="link" aria-disabled="true"
+                      {% else %}
+                        href="{{ block.settings.button_link }}"
+                      {% endif %}
+                      class="button button--small button--primary tabs-btn"
+                    >{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+
+            <!-- Pagination bullets over image -->
+            <div class="swiper-pagination image-pagination-{{ section.id }}"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const sectionId = {{ section.id | json }};
+  const NS_READY_EVENT = 'swiper:ready';
+
+  function ensureSwiper(ready) {
+    if (window.Swiper) { ready(); return; }
+
+    if (document.documentElement.dataset.swiperLoading === '1') {
+      document.addEventListener(NS_READY_EVENT, ready, { once: true });
+      return;
+    }
+
+    document.documentElement.dataset.swiperLoading = '1';
+
+    const cssHref = {{ 'swiper-bundle.min.css' | asset_url | json }};
+    const jsSrc  = {{ 'swiper-bundle.min.js'  | asset_url | json }};
+
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = cssHref;
+    css.onerror = function() {
+      const cdnCss = document.createElement('link');
+      cdnCss.rel = 'stylesheet';
+      cdnCss.href = 'https://unpkg.com/swiper@9/swiper-bundle.min.css';
+      document.head.appendChild(cdnCss);
+    };
+    document.head.appendChild(css);
+
+    const js = document.createElement('script');
+    js.src = jsSrc;
+    js.defer = true;
+    js.onload = function() {
+      document.dispatchEvent(new Event(NS_READY_EVENT));
+      ready();
+    };
+    js.onerror = function() {
+      const cdn = document.createElement('script');
+      cdn.src = 'https://unpkg.com/swiper@9/swiper-bundle.min.js';
+      cdn.defer = true;
+      cdn.onload = function() {
+        document.dispatchEvent(new Event(NS_READY_EVENT));
+        ready();
+      };
+      document.head.appendChild(cdn);
+    };
+    document.head.appendChild(js);
+  }
+
+  function init() {
+    if (!window.Swiper) return;
+
+    const tabsEl  = document.getElementById('TabsSwiper-' + sectionId);
+    const imageEl = document.getElementById('ImageSwiper-' + sectionId);
+    if (!tabsEl || !imageEl) return;
+
+    const autoplayEnabled = tabsEl.getAttribute('data-autoplay') === 'true';
+    const autoplayDelay   = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
+    const loop            = tabsEl.getAttribute('data-loop') === 'true';
+
+    // Tabs Swiper: vertical list style everywhere; autoplay always on if enabled
+    let tabsSwiper;
+    try {
+      tabsSwiper = new Swiper(tabsEl, {
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+        allowTouchMove: false, // it's a list; we don't need drag
+        loop: loop,
+        autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+        speed: 500
+      });
+    } catch (e) { return; }
+
+    // Image Swiper: only for ≥ 990px
+    let imageSwiper = null;
+    const mq = window.matchMedia('(min-width: 990px)');
+
+    const getRealIndex = sw => (typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex);
+    const getTabSlides = () => tabsEl.querySelectorAll('.tabs-slide');
+
+    function setActiveByRealIndex(real) {
+      const slides = getTabSlides();
+      slides.forEach(s => {
+        const idx = parseInt(s.getAttribute('data-index') || '-1', 10);
+        if (idx === real) s.classList.add('is-active');
+        else s.classList.remove('is-active');
+      });
+    }
+
+    function goToRealIndex(real) {
+      if (typeof tabsSwiper.slideToLoop === 'function') tabsSwiper.slideToLoop(real);
+      else tabsSwiper.slideTo(real);
+
+      if (imageSwiper) {
+        if (typeof imageSwiper.slideToLoop === 'function') imageSwiper.slideToLoop(real);
+        else imageSwiper.slideTo(real);
+      }
+      setActiveByRealIndex(real);
+    }
+
+    function initImageSwiper() {
+      if (imageSwiper) return; // already initialized
+      const paginationEl = imageEl.querySelector('.swiper-pagination');
+      try {
+        imageSwiper = new Swiper(imageEl, {
+          effect: 'fade',
+          fadeEffect: { crossFade: true },
+          loop: loop,
+          speed: 600,
+          pagination: paginationEl ? { el: paginationEl, clickable: true } : undefined,
+          autoplay: autoplayEnabled ? { delay: autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
+        });
+      } catch (e) {
+        imageSwiper = null;
+      }
+      // Keep in sync if it exists
+      if (imageSwiper) {
+        imageSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(imageSwiper)));
+      }
+    }
+
+    function destroyImageSwiper() {
+      if (!imageSwiper) return;
+      imageSwiper.destroy(true, true);
+      imageSwiper = null;
+    }
+
+    // Init/destroy image swiper based on viewport
+    function syncImagePresence() {
+      if (mq.matches) initImageSwiper();
+      else destroyImageSwiper();
+    }
+    syncImagePresence();
+
+    // Listen for viewport changes (optional but nice)
+    const mqHandler = () => syncImagePresence();
+    if (mq.addEventListener) mq.addEventListener('change', mqHandler);
+    else if (mq.addListener) mq.addListener(mqHandler); // legacy Safari
+
+    // Delegated events for the list (hover/click/keyboard)
+    function delegate(type, selector, handler, opts) {
+      tabsEl.addEventListener(type, function(e) {
+        const el = e.target.closest(selector);
+        if (!el || !tabsEl.contains(el)) return;
+        handler(e, el);
+      }, opts || false);
+    }
+    delegate('mouseenter', '.tabs-slide', (_e, el) => {
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
+    }, true);
+    delegate('focusin', '.tabs-slide', (_e, el) => {
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
+    });
+    delegate('click', '.tabs-slide', (e, el) => {
+      if (e.target.closest('a')) return; // let inner links work normally
+      e.preventDefault();
+      const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+      if (!isNaN(real)) goToRealIndex(real);
+    });
+    delegate('keydown', '.tabs-slide', (e, el) => {
+      if (e.target.closest('a')) return;
+      if (e.key === 'Enter' || e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        const real = parseInt(el.getAttribute('data-index') || '-1', 10);
+        if (!isNaN(real)) goToRealIndex(real);
+      }
+    });
+
+    // Keep active state in sync with tab autoplay/changes
+    tabsSwiper.on('slideChange', () => setActiveByRealIndex(getRealIndex(tabsSwiper)));
+    setActiveByRealIndex(getRealIndex(tabsSwiper));
+  }
+
+  ensureSwiper(init);
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "Image with Tabs",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Shop by Benefit" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "image_first",
+      "options": [
+        { "value": "image_first", "label": "Image right (desktop)" },
+        { "value": "text_first", "label": "Image left (desktop)" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "left_col_width",
+      "label": "Left column width (desktop)",
+      "min": 1, "max": 3, "step": 1, "default": 1
+    },
+    {
+      "type": "range",
+      "id": "right_col_width",
+      "label": "Right column width (desktop)",
+      "min": 1, "max": 3, "step": 1, "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay tabs/images",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (seconds)",
+      "min": 2, "max": 15, "step": 1, "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop slides",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Section color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Top padding", "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0, "max": 100, "step": 4, "unit": "px",
+      "label": "Bottom padding", "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Daily Support" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_text", "label": "Image text" },
+        { "type": "color", "id": "image_text_color", "label": "Image text color" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Tabs",
+      "blocks": [
+        { "type": "tab" },
+        { "type": "tab" },
+        { "type": "tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}

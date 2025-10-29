@@ -1,0 +1,206 @@
+{{ 'component-accordion.css' | asset_url | stylesheet_tag }}
+{{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .section-{{ section.id }}-padding .collapsible-content__heading {
+    margin-bottom: 4rem;
+  }
+  .section-{{ section.id }}-padding .faq__more_questions {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .section-{{ section.id }}-padding .faq__more_questions p {
+    font-size: 1.6rem;
+    display: inline-flex;
+    gap: 0.5rem;
+  }
+  .section-{{ section.id }}-padding .faq__more_questions p a {
+    color: inherit;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign faq_html = product.metafields.custom_fields.product_faqs -%}
+
+{%- if faq_html != blank or section.settings.show_when_empty -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate content-container content-container--full-width">
+    <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
+      <div class="page-width extra-padding">
+        <div
+          class="collapsible-content__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          style="text-align: {{ section.settings.heading_alignment }};"
+        >
+          {%- if section.settings.caption != blank -%}
+            <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="collapsible-content__heading inline-richtext {{ section.settings.heading_size }}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- else -%}
+            <h2 class="visually-hidden">Product FAQs</h2>
+          {%- endif -%}
+        </div>
+
+        <div class="grid grid--1-col{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          <div class="grid__item">
+            <!-- Hidden raw FAQ HTML from metafield -->
+            <div id="FaqRaw-{{ section.id }}" class="rte" hidden>
+              {{ faq_html }}
+            </div>
+
+            <!-- Where we will inject Dawn-style accordions -->
+            <div id="FaqAcc-{{ section.id }}"></div>
+
+            <!-- caret svg template for accordion summaries -->
+            <div id="FaqCaret-{{ section.id }}" hidden>
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </div>
+          </div>
+        </div>
+        <div class="faq__more_questions">
+            <p>More questions? Visit our <a href="/pages/faq" target="_blank">FAQ</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var raw = document.getElementById('FaqRaw-{{ section.id }}');
+  var target = document.getElementById('FaqAcc-{{ section.id }}');
+  if (!raw || !target) return;
+
+  var caretTpl = document.getElementById('FaqCaret-{{ section.id }}');
+
+  // Make a working container
+  var container = document.createElement('div');
+  container.innerHTML = raw.innerHTML;
+
+  // Collect headings as FAQ questions
+  var headings = Array.from(container.querySelectorAll('h1,h2,h3,h4,h5,h6'));
+
+  // If no headings, dump all content into a single row
+  if (!headings.length) {
+    var single = document.createElement('div');
+    single.className = 'accordion';
+    single.innerHTML = '<details open>' +
+      '<summary>' +
+      '<h3 class="accordion__title inline-richtext h4">{{ section.settings.fallback_heading | escape }}</h3>' +
+      (caretTpl ? caretTpl.innerHTML : '') +
+      '</summary>' +
+      '<div class="accordion__content rte" role="region"></div>' +
+    '</details>';
+    var body = single.querySelector('.accordion__content');
+    // move all nodes
+    while (container.firstChild) body.appendChild(container.firstChild);
+    target.appendChild(single);
+    raw.remove();
+    return;
+  }
+
+  // Group each heading with its following content up to next heading
+  var groups = [];
+  headings.forEach(function(h, idx) {
+    var title = (h.textContent || '').trim();
+    var nodes = [];
+    var node = h.nextSibling;
+    while (node && !(node.nodeType === 1 && /^H[1-6]$/.test(node.tagName))) {
+      var next = node.nextSibling;
+      nodes.push(node);
+      node = next;
+    }
+    groups.push({ title: title, nodes: nodes });
+  });
+
+  // Build Dawn-like accordion markup for each group
+  groups.forEach(function(grp, i) {
+    var wrap = document.createElement('div');
+    wrap.className = 'accordion';
+
+    var openFirst = {{ section.settings.open_first_collapsible_row | json }} && i === 0;
+    wrap.innerHTML =
+      '<details' + (openFirst ? ' open' : '') + '>' +
+        '<summary>' +
+          '<h3 class="accordion__title inline-richtext h4"></h3>' +
+          (caretTpl ? caretTpl.innerHTML : '') +
+        '</summary>' +
+        '<div class="accordion__content rte" role="region"></div>' +
+      '</details>';
+
+    wrap.querySelector('.accordion__title').textContent = grp.title || 'FAQ ' + (i + 1);
+    var content = wrap.querySelector('.accordion__content');
+    grp.nodes.forEach(function(n){ content.appendChild(n); });
+
+    target.appendChild(wrap);
+  });
+
+  raw.remove();
+});
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product FAQs (metafield)",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "caption", "label": "Caption" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "FAQ" },
+    {
+      "type": "select", "id": "heading_size", "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" },
+        { "value": "hxl", "label": "HXL" },
+        { "value": "hxxl", "label": "HXXL" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select", "id": "heading_alignment", "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    { "type": "checkbox", "id": "open_first_collapsible_row", "label": "Open first row by default", "default": false },
+    { "type": "checkbox", "id": "show_when_empty", "label": "Render even if metafield empty", "default": false },
+    { "type": "text", "id": "fallback_heading", "label": "Fallback heading (when no headers found)", "default": "FAQs" },
+
+    { "type": "header", "content": "Layout & colors" },
+    {
+      "type": "select", "id": "layout", "label": "Layout",
+      "options": [
+        { "value": "none", "label": "Full width" },
+        { "value": "row", "label": "In container (row)" },
+        { "value": "section", "label": "In section container" }
+      ],
+      "default": "none"
+    },
+    { "type": "color_scheme", "id": "container_color_scheme", "label": "Container color scheme", "default": "scheme-2" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Section color scheme", "default": "scheme-1" },
+
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+  ],
+  "presets": [{ "name": "Product FAQs (metafield)" }]
+}
+{% endschema %}

@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "p {margin: 2rem 0; font-size: 3.2rem; line-height: 1.3;}",
+        "@media (max-width: 749px) {p {font-size: 2rem; }}"
+      ],
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "featured_article_list_yctg6T": {
+      "type": "featured-article-list",
+      "blocks": {
+        "featured_article_TnKt4X": {
+          "type": "featured_article",
+          "settings": {
+            "article": "health-articles/a-neuroscientist-s-guide-to-nutrition-for-brain-health",
+            "custom_image": "shopify://shop_images/bda052882c6bfa6f46c76b58344b4fd09bae4cf4.png",
+            "custom_title": "Energy",
+            "background_color": ""
+          }
+        },
+        "featured_article_W6wXcf": {
+          "type": "featured_article",
+          "settings": {
+            "article": "health-articles/7-common-omega-3-myths-busted",
+            "custom_image": "shopify://shop_images/64444a98a6e2e80c196423cad54522eb9ab147d9.png",
+            "custom_title": "Healthy Aging",
+            "background_color": ""
+          }
+        },
+        "featured_article_EVCPkF": {
+          "type": "featured_article",
+          "settings": {
+            "article": "supplement-ingredients/reducose",
+            "custom_image": "shopify://shop_images/12a9648b99d244769e7421153cc18e81205d88be.png",
+            "custom_title": "Thyroid Health",
+            "background_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_article_TnKt4X",
+        "featured_article_W6wXcf",
+        "featured_article_EVCPkF"
+      ],
+      "custom_css": [],
+      "name": "Featured article list",
+      "settings": {
+        "title": "Common concerns",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "view_all_link": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
+    "full_article_list_FdbPtY": {
+      "type": "full-article-list",
+      "name": "Full article list",
+      "settings": {
+        "title": "All Health Concerns",
+        "blog": "health-concerns",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_F83hpp": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_erdicL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_caNE9T": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_jUnBfD": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_erdicL",
+        "paragraph_caNE9T",
+        "email_form_jUnBfD"
+      ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
+        ".h1 {display: none;}",
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_article_list_yctg6T",
+    "full_article_list_FdbPtY",
+    "newsletter_F83hpp"
+  ]
+}

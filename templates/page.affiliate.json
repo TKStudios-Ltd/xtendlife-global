@@ -1,0 +1,749 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_pFjbBG": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_4P8W9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "Become an Xtendlife Affiliate",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4P8W9w"
+      ],
+      "custom_css": [
+        ".subtitle {max-width: 460px; margin-top: 2rem;}",
+        ".subtitle p {font-size: 20px;}",
+        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "rich_text_fRcgNk": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_mC97Kh": {
+          "type": "caption",
+          "settings": {
+            "caption": "Get paid to promote Xtendlife product. Join our affiliate program and earn commissions on all of your referrals.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "caption_mC97Kh"
+      ],
+      "custom_css": [
+        ".page-width {margin-bottom: 6rem;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 28,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "image_with_text_83HE6c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6bVe4M": {
+          "type": "heading",
+          "settings": {
+            "heading": "Who is Xtendlife",
+            "heading_size": "h1"
+          }
+        },
+        "text_hiq8D3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Xtendlife is a vertically integrated global health supplement and skincare company with its own specialised GMP and ISO facilities (take the tour). Xtendlife was a pioneer in trusted affiliate programs having paid out millions of dollars in commissions to its affiliates.</p><p>Xtendlife directly services customers in more than 90 countries, the majority being in the USA, Canada, UK, Australia, Singapore and other Asian countries. Xtendlife handles all shipping, billing and customer service.</p><p>Xtendlife products are all unique, scientifically formulated and 100% controlled by Xtendlife with no compromises in quality. They are only available online.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_7xtrmP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Apply now",
+            "button_link": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6bVe4M",
+        "text_hiq8D3",
+        "button_7xtrmP"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; } h2 {margin-bottom: 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1f613a848249190b57aae966ee9e44daec599335.png",
+        "height": "large",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_DymD7U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VnqTUe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Ivor-Cummins_405x323_526c0773-69fd-45c7-b292-99985c27e863_1.png",
+            "title": "Ivor Cummins",
+            "text": "<p>Ivor is best known for his series of videos as 'The Fat Emperor' for his work on Low Carb and Cardiovascular issues. After visiting New Zealand, meeting the team at Xtendlife and using the products he was converted and is now a supporter of Xtendlife with regular podcasts of the products he has an interest in. Ivor is based in Dublin, Ireland.</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/903918402"
+          }
+        },
+        "column_gea4K6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
+            "title": "Dan Ho",
+            "text": "<p>Dan was one of the first affiliates to join up with Xtendlife over 20 years ago. He has been an enthusiastic supporter ever since with earnings into the seven figures. Dan has been responsible for introducing other good affiliates over the years as well. Dan is based in Michigan, USA.</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/903918402"
+          }
+        },
+        "column_imwYgV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Paul_405x323_7ea21a4f-217d-431f-a1da-cca6ba075186_1.png",
+            "title": "Paul Mealing",
+            "text": "<p>Paul has been an affiliate with Xtendlife for around 15 years and is a significant user of Xtendlife’s products. He is a physical therapist with an interest in full body function, performance and aging. Paul is based in London, UK.</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/903918402"
+          }
+        }
+      },
+      "block_order": [
+        "column_VnqTUe",
+        "column_gea4K6",
+        "column_imwYgV"
+      ],
+      "custom_css": [
+        ".h1 {margin-bottom: 3rem;}",
+        "h3 {font-size: 1.6rem; margin-bottom: 1rem;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Affiliate Testimonials",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 32,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_HHyM8a": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zhEGVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Benefits",
+            "heading_size": "h1"
+          }
+        },
+        "text_fxdVQW": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Trusted partner with a solid 25+ year record</li><li>Hassle free... all orders, shipping, customer service taken care of</li><li>Global coverage* (excluding China)</li><li>Special offers to attract new customers</li></ul>",
+            "text_style": "subtitle"
+          }
+        },
+        "caption_rgGCKg": {
+          "type": "caption",
+          "settings": {
+            "caption": "*We may be unable to ship to certain countries due to their import regulations. If we receive an order that doesn't meet the necessary criteria, we will inform you.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zhEGVe",
+        "text_fxdVQW",
+        "caption_rgGCKg"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1;}",
+        ".image-with-text__text--caption.subtitle {font-size: 1.6rem; max-width: 500px;}",
+        ".subtitle {font-size: 2rem;}",
+        ".rte ul {padding-left: 3rem; max-width: 450px;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_13.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_A8yDrr": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_c9mVw4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your program",
+            "heading_size": "h1"
+          }
+        },
+        "text_xCfEAF": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>20% Commission for first order only</li><li>10% Commissions on all recurring orders</li><li>Commissions paid monthly</li><li>Bonus incentives based on total commission earnings calculated and paid twice yearly</li></ul>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_c9mVw4",
+        "text_xCfEAF"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        ".rte ul {padding-left: 3rem; max-width: 450px;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_14.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_RRFdfM": {
+      "type": "image-with-text",
+      "blocks": {
+        "collapsible_row_dTV7LK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "1. Apply",
+            "row_content": "<p>Provide a few details about yourself so your application can be processed.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_7NXDUR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "2. Confirmation",
+            "row_content": "<p>You will receive an email within 2 business days advising you the outcome of your application</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_xGW9yV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "3. Getting Paid",
+            "row_content": "<p>Within your affiliate account you will find details of the payment options along with all the tools needed to make your program a success.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "button_mfQmaA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Apply now",
+            "button_link": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_dTV7LK",
+        "collapsible_row_7NXDUR",
+        "collapsible_row_xGW9yV",
+        "button_mfQmaA"
+      ],
+      "custom_css": [
+        ".accordion {border: none;}",
+        ".accordion summary .icon-plus {display: none;}",
+        ".accordion summary {padding: 0;}",
+        ".accordion__content {margin: 1rem 0 2.5rem; max-width: 350px;}",
+        ".image-with-text__content {padding: 0 4rem;}",
+        "@media (min-width: 990px) {.accordion__title {font-size: 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 0; } .accordion summary {padding: 0.5rem 0; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "Getting Started",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-5",
+        "color_scheme": "scheme-5",
+        "padding_top": 48,
+        "padding_bottom": 100
+      }
+    },
+    "rich_text_YewMnP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RGRz3y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Certifications",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RGRz3y"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 80,
+        "padding_bottom": 20
+      }
+    },
+    "image_infinite_scroll_6YVr3i": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EahCNG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NPA-80x60pix_x60_d31236bb-3c1f-40c5-a912-2ac720291ea3.png",
+            "link": ""
+          }
+        },
+        "image_wQp7ij": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NZ-57x60pix_x60_e89473ec-1d52-43e0-ac04-3917ba125305.webp",
+            "link": ""
+          }
+        },
+        "image_36p7tN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FDA-160x60pix_x60_6213b4be-0c71-4fc4-991b-1c9d7582b95d.png",
+            "link": ""
+          }
+        },
+        "image_Qw9PXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_68.png",
+            "link": ""
+          }
+        },
+        "image_nxEX3U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/HACCP-106x60pix_x60_760ee935-bb03-4b37-9193-ce05d7385853.png",
+            "link": ""
+          }
+        },
+        "image_QXQebq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_69.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EahCNG",
+        "image_wQp7ij",
+        "image_36p7tN",
+        "image_Qw9PXi",
+        "image_nxEX3U",
+        "image_QXQebq"
+      ],
+      "custom_css": [
+        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
+        "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#ffffff",
+        "image_size_constraint": "height",
+        "image_max_size": 50,
+        "scroll_speed": 15,
+        "repeat_count": 1,
+        "image_gap": 0,
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_8VjQPY": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_89AqTf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who can become an Xtendlife affiliate?",
+            "icon": "none",
+            "row_content": "<p>Anyone can become an Xtendlife affiliate. Our affiliates come from all over the world. You are most likely to be successful if you have prior online marketing skills and experience.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fp9kgF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I generate commissions?",
+            "icon": "none",
+            "row_content": "<p>By referring people to our website who make a purchase, either using your unique affiliate link or your unique discount code during checkout.<br/><br/>If you refer someone who is already associated with another affiliate no commission will be generated.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cnj6hi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Someone I referred did not use my affiliate link when purchasing from Xtendlife. Can you add the customer to my affiliate account retroactively?",
+            "icon": "none",
+            "row_content": "<p>No, unfortunately, this isn’t possible. The new customer must use your unique affiliate link or discount code when registering in order to be linked with your affiliate account.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_erfxjF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will I receive my payments?",
+            "icon": "none",
+            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CEPPJf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I run paid ads using my affiliate link or discount code?",
+            "icon": "none",
+            "row_content": "<p>Yes, but you have to follow the rules that are part of our Terms & Conditions. Affiliate users shall not use the keyword “Xtendlife” or any variations in ads, nowhere in an ad copy - title or body text. Affiliate users can’t use the keyword \"Xtendlife\" or any variations and any Xtendlife Trademark within online ad campaigns (including, without limitation, within metadata or search-based advertising such as Google Adwords) without prior written consent from Xtendlife.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_g9cpCf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the cookie last?",
+            "icon": "none",
+            "row_content": "<p>Visitors have 90 days to make a purchase after clicking on your affiliate link.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jjMAK9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often do you process payouts for referrals?",
+            "icon": "none",
+            "row_content": "<p>Commissions are paid out every month. You will receive your payout in your PayPal account by the end of each month.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_89AqTf",
+        "collapsible_row_fp9kgF",
+        "collapsible_row_Cnj6hi",
+        "collapsible_row_erfxjF",
+        "collapsible_row_CEPPJf",
+        "collapsible_row_g9cpCf",
+        "collapsible_row_jjMAK9"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 10rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join us on the Journey",
+            "heading_size": "hxl"
+          }
+        },
+        "text_VhCp7b": {
+          "type": "text",
+          "settings": {
+            "text": "At Xtendlife, we believe in offering a better way for our customers to take care of their health. With our commitment to scientific research, quality, and our expert team, we are dedicated to improving the health and well-being of our customers. Join us on this journey and experience the difference that Xtendlife can make in your health and vitality.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Apply now",
+            "button_link_1": "https://affiliate-program.xtendlifeaffiliates.com/register?p=62762",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_VhCp7b",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        "h2 {line-height: 1.2;}",
+        ".subtitle {max-width: 630px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2rem; } .banner__box {align-items: flex-start; text-align: left; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/1ef6e5b3badfbad0f6509a58da515a4246ece173_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_pFjbBG",
+    "rich_text_fRcgNk",
+    "multicolumn_A6pqFF",
+    "image_with_text_83HE6c",
+    "multicolumn_DymD7U",
+    "image_with_text_HHyM8a",
+    "image_with_text_A8yDrr",
+    "image_with_text_RRFdfM",
+    "rich_text_YewMnP",
+    "image_infinite_scroll_6YVr3i",
+    "collapsible_content_8VjQPY",
+    "image_banner_eNjqNN",
+    "newsletter_qKtmmH"
+  ]
+}

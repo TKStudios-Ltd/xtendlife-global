@@ -1,0 +1,133 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_ref = collection.metafields.custom.collection_main_banner_desktop
+  assign tablet_ref  = collection.metafields.custom.collection_main_banner_tablet
+  assign mobile_ref  = collection.metafields.custom.collection_main_banner_mobile
+
+  assign desktop_img = nil
+  assign tablet_img  = nil
+  assign mobile_img  = nil
+
+  if desktop_ref != blank
+    assign desktop_img = desktop_ref | image_url: width: 3000
+  elsif collection.image
+    assign desktop_img = collection.image | image_url: width: 3000
+  endif
+
+  if tablet_ref != blank
+    assign tablet_img = tablet_ref | image_url: width: 2000
+  endif
+
+  if mobile_ref != blank
+    assign mobile_img = mobile_ref | image_url: width: 1200
+  endif
+-%}
+
+{%- style -%}
+  .collection-hero--bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+  }
+
+  /* default (desktop fallback, applies to all unless overridden later) */
+  .collection-hero--bg {
+    {% if desktop_img %}
+      background-image: url({{ desktop_img }});
+    {% endif %}
+  }
+
+  /* <= 989px (tablet) */
+  @media screen and (max-width: 989px) {
+    .collection-hero--bg {
+      {% if tablet_img %}
+        background-image: url({{ tablet_img }});
+      {% endif %}
+    }
+  }
+
+  /* <= 749px (mobile) */
+  @media screen and (max-width: 749px) {
+    .collection-hero--bg {
+      {% if mobile_img %}
+        background-image: url({{ mobile_img }});
+      {% endif %}
+    }
+  }
+
+  /* Vertically center text, keep left aligned */
+  .collection-hero__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 215px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .collection-hero__inner {
+      min-height: 440px;
+    }
+  }
+
+  /* Minor tweak for small screens so shadows don't overlap */
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding: 2rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+<nav class="breadcrumbs page-width" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span class="breadcrumbs__sep">›</span>
+  <span class="bc-current" aria-current="page">{{ collection.title | escape }}</span>
+</nav>
+
+{%- comment -%} Banner {%- endcomment -%}
+<div class="collection-hero__wrapper page-width">
+  <div
+    class="collection-hero{% if desktop_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }}"
+  >
+    <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <div class="collection-hero__text-wrapper">
+        <h1 class="collection-hero__title">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {{- collection.title | escape -}}
+        </h1>
+
+        {%- if section.settings.show_collection_description and collection.description != blank -%}
+          <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}

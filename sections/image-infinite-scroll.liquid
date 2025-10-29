@@ -1,0 +1,212 @@
+{% stylesheet %}
+.image-scroll-section {
+  overflow: hidden;
+}
+
+.image-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: scroll-marquee linear infinite;
+}
+
+.image-scroll-item {
+  flex: 0 0 auto;
+  margin-right: var(--image-gap, 16px);
+}
+
+.image-scroll-item img {
+  height: auto;
+  width: auto;
+  display: block;
+}
+
+.image-scroll-wrapper[data-size="width"] .image-scroll-item img {
+  max-width: var(--image-max-size);
+  width: auto;
+  height: auto;
+}
+
+.image-scroll-wrapper[data-size="height"] .image-scroll-item img {
+  max-height: var(--image-max-size);
+  height: auto;
+  width: 100%;
+}
+/* @media (max-width: 749px) {
+  .image-scroll-wrapper[data-size="width"] .image-scroll-item img {
+    max-width: calc((var(--image-max-size)) / 1.5);
+  }
+  .image-scroll-wrapper[data-size="height"] .image-scroll-item img {
+    max-height: calc((var(--image-max-size)) / 1.5);
+  }
+} */
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+{% endstylesheet %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: rgb(var(--color-{{ section.settings.color_scheme }}));
+  }
+  #ImageScroll-{{ section.id }} .image-scroll-wrapper {
+    --image-max-size: {{ section.settings.image_max_size }}px;
+    animation-duration: {{ section.settings.scroll_speed }}s;
+  }
+  @media (max-width: 749px) {
+    #ImageScroll-{{ section.id }} .image-scroll-wrapper {
+      --image-max-size: calc(({{ section.settings.image_max_size }}px) / 1.5);
+    }
+  }
+{%- endstyle -%}
+
+<div
+  id="ImageScroll-{{ section.id }}"
+  class="image-scroll-section section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.background_color }}; --image-gap: {{ section.settings.image_gap }}px;"
+>
+  <div class="image-scroll-wrapper" data-size="{{ section.settings.image_size_constraint }}">
+    {%- for i in (1..section.settings.repeat_count) -%}
+      {%- for block in section.blocks -%}
+        <div class="image-scroll-item" {{ block.shopify_attributes }}>
+          {% if block.settings.link %}
+            <a href="{{ block.settings.link }}">
+          {% endif %}
+          {%- if block.settings.image -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 1000 }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              loading="lazy"
+            >
+          {%- endif -%}
+          {% if block.settings.link %}
+            </a>
+          {% endif %}
+        </div>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Infinite Scroll",
+  "tag": "section",
+  "class": "section image-infinite-scroll",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "image_size_constraint",
+      "label": "Constrain By",
+      "default": "height",
+      "options": [
+        {
+          "value": "height",
+          "label": "Max Height"
+        },
+        {
+          "value": "width",
+          "label": "Max Width"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "image_max_size",
+      "label": "Max Size (px)",
+      "min": 50,
+      "max": 600,
+      "step": 10,
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll Speed (seconds)",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "repeat_count",
+      "label": "Repeat Images",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Gap Between Images (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Infinite Scroll",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

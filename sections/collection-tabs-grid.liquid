@@ -1,0 +1,309 @@
+{% comment %}
+  Promo Collection Tabs (Dawn-compatible, BLOCKS)
+  - Uses your featured-collection layout/classes for header + tabs
+  - Tabs are dynamic blocks; each block renders a collection grid
+  - Static promo card per block with desktop + mobile images
+  - FIXES: correct 1-col mobile visibility, Dawn media ratios (no manual height hacks), mobile fallback, optional full-row span
+{% endcomment %}
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+{%- endunless -%}
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
+{%- endif -%}
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- style -%}
+.section-{{ section.id }}-padding{ padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px; padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px; }
+@media (min-width:750px){ .section-{{ section.id }}-padding{ padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px; } }
+
+/* Your existing layout classes */
+#pct-{{ section.id }} .collection__title_inline{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+#pct-{{ section.id }} .featured-collections-buttons{ display:flex; gap:1rem; flex-wrap:wrap; }
+#pct-{{ section.id }} .fctab{ appearance:none; background:#fff; color:inherit; border-radius:999px; padding:.75rem 1.75rem; cursor:pointer; }
+#pct-{{ section.id }} .fctab[aria-selected="true"]{ background:#1F1946; color:#fff; border-color:#1F1946; }
+#pct-{{ section.id }} .fctab-panel[hidden]{ display:none !important; }
+#pct-{{ section.id }} .product-grid{ margin-top: 2rem; }
+
+/* Optional tighter gutters on mobile */
+@media (max-width: 989px){
+  #pct-{{ section.id }} .featured-collections-grids{ margin-left:-2rem; margin-right:-2rem; }
+  #pct-{{ section.id }} .product-grid{ padding-left:2rem; padding-right:2rem; }
+}
+@media (max-width:749px){
+  #pct-{{ section.id }} .collection__title_inline{ flex-direction:column; align-items:flex-start !important; gap:2rem !important; }
+  #pct-{{ section.id }} .collection__title.title-wrapper{ margin-bottom:4rem !important; }
+  #pct-{{ section.id }} .featured-collections-buttons{ width:100%; }
+  #pct-{{ section.id }} .fctab{ flex:0 0 calc(50% - 0.5rem); }
+}
+
+/* Static promo card visuals (use Dawn media ratios) */
+#pct-{{ section.id }} .static-card__inner { display:block; text-decoration:none; }
+#pct-{{ section.id }} .static-card__media { position:relative; overflow:hidden; border-radius: var(--radius, 8px); }
+/* Make picture fill the media box (fixes 1-col tablet-down) */
+#pct-{{ section.id }} .static-card__media .media { position: relative; padding-bottom: calc(100% + 122px); }
+#pct-{{ section.id }} .static-card__media .media picture { position: absolute; inset: 0; display: block; }
+#pct-{{ section.id }} .static-card__media .media picture img { display:block; width:100%; height:100%; object-fit:cover; }
+
+#pct-{{ section.id }} .static-card__caption{ margin-top:.5rem; text-align:center; font-weight:600; }
+/* Make static card span full row when enabled */
+#pct-{{ section.id }} .grid__item--static-full { grid-column: 1 / -1; }
+{%- endstyle -%}
+
+<div id="pct-{{ section.id }}" class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}" data-id="{{ section.id }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+      <div class="collection__title_inline">
+        {% if section.settings.title != blank %}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {%- assign tabs_present = false -%}
+        {%- for b in section.blocks -%}{% if b.type == 'tab' %}{% assign tabs_present = true %}{% break %}{% endif %}{%- endfor -%}
+        {% if tabs_present %}
+          <div class="featured-collections-buttons" role="tablist" aria-label="Promo collection tabs">
+            {%- assign idx = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'tab' -%}
+                {%- assign label = block.settings.label -%}
+                {%- assign coll_handle = block.settings.collection -%}
+                {%- if label != blank and coll_handle != blank -%}
+                  {%- assign tab_id = 'pctab-' | append: block.id -%}
+                  <button id="{{ tab_id }}" class="fctab button" type="button" role="tab" data-target="{{ block.id }}" aria-controls="pcpanel-{{ block.id }}" {% if idx == 0 %}aria-selected="true"{% else %}aria-selected="false"{% endif %}>{{ label }}</button>
+                  {%- assign idx = idx | plus: 1 -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_description and section.settings.description != blank %}
+        <div class="collection__description rte {{ section.settings.description_style }}">{{ section.settings.description }}</div>
+      {% endif %}
+    </div>
+
+    <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
+      {%- assign first_done = false -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tab' -%}
+          {%- assign label = block.settings.label -%}
+          {%- assign coll_handle = block.settings.collection -%}
+          {%- if label == blank or coll_handle == blank -%}{% continue %}{% endif %}
+          {%- assign limit = block.settings.limit | default: section.settings.default_limit -%}
+          {%- assign view_all = block.settings.view_all -%}
+          {%- assign coll = collections[coll_handle] -%}
+
+          {%- assign static_enabled = block.settings.static_enable -%}
+          {%- assign static_position = block.settings.static_position | default: 'first' -%}
+          {%- assign static_link = block.settings.static_link -%}
+          {%- assign static_image = block.settings.static_image -%}
+          {%- assign static_image_mobile = block.settings.static_image_mobile -%}
+          {%- assign static_alt = block.settings.static_alt | default: label -%}
+          {%- assign static_full = block.settings.static_full_row -%}
+
+          <div id="pcpanel-{{ block.id }}" class="fctab-panel" role="tabpanel" aria-labelledby="pctab-{{ block.id }}" {% if first_done %}hidden{% endif %}>
+            <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+
+              {% assign render_static = false %}
+              {% if static_enabled %}
+                {% if static_image != blank or static_image_mobile != blank %}
+                  {% assign render_static = true %}
+                {% endif %}
+              {% endif %}
+
+              {%- assign media_class = 'media--adapt' -%}
+              {%- if section.settings.image_ratio == 'square' -%}
+                {%- assign media_class = 'media--square' -%}
+              {%- elsif section.settings.image_ratio == 'portrait' -%}
+                {%- assign media_class = 'media--portrait' -%}
+              {%- endif -%}
+
+              {%- if render_static and static_position == 'first' -%}
+                {%- assign static_src = static_image | default: static_image_mobile -%}
+                {%- assign ratio_img = static_image_mobile | default: static_image -%}
+                {%- assign ratio_percent = 100 -%}
+                {%- if ratio_img != blank and ratio_img.aspect_ratio -%}
+                  {%- assign ratio_percent = 1 | divided_by: ratio_img.aspect_ratio | times: 100 -%}
+                {%- endif -%}
+                <li class="grid__item{% if static_full %} grid__item--static-full{% endif %}">
+                  <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                    <div class="card card--standard static-card__media">
+                      <div class="card__inner">
+                        <div class="media {{ media_class }}"{% if media_class == 'media--adapt' %} style="--ratio-percent: {{ ratio_percent }}%;"{% endif %}>
+                          <picture>
+                            {% if static_image_mobile != blank %}
+                              <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                            {% endif %}
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)">
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
+                  </a>
+                </li>
+              {%- endif -%}
+
+              {%- assign skip_card_product_styles = false -%}
+              {%- for product in coll.products limit: limit -%}
+                <li class="grid__item">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    lazy_load: false,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    section_id: section.id,
+                    quick_add: section.settings.quick_add %}
+                </li>
+                {%- assign skip_card_product_styles = true -%}
+              {%- endfor -%}
+
+              {%- if render_static and static_position == 'last' -%}
+                {%- assign static_src = static_image | default: static_image_mobile -%}
+                {%- assign ratio_img = static_image_mobile | default: static_image -%}
+                {%- assign ratio_percent = 100 -%}
+                {%- if ratio_img != blank and ratio_img.aspect_ratio -%}
+                  {%- assign ratio_percent = 1 | divided_by: ratio_img.aspect_ratio | times: 100 -%}
+                {%- endif -%}
+                <li class="grid__item{% if static_full %} grid__item--static-full{% endif %}">
+                  <a class="card-wrapper underline-links-hover static-card__inner" {% if static_link != blank %}href="{{ static_link }}"{% else %}tabindex="-1" aria-disabled="true"{% endif %}>
+                    <div class="card card--standard static-card__media">
+                      <div class="card__inner">
+                        <div class="media {{ media_class }}"{% if media_class == 'media--adapt' %} style="--ratio-percent: {{ ratio_percent }}%;"{% endif %}>
+                          <picture>
+                            {% if static_image_mobile != blank %}
+                              <source media="(max-width: 749px)" srcset="{{ static_image_mobile | image_url: width: 900 }} 1x, {{ static_image_mobile | image_url: width: 1800 }} 2x">
+                            {% endif %}
+                            <img loading="lazy" alt="{{ static_alt | escape }}" src="{{ static_src | image_url: width: 1200 }}" srcset="{{ static_src | image_url: width: 600 }} 600w, {{ static_src | image_url: width: 900 }} 900w, {{ static_src | image_url: width: 1200 }} 1200w" sizes="(min-width: 990px) calc((100vw - 160px)/{{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 96px)/{{ section.settings.columns_desktop }}), calc(100vw - 32px)">
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                    {% if section.settings.static_caption_enable %}<div class="static-card__caption">{{ block.settings.static_caption_text | default: section.settings.static_caption_text | default: label }}</div>{% endif %}
+                  </a>
+                </li>
+              {%- endif -%}
+
+            </ul>
+
+            {% if block.settings.view_all and coll.url %}
+              <div class="center collection__view-all">
+                <a href="{{ coll.url }}" class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}">View all {{ coll.title | escape }}</a>
+              </div>
+            {% endif %}
+          </div>
+          {%- assign first_done = true -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% if tabs_present == false %}
+        <p class="page-width">Add at least one Tab block to render products.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById('pct-{{ section.id }}');
+  if (!root) return;
+  const tabs = Array.from(root.querySelectorAll('.fctab'));
+  if (!tabs.length) return;
+
+  function activate(targetId){
+    tabs.forEach(btn => btn.setAttribute('aria-selected', btn.dataset.target === targetId ? 'true' : 'false'));
+    root.querySelectorAll('.fctab-panel').forEach(p => {
+      p.toggleAttribute('hidden', p.id !== 'pcpanel-' + targetId);
+    });
+  }
+
+  tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Promo Collection Tabs",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "title", "label": "Heading", "default": "Shop our products" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "options": [ { "value": "h2", "label": "H2" }, { "value": "h1", "label": "H1" }, { "value": "h0", "label": "H0" }, { "value": "hxl", "label": "HXL" }, { "value": "hxxl", "label": "HXXL" } ], "default": "h1" },
+
+    { "type": "richtext", "id": "description", "label": "Description" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": false },
+    { "type": "select", "id": "description_style", "label": "Description style", "options": [ { "value": "body", "label": "Body" }, { "value": "subtitle", "label": "Subtitle" }, { "value": "uppercase", "label": "Uppercase" } ], "default": "body" },
+
+    { "type": "header", "content": "Cards" },
+    { "type": "select", "id": "image_ratio", "label": "Image ratio", "options": [ { "value": "adapt", "label": "Adapt to image" }, { "value": "portrait", "label": "Portrait" }, { "value": "square", "label": "Square" } ], "default": "adapt" },
+    { "type": "select", "id": "image_shape", "label": "Image shape", "options": [ { "value": "default", "label": "Default" }, { "value": "arch", "label": "Arch" }, { "value": "blob", "label": "Blob" }, { "value": "chevronleft", "label": "Chevron left" }, { "value": "chevronright", "label": "Chevron right" }, { "value": "diamond", "label": "Diamond" }, { "value": "parallelogram", "label": "Parallelogram" }, { "value": "round", "label": "Round" } ], "default": "default" },
+    { "type": "checkbox", "id": "show_secondary_image", "default": false, "label": "Show second image on hover" },
+    { "type": "checkbox", "id": "show_vendor", "default": false, "label": "Show vendor" },
+    { "type": "checkbox", "id": "show_rating", "default": false, "label": "Show rating" },
+
+    { "type": "select", "id": "quick_add", "default": "none", "label": "Quick add", "options": [ { "value": "none", "label": "None" }, { "value": "standard", "label": "Standard" }, { "value": "bulk", "label": "Bulk (B2B)" } ] },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 4, "label": "Columns on desktop" },
+    { "type": "select", "id": "columns_mobile", "label": "Columns on mobile", "options": [ { "value": "1", "label": "1" }, { "value": "2", "label": "2" } ], "default": "2" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+
+    { "type": "checkbox", "id": "static_caption_enable", "label": "Show caption under static card", "default": false },
+    { "type": "text", "id": "static_caption_text", "label": "Default static caption text" },
+
+    { "type": "header", "content": "View all button" },
+    { "type": "checkbox", "id": "show_view_all", "default": true, "label": "Enable View all when block toggles it" },
+    { "type": "select", "id": "view_all_style", "label": "View all button style", "options": [ { "value": "link", "label": "Link" }, { "value": "outline", "label": "Outline button" }, { "value": "solid", "label": "Solid button" } ], "default": "solid" },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+
+    { "type": "header", "content": "Section padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 36 },
+
+    { "type": "range", "id": "default_limit", "label": "Default products to show (fallback)", "min": 4, "max": 48, "step": 1, "default": 15 }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Tab label", "default": "Featured" },
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "range", "id": "limit", "label": "Products to show", "min": 4, "max": 48, "step": 1, "default": 15 },
+        { "type": "checkbox", "id": "view_all", "label": "Show ‘View all’ button", "default": true },
+
+        { "type": "header", "content": "Static promo card" },
+        { "type": "checkbox", "id": "static_enable", "label": "Enable static promo card", "default": false },
+        { "type": "select", "id": "static_position", "label": "Static card position", "default": "first", "options": [ { "value": "first", "label": "First" }, { "value": "last", "label": "Last" } ] },
+        { "type": "checkbox", "id": "static_full_row", "label": "Static card spans full row", "default": false },
+        { "type": "url", "id": "static_link", "label": "Static card link" },
+        { "type": "image_picker", "id": "static_image", "label": "Static item Image (desktop)" },
+        { "type": "image_picker", "id": "static_image_mobile", "label": "Static item mobile Image" },
+        { "type": "text", "id": "static_alt", "label": "Static image alt", "default": "Promo" },
+        { "type": "text", "id": "static_caption_text", "label": "Static caption override" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Promo Collection Tabs" } ]
+}
+{% endschema %}

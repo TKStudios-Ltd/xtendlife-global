@@ -1,0 +1,215 @@
+{% comment %} Testimonial Slider {% endcomment %}
+
+{%- style -%}
+.section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    overflow-x: clip; /* no sideways scroll on right-bleed */
+}
+@media (min-width:750px){
+    .section-{{ section.id }}-padding{
+      padding-top:{{ section.settings.padding_top }}px;
+      padding-bottom:{{ section.settings.padding_bottom }}px;
+    }
+}
+
+/* Heading */
+.section-{{ section.id }}-padding .ts2-heading{ 
+    margin: 0 0 8rem 0; 
+}
+
+.section-{{ section.id }}-padding .ts2-bleed {
+  width: calc(100vw - ((100vw - 1400px) / 2));
+}
+
+@media (max-width: 989px) {
+  .section-{{ section.id }}-padding .ts2-bleed {
+    width: 100% !important;
+    margin-right: -2rem;
+  }
+  .section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide{
+    width: 100% !important;
+  }
+  .section-{{ section.id }}-padding .ts2-card {
+    padding: 2rem 0 !important;
+  }
+  .section-{{ section.id }}-padding .ts2-quote {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 1.5rem 0 !important;
+  }
+  .section-{{ section.id }}-padding .ts2-photo {
+    aspect-ratio: 1;
+  }
+  .section-{{ section.id }}-padding .ts2-heading {
+    margin: -2rem 0 4rem 0;
+  }
+}
+@media (min-width: 990px) and (max-width: 1599px) {
+  .section-{{ section.id }}-padding .ts2-bleed{
+    width: calc(100% + var(--right-gutter));
+    margin-right: -2rem;
+  }
+}
+
+/* Swiper fallbacks */
+.section-{{ section.id }}-padding .ts2-swiper{ overflow:hidden; --g: {{ section.settings.gap | default: 32 }}px; }
+.section-{{ section.id }}-padding .ts2-swiper .swiper-wrapper{ display:flex; }
+.section-{{ section.id }}-padding .ts2-swiper .swiper-slide{ flex-shrink:0; height:auto; }
+
+.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide {
+  width: calc((100% - var(--g)) / 1.2);
+}
+.section-{{ section.id }}-padding .ts2-swiper[data-mode="fixed"] .swiper-slide .ts2-photo img {
+  transition: opacity .4s ease;
+  opacity: .3;
+}
+.section-{{ section.id }}-padding .ts2-swiper .swiper-slide.swiper-slide-active .ts2-photo img { opacity: 1; }
+
+/* Card layout (image left, text right) */
+.section-{{ section.id }}-padding .ts2-card{
+    background:#fff; 
+    border-radius: 10px;
+    padding: 2rem 8rem 2rem 0;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+@media (max-width: 989px){
+    .section-{{ section.id }}-padding .ts2-card{ grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.section-{{ section.id }}-padding .ts2-photo{
+    border-radius: 10px; overflow:hidden;
+    aspect-ratio: 4 / 5; /* adjust if needed */
+    background: #f3f4f6;
+}
+.section-{{ section.id }}-padding .ts2-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.section-{{ section.id }}-padding .ts2-quote {
+    font-size: 24px;
+    line-height: 1.35;
+    margin: 0 0 2.5rem 0;
+}
+.section-{{ section.id }}-padding .ts2-name{ 
+    font-size: 16px;
+    font-weight: 500; 
+    margin: 0; 
+}
+.section-{{ section.id }}-padding .ts2-role{ 
+    font-size: 16px;
+    opacity: .4;
+    margin: 0; 
+}
+/* Pagination dots (no arrows) */
+.section-{{ section.id }}-padding .ts2-pagination{ 
+    position: relative;
+    text-align: left;
+    margin-top: 8rem; 
+}
+.section-{{ section.id }}-padding .ts2-pagination .swiper-pagination-bullet {
+    width: 10px; 
+    height: 10px; 
+    border-radius: 999px; 
+    background: #DBEEFF; 
+    opacity: 1;
+}
+.section-{{ section.id }}-padding .ts2-pagination .swiper-pagination-bullet-active {
+    background: #1F1946; 
+    opacity: 1;
+    width: 46px;
+}
+{%- endstyle -%}
+
+<section
+  id="testimonial-slider-{{ section.id }}"
+  class="section-{{ section.id }}-padding"
+  data-testimonial-slider
+  style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="ts2-heading h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+  </div>
+
+  <!-- slider starts inside page-width then bleeds to right edge -->
+  <div class="page-width">
+    <div class="ts2-bleed">
+      <div
+        class="swiper ts2-swiper"
+        data-mode="fixed"
+        data-gap="{{ section.settings.gap | default: 32 }}"
+        data-speed="{{ section.settings.speed | default: 500 }}"
+        data-autoplay="{{ section.settings.autoplay | default: false }}"
+        data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+        data-dots="true"
+      >
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            {%- assign b = block.settings -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <article class="ts2-card">
+                <div class="ts2-photo">
+                  {% if b.image != blank %}
+                    {{ b.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 420px, 100vw', widths: '420,640,840,1200', alt: b.name | escape }}
+                  {% endif %}
+                </div>
+                <div class="ts2-copy">
+                  {% if b.quote != blank %}
+                    <p class="ts2-quote">{{ b.quote | strip_html | escape }}</p>
+                  {% endif %}
+                  {% if b.name != blank %}
+                    <p class="ts2-name">{{ b.name }}</p>
+                  {% endif %}
+                  {% if b.role != blank %}
+                    <p class="ts2-role">{{ b.role }}</p>
+                  {% endif %}
+                </div>
+              </article>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- dots live inside the page-width, left aligned -->
+  <div class="page-width">
+    <div class="ts2-pagination swiper-pagination"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial slider",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Health Ambassadors" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#FFFFFF" },
+    { "type": "range", "id": "gap", "label": "Slide gap (px)", "min": 0, "max": 48, "step": 2, "default": 32 },
+    { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 100, "max": 1200, "step": 50, "default": 500 },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (ms)", "min": 1500, "max": 8000, "step": 100, "default": 4000 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 56 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr Joel Kahn" },
+        { "type": "text", "id": "role", "label": "Role", "default": "MD, Cardiologist" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    { "name": "Testimonial slider", "blocks": [ { "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" } ] }
+  ]
+}
+{% endschema %}

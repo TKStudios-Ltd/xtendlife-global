@@ -1,0 +1,262 @@
+{% stylesheet %}
+.scrolling-text-rotator {
+  position: relative;
+}
+.scrolling-text-rotator__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 680px;
+}
+.scrolling-text-rotator__left,
+.scrolling-text-rotator__right {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.scrolling-text-rotator__left {
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+.scrolling-text-rotator__right {
+  justify-content: flex-start;
+  padding-left: 4rem;
+}
+.scrolling-text-rotator__wrapper {
+  position: relative;
+  height: 680px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  -webkit-mask-image: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 25%,black 35%,black 65%,rgba(0,0,0,.5) 75%,transparent 100%);
+  mask-image: linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 25%,black 35%,black 65%,rgba(0,0,0,.5) 75%,transparent 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Swiper Styles Scoped to Scrolling Text Rotator */
+.scrolling-text-rotator .swiper-rotator {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.scrolling-text-rotator .swiper-rotator .swiper-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scrolling-text-rotator .swiper-rotator .swiper-slide {
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 6.4rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.scrolling-text-rotator .swiper-rotator .swiper-slide-active {
+  opacity: 1;
+  color: #DD5634;
+  transform: scale(1);
+}
+
+.scrolling-text-rotator .swiper-rotator .swiper-slide-prev,
+.scrolling-text-rotator .swiper-rotator .swiper-slide-next {
+  opacity: 1;
+}
+
+.scrolling-text-rotator .swiper-rotator .swiper-slide-next + .swiper-slide,
+.scrolling-text-rotator .swiper-rotator .swiper-slide-prev ~ .swiper-slide:not(.swiper-slide-next) {
+  opacity: 1;
+}
+
+@media (max-width: 749px) {
+  .scrolling-text-rotator__grid {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 400px;
+  }
+  .scrolling-text-rotator__wrapper {
+    height: 400px;
+    -webkit-mask-image: linear-gradient(to bottom,black 10%,rgba(0,0,0,.5) 40%,transparent 100%);
+    mask-image: linear-gradient(to bottom,black 10%,rgba(0,0,0,.5) 40%,transparent 100%);
+  }
+  .scrolling-text-rotator__left {
+    flex: 0 0 100%;
+    display: block;
+    width: 100%;
+  }
+  .scrolling-text-rotator__heading {
+    margin-bottom: 0;
+    position: relative;
+    text-align: left;
+  }
+  .scrolling-text-rotator .swiper-rotator .swiper-slide {
+    font-size: 3.2rem !important;
+  }
+  .scrolling-text-rotator__heading::after {
+    content: "";
+    z-index: 2;
+    left: 0;
+    bottom: -25px;
+    position: absolute;
+    height: 25px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(245, 223, 172, 1) 0%, rgba(245, 223, 172, 0) 50%);
+  }
+  .scrolling-text-rotator__right {
+    flex: 0 0 100%;
+    padding-left: 0;
+  }
+}
+{% endstylesheet %}
+
+<section class="scrolling-text-rotator color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="scrolling-text-rotator__container page-width">
+    <div class="scrolling-text-rotator__grid">
+      <div class="scrolling-text-rotator__left">
+        <h2 class="hxl scrolling-text-rotator__heading inline-richtext">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+      <div class="scrolling-text-rotator__right">
+        <div class="scrolling-text-rotator__wrapper">
+          <div class="swiper swiper-rotator" data-delay="{{ section.settings.speed | times: 1000 }}">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide scrolling-text-rotator__item">
+                  {{ block.settings.text }}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const rotatorSwiper = document.querySelector('.swiper-rotator');
+    if (!rotatorSwiper || typeof Swiper === 'undefined') return;
+
+    new Swiper(rotatorSwiper, {
+      direction: 'vertical',
+      loop: true,
+      allowTouchMove: false,
+      speed: 4000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 10,
+          freeMode: true,
+          centeredSlides: false
+        },
+        750: {
+          slidesPerView: 10,
+          centeredSlides: true,
+          freeMode: false
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Scrolling Text Rotator",
+  "tag": "section",
+  "class": "scrolling-text-rotator-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Rotating Messages"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Rotation Speed (seconds)",
+      "min": 5,
+      "max": 120,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "duplicate",
+      "label": "Duplicate content for seamless loop",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Scrolling item text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Scrolling Text Rotator",
+      "blocks": [
+        { "type": "text" },
+        { "type": "text" },
+        { "type": "text" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

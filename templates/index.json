@@ -1,0 +1,1004 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "media_hero_slider_VC34DA": {
+      "type": "media-hero-slider",
+      "blocks": {
+        "slide_Bwck6W": {
+          "type": "slide",
+          "settings": {
+            "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
+            "video_adapt_ratio": 30,
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "body",
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all-bundles",
+            "button_style_secondary_2": true
+          }
+        },
+        "slide_4TWen8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/iStock-1208575446_5.jpg",
+            "image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "heading": "Your best years are now",
+            "heading_size": "h1",
+            "text": "Healthy aging begins with the choices you make today.",
+            "text_style": "body",
+            "button_label_1": "Fuel your future",
+            "button_link_1": "shopify://products/nr6-natural-nad-booster",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "slide_Bwck6W",
+        "slide_4TWen8"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.banner__buttons {justify-content: center; }}"
+      ],
+      "name": "Video Hero Slider",
+      "settings": {
+        "wide_container": false,
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "stack_text_on_mobile": false,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "loop": true,
+        "speed": 500
+      }
+    },
+    "multicolumn_A6pqFE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "rich_text_e8Phjw": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_7DPJhe": {
+          "type": "caption",
+          "settings": {
+            "caption": "From your first health goals to your evolving needs later in life, Xtendlife is here, Supporting your body, mind, and wellbeing through every stage.",
+            "text_style": "subtitle",
+            "text_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "caption_7DPJhe"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.rich-text__wrapper {margin-bottom: 12rem; }}",
+        "@media screen and (max-width: 749px) {.rich-text__wrapper {margin-bottom: 6rem; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "featured_collection_jqXfKn": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
+      ],
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "best-sellers",
+        "products_to_show": 4,
+        "title": "Our Best Sellers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_tabs_4TAPEz": {
+      "type": "image-with-tabs",
+      "blocks": {
+        "tab_cC9BLF": {
+          "type": "tab",
+          "settings": {
+            "title": "Daily Support",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/daily-support",
+            "image": "shopify://shop_images/AdobeStock_593601398_2.jpg",
+            "image_text": "Feel your best every day, from the inside out.",
+            "image_text_color": "#ffffff"
+          }
+        },
+        "tab_6MHMhU": {
+          "type": "tab",
+          "settings": {
+            "title": "Gut Protection",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/gut-protection",
+            "image": "shopify://shop_images/AdobeStock_408280663_2.jpg",
+            "image_text": "Balance begins in the gut; keep yours thriving.",
+            "image_text_color": "#ffffff"
+          }
+        },
+        "tab_wGCgzW": {
+          "type": "tab",
+          "settings": {
+            "title": "Immunity",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/immunity",
+            "image": "shopify://shop_images/AdobeStock_637318105_1.jpg",
+            "image_text": "Stay strong through every season.",
+            "image_text_color": "#ffffff"
+          }
+        },
+        "tab_kQXkqM": {
+          "type": "tab",
+          "settings": {
+            "title": "Digestion",
+            "button_label": "Shop now",
+            "button_link": "#",
+            "image": "shopify://shop_images/iStock-1208575446_2.jpg",
+            "image_text": "Ease, comfort, and balance with every meal.",
+            "image_text_color": ""
+          }
+        },
+        "tab_AEycWe": {
+          "type": "tab",
+          "settings": {
+            "title": "Hormone",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/hormone",
+            "image": "shopify://shop_images/AdobeStock_497278044_1.jpg",
+            "image_text": "Support steady energy, mood, and hormonal balance.",
+            "image_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "tab_cC9BLF",
+        "tab_6MHMhU",
+        "tab_wGCgzW",
+        "tab_kQXkqM",
+        "tab_AEycWe"
+      ],
+      "custom_css": [
+        "@media (max-width: 989px) {.title-wrapper-with-link {margin: -1rem 0 4rem; }}"
+      ],
+      "name": "Image with Tabs",
+      "settings": {
+        "heading": "Shop by Benefit",
+        "heading_size": "h2",
+        "layout": "image_first",
+        "left_col_width": 1,
+        "right_col_width": 1,
+        "autoplay": true,
+        "autoplay_delay": 5,
+        "loop": false,
+        "section_color_scheme": "scheme-5",
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "collection_list_GrRzez": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_Jf9g4L": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements",
+            "custom_image": "shopify://shop_images/AdobeStock_235909565_3.jpg",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_collection_EpNNwA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skincare",
+            "custom_image": "shopify://shop_images/AdobeStock_525312285_3.jpg",
+            "custom_title": "Skincare",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        },
+        "featured_collection_RVqwaj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "all-bundles",
+            "custom_image": "shopify://shop_images/Hand-holding_CX8_TBMP_TBWP_2184011925_3.jpg",
+            "custom_title": "Bundles",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_Jf9g4L",
+        "featured_collection_EpNNwA",
+        "featured_collection_RVqwaj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Explore by Type",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_WDY4Mw": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_dXUhdE": {
+          "type": "caption",
+          "settings": {
+            "caption": "If you’re going to take one supplement, make it Total Balance. More than a multivitamin, it’s a comprehensive nutrient system, formulated with over 90 bioactive ingredients and tailored versions for men and women to support energy, focus, and long-term well-being. Discover why it’s our most trusted formula for over 25 years",
+            "additional_caption": "Go Beyond Multivitamins",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "text_cAbQL9": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption_dXUhdE",
+        "text_cAbQL9"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.image-with-text__content {padding: 4rem 6rem 4rem 0; justify-content: space-between !important; } .image-with-text__media-item {max-height: 600px !important; }}",
+        "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 6rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/TBMP_DSC00103_1_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_WMG6Jn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JYBcXx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Xtendlife is an FDA registered and GMP certified facility",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JYBcXx"
+      ],
+      "custom_css": [
+        ".rich-text__heading {max-width: 320px; line-height: 1.1;}",
+        ".rich-text__wrapper {width: 100% !important;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 80,
+        "padding_bottom": 12
+      }
+    },
+    "image_infinite_scroll_KcRcLX": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EF8DJG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NPA-80x60pix_x60_9c9ef50c-2fa8-4938-ba79-b05c915b467b.png",
+            "link": ""
+          }
+        },
+        "image_Ur7NEn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NZ-57x60pix_x60_114109e5-ec05-4965-851c-f0e950f8d9e5.webp",
+            "link": ""
+          }
+        },
+        "image_CjrLfw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FDA-160x60pix_x60_b604011d-4075-4809-9d61-6d3e1d698af7.png",
+            "link": ""
+          }
+        },
+        "image_VURcxm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/HACCP-106x60pix_x60_527ce819-2218-44c2-829c-a76f11082a92.png",
+            "link": ""
+          }
+        },
+        "image_BkBAxd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_72.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EF8DJG",
+        "image_Ur7NEn",
+        "image_CjrLfw",
+        "image_VURcxm",
+        "image_BkBAxd"
+      ],
+      "custom_css": [
+        ".image-scroll-wrapper {align-items: center;}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#ffffff",
+        "image_size_constraint": "height",
+        "image_max_size": 90,
+        "scroll_speed": 40,
+        "repeat_count": 5,
+        "image_gap": 52,
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_KCQTNJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_bz9N8Y": {
+          "type": "caption",
+          "settings": {
+            "caption": "",
+            "additional_caption": "The Xtendlife Difference",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "text_fQHPQr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When it comes to your health, quality isn’t a claim. It’s a promise.</p><p>Our formulations are backed by over 25 years of continuous innovation, research, and care. All our supplements are produced in a GMP-certified and FDA-registered facility under strict quality and safety standards.</p><p>We’re also ISO 9001 accredited and MPI registered, meaning every process, ingredient, and batch is tested and traceable from start to finish.</p><p>Our commitment to continuous improvement ensures every product meets, and often exceeds, global standards for purity, safety, and performance.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_Qekx44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/our-story",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_bz9N8Y",
+        "text_fQHPQr",
+        "button_Qekx44"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}",
+        "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 0; }}",
+        ".image-with-text__text--caption .lower--opacity {margin-bottom: 0;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/felix-lam-J7fxkhtOqt0-unsplash_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "featured_product_slider_9pxfm9": {
+      "type": "featured-product-slider",
+      "blocks": {
+        "rating_pXjyQW": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_ABDKJM": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "custom_liquid_dhKtJe": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          }
+        },
+        "buy_buttons_7k66ND": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "text_tU8LkY": {
+          "type": "text",
+          "settings": {
+            "text": "Free shipping on orders over $100. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>",
+            "text_style": "body"
+          }
+        },
+        "icon_with_text_3tTAAd": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal"
+          }
+        }
+      },
+      "block_order": [
+        "rating_pXjyQW",
+        "title_ABDKJM",
+        "custom_liquid_dhKtJe",
+        "buy_buttons_7k66ND",
+        "text_tU8LkY",
+        "icon_with_text_3tTAAd"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.h1 {font-size: 20px; }}"
+      ],
+      "name": "Featured product slider",
+      "settings": {
+        "heading": "Get started with our best selling bundles",
+        "collection": "all-bundles",
+        "limit": 6,
+        "view_details_label": "View full details",
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "featured_collection_eLXEqh": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "immunity-health",
+        "products_to_show": 4,
+        "title": "Immunity Health",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    },
+    "featured_product_CEP6jE": {
+      "type": "featured-product",
+      "blocks": {
+        "rating_NFW8Kp": {
+          "type": "rating",
+          "settings": {}
+        },
+        "title_yf9yh9": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "buy_buttons_yXkURR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "rating_NFW8Kp",
+        "title_yf9yh9",
+        "buy_buttons_yXkURR"
+      ],
+      "disabled": true,
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "bone-support",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_slider_EnTCeY": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dXy8WH": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "ach-eze-joint-support"
+          }
+        },
+        "review_HzjgFA": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KcRaMj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_HmjwX3": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "core-wellness-mens-premium"
+          }
+        },
+        "review_96pb83": {
+          "type": "review",
+          "settings": {
+            "title": "One of the best",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "bone-support"
+          }
+        },
+        "review_KUTGUj": {
+          "type": "review",
+          "settings": {
+            "title": "Love this Magnesium!!",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        }
+      },
+      "block_order": [
+        "review_dXy8WH",
+        "review_HzjgFA",
+        "review_KcRaMj",
+        "review_HmjwX3",
+        "review_96pb83",
+        "review_KUTGUj"
+      ],
+      "name": "Reviews Slider",
+      "settings": {
+        "heading": "Real customers, real results.",
+        "bg_color": "#221d46",
+        "show_stars": true,
+        "star_count": 5,
+        "shop_cta": "Shop now",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000
+      }
+    },
+    "testimonial_slider_xafpPw": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "testimonial_3EFxVt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/DSF6381_2200x_15.jpg",
+            "name": "Dr. Joel Kahn",
+            "role": "MD, Cardiologist",
+            "quote": "“Dr. Joel Kahn is one of the world's leading cardiologists, clinical professor of medicine, integrative medicine practitioner and promoter of plant-based nutrition. He is a holistic cardiologist who strongly believes in the power of nutrition and supplements to help reduce disease risk, improve markers of heart health, and balance out dietary insufficiencies. Dr. Kahn is also the best-selling author of many popular books on heart health.”"
+          }
+        },
+        "testimonial_NNDwWE": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_3.jpg",
+            "name": "Dr. Amanda Wiggins",
+            "role": "Chief Research Scientist",
+            "quote": "“What drew me here is their genuine commitment to creating products powered by science and built on quality ingredients. No fluff, just thoughtful formulations that make a real difference.”"
+          }
+        },
+        "testimonial_kyXBjn": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Ben_Greenfield_Kelsey_Photo-4_3.jpg",
+            "name": "Ben Greenfield",
+            "role": "Health & Fitness Biohacker",
+            "quote": "“Ben Greenfield is one of the most influential people in health and fitness, he is a nutritionist, physiologist, fitness coach and author. An acclaimed biohacker and New York Times Bestselling Author, Ben champions the fusion of science and ancient wisdom to enhance holistic health. Revered as a top U.S. personal trainer, he provides resources on peak performance and comprehensive wellbeing to global audiences.”"
+          }
+        },
+        "testimonial_wxPJKG": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/a0C6S00001vgX2kUAE-scaled-e1663084335886-1024x1018_3.jpg",
+            "name": "Dr. Barrie Tan",
+            "role": "PhD, Scientist & Researcher",
+            "quote": "“Dr. Barrie Tan is the world’s leading expert on Vitamin E and Geranylgeraniol. A pioneer in Vitamin E and tocotrienol research, he has dedicated his career to uncovering nutritional solutions for better health and exposing common misconceptions about Vitamin E along the way.”"
+          }
+        },
+        "testimonial_MNbmfK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/37722783_10156375781197696_7172744217821708288_n_3.jpg",
+            "name": "Ivor Cummins",
+            "role": "Chemical Engineer",
+            "quote": "“Ivor Cummins, aka The Fat Emperor, is a researcher and world-renowned speaker on health and cardiovascular health. He is the co-author of 'Eat Rich Live Long' which broke down three major myths in health and longevity. He strongly believes that personal transformation is ‘within every person's grasp’, and following the correct science in your diet will lead to enhanced productivity.”"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_3EFxVt",
+        "testimonial_NNDwWE",
+        "testimonial_kyXBjn",
+        "testimonial_wxPJKG",
+        "testimonial_MNbmfK"
+      ],
+      "custom_css": [
+        ".ts2-card {background: #f4f8fb; padding: 2rem 8rem 2rem 2rem;}",
+        "@media (max-width: 989px) {.ts2-card {padding: 2rem !important; }}"
+      ],
+      "name": "Testimonial slider",
+      "settings": {
+        "heading": "Our Health Ambassadors",
+        "bg_color": "#ffffff",
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    },
+    "image_hotspots_Hi6X7c": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_fytRdk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Vitamin C",
+            "link_url": "shopify://blogs/supplement-ingredients/vitamin-c",
+            "x": 80,
+            "y": 55,
+            "open_default": true
+          }
+        },
+        "hotspot_EzN4jP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Magnesium",
+            "link_url": "shopify://blogs/supplement-ingredients/magnesium",
+            "x": 30,
+            "y": 78,
+            "open_default": false
+          }
+        },
+        "hotspot_mLbTrh": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Zinc",
+            "link_url": "shopify://blogs/supplement-ingredients/zinc",
+            "x": 40,
+            "y": 10,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fytRdk",
+        "hotspot_EzN4jP",
+        "hotspot_mLbTrh"
+      ],
+      "disabled": true,
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "body": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients",
+        "cta_url": "shopify://pages/ingredients",
+        "panel_bg": "#f4f8fb",
+        "panel_text": "#1f1946",
+        "color_scheme": "color-scheme-1"
+      }
+    },
+    "featured_blog_rTpRWK": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "health-articles",
+        "post_limit": 6,
+        "heading": "The Health Hub Journal",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join Us on the Journey",
+            "heading_size": "h1"
+          }
+        },
+        "text_wKFbB7": {
+          "type": "text",
+          "settings": {
+            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Learn More About Subscribe & Save",
+            "button_link_1": "shopify://pages/subscribe-and-save",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_wKFbB7",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
+        ".subtitle {line-height: 1.2; max-width: 740px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "media_hero_slider_VC34DA",
+    "multicolumn_A6pqFE",
+    "rich_text_e8Phjw",
+    "featured_collection_jqXfKn",
+    "image_with_tabs_4TAPEz",
+    "collection_list_GrRzez",
+    "image_with_text_WDY4Mw",
+    "rich_text_WMG6Jn",
+    "image_infinite_scroll_KcRcLX",
+    "image_with_text_KCQTNJ",
+    "featured_product_slider_9pxfm9",
+    "featured_collection_eLXEqh",
+    "featured_product_CEP6jE",
+    "reviews_slider_EnTCeY",
+    "testimonial_slider_xafpPw",
+    "image_hotspots_Hi6X7c",
+    "featured_blog_rTpRWK",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNa"
+  ]
+}

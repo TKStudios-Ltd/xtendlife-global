@@ -1,0 +1,516 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "show_collection_description": false,
+        "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023"
+      }
+    },
+    "media_hero_slider_EDQQWQ": {
+      "type": "media-hero-slider",
+      "blocks": {
+        "slide_fTk4Hh": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Kanapa_Promo_Desk.png",
+            "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 100,
+            "heading": "Your<em> Gift,</em> our<em>Treat!</em>",
+            "heading_size": "h1",
+            "text": "Purchase two or more Kanapa products, one being a cleanser, and receive your choice of Mini Glow Essentials or Mini Hydration Essentials for Men. Gift must be added to cart.",
+            "text_style": "body",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_fTk4Hh"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {.banner__media {height: 100vw; }}",
+        "@media (min-width: 750px) {.subtitle {font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; }}"
+      ],
+      "name": "Video + Image Hero Slider",
+      "settings": {
+        "wide_container": false,
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "stack_text_on_mobile": true,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "loop": false,
+        "speed": 500
+      }
+    },
+    "collection_tabs_grid_QPpXxb": {
+      "type": "collection-tabs-grid",
+      "blocks": {
+        "tab_hNQHfA": {
+          "type": "tab",
+          "settings": {
+            "label": "Sale",
+            "collection": "sale",
+            "limit": 15,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "first",
+            "static_full_row": false,
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        },
+        "tab_R46dJx": {
+          "type": "tab",
+          "settings": {
+            "label": "Skincare",
+            "collection": "skincare",
+            "limit": 15,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "last",
+            "static_full_row": false,
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        },
+        "tab_HArBQh": {
+          "type": "tab",
+          "settings": {
+            "label": "Supplements",
+            "collection": "supplements",
+            "limit": 15,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "first",
+            "static_full_row": false,
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_hNQHfA",
+        "tab_R46dJx",
+        "tab_HArBQh"
+      ],
+      "name": "Promo Collection Tabs",
+      "settings": {
+        "title": "Promo Collections",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "full_width": false,
+        "static_caption_enable": false,
+        "static_caption_text": "",
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "padding_top": 32,
+        "padding_bottom": 80,
+        "default_limit": 16
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (min-width: 750px) and (max-width: 989px) {.grid__item {width: calc(50% - var(--grid-desktop-horizontal-spacing) * 3 / 4); max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2); }}"
+      ],
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 20,
+        "padding_bottom": 100
+      }
+    },
+    "collection_list_GrRzez": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_Jf9g4L": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements",
+            "custom_title": "",
+            "background_color": ""
+          }
+        },
+        "featured_collection_EpNNwA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skincare",
+            "custom_title": "Skincare",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        },
+        "featured_collection_RVqwaj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "superfoods",
+            "custom_title": "",
+            "background_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_Jf9g4L",
+        "featured_collection_EpNNwA",
+        "featured_collection_RVqwaj"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Explore",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-5",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_KCQTNJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_bz9N8Y": {
+          "type": "caption",
+          "settings": {
+            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "additional_caption": "Go Beyond Multivitamins",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "text_fQHPQr": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
+            "text_style": "body"
+          }
+        },
+        "button_Qekx44": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/total-balance",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_bz9N8Y",
+        "text_fQHPQr",
+        "button_Qekx44"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/felix-lam-J7fxkhtOqt0-unsplash_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "collapsible_content_DpPkep": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_cMRkWp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have more than one serving of *Product* per day?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_p7xKXT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will *product* help me with my energy?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qK6UP8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is this level of MGO right for me?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KrhL6f": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can too much MGO be harmful?",
+            "icon": "none",
+            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_cMRkWp",
+        "collapsible_row_p7xKXT",
+        "collapsible_row_qK6UP8",
+        "collapsible_row_KrhL6f"
+      ],
+      "custom_css": [
+        ".accordion__title {font-size: 24px; font-weight: 400;}",
+        ".accordion__content p {line-height: 1.4;}",
+        "@media (max-width: 749px) {.accordion__title {font-size: 1.6rem; }}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_hotspots_Hi6X7c": {
+      "type": "image-hotspots",
+      "blocks": {
+        "hotspot_fytRdk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Vitamin C",
+            "link_url": "/blogs/supplement-ingredients/vitamin-c",
+            "x": 80,
+            "y": 55,
+            "open_default": true
+          }
+        },
+        "hotspot_EzN4jP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Magnesium",
+            "link_url": "shopify://blogs/supplement-ingredients/magnesium",
+            "x": 30,
+            "y": 78,
+            "open_default": false
+          }
+        },
+        "hotspot_mLbTrh": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Zinc",
+            "link_url": "shopify://blogs/supplement-ingredients/zinc",
+            "x": 40,
+            "y": 10,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_fytRdk",
+        "hotspot_EzN4jP",
+        "hotspot_mLbTrh"
+      ],
+      "name": "Image Hotspots (Tooltips)",
+      "settings": {
+        "image": "shopify://shop_images/AdobeStock_524987606_2.png",
+        "media_max_width": 550,
+        "body": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises.</p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed.</p>",
+        "cta_label": "Our Ingredients",
+        "cta_url": "shopify://pages/ingredients",
+        "panel_bg": "#f4f8fb",
+        "panel_text": "#1f1946",
+        "color_scheme": "color-scheme-1"
+      }
+    },
+    "featured_blog_rTpRWK": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "health-articles",
+        "post_limit": 6,
+        "heading": "The Health Hub Journal",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Life Long. Life Strong.",
+            "heading_size": "h1"
+          }
+        },
+        "text_X4YkWn": {
+          "type": "text",
+          "settings": {
+            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
+            "text_style": "body"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_X4YkWn",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        ".banner__box {padding: 0; height: -webkit-fill-available; display: flex; flex-direction: column; align-items: flex-start;}",
+        ".banner__text {max-width: 320px; line-height: 1.35; margin-top: 2rem;}",
+        ".banner__buttons {margin-top: 2.5rem;}",
+        "h2 {line-height: 1.2;}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Hiking-1273008990_2.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "media_hero_slider_EDQQWQ",
+    "collection_tabs_grid_QPpXxb",
+    "product-grid",
+    "collection_list_GrRzez",
+    "image_with_text_KCQTNJ",
+    "collapsible_content_DpPkep",
+    "image_hotspots_Hi6X7c",
+    "featured_blog_rTpRWK",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNa"
+  ]
+}

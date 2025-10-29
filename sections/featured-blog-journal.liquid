@@ -1,0 +1,391 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.blog-hero{
+    margin: 4rem 0 3rem;
+    padding-bottom: 6rem;
+    border-bottom: 1px solid rgba(211, 211, 211, 1);
+}
+.blog-grid{ display:grid;grid-template-columns:1fr;gap:20px; padding: 0; margin: 0;}
+.section-{{ section.id }}-wrap{padding-top:{{ section.settings.padding_top | times:0.75 | round:0 }}px;padding-bottom:{{ section.settings.padding_bottom | times:0.75 | round:0 }}px}
+.blog-item{display:block}
+.blog-item[hidden]{display:none !important}
+.blog-side__title{    
+  margin: 0 0 4rem;
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+.topic-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-bottom: 1px solid rgba(31, 25, 70, 1);}
+.topic{overflow:hidden;}
+.topic__label{font-weight:500}
+.topic__header.is-active{background:#1a73e8;color:#fff}
+.topic__header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding: 1rem 0;color:inherit; border-top: 1px solid rgba(31, 25, 70, 1);
+}
+.topic__label-link{font-weight:500; line-height: 1; text-decoration:none;color:inherit}
+.topic__label-link:hover{opacity:.9}
+.topic__toggle{
+  appearance:none;border:none;background:transparent;
+  width:24px;height:24px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:500;cursor:pointer;
+}
+.topic__toggle svg path { fill: rgba(31, 25, 70, 1); }
+.topic__toggle[aria-expanded="true"]{
+  transform: rotate(45deg);
+}
+.topic__toggle .hidden { display:none; }
+.topic__body{padding: 0.5rem 0 1.5rem;display:none}
+.topic__body.is-open{display:block}
+.topic-list .pills{display:flex;flex-wrap:wrap;gap:8px}
+.topic-list .pill {
+  background: #dbeeff;
+  padding: .75rem 1.25rem .65rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: rgba(31, 25, 70, 1);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  border-radius: 2rem;  
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: border ease .2s;
+}
+.topic-list .pill:hover{border: 1px solid rgba(31, 25, 70, 1);}
+.topic-list .pill.is-active{background:rgba(31, 25, 70, 1);color:#fff;border-color:rgba(31, 25, 70, 1);}
+.load-more{margin-top: 3rem;text-align: center}
+.load-more .button { background: transparent; color: rgba(31, 25, 70, 1); }
+@media(min-width:750px){
+  .section-{{ section.id }}-wrap{
+    padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+}
+@media(min-width:990px){
+  .blog-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .blog-item--wide{grid-column:1/-1}
+  .blog-item--wide .ratio{--ratio-percent:65% !important; }
+  .blog-item--wide { margin-bottom: 3rem; }
+  .blog-item--wide .card__information {
+    position: absolute;
+    bottom: 2rem;
+    background: white;
+    right: 2rem;
+    border-radius: 1.6rem;
+    padding: 2rem !important;
+    max-width: 460px;
+  }
+  .blog-item--wide .card__heading{font-size:clamp(1.25rem,1.2vw + 1rem,2rem);}
+  .blog-item .article-card-wrapper,.blog-item .article-card{ height:100%; }
+  .blog-hero__grid,
+  .blog-layout { 
+    display: flex; 
+    gap: 2rem; 
+  }
+  .blog-hero__title,
+  .blog-layout aside {
+    flex: 0 0 320px;
+    margin: 0;
+  }
+  .blog-hero__grid .subtitle {
+    font-size: 3.2rem;
+    padding-right: 10rem;
+  }
+  .blog-layout aside{
+    position:sticky; top:calc(var(--header-height,70px) + 20px);
+    align-self:start
+  }
+  .load-more {
+    text-align: left !important;
+  }
+}
+@media (max-width: 989px) {
+  .blog-item--wide .article-card__excerpt {
+    display: none;
+  }
+  .blog-layout { display: flex; flex-direction: column-reverse; gap: 8rem; }
+  .blog-side__title { margin: 0 0 2rem; font-size: 2rem; }
+}
+{%- endstyle -%}
+
+{%- if section.settings.blog == blank -%}
+  <div class="page-width section-{{ section.id }}-wrap"><p>Add a Blog in section settings.</p></div>
+  {% break %}
+{%- endif -%}
+
+{%- liquid
+  assign blog_obj = section.settings.blog
+  assign per_load = section.settings.posts_per_load
+  assign max_render = section.settings.max_posts_to_render
+  if per_load > max_render
+    assign per_load = max_render
+  endif
+-%}
+
+<div class="page-width section-{{ section.id }}-wrap">
+  <header class="blog-hero">
+    <div class="blog-hero__grid">
+      {%- if section.settings.heading != blank -%}
+        <h1 class="blog-hero__title {{ section.settings.heading_size }}">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.hero_subtitle != blank -%}
+        <div class="banner__text rte subtitle">{{ section.settings.hero_subtitle }}</div>
+      {%- endif -%}
+    </div>
+  </header>
+
+  <div class="blog-layout">
+    <!-- Sidebar -->
+    <aside>
+        <h3 class="blog-side__title h5">{{ section.settings.filter_menu_title }}</h3>
+        {%- if section.settings.filter_menu != blank -%}
+            <ul class="topic-list">
+            {%- for parent in section.settings.filter_menu.links -%}
+                {%- assign parent_has_children = false -%}
+                {%- if parent.links and parent.links.size > 0 -%}{%- assign parent_has_children = true -%}{%- endif -%}
+
+                {%- assign open_now = false -%}
+                {%- if forloop.first and parent_has_children -%}{%- assign open_now = true -%}{%- endif -%}
+                {%- if current_tags contains parent.title -%}{%- assign open_now = true -%}{%- endif -%}
+
+                <li class="topic">
+                <div class="topic__header">
+                    <a href="{{ parent.url }}" class="topic__label-link">
+                        {{ parent.title }}
+                    </a>
+                    {% if parent_has_children %}
+                        <button
+                        type="button"
+                        class="topic__toggle"
+                        aria-controls="topic-body-{{ section.id }}-{{ forloop.index }}"
+                        aria-expanded="{{ open_now }}"
+                        aria-label="Toggle {{ parent.title }} subcategories"
+                        >
+                        <span class="svg-wrapper">
+                            {{- 'icon-plus.svg' | inline_asset_content -}}
+                        </span>
+                        <span class="svg-wrapper hidden">
+                            {{- 'icon-minus.svg' | inline_asset_content -}}
+                        </span>
+                        </button>
+                    {% endif %}
+                </div>
+
+                {% if parent_has_children %}
+                    <div
+                    class="topic__body {% if open_now %}is-open{% endif %}"
+                    id="topic-body-{{ section.id }}-{{ forloop.index }}"
+                    {% unless open_now %}hidden{% endunless %}
+                    >
+                    <div class="pills">
+                        <a href="{{ parent.url }}" class="pill {% if current_tags contains parent.title %}is-active{% endif %}">
+                        All {{ parent.title }}
+                        </a>
+                        {%- for child in parent.links -%}
+                        <a href="{{ child.url }}" class="pill {% if current_tags contains child.title %}is-active{% endif %}">
+                            {{ child.title }}
+                        </a>
+                        {%- endfor -%}
+                    </div>
+                    </div>
+                {% endif %}
+                </li>
+            {%- endfor -%}
+            </ul>
+        {%- else -%}
+            <p>Add a menu with parent/child links.</p>
+        {%- endif -%}
+        </aside>
+
+    <!-- Content -->
+    <div>
+      {%- liquid
+        assign per_load = section.settings.posts_per_load
+        assign max_render = section.settings.max_posts_to_render
+        if max_render <= per_load
+          assign max_render = per_load | times: 2
+        endif
+        if template.name == 'blog'
+            assign articles_source = blog.articles
+            assign total_count = blog.articles_count
+        else
+            assign articles_source = section.settings.blog.articles
+            assign total_count = section.settings.blog.articles_count
+        endif
+        -%}
+
+        <ul class="blog-grid" id="BlogGrid-{{ section.id }}" role="list">
+        {%- if total_count > 0 -%}
+            {%- for article in articles_source limit: max_render -%}
+            {%- assign idx0 = forloop.index0 -%}
+            {%- assign pos = idx0 | modulo: 7 -%}
+            {%- assign is_wide = false -%}
+            {%- if pos == 0 -%}{%- assign is_wide = true -%}{%- endif -%}
+
+            <li class="blog-item {% if is_wide %}blog-item--wide{% endif %}" {% if forloop.index0 >= per_load %}hidden{% endif %}>
+            {% render 'article-card',
+                blog: blog,
+                article: article,
+                media_aspect_ratio: 1.66,
+                show_image: section.settings.show_image,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                show_excerpt: is_wide,
+                is_wide: is_wide
+            %}
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+            <li class="blog-item blog-item--wide">
+            <div class="article-card-wrapper card-wrapper">
+                <div class="card article-card">
+                <div class="card__content">
+                    <div class="card__information">
+                    <h3 class="card__heading h3">{{ 'sections.featured_blog.onboarding_title' | t }}</h3>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </li>
+        {%- endif -%}
+        </ul>
+
+      {%- if total_count > per_load and max_render > per_load -%}
+        <div class="load-more">
+          <button type="button" class="button" id="LoadMoreBtn-{{ section.id }}">Load more</button>
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- LOAD MORE (recompute layout + safe button) ---------- */
+(function(){
+  var grid = document.getElementById('BlogGrid-{{ section.id }}');
+  var btn  = document.getElementById('LoadMoreBtn-{{ section.id }}');
+  if(!grid) return;
+
+  var perLoad = {{ section.settings.posts_per_load | json }};
+
+  function relayout(){
+    // set wide every 7th among VISIBLE items
+    var items = Array.from(grid.children).filter(function(li){ return !li.hasAttribute('hidden'); });
+    items.forEach(function(li){ li.classList.remove('blog-item--wide'); });
+    items.forEach(function(li, i){ if (i % 7 === 0) li.classList.add('blog-item--wide'); });
+  }
+
+  // Recompute initial layout after server-side hiding
+  relayout();
+
+  if (!btn) return;
+
+  btn.addEventListener('click', function(){
+    var hidden = Array.from(grid.children).filter(function(li){ return li.hasAttribute('hidden'); });
+    if (!hidden.length){ btn.remove(); return; }
+
+    hidden.slice(0, perLoad).forEach(function(li){ li.removeAttribute('hidden'); });
+
+    relayout();
+
+    if (hidden.length <= perLoad){ btn.remove(); }
+  }, {passive:true});
+})();
+
+/* ---------- ACCORDION (Dawn icons, single-open) ---------- */
+(function(){
+  var toggles = document.querySelectorAll('.topic__toggle');
+  if (!toggles.length) return;
+
+  function closeAll(){
+    toggles.forEach(function(btn){
+      var id = btn.getAttribute('aria-controls');
+      var body = id && document.getElementById(id);
+      if (!body) return;
+      btn.setAttribute('aria-expanded','false');
+      body.classList.remove('is-open');
+      body.hidden = true;
+    });
+  }
+
+  // normalize initial state based on aria-expanded (Liquid sets first/open parent)
+  toggles.forEach(function(btn){
+    var id = btn.getAttribute('aria-controls');
+    var body = id && document.getElementById(id);
+    if (!body) return;
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    body.hidden = !open;
+    body.classList.toggle('is-open', open);
+  });
+
+  toggles.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = btn.getAttribute('aria-controls');
+      var body = id && document.getElementById(id);
+      if (!body) return;
+
+      var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+      closeAll();
+      if (willOpen){
+        btn.setAttribute('aria-expanded','true');
+        body.classList.add('is-open');
+        body.hidden = false;
+      }
+    }, {passive:false});
+  });
+})();
+</script>
+
+
+{% schema %}
+{
+  "name": "Featured Blog (Journal)",
+  "tag": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "blog", "id": "blog", "label": "Blog" },
+
+    { "type": "header", "content": "Heading" },
+    { "type": "inline_richtext", "id": "heading", "default": "Latest stories", "label": "Heading" },
+    { "type": "select", "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" },
+        { "value": "hxl", "label": "HXL" },
+        { "value": "hxxl", "label": "HXXL" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    { "type": "richtext", "id": "hero_subtitle", "label": "Subtitle", "default": "<p>Discover a variety of topics to delve into, covering potential causes, symptoms, and tailored advice on diet, supplements, and lifestyle adjustments.</p>" },
+    { "type": "header", "content": "Categories" },
+    { "type": "text", "id": "filter_menu_title", "label": "Sidebar title", "default": "Categories" },
+    { "type": "link_list", "id": "filter_menu", "label": "Menu with parents and children" },
+
+    { "type": "header", "content": "Loading" },
+    { "type": "range", "id": "posts_per_load", "label": "Posts per load", "min": 3, "max": 24, "step": 1, "default": 14 },
+    { "type": "range", "id": "max_posts_to_render", "label": "Maximum posts to render", "min": 14, "max": 96, "step": 2, "default": 42,
+      "info": "Upper cap the section will pre-render; the Load more button reveals in batches."
+    },
+
+    { "type": "header", "content": "Card options" },
+    { "type": "checkbox", "id": "show_image", "default": true, "label": "Show image" },
+    { "type": "checkbox", "id": "show_date", "default": true, "label": "Show date" },
+    { "type": "checkbox", "id": "show_author", "default": false, "label": "Show author" },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
+  ],
+  "presets": [{ "name": "Featured Blog (Journal)" }]
+}
+{% endschema %}

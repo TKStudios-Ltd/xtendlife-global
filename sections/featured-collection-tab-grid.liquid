@@ -1,0 +1,459 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer></script>
+{%- endunless -%}
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer></script>
+{%- endif -%}
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{%- style -%}
+.section-{{ section.id }}-padding{
+  padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+@media (min-width:750px){
+  .section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+}
+@media (max-width:749px){
+  #fctg-{{ section.id }} .collection__title_inline{
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+  }
+  #fctg-{{ section.id }} .collection__title.title-wrapper { margin-bottom: 4rem !important; }
+  #fctg-{{ section.id }} .featured-collections-buttons { width: 100%; }
+  #fctg-{{ section.id }} .fctab { flex: 0 0 calc(50% - 0.5rem); }
+}
+
+/* Title row */
+#fctg-{{ section.id }} .collection__title_inline{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+
+/* Tabs container */
+#fctg-{{ section.id }} .featured-collections-buttons{
+  display:flex; gap:1rem; flex-wrap:wrap;
+}
+
+/* Tab buttons */
+#fctg-{{ section.id }} .fctab{
+  appearance:none; background:#fff;
+  color:inherit; border-radius:999px; padding:.75rem 1.75rem; cursor:pointer;
+}
+#fctg-{{ section.id }} .fctab[aria-selected="true"]{
+  background:#1F1946; color:#fff; border-color:#1F1946;
+}
+
+/* Panels */
+#fctg-{{ section.id }} .fctab-panel[hidden]{ display:none !important; }
+
+/* Grids */
+#fctg-{{ section.id }} .product-grid{ margin-top: 2rem; }
+
+/* Optional: tighter mobile gutters */
+@media (max-width: 989px){
+  #fctg-{{ section.id }} .featured-collections-grids{
+    margin-left: -2rem; margin-right: -2rem;
+  }
+  #fctg-{{ section.id }} .product-grid{ padding-left: 2rem; padding-right: 2rem; }
+}
+{%- endstyle -%}
+
+{%- liquid
+  assign featured_col   = section.settings.featured_collection
+  assign full_col       = section.settings.full_collection
+  assign alt_col        = section.settings.alt_collection
+
+  assign featured_limit = section.settings.featured_count | default: 8
+  assign full_limit     = section.settings.full_count     | default: 12
+  assign alt_limit      = section.settings.alt_count      | default: 12
+
+  assign tab_featured_label = section.settings.tab_featured_label | default: 'Featured'
+  assign tab_full_label     = section.settings.tab_full_label     | default: 'Full Range'
+  assign tab_alt_label      = section.settings.tab_alt_label      | default: 'Alt'
+
+  assign active_tab = section.settings.default_tab | default: 'featured'
+-%}
+
+{%- assign has_featured = false -%}
+{%- if featured_col != blank -%}{%- assign has_featured = true -%}{%- endif -%}
+
+{%- assign has_full = false -%}
+{%- if full_col != blank -%}{%- assign has_full = true -%}{%- endif -%}
+
+{%- assign has_alt = false -%}
+{%- if alt_col != blank -%}{%- assign has_alt = true -%}{%- endif -%}
+
+{%- assign active_ok = false -%}
+{%- if has_featured and active_tab == 'featured' -%}
+  {%- assign active_ok = true -%}
+{%- elsif has_full and active_tab == 'full' -%}
+  {%- assign active_ok = true -%}
+{%- elsif has_alt and active_tab == 'alt' -%}
+  {%- assign active_ok = true -%}
+{%- endif -%}
+
+{%- unless active_ok -%}
+  {%- if has_featured -%}
+    {%- assign active_tab = 'featured' -%}
+  {%- elsif has_full -%}
+    {%- assign active_tab = 'full' -%}
+  {%- elsif has_alt -%}
+    {%- assign active_tab = 'alt' -%}
+  {%- else -%}
+    {%- assign active_tab = '' -%}
+  {%- endif -%}
+{%- endunless -%}
+
+{%- assign more_featured = false -%}
+{%- if has_featured and featured_col.all_products_count > featured_limit -%}
+  {%- assign more_featured = true -%}
+{%- endif -%}
+
+{%- assign more_full = false -%}
+{%- if has_full and full_col.all_products_count > full_limit -%}
+  {%- assign more_full = true -%}
+{%- endif -%}
+
+{%- assign more_alt = false -%}
+{%- if has_alt and alt_col.all_products_count > alt_limit -%}
+  {%- assign more_alt = true -%}
+{%- endif -%}
+
+<div id="fctg-{{ section.id }}" class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div
+    class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    data-id="{{ section.id }}"
+  >
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width">
+      <div class="collection__title_inline">
+        {% if section.settings.title != blank %}
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
+
+        {% if has_featured or has_full or has_alt %}
+          <div class="featured-collections-buttons" role="tablist" aria-label="Collection tabs">
+            {% if has_featured %}
+              <button
+                id="fctab-featured-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="featured"
+                aria-controls="fctg-featured-{{ section.id }}"
+                {% if active_tab == 'featured' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_featured_label }}
+              </button>
+            {% endif %}
+
+            {% if has_full %}
+              <button
+                id="fctab-full-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="full"
+                aria-controls="fctg-full-{{ section.id }}"
+                {% if active_tab == 'full' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_full_label }}
+              </button>
+            {% endif %}
+
+            {% if has_alt %}
+              <button
+                id="fctab-alt-{{ section.id }}"
+                class="fctab button"
+                type="button"
+                role="tab"
+                data-target="alt"
+                aria-controls="fctg-alt-{{ section.id }}"
+                {% if active_tab == 'alt' %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+              >
+                {{ tab_alt_label }}
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_description and section.settings.description != blank %}
+        <div class="collection__description rte {{ section.settings.description_style }}">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="featured-collections-grids{% if section.settings.full_width %} page-width--wide{% else %} page-width{% endif %}">
+
+      {% if active_tab == '' %}
+        <p class="page-width">No collections selected.</p>
+      {% endif %}
+
+      {% if has_featured %}
+        <div
+          id="fctg-featured-{{ section.id }}"
+          class="fctab-panel"
+          role="tabpanel"
+          aria-labelledby="fctab-featured-{{ section.id }}"
+          {% unless active_tab == 'featured' %}hidden{% endunless %}
+        >
+          <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+            {% for product in featured_col.products limit: featured_limit %}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  lazy_load: false,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  section_id: section.id,
+                  quick_add: section.settings.quick_add
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+
+          {% if section.settings.show_view_all and more_featured %}
+            <div class="center collection__view-all">
+              <a
+                href="{{ featured_col.url }}"
+                class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+              >
+                View all {{ featured_col.title | escape }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if has_full %}
+        <div
+          id="fctg-full-{{ section.id }}"
+          class="fctab-panel"
+          role="tabpanel"
+          aria-labelledby="fctab-full-{{ section.id }}"
+          {% unless active_tab == 'full' %}hidden{% endunless %}
+        >
+          <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+            {% for product in full_col.products limit: full_limit %}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  lazy_load: false,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  section_id: section.id,
+                  quick_add: section.settings.quick_add
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+
+          {% if section.settings.show_view_all and more_full %}
+            <div class="center collection__view-all">
+              <a
+                href="{{ full_col.url }}"
+                class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+              >
+                View all {{ full_col.title | escape }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if has_alt %}
+        <div
+          id="fctg-alt-{{ section.id }}"
+          class="fctab-panel"
+          role="tabpanel"
+          aria-labelledby="fctab-alt-{{ section.id }}"
+          {% unless active_tab == 'alt' %}hidden{% endunless %}
+        >
+          <ul class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+            {% for product in alt_col.products limit: alt_limit %}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  lazy_load: false,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  section_id: section.id,
+                  quick_add: section.settings.quick_add
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+
+          {% if section.settings.show_view_all and more_alt %}
+            <div class="center collection__view-all">
+              <a
+                href="{{ alt_col.url }}"
+                class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+              >
+                View all {{ alt_col.title | escape }}
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const root = document.getElementById('fctg-{{ section.id }}');
+  if (!root) return;
+
+  const tabs = root.querySelectorAll('.fctab'); // only tabs that actually rendered
+  const panels = {};
+  ['featured','full','alt'].forEach(k => {
+    const el = root.querySelector('#fctg-' + k + '-{{ section.id }}');
+    if (el) panels[k] = el;
+  });
+
+  function activate(which){
+    tabs.forEach(btn => btn.setAttribute('aria-selected', btn.dataset.target === which ? 'true' : 'false'));
+    Object.keys(panels).forEach(k => {
+      if (k === which) panels[k]?.removeAttribute('hidden');
+      else panels[k]?.setAttribute('hidden','');
+    });
+  }
+
+  tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Featured collection tab",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "inline_richtext", "id": "title", "label": "Heading", "default": "Shop our products" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" },
+        { "value": "hxl", "label": "HXL" },
+        { "value": "hxxl", "label": "HXXL" }
+      ],
+      "default": "h1"
+    },
+
+    { "type": "richtext", "id": "description", "label": "Description" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": false },
+    { "type": "select", "id": "description_style", "label": "Description style", "options": [
+      { "value": "body", "label": "Body" },
+      { "value": "subtitle", "label": "Subtitle" },
+      { "value": "uppercase", "label": "Uppercase" }
+    ], "default": "body" },
+
+    { "type": "header", "content": "Tab labels (optional overrides)" },
+    { "type": "text", "id": "tab_featured_label", "label": "Featured tab label (override)" },
+    { "type": "text", "id": "tab_full_label", "label": "Full tab label (override)" },
+    { "type": "text", "id": "tab_alt_label", "label": "Alt tab label (override)" },
+
+    { "type": "header", "content": "Collections" },
+    { "type": "collection", "id": "featured_collection", "label": "Featured collection" },
+    { "type": "range", "id": "featured_count", "min": 2, "max": 25, "step": 1, "default": 8, "label": "Featured products to show" },
+
+    { "type": "collection", "id": "full_collection", "label": "Full collection" },
+    { "type": "range", "id": "full_count", "min": 2, "max": 50, "step": 1, "default": 12, "label": "Full products to show" },
+
+    { "type": "collection", "id": "alt_collection", "label": "Alt collection (optional)" },
+    { "type": "range", "id": "alt_count", "min": 2, "max": 50, "step": 1, "default": 12, "label": "Alt products to show" },
+
+    { "type": "select", "id": "default_tab", "label": "Default tab", "options": [
+      { "value": "featured", "label": "Featured" },
+      { "value": "full", "label": "Full" },
+      { "value": "alt", "label": "Alt (if set)" }
+    ], "default": "featured" },
+
+    { "type": "header", "content": "Cards" },
+    { "type": "select", "id": "image_ratio", "label": "Image ratio", "options": [
+      { "value": "adapt", "label": "Adapt to image" },
+      { "value": "portrait", "label": "Portrait" },
+      { "value": "square", "label": "Square" }
+    ], "default": "adapt" },
+    { "type": "select", "id": "image_shape", "label": "Image shape", "options": [
+      { "value": "default", "label": "Default" },
+      { "value": "arch", "label": "Arch" },
+      { "value": "blob", "label": "Blob" },
+      { "value": "chevronleft", "label": "Chevron left" },
+      { "value": "chevronright", "label": "Chevron right" },
+      { "value": "diamond", "label": "Diamond" },
+      { "value": "parallelogram", "label": "Parallelogram" },
+      { "value": "round", "label": "Round" }
+    ], "default": "default" },
+    { "type": "checkbox", "id": "show_secondary_image", "default": false, "label": "Show second image on hover" },
+    { "type": "checkbox", "id": "show_vendor", "default": false, "label": "Show vendor" },
+    { "type": "checkbox", "id": "show_rating", "default": false, "label": "Show rating" },
+
+    { "type": "select", "id": "quick_add", "default": "none", "label": "Quick add", "options": [
+      { "value": "none", "label": "None" },
+      { "value": "standard", "label": "Standard" },
+      { "value": "bulk", "label": "Bulk (B2B)" }
+    ]},
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "columns_desktop", "min": 1, "max": 6, "step": 1, "default": 4, "label": "Columns on desktop" },
+    { "type": "select", "id": "columns_mobile", "label": "Columns on mobile", "options": [
+      { "value": "1", "label": "1" },
+      { "value": "2", "label": "2" }
+    ], "default": "2" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+
+    { "type": "checkbox", "id": "show_view_all", "default": true, "label": "Show View all link" },
+    { "type": "select", "id": "view_all_style", "label": "View all button style", "options": [
+      { "value": "link", "label": "Link" },
+      { "value": "outline", "label": "Outline button" },
+      { "value": "solid", "label": "Solid button" }
+    ], "default": "solid" },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+
+    { "type": "header", "content": "Section padding" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 36 }
+  ],
+  "presets": [
+    { "name": "Featured collection tab" }
+  ]
+}
+{% endschema %}

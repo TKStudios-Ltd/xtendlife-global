@@ -1,0 +1,350 @@
+{% comment %}
+  Reviews Slider (debug build)
+{% endcomment %}
+
+{%- style -%}
+.section-{{ section.id }}-padding{
+  padding-top:{{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom:{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  overflow-x: clip;
+}
+@media (min-width:750px){
+  .section-{{ section.id }}-padding{
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+  }
+}
+/* Two-column layout */
+.section-{{ section.id }}-padding .ts-grid{ 
+  display: flex; 
+  gap: 0; 
+  align-items: flex-start; 
+}
+.section-{{ section.id }}-padding .ts-left{ 
+  flex: 0 0 25%; 
+}
+.section-{{ section.id }}-padding .ts-left h2{
+  color: #F4F8FB; 
+  margin: 0;
+  line-height: 1.1;
+  max-width: 200px;
+}
+.section-{{ section.id }}-padding .ts-right { 
+  flex: 0 0 75%; 
+  width: 100%;
+  position: relative; 
+}
+.section-{{ section.id }}-padding .ts-bleed {
+  width: calc(100vw - ((100vw - 1600px) / 2) - ((0.25 * 1600px) + 6rem));
+}
+@media (max-width: 1399px) {
+  .section-{{ section.id }}-padding .ts-bleed {
+    width: calc(75% + 2rem);
+  }
+}
+@media (max-width: 989px) {
+  .section-{{ section.id }}-padding .ts-grid {
+    flex-direction: column;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+  .section-{{ section.id }}-padding .ts-bleed {
+    width: 100% !important;
+  }
+  .section-{{ section.id }}-padding .ts-left {
+    flex: 0 0 100%;
+    width: calc(100% - 4rem);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 2rem 4rem;
+  }
+  .section-{{ section.id }}-padding .ts-left .ts-nav {
+    margin-top: 0;
+  }
+  .section-{{ section.id }}-padding .ts-left .ts-nav button,
+  .section-{{ section.id }}-padding .ts-left .ts-nav button svg {
+    width: 34px;
+    height: 34px;
+  }
+  .section-{{ section.id }}-padding .ts-card {
+    min-height: 400px !important;
+  }
+  .section-{{ section.id }}-padding .swiper-slide:first-child {
+    padding-left: 2rem;
+  }
+}
+@media (max-width: 749px) {
+  .section-{{ section.id }}-padding .ts-left h2 {
+    max-width: 170px;
+  }
+}
+.section-{{ section.id }}-padding .tswiper{ overflow: hidden; }
+.section-{{ section.id }}-padding .tswiper .swiper-wrapper{ display:flex; }
+.section-{{ section.id }}-padding .tswiper .swiper-slide{ flex-shrink:0; height:auto; }
+.section-{{ section.id }}-padding .tswiper .swiper-slide { 
+    margin-bottom: 1rem;
+    width: auto;
+}
+/* Card styling */
+.section-{{ section.id }}-padding .ts-card{
+    background:#fff; 
+    border-radius:16px; 
+    padding:2rem;
+    min-height: 440px; 
+    display:flex; 
+    flex-direction:column; 
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.section-{{ section.id }}-padding .ts-stars{ 
+    margin-bottom: 1rem;
+    width: auto;
+}
+.section-{{ section.id }}-padding .ts-title{ 
+    margin: 0; 
+    line-height: 1.2;
+}
+.section-{{ section.id }}-padding .ts-desc{ 
+    font-size: 20px;
+    line-height: 1.2;
+}
+.section-{{ section.id }}-padding .ts-person{ 
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    color: rgba(31, 25, 71, 0.4);
+}
+.section-{{ section.id }}-padding .ts-person::after {
+    content: url('https://cdn.shopify.com/s/files/1/2714/9868/files/Tick-Icon.svg');
+    height: 14px;
+    width: 14px;
+    margin-left: 10px;
+}
+/* Product footer pinned to bottom */
+.section-{{ section.id }}-padding .ts-prod{
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding-top: 20px;
+}
+.section-{{ section.id }}-padding .ts-prod-img img{
+    width: 75px; 
+    height: 80px; 
+    object-fit: contain; 
+    border-radius: 8px; 
+    background:#f6f6f6;
+}
+.section-{{ section.id }}-padding .ts-prod-title{ 
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400; 
+    margin-bottom: 15px; 
+}
+.section-{{ section.id }}-padding .ts-prod-meta .button { 
+    font-size: 13px;
+    padding: 1rem 1.75rem;
+}
+/* Arrows */
+.section-{{ section.id }}-padding .ts-nav{
+    display:flex; 
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 3rem;
+}
+.section-{{ section.id }}-padding .ts-btn{
+    appearance:none; 
+    border: none; 
+    background: transparent;
+    border-radius: 0; 
+    opacity: 1;
+    width: 41px; 
+    height: 41px; 
+    display:grid; 
+    place-items:center; 
+    cursor:pointer;
+}
+.section-{{ section.id }}-padding .ts-btn.swiper-button-disabled {
+  opacity: 0.5;
+}
+{%- endstyle -%}
+
+
+<section
+  id="reviews-slider-{{ section.id }}"
+  class="section-{{ section.id }}-padding"
+  data-review-slider
+  style="{% if section.settings.bg_color != blank %}background-color: {{ section.settings.bg_color }};{% endif %}"
+>
+  <div class="page-width">
+
+    <div class="ts-grid">
+      <div class="ts-left">
+        {% if section.settings.heading != blank %}
+            <div>
+                <h2 class="inline-richtext h2 scroll-trigger animate--slide-in">{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
+          {% if section.settings.show_arrows %}
+            <div class="ts-nav large-up-hide">
+                <button class="ts-btn ts-prev" aria-label="Previous">
+                    <span aria-hidden="true">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M38.4375 20.4997C38.4375 20.1599 38.3025 19.834 38.0622 19.5937C37.822 19.3534 37.4961 19.2184 37.1562 19.2184H6.9367L15.0009 11.1568C15.2415 10.9162 15.3766 10.5899 15.3766 10.2497C15.3766 9.90943 15.2415 9.58312 15.0009 9.34254C14.7603 9.10196 14.434 8.9668 14.0938 8.9668C13.7535 8.9668 13.4272 9.10196 13.1866 9.34254L2.9366 19.5925C2.8173 19.7116 2.7226 19.8529 2.6581 20.0086C2.5935 20.1643 2.5602 20.3311 2.5602 20.4997C2.5602 20.6682 2.5935 20.8351 2.6581 20.9907C2.7226 21.1464 2.8173 21.2878 2.9366 21.4068L13.1866 31.6568C13.4272 31.8974 13.7535 32.0325 14.0938 32.0325C14.434 32.0325 14.7603 31.8974 15.0009 31.6568C15.2415 31.4162 15.3766 31.0899 15.3766 30.7497C15.3766 30.4094 15.2415 30.0831 15.0009 29.8425L6.9367 21.7809H37.1562C37.4961 21.7809 37.822 21.6459 38.0622 21.4056C38.3025 21.1654 38.4375 20.8395 38.4375 20.4997Z" fill="#DBEEFF"/>
+                        </svg>
+                    </span>
+                </button>
+                <button class="ts-btn ts-next" aria-label="Next">
+                    <span aria-hidden="true">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5625 20.4997C2.5625 20.1599 2.69749 19.834 2.93777 19.5937C3.17805 19.3534 3.50394 19.2184 3.84375 19.2184H34.0633L25.9991 11.1568C25.7585 10.9162 25.6234 10.5899 25.6234 10.2497C25.6234 9.90943 25.7585 9.58312 25.9991 9.34254C26.2397 9.10196 26.566 8.9668 26.9062 8.9668C27.2465 8.9668 27.5728 9.10196 27.8134 9.34254L38.0634 19.5925C38.1827 19.7116 38.2774 19.8529 38.3419 20.0086C38.4065 20.1643 38.4398 20.3311 38.4398 20.4997C38.4398 20.6682 38.4065 20.8351 38.3419 20.9907C38.2774 21.1464 38.1827 21.2878 38.0634 21.4068L27.8134 31.6568C27.5728 31.8974 27.2465 32.0325 26.9062 32.0325C26.566 32.0325 26.2397 31.8974 25.9991 31.6568C25.7585 31.4162 25.6234 31.0899 25.6234 30.7497C25.6234 30.4094 25.7585 30.0831 25.9991 29.8425L34.0633 21.7809H3.84375C3.50394 21.7809 3.17805 21.6459 2.93777 21.4056C2.69749 21.1654 2.5625 20.8395 2.5625 20.4997Z" fill="#DBEEFF"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+          {% endif %}
+      </div>
+
+      <div class="ts-right">
+        <div class="ts-bleed" data-ts-root>
+          <div
+            id="tswiper-{{ section.id }}"
+            class="swiper tswiper"
+            aria-label="{{ section.settings.heading | escape | default: 'Reviews' }}"
+            data-speed="{{ section.settings.speed | default: 500 }}"
+            data-gap="{{ section.settings.gap | default: 24 }}"
+            data-autoplay="{{ section.settings.autoplay | default: false }}"
+            data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
+            data-slides="1.3|750:2.3|990:3.1"
+          >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- assign b = block.settings -%}
+                {%- assign prod = b.product -%}
+                <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  <article class="ts-card">
+                    {% if section.settings.show_stars %}
+                      <img class="ts-stars" src="https://cdn.shopify.com/s/files/1/2714/9868/files/XL_stars_5.svg" width="100%" height="16">
+                    {% endif %}
+
+                    {% if b.title != blank %}
+                      <h3 class="ts-title h2">{{ b.title }}</h3>
+                    {% endif %}
+
+                    {% if b.description != blank %}
+                      <div class="ts-desc rte">{{ b.description }}</div>
+                    {% endif %}
+
+                    {% if b.person != blank %}
+                      <div class="ts-person">{{ b.person }}</div>
+                    {% endif %}
+
+                    {% if prod != blank %}
+                      <div class="ts-prod">
+                        <div class="ts-prod-img">
+                          {% if prod.featured_media %}
+                            {{ prod.featured_media | image_url: width: 160 | image_tag: loading: 'lazy', widths: '160,320', alt: prod.title }}
+                          {% elsif prod.featured_image %}
+                            {{ prod.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', widths: '160,320', alt: prod.title }}
+                          {% endif %}
+                        </div>
+                        <div class="ts-prod-meta">
+                          <div class="ts-prod-title">{{ prod.title }}</div>
+                          <a href="{{ prod.url }}" class="button button--primary">{{ section.settings.shop_cta | default: 'Shop now' }}</a>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </article>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {% if section.settings.show_arrows %}
+            <div class="ts-nav small-hide medium-hide">
+                <button class="ts-btn ts-prev" aria-label="Previous">
+                    <span aria-hidden="true">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M38.4375 20.4997C38.4375 20.1599 38.3025 19.834 38.0622 19.5937C37.822 19.3534 37.4961 19.2184 37.1562 19.2184H6.9367L15.0009 11.1568C15.2415 10.9162 15.3766 10.5899 15.3766 10.2497C15.3766 9.90943 15.2415 9.58312 15.0009 9.34254C14.7603 9.10196 14.434 8.9668 14.0938 8.9668C13.7535 8.9668 13.4272 9.10196 13.1866 9.34254L2.9366 19.5925C2.8173 19.7116 2.7226 19.8529 2.6581 20.0086C2.5935 20.1643 2.5602 20.3311 2.5602 20.4997C2.5602 20.6682 2.5935 20.8351 2.6581 20.9907C2.7226 21.1464 2.8173 21.2878 2.9366 21.4068L13.1866 31.6568C13.4272 31.8974 13.7535 32.0325 14.0938 32.0325C14.434 32.0325 14.7603 31.8974 15.0009 31.6568C15.2415 31.4162 15.3766 31.0899 15.3766 30.7497C15.3766 30.4094 15.2415 30.0831 15.0009 29.8425L6.9367 21.7809H37.1562C37.4961 21.7809 37.822 21.6459 38.0622 21.4056C38.3025 21.1654 38.4375 20.8395 38.4375 20.4997Z" fill="#DBEEFF"/>
+                        </svg>
+                    </span>
+                </button>
+                <button class="ts-btn ts-next" aria-label="Next">
+                    <span aria-hidden="true">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5625 20.4997C2.5625 20.1599 2.69749 19.834 2.93777 19.5937C3.17805 19.3534 3.50394 19.2184 3.84375 19.2184H34.0633L25.9991 11.1568C25.7585 10.9162 25.6234 10.5899 25.6234 10.2497C25.6234 9.90943 25.7585 9.58312 25.9991 9.34254C26.2397 9.10196 26.566 8.9668 26.9062 8.9668C27.2465 8.9668 27.5728 9.10196 27.8134 9.34254L38.0634 19.5925C38.1827 19.7116 38.2774 19.8529 38.3419 20.0086C38.4065 20.1643 38.4398 20.3311 38.4398 20.4997C38.4398 20.6682 38.4065 20.8351 38.3419 20.9907C38.2774 21.1464 38.1827 21.2878 38.0634 21.4068L27.8134 31.6568C27.5728 31.8974 27.2465 32.0325 26.9062 32.0325C26.566 32.0325 26.2397 31.8974 25.9991 31.6568C25.7585 31.4162 25.6234 31.0899 25.6234 30.7497C25.6234 30.4094 25.7585 30.0831 25.9991 29.8425L34.0633 21.7809H3.84375C3.50394 21.7809 3.17805 21.6459 2.93777 21.4056C2.69749 21.1654 2.5625 20.8395 2.5625 20.4997Z" fill="#DBEEFF"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const section = document.getElementById('reviews-slider-{{ section.id }}');
+  const swiperEl = section && section.querySelector('#tswiper-{{ section.id }}');
+  function init(){
+    if (!swiperEl || !window.Swiper || !swiperEl.swiper) { setTimeout(init, 60); return; }
+    const sw = swiperEl.swiper;
+    const bind = (selector, handler) => {
+      section.querySelectorAll(selector).forEach(btn => {
+        // avoid duplicate bindings
+        if (!btn.dataset.bound) {
+          btn.addEventListener('click', handler);
+          btn.dataset.bound = '1';
+        }
+      });
+    };
+    // Wire up BOTH nav groups (mobile + desktop)
+    bind('.ts-nav .ts-prev', () => sw.slidePrev());
+    bind('.ts-nav .ts-next', () => sw.slideNext());
+  }
+  init();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Slider",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real customers, real results." },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#221D46" },
+    { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true },
+    { "type": "range", "id": "star_count", "min": 3, "max": 5, "step": 1, "label": "Star count", "default": 5 },
+    { "type": "text", "id": "shop_cta", "label": "CTA label", "default": "Shop now" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 56 },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show arrows", "default": true },
+    { "type": "range", "id": "gap", "label": "Slide gap", "min": 0, "max": 48, "step": 2, "default": 24 },
+    { "type": "range", "id": "speed", "label": "Transition speed (ms)", "min": 100, "max": 1200, "step": 50, "default": 500 },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (ms)", "min": 1500, "max": 8000, "step": 100, "default": 4000 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Heart Health Support" },
+        { "type": "richtext", "id": "description", "label": "Description", "default": "<p>This is my go-to supplement for science-proven heart health support.</p>" },
+        { "type": "text", "id": "person", "label": "Person", "default": "Brian, USA" },
+        { "type": "product", "id": "product", "label": "Related product (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    { "name": "Reviews Slider", "blocks": [ { "type": "review" }, { "type": "review" }, { "type": "review" } ] }
+  ]
+}
+{% endschema %}

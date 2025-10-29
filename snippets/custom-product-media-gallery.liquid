@@ -1,0 +1,63 @@
+<div class="custom-gallery-wrapper">
+  <!-- Thumbnails (left, vertical on desktop) -->
+  <div class="swiper custom-gallery-thumbnails">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        <div class="swiper-slide">
+          {%- assign thumb_img = media.preview_image -%}
+          {{ thumb_img | image_url: width: 160 | image_tag: loading: 'lazy', class: 'custom-gallery-thumbnail-image', alt: media.alt | escape }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Main Gallery (5:4 portrait) -->
+  <div class="swiper custom-gallery-main">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        <div class="swiper-slide">
+          {% assign alt_text = media.alt | escape %}
+          {% if media.media_type == 'image' %}
+            {% assign full_img_url = media | image_url: width: 2048 %}
+            <a 
+              href="{{ full_img_url }}" 
+              data-pswp-width="{{ media.preview_image.width }}"
+              data-pswp-height="{{ media.preview_image.height }}"
+              data-pswp-src="{{ full_img_url }}"
+              target="_blank"
+              class="custom-gallery-lightbox"
+            >
+              <img 
+                src="{{ media | image_url: width: 1600 }}" 
+                class="custom-gallery-media-image" 
+                alt="{{ alt_text }}" 
+                loading="{{ load_attr }}" 
+              />
+            </a>
+          {% else %}
+            {{ media | media_tag: image_size: '2048x', autoplay: false, loop: false, controls: true, class: 'custom-gallery-media-other' }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if product.media.size > 1 %}
+      <div class="custom-gallery-arrows">
+        <button class="swiper-button-prev custom-gallery-prev" aria-label="Previous image">
+          <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.0625 24.4995C3.0625 24.0934 3.22383 23.7039 3.51099 23.4167C3.79816 23.1296 4.18764 22.9682 4.59375 22.9682H40.7098L31.0721 13.3336C30.7846 13.0461 30.6231 12.6561 30.6231 12.2495C30.6231 11.8429 30.7846 11.4529 31.0721 11.1654C31.3597 10.8778 31.7496 10.7163 32.1562 10.7163C32.5629 10.7163 32.9528 10.8778 33.2404 11.1654L45.4904 23.4154C45.633 23.5576 45.7461 23.7266 45.8233 23.9126C45.9005 24.0986 45.9402 24.2981 45.9402 24.4995C45.9402 24.7009 45.9005 24.9003 45.8233 25.0864C45.7461 25.2724 45.633 25.4414 45.4904 25.5836L33.2404 37.8336C32.9528 38.1211 32.5629 38.2827 32.1562 38.2827C31.7496 38.2827 31.3597 38.1211 31.0721 37.8336C30.7846 37.5461 30.6231 37.1561 30.6231 36.7495C30.6231 36.3429 30.7846 35.9529 31.0721 35.6654L40.7098 26.0307H4.59375C4.18764 26.0307 3.79816 25.8694 3.51099 25.5823C3.22383 25.2951 3.0625 24.9056 3.0625 24.4995Z" fill="#1F1946"></path>
+          </svg>
+        </button>
+        <button class="swiper-button-next custom-gallery-next" aria-label="Next image">
+          <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.0625 24.4995C3.0625 24.0934 3.22383 23.7039 3.51099 23.4167C3.79816 23.1296 4.18764 22.9682 4.59375 22.9682H40.7098L31.0721 13.3336C30.7846 13.0461 30.6231 12.6561 30.6231 12.2495C30.6231 11.8429 30.7846 11.4529 31.0721 11.1654C31.3597 10.8778 31.7496 10.7163 32.1562 10.7163C32.5629 10.7163 32.9528 10.8778 33.2404 11.1654L45.4904 23.4154C45.633 23.5576 45.7461 23.7266 45.8233 23.9126C45.9005 24.0986 45.9402 24.2981 45.9402 24.4995C45.9402 24.7009 45.9005 24.9003 45.8233 25.0864C45.7461 25.2724 45.633 25.4414 45.4904 25.5836L33.2404 37.8336C32.9528 38.1211 32.5629 38.2827 32.1562 38.2827C31.7496 38.2827 31.3597 38.1211 31.0721 37.8336C30.7846 37.5461 30.6231 37.1561 30.6231 36.7495C30.6231 36.3429 30.7846 35.9529 31.0721 35.6654L40.7098 26.0307H4.59375C4.18764 26.0307 3.79816 25.8694 3.51099 25.5823C3.22383 25.2951 3.0625 24.9056 3.0625 24.4995Z" fill="#1F1946"></path>
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="custom-gallery-single-image">
+  {{ product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', class: 'product-media-image' }}
+</div>

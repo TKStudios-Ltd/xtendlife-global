@@ -1,0 +1,26 @@
+{% assign domain = request.host %}
+{% assign org_schema_pinterest = 'https://www.pinterest.com/xtendlife/' %}
+{% if domain == 'www.xtend-life.com.au' %}
+    {% assign org_schema_pinterest = 'https://www.pinterest.com.au/xtendlife/' %}
+{% elsif domain == 'www.xtend-life.co.nz' %}
+    {% assign org_schema_pinterest = 'https://nz.pinterest.com/xtendlife/' %}
+{% elsif domain == 'www.xtend-life.co.uk' %}
+    {% assign org_schema_pinterest = 'https://www.pinterest.co.uk/xtendlife/' %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Xtendlife",
+  "alternateName": "Xtend-Life",
+  "url": "https://{{ request.host }}/",
+  "logo": "https://cdn.shopify.com/s/files/1/1267/0135/files/New_XL_Logo.png",
+  "sameAs": [
+    "https://www.facebook.com/XtendLife",
+    "{{ org_schema_pinterest }}",
+    "https://www.instagram.com/xtend.life/",
+    "https://twitter.com/xtendlifenews/",
+    "https://www.youtube.com/user/XtendLifeChannel"
+  ]
+}
+</script>

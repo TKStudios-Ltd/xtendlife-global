@@ -1,0 +1,171 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">Free shipping over $100*</a> | <a href=\"/collections/all\" title=\"All Products\">Shop now</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-4",
+        "show_line_separator": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "popular_term_yUPAx8": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Total Balance"
+          }
+        },
+        "popular_term_NXr6AD": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Omega-3"
+          }
+        },
+        "popular_term_hP3QK3": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Wellness"
+          }
+        },
+        "popular_term_zW6N6R": {
+          "type": "popular_term",
+          "settings": {
+            "term": "NR6"
+          }
+        },
+        "popular_term_8h7dLg": {
+          "type": "popular_term",
+          "settings": {
+            "term": "Heart Health"
+          }
+        },
+        "featured_collection_CwmwH7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "supplements"
+          }
+        },
+        "featured_collection_fgencR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "heart-health"
+          }
+        },
+        "featured_collection_dKrjiR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "popular_term_yUPAx8",
+        "popular_term_NXr6AD",
+        "popular_term_hP3QK3",
+        "popular_term_zW6N6R",
+        "popular_term_8h7dLg",
+        "featured_collection_CwmwH7",
+        "featured_collection_fgencR",
+        "featured_collection_dKrjiR"
+      ],
+      "settings": {
+        "logo_position": "middle-center",
+        "mobile_logo_position": "center",
+        "menu": "main-2025",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "margin_bottom": 12,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "tile_1_image": "shopify://shop_images/DSF6381_2200x_1.png",
+        "tile_1_title": "Skin Essentials for Women",
+        "tile_1_subtitle": "Bundle and save up to 20%*",
+        "tile_1_link": "https://www.xtend-life.co.nz/products/kanapa-skin-essentials-for-women",
+        "tile_1_link_title": "Shop now",
+        "tile_2_image": "shopify://shop_images/DSF6381_2200x_3_2.png",
+        "tile_2_title": "Heart Health Bundle",
+        "tile_2_subtitle": "Bundle and save up to 20%*",
+        "tile_2_link": "https://www.xtend-life.co.nz/products/heart-health-bundle",
+        "tile_2_link_title": "Shop now",
+        "tile_3_image": "shopify://shop_images/DSF6381_2200x_4.png",
+        "tile_3_title": "The search for longevity started it all",
+        "tile_3_subtitle": "",
+        "tile_3_link": "shopify://pages/our-story",
+        "tile_3_link_title": "About us",
+        "tile_4_image": "shopify://shop_images/DSF6381_2200x_1_11e09824-b401-42f1-b5c6-7d7acbb96a29.png",
+        "tile_4_title": "A neuroscientist’s guide to nutriton for brain health",
+        "tile_4_subtitle": "",
+        "tile_4_link": "shopify://blogs/health-articles/a-neuroscientist-s-guide-to-nutrition-for-brain-health",
+        "tile_4_link_title": "Read more",
+        "tile_5_image": "shopify://shop_images/DSF6381_2200x_5.png",
+        "tile_5_title": "The Ingredient Index",
+        "tile_5_subtitle": "Using Science to get the best out of Nature",
+        "tile_5_link": "shopify://pages/ingredients",
+        "tile_5_link_title": "Learn more"
+      }
+    },
+    "popup_newsletter_QNXYFP": {
+      "type": "popup-newsletter",
+      "disabled": true,
+      "name": "Popup newsletter",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "bg_tint_opacity": 0,
+        "heading": "Stay connected",
+        "copy": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>",
+        "input_label": "Enter your email",
+        "input_placeholder": "Enter your email",
+        "success_copy": "Thanks for subscribing",
+        "show_delay_ms": 800,
+        "trigger_scroll_percent": 0,
+        "enable_exit_intent": false,
+        "once_per_session": true,
+        "hide_days": 1,
+        "auto_close_ms": 2000,
+        "hide_on_mobile": false,
+        "exclude_paths": "/cart\n/checkout\n/account",
+        "klaviyo_list_id": "Ram9Tc",
+        "source_tag": "popup_newsletter"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "popup_newsletter_QNXYFP"
+  ]
+}

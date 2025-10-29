@@ -1,0 +1,24 @@
+{% assign member_tags = "lp-standard,lp-auto,lp-flexi,lp-20,lp-30" | split: "," %}
+{% assign member_discounts = "0.90,0.85,0.90,0.80,0.70" | split: "," %}
+
+{%- assign member_price = '' -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign product_price = current_variant.price | default: product.price -%}
+{%- assign product_compare_at_price = current_variant.compare_at_price | default: product.compare_at_price_max -%}
+
+{% unless product.tags contains 'lp-discount-exclusion' %}
+  {% for member_tag in member_tags %}
+    {%- if customer and customer.tags contains member_tag -%}
+      {%- assign member_discount = member_discounts[forloop.index0] | times: 1 -%}
+      {% if product_compare_at_price and product_compare_at_price > product_price %}
+        {%- assign base_price = product_compare_at_price -%}
+      {% else %}
+        {%- assign base_price = product_price -%}
+      {% endif %}
+      {%- assign member_price = base_price | times: member_discount | round: 0 -%}
+      {%- assign product_compare_at_price = base_price -%}
+      {%- assign product_price = member_price -%}
+      {%- break -%}
+    {%- endif -%}
+  {% endfor %}
+{% endunless %}

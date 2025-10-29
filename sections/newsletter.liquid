@@ -1,0 +1,281 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .newsletter__image { width: 100%; height: auto; display: block; }
+  .newsletter__left .h1 { font-size: 4rem; margin-top: 0; text-align: left; }
+  .newsletter__right h2 { margin: 0; }
+  .newsletter__right p { max-width: 480px; margin-top: 0.5rem; }
+  /* Ensure hidden actually hides, even if theme styles say otherwise */
+  .newsletter-form__message[hidden] { display: none !important; }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .newsletter__wrapper--split { display: flex; flex-wrap: wrap; align-items: flex-start; }
+    .newsletter__left { flex: 0 0 50%; }
+    .newsletter__right { flex: 0 0 50%; margin-top: 0; padding: 0 4rem; text-align: left; }
+  }
+{%- endstyle -%}
+
+{% assign form_dom_id = 'NewsletterForm--' | append: section.id %}
+
+<div class="newsletter center {% if section.settings.full_width == false %} page-width{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="newsletter__wrapper newsletter__wrapper--split page-width content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+
+    <div class="newsletter__left">
+      <h2 class="h1">Stay connected</h2>
+      {% if section.settings.left_image %}
+        <img
+          src="{{ section.settings.left_image | image_url: width: 900 }}"
+          alt="{{ section.settings.left_image.alt | escape }}"
+          loading="lazy"
+          class="newsletter__image"
+        >
+      {% endif %}
+    </div>
+
+    <div class="newsletter__right">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when '@app' -%}
+            {% render block %}
+
+          {%- when 'heading' -%}
+            <h2
+              class="inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {{ block.shopify_attributes }}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {{ block.settings.heading }}
+            </h2>
+
+          {%- when 'paragraph' -%}
+            <div
+              class="newsletter__subheading subtitle{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {{ block.shopify_attributes }}
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style="--animation-order: {{ forloop.index }};"
+              {% endif %}
+            >
+              {{ block.settings.text }}
+            </div>
+
+          {%- when 'email_form' -%}
+            <div {{ block.shopify_attributes }}>
+              {% comment %} Dawn UI form; ID comes from form_dom_id for Klaviyo attach {% endcomment %}
+              {% form 'customer', id: form_dom_id, class: 'newsletter-form' %}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <div
+                  class="newsletter-form__field-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  <div class="field">
+                    <input
+                      id="Email--{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      class="field__input"
+                      value="{{ form.email }}"
+                      aria-required="true"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      autocomplete="email"
+                      {% if form.errors %}
+                        autofocus aria-invalid="true" aria-describedby="Newsletter-error--{{ section.id }}"
+                      {% endif %}
+                      placeholder="{{ 'newsletter.label' | t }}"
+                      required
+                    >
+                    <input type="hidden" name="g" value="{{ section.settings.klaviyo_list_id | escape }}">
+                    <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
+                    <label class="field__label" for="Email--{{ section.id }}">Your email</label>
+                    <button
+                      type="submit"
+                      class="newsletter-form__button field__button"
+                      name="commit"
+                      id="Subscribe--{{ section.id }}"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      <span class="svg-wrapper">{{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                    </button>
+                  </div>
+
+                  {%- if form.errors -%}
+                    <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
+                      <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+                      {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
+                    </small>
+                  {%- endif -%}
+                </div>
+                <h3
+                  class="newsletter-form__message newsletter-form__message--success form__message"
+                  id="Newsletter-success--{{ section.id }}"
+                  hidden
+                >
+                  <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+                  {{- 'newsletter.success' | t }}
+                </h3>
+              {% endform %}
+            </div>
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div> <!-- .newsletter__right -->
+
+  </div> <!-- .newsletter__wrapper -->
+</div>
+
+{%- comment -%} Attach Mode: load Klaviyo helper and bind to the Dawn form {%- endcomment -%}
+{%- if section.settings.enable_klaviyo_attach and section.settings.klaviyo_list_id != blank -%}
+  <script>
+    (function() {
+      if (!window.__kl_subscribe_loading) {
+        window.__kl_subscribe_loading = true;
+        var s = document.createElement('script');
+        s.src = "//www.klaviyo.com/media/js/public/klaviyo_subscribe.js";
+        s.async = true;
+        document.head.appendChild(s);
+      }
+
+      function showSuccess() {
+        var successEl = document.getElementById('Newsletter-success--{{ section.id }}');
+        if (successEl) successEl.hidden = false;
+      }
+
+      // --- FORCE post to a specific Klaviyo list regardless of attachToForms ---
+    function forceSubscribeToKlaviyo(listId, email, extra) {
+      if (!email || !listId) return;
+      var url = 'https://manage.kmail-lists.com/ajax/subscriptions/subscribe';
+      var fd = new FormData();
+      fd.append('g', listId);
+      fd.append('email', email);
+      if (extra && typeof extra === 'object') {
+        Object.keys(extra).forEach(function(k){
+          try { fd.append(k, typeof extra[k] === 'string' ? extra[k] : JSON.stringify(extra[k])); } catch(e){}
+        });
+      }
+      fetch(url, { method:'POST', body: fd, mode:'cors', credentials:'omit' })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(json){ console.log('[Klaviyo forced subscribe]', json); })
+        .catch(function(err){ console.warn('[Klaviyo forced subscribe] failed', err); });
+    }
+
+      function attachWhenReady() {
+        if (window.KlaviyoSubscribe && typeof window.KlaviyoSubscribe.attachToForms === 'function') {
+          try {
+            KlaviyoSubscribe.attachToForms('#{{ form_dom_id }}', {
+              hide_form_on_success: true,
+              custom_success_message: true,
+              list_id: "{{ section.settings.klaviyo_list_id | escape }}",
+              success: function() { showSuccess(); },
+              extra_properties: {
+                $source: "{{ section.settings.klaviyo_source | default: 'newsletter_section' | escape }}",
+                section_id: "{{ section.id }}",
+                theme: "dawn"
+              }
+            });
+          } catch (e) { console.warn('Klaviyo attach failed:', e); }
+        } else {
+          setTimeout(attachWhenReady, 200);
+        }
+      }
+      attachWhenReady();
+      // Also push directly to the target list on submit
+      var nlForm = document.getElementById('{{ form_dom_id }}');
+      if (nlForm) {
+        nlForm.addEventListener('submit', function() {
+          var emailEl = document.getElementById('Email--{{ section.id }}');
+          var email = emailEl ? (emailEl.value || '').trim() : '';
+          forceSubscribeToKlaviyo('{{ section.settings.klaviyo_list_id | escape }}', email, {
+            $source: '{{ section.settings.klaviyo_source | default: "newsletter_section" | escape }}',
+            section_id: '{{ section.id }}',
+            theme: 'dawn'
+          });
+        });
+      }
+
+    })();
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "paragraph", "content": "t:sections.newsletter.settings.paragraph.content" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "default": true, "label": "t:sections.newsletter.settings.full_width.label" },
+    { "type": "image_picker", "id": "left_image", "label": "Left Column Image" },
+
+    /* Attach Mode only */
+    { "type": "checkbox", "id": "enable_klaviyo_attach", "label": "Enable Klaviyo attach mode (use Dawn UI, submit to Klaviyo)", "default": true },
+    { "type": "text", "id": "klaviyo_list_id", "label": "Klaviyo List ID", "default": "Ram9Tc" },
+    { "type": "text", "id": "klaviyo_source", "label": "Source tag (optional)", "default": "newsletter_section" },
+
+    { "type": "header", "content": "t:sections.all.padding.section_padding_heading" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 52 }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.newsletter.blocks.heading.name",
+      "limit": 1,
+      "settings": [
+        { "type": "inline_richtext", "id": "heading", "default": "t:sections.newsletter.blocks.heading.settings.heading.default", "label": "t:sections.newsletter.blocks.heading.settings.heading.label" },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+            { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+            { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" },
+            { "value": "hxl", "label": "t:sections.all.heading_size.options__4.label" },
+            { "value": "hxxl", "label": "t:sections.all.heading_size.options__5.label" }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "name": "t:sections.newsletter.blocks.paragraph.name",
+      "limit": 1,
+      "settings": [
+        { "type": "richtext", "id": "text", "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default", "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label" }
+      ]
+    },
+    { "type": "email_form", "name": "t:sections.newsletter.blocks.email_form.name", "limit": 1 },
+    { "type": "@app" }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.presets.name",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "paragraph" },
+        { "type": "email_form" }
+      ]
+    }
+  ]
+}
+{% endschema %}

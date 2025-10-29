@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "layout": "collage",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_journal_tGKHtV": {
+      "type": "featured-blog-journal",
+      "name": "Featured Blog (Journal)",
+      "settings": {
+        "blog": "health-articles",
+        "heading": "Journal",
+        "heading_size": "h1",
+        "hero_subtitle": "<p>Discover a variety of topics to delve into, covering potential causes, symptoms, and tailored advice on diet, supplements, and lifestyle adjustments.</p>",
+        "filter_menu_title": "Categories",
+        "filter_menu": "blog-categories",
+        "posts_per_load": 14,
+        "max_posts_to_render": 96,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_blog_journal_tGKHtV"
+  ]
+}

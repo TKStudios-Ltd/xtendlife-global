@@ -1,0 +1,789 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_fRcgNk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TTkdGx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe & save",
+            "heading_size": "h0"
+          }
+        },
+        "caption_mC97Kh": {
+          "type": "caption",
+          "settings": {
+            "caption": "Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TTkdGx",
+        "caption_mC97Kh"
+      ],
+      "custom_css": [
+        ".page-width {margin: 3rem auto 2rem;}",
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 80rem; } .page-width {margin: 7rem auto 4rem; }}",
+        "@media (max-width: 749px) {.rich-text__blocks {text-align: left; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: center;}",
+        ".multicolumn-card__info {display: flex; justify-content: center; padding-bottom: 0;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .multicolumn-card__info {justify-content: flex-start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "rich_text_PfkKwd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TEcKjf": {
+          "type": "heading",
+          "settings": {
+            "heading": "How it works",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TEcKjf"
+      ],
+      "custom_css": [],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 60,
+        "padding_bottom": 32
+      }
+    },
+    "image_with_text_83HE6c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6bVe4M": {
+          "type": "heading",
+          "settings": {
+            "heading": "1. Pick your product(s)",
+            "heading_size": "h1"
+          }
+        },
+        "text_hiq8D3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Select the \"Subscribe & Save\" option before adding your favourite products to your cart, and see the 10% savings! Plus enjoy free shipping on all NZ orders with all ongoing subscription orders.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6bVe4M",
+        "text_hiq8D3"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_bJ9g4L": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_LyMEVW": {
+          "type": "heading",
+          "settings": {
+            "heading": "2. Set your schedule",
+            "heading_size": "h1"
+          }
+        },
+        "text_fmbkeg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Choose how often you want your product delivered to you. As often as 3 weeks, every 4 weeks, every 6 weeks, or as far out as every 8 weeks. We’ll deliver your product to your doorstep, regularly and automatically. We'll send you an email 3 days prior to your next order as a reminder.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LyMEVW",
+        "text_fmbkeg"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_kzCdEc": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9jky9T": {
+          "type": "heading",
+          "settings": {
+            "heading": "3. Skip, pause or cancel anytime",
+            "heading_size": "h1"
+          }
+        },
+        "text_BWFTk7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Manage your subscription orders easily with our customer portal. You can reschedule, move forward, or push back orders, and even try new flavours. If for any reason you no longer require your Two Islands subscription you are able to cancel at any time for free. Simply sign in to your account to make changes.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9jky9T",
+        "text_BWFTk7"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_VqfQk4": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_AdGPhV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Earn Xtendlife Rewards",
+            "heading_size": "h1"
+          }
+        },
+        "text_6RKJdQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.</p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AdGPhV",
+        "text_6RKJdQ"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        ".subtitle {font-size: 20px; line-height: 1.35;}",
+        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".image-with-text__text p {margin-bottom: 2rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_tab_grid_bgqKeg": {
+      "type": "featured-collection-tab-grid",
+      "disabled": true,
+      "custom_css": [
+        ".collection__title_inline {border-top: 1px solid rgba(31, 25, 71, 0.3); padding-top: 3.2rem;}"
+      ],
+      "name": "Featured collection tab",
+      "settings": {
+        "title": "Shop now",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "tab_featured_label": "Supplements",
+        "tab_full_label": "Superfoods",
+        "tab_alt_label": "Skincare",
+        "featured_collection": "supplements",
+        "featured_count": 4,
+        "full_collection": "superfoods",
+        "full_count": 4,
+        "alt_collection": "skincare",
+        "alt_count": 4,
+        "default_tab": "featured",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_DymD7U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_gea4K6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/1105988172"
+          }
+        },
+        "column_VnqTUe": {
+          "type": "column",
+          "settings": {
+            "title": "How to Subscribe & Save",
+            "text": "<p>Join us on this video walkthrough where we show you how to:</p><ul><li>Choose your Subscribe and Save products</li><li>Choose your preferred delivery schedule</li><li>Identify Subscribe and Save products in your cart</li><li>Complete checkout to create your Subscribe and Save order subscription</li></ul><p><a href=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\">Download the PDF version here</a></p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_gea4K6",
+        "column_VnqTUe"
+      ],
+      "custom_css": [
+        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
+        ".page-width {border-top: 1px solid rgba(31, 25, 71, 0.3);}",
+        ".content-container {height: 100%;}",
+        ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
+        "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
+        "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    },
+    "collapsible_content_8VjQPY": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_89AqTf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create a subscription?",
+            "icon": "none",
+            "row_content": "<p>Please watch our video walkthrough or download the PDF version on this page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fp9kgF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I reschedule my next order?",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cnj6hi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I skip my next order?",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on the Skip tab</li><li>You will be given the option to either gift your order to someone else or you can select 'Yes, Skip this order'.</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_erfxjF": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
+            "icon": "none",
+            "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rrqgka": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I cancel my Subscription? ",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Manage subscriptions'</li><li>Click on 'Manage this Subscription' (which can be found under the product name)</li><li>Scroll down and click on 'Cancel Subscription'/Click on Cancel Subscription </li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UMEfLQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change my credit card? ",
+            "icon": "none",
+            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment details'</li><li>Click on 'Manage Payment Methods'</li><li>Click on 'Edit'</li><li>Click on 'Send Edit Payment Link'</li><li>You will be sent an email to your Inbox.  If you do not see this within a few minutes, please check your Spam/Junk Folder</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Fn4jbM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create two or more subscriptions? ",
+            "icon": "none",
+            "row_content": "<p>Please watch our video walkthrough on this page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_wKKFar": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the longest frequency I can have between orders?",
+            "icon": "none",
+            "row_content": "<p>Six months.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_7ifegW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I choose to have my order shipped on a particular date every month?",
+            "icon": "none",
+            "row_content": "<p>No, you can’t set your subscription to ship on a certain date each month, but you can log in and reschedule your next order to ship on a specified date if you wish.  If that date falls on a Saturday, Sunday or public holiday it will ship the next business day. Please refer to our FAQ ‘How do I reschedule my order’</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6zdGEE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "If I change any part of my subscription, what’s the latest time I can do this successfully prior to it shipping? ",
+            "icon": "none",
+            "row_content": "<p>We advise making changes no later than 10:00pm Eastern Standard Time (EST) the day before the scheduled date of the order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_niCXW3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What time of day is my payment processed? ",
+            "icon": "none",
+            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_UA3RPW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have more than one address in my country of residence I can use? ",
+            "icon": "none",
+            "row_content": "<p>Yes, you can.</p><ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment Details'</li><li>Click on 'Manage addresses'</li><li>Click on 'Add a New Address'</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_paiVMj": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have different addresses for different subscriptions?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_abNe83": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I have two different payment methods if I have more than one subscription?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_D8gQRz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use a coupon code within my subscription?",
+            "icon": "none",
+            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you'd like to use a discount code, you'll need to place a separate order through the checkout.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Pz6dAA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods are available for subscriptions? ",
+            "icon": "none",
+            "row_content": "<p>Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay and Shop Pay.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Bfr7ee": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I choose two different shipping methods if I have more than one subscription? ",
+            "icon": "none",
+            "row_content": "<p>Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yVPhc3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change shipping methods? ",
+            "icon": "none",
+            "row_content": "<p>Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bdRrtA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I don’t know how to reactivate a subscription for a product; can you help me? Can you do it for me?",
+            "icon": "none",
+            "row_content": "<p>Yes, we can reactivate your subscription. Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.<br/><br/>You can also reactivate a cancelled subscription from your Subscribe & Save portal.</p><ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click 'Manage Subscriptions'</li><li>Click the 'Inactive' tab</li><li>Click 'Reactivate'</li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ACexKP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Price changes",
+            "icon": "none",
+            "row_content": "<p>Prices are subject to change without notice.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_89AqTf",
+        "collapsible_row_fp9kgF",
+        "collapsible_row_Cnj6hi",
+        "collapsible_row_erfxjF",
+        "collapsible_row_rrqgka",
+        "collapsible_row_UMEfLQ",
+        "collapsible_row_Fn4jbM",
+        "collapsible_row_wKKFar",
+        "collapsible_row_7ifegW",
+        "collapsible_row_6zdGEE",
+        "collapsible_row_niCXW3",
+        "collapsible_row_UA3RPW",
+        "collapsible_row_paiVMj",
+        "collapsible_row_abNe83",
+        "collapsible_row_D8gQRz",
+        "collapsible_row_Pz6dAA",
+        "collapsible_row_Bfr7ee",
+        "collapsible_row_yVPhc3",
+        "collapsible_row_bdRrtA",
+        "collapsible_row_ACexKP"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Subscribe & Save FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collapsible_content_tDcJHV": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_UhHWg4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I see my order history once I rejoin Subscribe and Save?",
+            "icon": "none",
+            "row_content": "<p>Yes, if you have had a previous Loyalty Program account you will see all your past orders by logging in to your account. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_tEPWAG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I don’t want an automated subscription, can I rejoin using Flexi-ship?",
+            "icon": "none",
+            "row_content": "<p>Flexi-ship has now been discontinued.  However, with our Subscribe & Save program, you can reschedule and skip orders as you wish. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_EGrrwm": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use the same login details that I currently have? ",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. </p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_UhHWg4",
+        "collapsible_row_tEPWAG",
+        "collapsible_row_EGrrwm"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.collapsible-content__heading {font-size: 3.6rem; margin-bottom: 5rem; } .collapsible-content__wrapper {padding: 7rem 0 14rem; } .accordion summary .icon-caret {display: none; } .accordion__title {font-size: 2.4rem; font-weight: 400; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {font-size: 2.4rem; }}",
+        ".collapsible-content__wrapper {padding-left: 2rem; padding-right: 2rem;}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Loyalty Program FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_KfcfcR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_KfcfcR",
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
+        ".h1 {display: none;}",
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_fRcgNk",
+    "multicolumn_A6pqFF",
+    "rich_text_PfkKwd",
+    "image_with_text_83HE6c",
+    "image_with_text_bJ9g4L",
+    "image_with_text_kzCdEc",
+    "image_with_text_VqfQk4",
+    "featured_collection_tab_grid_bgqKeg",
+    "multicolumn_DymD7U",
+    "collapsible_content_8VjQPY",
+    "collapsible_content_tDcJHV",
+    "newsletter_qKtmmH"
+  ]
+}

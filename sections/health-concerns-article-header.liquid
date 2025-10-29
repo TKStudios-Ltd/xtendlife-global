@@ -1,0 +1,100 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%} Breadcrumbs {%- endcomment -%}
+<nav class="ingredient-breadcrumbs breadcrumbs page-width" aria-label="Breadcrumb">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span class="breadcrumbs__sep">›</span>
+  <a href="/pages/health-concerns">Health Concerns</a>
+  <span class="breadcrumbs__sep">›</span>
+  <span class="bc-current" aria-current="page">{{ article.title | escape }}</span>
+</nav>
+
+<article class="hc-article-template hc-article-template-header page-width">
+  <div class="hc-article-template__left">
+    <header class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <h1 class="article-template__title">
+        {{ article.title | escape }}
+      </h1>
+      {%- if article.metafields.custom.article_subheading != blank -%}
+        <p class="hc-article-template__subheading">
+          {{ article.metafields.custom.article_subheading }}
+        </p>
+      {%- endif -%}
+    </header>
+  </div>
+
+  <div class="hc-article-template__right">
+    {%- if article.image -%}
+      <div class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        <div
+          class="article-template__hero-{{ section.settings.image_height }} media"
+          {% if section.settings.image_height == 'adapt' and article.image %}
+            style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+          {% endif %}
+        >
+          <img
+            srcset="
+              {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+              {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+              {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+              {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+              {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+              {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+              {{ article.image | image_url }} {{ article.image.width }}w
+            "
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+            src="{{ article.image | image_url: width: 1100 }}"
+            loading="eager"
+            fetchpriority="high"
+            width="{{ article.image.width }}"
+            height="{{ article.image.height }}"
+            alt="{{ article.image.alt | escape }}"
+          >
+          <!-- mobile overlay -->
+          <header class="overlay-title mobile-only">
+            <h1 class="article-template__title">
+              {{ article.title | escape }}
+            </h1>
+          </header>
+        </div>
+        {%- if article.metafields.custom.article_subheading != blank -%}
+          <p class="hc-article-template__subheading mobile-only">
+            {{ article.metafields.custom.article_subheading }}
+          </p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "HC article header",
+  "tag": "section",
+  "class": "section",
+  "templates": ["article"],
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "Image height",
+      "default": "adapt",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HC article header"
+    }
+  ]
+}
+{% endschema %}

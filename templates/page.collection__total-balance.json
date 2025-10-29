@@ -1,0 +1,955 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_pFjbBG": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_JR9Vpa": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SERVING 400,000 CUSTOMERS GLOBALLY",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "heading_4P8W9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Most Comprehensive Multivitamin",
+            "heading_size": "h1"
+          }
+        },
+        "text_FxFrdN": {
+          "type": "text",
+          "settings": {
+            "text": "Formulated iwth a fusion of 90+ vitamins, minerals, enzymes, herbs, and other pivotal ingredients, each TOtal Balance is design for the specific needs of age and gender to support everyday wellness",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "buttons_JR9Vpa",
+        "heading_4P8W9w",
+        "text_FxFrdN"
+      ],
+      "custom_css": [
+        "h2 {line-height: 1.1;}",
+        ".subtitle {max-width: 460px; margin-top: 2rem;}",
+        ".subtitle p {font-size: 20px;}",
+        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Family-1335399765_4.png",
+        "image_overlay_opacity": 20,
+        "image_height": "small",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: flex-start;}",
+        ".multicolumn-card__info {display: flex;}",
+        ".grid li:first-child .multicolumn-card__info {padding-left: 0 !important;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; } .grid li {width: auto !important; max-width: fit-content !important; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_EapeUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cpFMj7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Go Beyond Multivitamins",
+            "heading_size": "h1"
+          }
+        },
+        "caption_ADqcV9": {
+          "type": "caption",
+          "settings": {
+            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_hhytby": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "The Foundation of Good Health",
+            "row_content": "<p>A complete nutrient system to feed your cells the right nutrients, in the right amounts, at the right time supporting energy levels, immunity and foundational health.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_gpjHHf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Anti-Aging Formula",
+            "row_content": "<p>With age-defying nutrients to support your entire body at a cellular level, Total Balance helps maintain youthful cell function, giving you an advantage in tackling the main causes of aging.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_wRt7Wa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Optimised for Men and Women",
+            "row_content": "<p>Our gender-specific formulas support the specific needs of men and women, including prostate and testosterone support for men and support for menopause and PMS for women.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "text_QNdBXj": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Manufactured in New Zealand</li><li>90+ vitamins, minerals, enzymes, herbs and other ingredients</li><li>Based on science and constantly updated for 20 years</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cpFMj7",
+        "caption_ADqcV9",
+        "collapsible_row_hhytby",
+        "collapsible_row_gpjHHf",
+        "collapsible_row_wRt7Wa",
+        "text_QNdBXj"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection_tab_grid_Ddm4Df": {
+      "type": "featured-collection-tab-grid",
+      "custom_css": [
+        ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
+      ],
+      "name": "Featured collection tab",
+      "settings": {
+        "title": "Start Your Wellness Journey",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "tab_featured_label": "",
+        "tab_full_label": "",
+        "tab_alt_label": "",
+        "featured_collection": "total-balance-range",
+        "featured_count": 4,
+        "full_collection": "foundational-health",
+        "full_count": 12,
+        "alt_collection": "",
+        "alt_count": 12,
+        "default_tab": "featured",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_HHyM8a": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zhEGVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Total Balance = Your Daily Nutritional Foundation",
+            "heading_size": "h1"
+          }
+        },
+        "text_bztXa3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Vitamins</strong><br/>Comprehensive blend of essential vitamins you need each day.<br/><br/><strong>Minerals and Micro Nutrients</strong><br/>Promotes cell growth and builds immunity.<br/><br/><strong>Powerful Antioxidants</strong><br/>Resists the damage caused by free radicals.<br/><br/><strong>Amino Acids</strong><br/>Builds protein and supporting metabolism and cellular health.<br/><br/><strong>Enzymes</strong><br/>Boosts bioavailability of the nutrients and deliver nutrients to cells.<br/><br/><strong>Eye Health Blend</strong><br/>Targeted eye-nourishing nutrients for healthy vision.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zhEGVe",
+        "text_bztXa3"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 3.6rem; line-height: 1.15;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 6rem 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 2.4rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/TBMP_340_1113.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "reviews_slider_EnTCee": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dXy8WH": {
+          "type": "review",
+          "settings": {
+            "title": "Amazing Product",
+            "description": "<p>I have been using Total Balance Men’s Premium for more than 5 years, and I hope to be using it for the rest of my life.</p>",
+            "person": "Abito, Singapore",
+            "product": "total-balance-mens-premium"
+          }
+        },
+        "review_HzjgFA": {
+          "type": "review",
+          "settings": {
+            "title": "My Doctor Recommended",
+            "description": "<p>I suffered from chronic fatigue. I do feel that these vitamins have helped me significantly over the past few years.</p>",
+            "person": "David, USA",
+            "product": "total-balance-mens-premium"
+          }
+        },
+        "review_KcRaMj": {
+          "type": "review",
+          "settings": {
+            "title": "Checks all the boxes",
+            "description": "<p>I have been taking Total Balance Women's for several years now. This one checked all the boxes! This vitamin makes me feel better.</p>",
+            "person": "Bunny, USA",
+            "product": "total-balance-womens-premium"
+          }
+        },
+        "review_6xy4xw": {
+          "type": "review",
+          "settings": {
+            "title": "Class of its Own",
+            "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
+            "person": "Wayne, USA",
+            "product": "total-balance-mens-premium"
+          }
+        },
+        "review_HmjwX3": {
+          "type": "review",
+          "settings": {
+            "title": "Best Vitamins in the World",
+            "description": "<p>I reviewed and studied vitamins being sold over the world, and Total Balance Men’s Premium is the best.</p>",
+            "person": "Aaron, USA",
+            "product": "total-balance-mens-premium"
+          }
+        }
+      },
+      "block_order": [
+        "review_dXy8WH",
+        "review_HzjgFA",
+        "review_KcRaMj",
+        "review_6xy4xw",
+        "review_HmjwX3"
+      ],
+      "custom_css": [
+        "h2 {color: #1f1946;}",
+        ".ts-btn svg path {fill: #1f1946;}"
+      ],
+      "name": "Reviews Slider",
+      "settings": {
+        "heading": "Real customers, real results.",
+        "bg_color": "#dbeeff",
+        "show_stars": true,
+        "star_count": 5,
+        "shop_cta": "Shop now",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000
+      }
+    },
+    "image_with_text_3jd3Fg": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HLeMWQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Benefits of Total Balance",
+            "heading_size": "h2"
+          }
+        },
+        "collapsible_row_eJMy84": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "General Health",
+            "row_content": "<ul><li>Liver health</li><li>Lung health</li><li>Skin elasticity & hydration</li><li>Strong bones</li><li>Exercise recovery</li><li>Sharp vision & eye protection</li></ul>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_E3dGpt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Cardiovascular",
+            "row_content": "<ul><li>Healthy blood vessels</li><li>Blood flow</li><li>Healthy blood pressure</li><li>Vasodilation</li><li>Healthy cholesterol & triglycerides</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_mNwhUk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Telomeres & Anti-Aging",
+            "row_content": "<ul><li>Telomere protection</li><li>Antioxidant protection for cells & DNA</li><li>Anti-inflammatory</li><li>Cellular energy</li><li>Positive outlook</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_hD4rk6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Mental Health & Brain",
+            "row_content": "<ul><li>Memory, cognition & focus</li><li>Anti-aging vitamins for brain</li><li>Neuroprotection</li><li>Positive outlook</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_nq449P": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Immunity",
+            "row_content": "<ul><li>Innate immunity</li><li>Acquired immunity</li><li>Anti-viral defenses</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_PbVEn9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Metabolic",
+            "row_content": "<ul><li>Glycemic control</li><li>Fat burning</li><li>Metabolic syndrome</li><li>Weight control</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_pmKgf3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Joints",
+            "row_content": "<ul><li>Joint comfort</li><li>Improved mobility</li><li>Cartilage regeneration</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_WPT7dp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Digestion",
+            "row_content": "<ul><li>Enzymes to assist digestion</li><li>Maintain function of gut lining</li><li>Encourage regular bowel movements</li><li>Reduce gas and bloating</li></ul>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_Fc4Pki": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Sexual & Hormonal Health",
+            "row_content": "<ul><li>Prostate support (Men’s)</li><li>Testosterone support (Men’s)</li><li>Menopause relief (Women’s)</li><li>PMS support (Women’s)</li><li>Libido (Men & Women’s)</li></ul>",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_HLeMWQ",
+        "collapsible_row_eJMy84",
+        "collapsible_row_E3dGpt",
+        "collapsible_row_mNwhUk",
+        "collapsible_row_hD4rk6",
+        "collapsible_row_nq449P",
+        "collapsible_row_PbVEn9",
+        "collapsible_row_pmKgf3",
+        "collapsible_row_WPT7dp",
+        "collapsible_row_Fc4Pki"
+      ],
+      "custom_css": [
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
+        ".image-with-text__heading {margin-bottom: 6rem;}",
+        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
+        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YewMnP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RGRz3y": {
+          "type": "heading",
+          "settings": {
+            "heading": "As seen on",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RGRz3y"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 60,
+        "padding_bottom": 20
+      }
+    },
+    "image_infinite_scroll_6YVr3i": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EahCNG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-USA_Today_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_wQp7ij": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-CBS_News_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_36p7tN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DrTalks_Logo-02_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_Qw9PXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-Fox_News_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_nxEX3U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-NBC_200x_1.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EahCNG",
+        "image_wQp7ij",
+        "image_36p7tN",
+        "image_Qw9PXi",
+        "image_nxEX3U"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
+        "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#f4f8fb",
+        "image_size_constraint": "height",
+        "image_max_size": 50,
+        "scroll_speed": 15,
+        "repeat_count": 1,
+        "image_gap": 0,
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_83HE6c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6bVe4M": {
+          "type": "heading",
+          "settings": {
+            "heading": "Healthy Aging with GG Pure",
+            "heading_size": "h1"
+          }
+        },
+        "caption_MdCprz": {
+          "type": "caption",
+          "settings": {
+            "caption": "Geranylgeraniol (GG) is the building block for essential-to-life nutrient. However, most people may haven't heard of it, Scientists discovered that this molecule plays a vital role in overall health. A decline in GG levels is linked to many of the common side effects experienced by those taking statins.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_4b8wHk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Highly Advanced Natural Supplement",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_XxRk8y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Circulation and Calcification",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_VjbeiX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Inflammation and Cellular Support",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_LKKWzb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Additional Antioxidants",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "button_7xtrmP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop GG Pure",
+            "button_link": "shopify://products/gg-pure",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6bVe4M",
+        "caption_MdCprz",
+        "collapsible_row_4b8wHk",
+        "collapsible_row_XxRk8y",
+        "collapsible_row_VjbeiX",
+        "collapsible_row_LKKWzb",
+        "button_7xtrmP"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 20px; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "comparison_chart_Ehzkpz": {
+      "type": "comparison-chart",
+      "blocks": {
+        "column_VgTzJM": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-mens-premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
+            "row6_text": "7"
+          }
+        },
+        "column_8xypY8": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-mens",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
+            "row6_text": "4"
+          }
+        },
+        "column_7chcQR": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-womens-premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
+            "row6_text": "7"
+          }
+        },
+        "column_tQCBEQ": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-womens",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
+            "row6_text": "4"
+          }
+        }
+      },
+      "block_order": [
+        "column_VgTzJM",
+        "column_8xypY8",
+        "column_7chcQR",
+        "column_tQCBEQ"
+      ],
+      "name": "Comparison Chart",
+      "settings": {
+        "heading": "Which Total Balance Version is Right for Me?",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "row1_label": "Full Spectrum Multivitamin",
+        "row2_label": "DNA and Cell Repair",
+        "row3_label": "Immunity Support",
+        "row4_label": "Anti-Aging Formula",
+        "row5_label": "Enzymes, Amino Acids",
+        "row6extra_label": "Enteric Coating",
+        "row7extra_label": "",
+        "row6_label": "Dosage Per Day ",
+        "shop_cta": "Shop now",
+        "col_width": 300,
+        "gap": 0,
+        "max_ticks": 4,
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
+    "video_slider_QxaRdC": {
+      "type": "video-slider",
+      "blocks": {
+        "video_slide_YgV6cd": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "title": "Manage Arterial Calcification with CX8",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
+          }
+        },
+        "video_slide_mpiyEH": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903919531",
+            "title": "Manage Healthy Blood Pressure with VasQFlow",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
+          }
+        },
+        "video_slide_Xx7KUJ": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903900984",
+            "title": "Manage Statin Side Effects with GG Pure and Xtend-Quinol",
+            "name": "With Dr. Kahn and Dr. Barrie Tan",
+            "description": "Geranylgeraniol (GG) helps manage side effects from statin cholesterol-lowering medications. Learn what Dr. Joel Kahn and Dr. Barrie Tan have to say about the breakthrough of GG and why it combines well with CoQ10 for healthy aging."
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_YgV6cd",
+        "video_slide_mpiyEH",
+        "video_slide_Xx7KUJ"
+      ],
+      "disabled": true,
+      "name": "Video slider",
+      "settings": {
+        "heading": "",
+        "bg_color": "#f4f8fb",
+        "gap": 32,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Life Long. Life Strong.",
+            "heading_size": "h1"
+          }
+        },
+        "text_VhCp7b": {
+          "type": "text",
+          "settings": {
+            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "shopify://pages/our-story",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_VhCp7b",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        "h2 {line-height: 1.2;}",
+        ".subtitle {max-width: 500px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Hiking-1273008990_2.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_pFjbBG",
+    "multicolumn_A6pqFF",
+    "image_with_text_EapeUP",
+    "featured_collection_tab_grid_Ddm4Df",
+    "image_with_text_HHyM8a",
+    "reviews_slider_EnTCee",
+    "image_with_text_3jd3Fg",
+    "rich_text_YewMnP",
+    "image_infinite_scroll_6YVr3i",
+    "image_with_text_83HE6c",
+    "comparison_chart_Ehzkpz",
+    "video_slider_QxaRdC",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNN"
+  ]
+}

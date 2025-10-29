@@ -1,0 +1,931 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_pFjbBG": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_JR9Vpa": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "RECOMMENDED BY DR. JOEL KHAN",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "heading_4P8W9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hormonal Health",
+            "heading_size": "h1"
+          }
+        },
+        "text_FxFrdN": {
+          "type": "text",
+          "settings": {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "buttons_JR9Vpa",
+        "heading_4P8W9w",
+        "text_FxFrdN"
+      ],
+      "custom_css": [
+        ".subtitle {max-width: 460px; margin-top: 2rem;}",
+        ".subtitle p {font-size: 20px;}",
+        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Walking_on_the_beach-1444319868_4.png",
+        "image_overlay_opacity": 20,
+        "image_height": "small",
+        "wide_container": true,
+        "image_behavior": "none",
+        "desktop_content_position": "top-center",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "multicolumn_A6pqFF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dPkBXE": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon.svg",
+            "title": "",
+            "text": "<p>Trusted Brand for over 25 years</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_84WnVg": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_1.svg",
+            "title": "",
+            "text": "<p>Proudly made in New Zealand</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_bqhLTR": {
+          "type": "column",
+          "settings": {
+            "icon": "shopify://shop_images/Icon_2.svg",
+            "title": "",
+            "text": "<p>365 Days Guaranteed</p>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dPkBXE",
+        "column_84WnVg",
+        "column_bqhLTR"
+      ],
+      "custom_css": [
+        ".grid {gap: 0; justify-content: flex-start;}",
+        ".multicolumn-card__info {display: flex;}",
+        ".grid li:first-child .multicolumn-card__info {padding-left: 0 !important;}",
+        "p {font-size: 14px; line-height: 1;}",
+        "@media (min-width: 750px) {.grid li:not(:last-child) {border-right: 1px solid; } .grid li {width: auto !important; max-width: fit-content !important; }}",
+        "@media (max-width: 749px) {p {font-size: 10px; } img {height: 12px; } .grid {justify-content: start; } .grid__item {width: 50% !important; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "featured_collection_tab_grid_Ddm4Df": {
+      "type": "featured-collection-tab-grid",
+      "custom_css": [
+        ".collection__title_inline {border-top: 1px solid; border-color: rgba(31, 25, 71, 0.3); padding-top: 2rem;}"
+      ],
+      "name": "Featured collection tab",
+      "settings": {
+        "title": "Top Supplements for Hormonal Health",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "tab_featured_label": "",
+        "tab_full_label": "",
+        "tab_alt_label": "",
+        "featured_collection": "hormonal-health",
+        "featured_count": 4,
+        "full_collection": "hormonal-health",
+        "full_count": 12,
+        "alt_collection": "",
+        "alt_count": 12,
+        "default_tab": "featured",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "reviews_slider_EnTCee": {
+      "type": "reviews-slider",
+      "blocks": {
+        "review_dXy8WH": {
+          "type": "review",
+          "settings": {
+            "title": "Heart Health Support",
+            "description": "<p>This is my go-to supplement for science-proven heart health support.</p>",
+            "person": "Brian, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_HzjgFA": {
+          "type": "review",
+          "settings": {
+            "title": "Heart in Good Condition",
+            "description": "<p>It has been great for me. After 2 artery operations. Both surgeons said my heart was in very good condition.</p>",
+            "person": "Alex, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_6xy4xw": {
+          "type": "review",
+          "settings": {
+            "title": "Take this if you take statins",
+            "description": "<p>I am glad to take this product to offset possible side effects of low co q10 due to statins. Highly recommend this product!</p>",
+            "person": "Peggy, USA",
+            "product": "gg-pure"
+          }
+        },
+        "review_KcRaMj": {
+          "type": "review",
+          "settings": {
+            "title": "CX8-Cardio Support",
+            "description": "<p>Unbelievable I really feel a difference.</p>",
+            "person": "Sandra, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_HmjwX3": {
+          "type": "review",
+          "settings": {
+            "title": "Great results",
+            "description": "<p>I’ve only been using the CX8 for a couple of months now and I’ve seen improvements to my health!</p>",
+            "person": "Aaron, USA",
+            "product": "cx8-heart-health-support"
+          }
+        },
+        "review_96pb83": {
+          "type": "review",
+          "settings": {
+            "title": "Incredible for Blood Flow",
+            "description": "<p>It has helped me significantly with blood flow issues. </p>",
+            "person": "John, USA",
+            "product": "vasqflow"
+          }
+        },
+        "review_KUTGUj": {
+          "type": "review",
+          "settings": {
+            "title": "Heart health",
+            "description": "<p>This product was exactly what I was looking for in a supplement. Although I’ve been only using this for a short while, I feel great using this product.</p>",
+            "person": "Jack, USA",
+            "product": "vasqflow"
+          }
+        },
+        "review_NmNeiT": {
+          "type": "review",
+          "settings": {
+            "title": "GG Pure with Statin",
+            "description": "<p>I decided to take GG Pure and ubiquinol since I am on a statin. I have had no muscle aches or any other side effects at all. I highly recommend it.</p>",
+            "person": "Mary, USA",
+            "product": "gg-pure"
+          }
+        }
+      },
+      "block_order": [
+        "review_dXy8WH",
+        "review_HzjgFA",
+        "review_6xy4xw",
+        "review_KcRaMj",
+        "review_HmjwX3",
+        "review_96pb83",
+        "review_KUTGUj",
+        "review_NmNeiT"
+      ],
+      "custom_css": [
+        "h2 {color: #1f1946;}",
+        ".ts-btn svg path {fill: #1f1946;}"
+      ],
+      "name": "Reviews Slider",
+      "settings": {
+        "heading": "Real customers, real results.",
+        "bg_color": "#dbeeff",
+        "show_stars": true,
+        "star_count": 5,
+        "shop_cta": "Shop now",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "show_arrows": true,
+        "gap": 20,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000
+      }
+    },
+    "image_with_text_3jd3Fg": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HLeMWQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lorem ipsum dolor sit amet",
+            "heading_size": "h2"
+          }
+        },
+        "collapsible_row_eJMy84": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_E3dGpt": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_mNwhUk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_hD4rk6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Duis aute irure dolor",
+            "row_content": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "page": "",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_HLeMWQ",
+        "collapsible_row_eJMy84",
+        "collapsible_row_E3dGpt",
+        "collapsible_row_mNwhUk",
+        "collapsible_row_hD4rk6"
+      ],
+      "custom_css": [
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
+        ".image-with-text__heading {margin-bottom: 6rem;}",
+        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
+        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": true,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_EapeUP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cpFMj7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Adopting a heart-healthy lifestyle can significantly reduce the risk of developing heart-related conditions.",
+            "heading_size": "h1"
+          }
+        },
+        "text_QNdBXj": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li>A heart-healthy lifestyle includes a balanced and diet based around unprocessed foods, regular exercise, avoiding smoking, limiting alcohol consumption and managing stress.</li><li>As we get older, our bodies are less able to produce or absorb essential nutrients such as omega-3, CoQ10 and vitamin K2.</li><li>Targeted supplementation can help make sure you are getting the right nutrients in the right amounts your body requires, which helps promote cardiovascular health and prevent disease.</li></ol>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cpFMj7",
+        "text_QNdBXj"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 3.6rem; line-height: 1.15;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 6rem 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 2.4rem; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_YewMnP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RGRz3y": {
+          "type": "heading",
+          "settings": {
+            "heading": "As seen on",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RGRz3y"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "anchor_id": "",
+        "anchor_offset": 120,
+        "padding_top": 60,
+        "padding_bottom": 20
+      }
+    },
+    "image_infinite_scroll_6YVr3i": {
+      "type": "image-infinite-scroll",
+      "blocks": {
+        "image_EahCNG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-USA_Today_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_wQp7ij": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-CBS_News_200x_1.png",
+            "link": ""
+          }
+        },
+        "image_36p7tN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DrTalks_Logo-02_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_Qw9PXi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-Fox_News_400x_1.png",
+            "link": ""
+          }
+        },
+        "image_nxEX3U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Logo-NBC_200x_1.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_EahCNG",
+        "image_wQp7ij",
+        "image_36p7tN",
+        "image_Qw9PXi",
+        "image_nxEX3U"
+      ],
+      "custom_css": [
+        "@media (min-width: 750px) {.image-scroll-wrapper {animation: none !important; justify-content: space-evenly; align-items: center; }}",
+        "@media (max-width: 749px) {.image-scroll-wrapper {gap: 4rem; }}"
+      ],
+      "name": "Image Infinite Scroll",
+      "settings": {
+        "background_color": "#f4f8fb",
+        "image_size_constraint": "height",
+        "image_max_size": 50,
+        "scroll_speed": 15,
+        "repeat_count": 1,
+        "image_gap": 0,
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_HHyM8a": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zhEGVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Multivitamin for your heart",
+            "heading_size": "h1"
+          }
+        },
+        "caption_rgGCKg": {
+          "type": "caption",
+          "settings": {
+            "caption": "It’s never too late to improve your cardiovascular health, heart disease is largely preventable through lifestyle change and great supplementation. Xtendlife CX8 is developed with the best ingredients supported by science to keep you stay young at heart.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_AeCpAw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Highly Advanced Natural Supplement",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_AjWcwC": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Circulation and Calcification",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_ciD4cW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Inflammation and Cellular Support",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_HfKygV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Additional Antioxidants",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "button_CdnLhT": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop CX8",
+            "button_link": "shopify://products/cx8-heart-health-support",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zhEGVe",
+        "caption_rgGCKg",
+        "collapsible_row_AeCpAw",
+        "collapsible_row_AjWcwC",
+        "collapsible_row_ciD4cW",
+        "collapsible_row_HfKygV",
+        "button_CdnLhT"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 2rem; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 2rem 0 6rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text_83HE6c": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6bVe4M": {
+          "type": "heading",
+          "settings": {
+            "heading": "Healthy Aging with GG Pure",
+            "heading_size": "h1"
+          }
+        },
+        "caption_MdCprz": {
+          "type": "caption",
+          "settings": {
+            "caption": "Geranylgeraniol (GG) is the building block for essential-to-life nutrient. However, most people may haven't heard of it, Scientists discovered that this molecule plays a vital role in overall health. A decline in GG levels is linked to many of the common side effects experienced by those taking statins.",
+            "additional_caption": "",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "collapsible_row_4b8wHk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Highly Advanced Natural Supplement",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": true
+          }
+        },
+        "collapsible_row_XxRk8y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Circulation and Calcification",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_VjbeiX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Inflammation and Cellular Support",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "collapsible_row_LKKWzb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Additional Antioxidants",
+            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "page": "",
+            "open": false
+          }
+        },
+        "button_7xtrmP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop GG Pure",
+            "button_link": "shopify://products/gg-pure",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6bVe4M",
+        "caption_MdCprz",
+        "collapsible_row_4b8wHk",
+        "collapsible_row_XxRk8y",
+        "collapsible_row_VjbeiX",
+        "collapsible_row_LKKWzb",
+        "button_7xtrmP"
+      ],
+      "custom_css": [
+        ".image-with-text__media {border-radius: 10px !important;}",
+        "h2 {font-size: 48px; line-height: 1.1; max-width: 300px;}",
+        ".subtitle {font-size: 20px; margin-bottom: 4rem;}",
+        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 2rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding-top: 2rem; } h2 {font-size: 3.2rem; max-width: 250px; } .subtitle {font-size: 1.8rem; line-height: 1.3; }}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/2726f6a85bc0276ba0c5879f7f8413dafbfc23f4.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_replacement_text": "",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "image_bleed": false,
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "comparison_chart_Ehzkpz": {
+      "type": "comparison-chart",
+      "blocks": {
+        "column_VgTzJM": {
+          "type": "column",
+          "settings": {
+            "product": "cx8-heart-health-support",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6_text": "3"
+          }
+        },
+        "column_8xypY8": {
+          "type": "column",
+          "settings": {
+            "product": "xtend-quinol",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 3,
+            "row5_ticks": 3,
+            "row6_text": "1-2"
+          }
+        },
+        "column_7chcQR": {
+          "type": "column",
+          "settings": {
+            "product": "vasqflow",
+            "row1_ticks": 1,
+            "row2_ticks": 2,
+            "row3_ticks": 3,
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6_text": "3"
+          }
+        },
+        "column_tQCBEQ": {
+          "type": "column",
+          "settings": {
+            "product": "gg-pure",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 1,
+            "row5_ticks": 3,
+            "row6_text": "1"
+          }
+        }
+      },
+      "block_order": [
+        "column_VgTzJM",
+        "column_8xypY8",
+        "column_7chcQR",
+        "column_tQCBEQ"
+      ],
+      "name": "Comparison Chart",
+      "settings": {
+        "heading": "Which Total Balance Version is Right for Me?",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "row1_label": "Prevent Calcification",
+        "row2_label": "Cholesterol",
+        "row3_label": "Blood Circulation ",
+        "row4_label": "Inflammation",
+        "row5_label": "Statin Support ",
+        "row6_label": "Dosage Per Day ",
+        "shop_cta": "Shop now",
+        "col_width": 300,
+        "gap": 0,
+        "max_ticks": 4,
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
+    "video_slider_QxaRdC": {
+      "type": "video-slider",
+      "blocks": {
+        "video_slide_YgV6cd": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "title": "Manage Arterial Calcification with CX8",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
+          }
+        },
+        "video_slide_mpiyEH": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903919531",
+            "title": "Manage Healthy Blood Pressure with VasQFlow",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
+          }
+        },
+        "video_slide_Xx7KUJ": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903900984",
+            "title": "Manage Statin Side Effects with GG Pure and Xtend-Quinol",
+            "name": "With Dr. Kahn and Dr. Barrie Tan",
+            "description": "Geranylgeraniol (GG) helps manage side effects from statin cholesterol-lowering medications. Learn what Dr. Joel Kahn and Dr. Barrie Tan have to say about the breakthrough of GG and why it combines well with CoQ10 for healthy aging."
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_YgV6cd",
+        "video_slide_mpiyEH",
+        "video_slide_Xx7KUJ"
+      ],
+      "name": "Video slider",
+      "settings": {
+        "heading": "",
+        "bg_color": "#f4f8fb",
+        "gap": 32,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "newsletter_qKtmmH": {
+      "type": "newsletter",
+      "blocks": {
+        "paragraph_RxdmFE": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_hDdFMH": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "paragraph_RxdmFE",
+        "email_form_hDdFMH"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 60,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_eNjqNN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_hRLdBY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Life Long. Life Strong.",
+            "heading_size": "h1"
+          }
+        },
+        "text_VhCp7b": {
+          "type": "text",
+          "settings": {
+            "text": "From first goals to life’s later stages, Xtendlife supports your health every step of the way. Science-backed. Always with you.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_XN8C3J": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "The Xtendlife Difference",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "#",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hRLdBY",
+        "text_VhCp7b",
+        "buttons_XN8C3J"
+      ],
+      "custom_css": [
+        ".banner__content {padding: 3rem 2rem 3.5rem;}",
+        "h2 {line-height: 1.2;}",
+        ".subtitle {max-width: 500px;}",
+        "@media (max-width: 749px) {h2 {font-size: 2rem; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Hiking-1273008990_2.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_pFjbBG",
+    "multicolumn_A6pqFF",
+    "featured_collection_tab_grid_Ddm4Df",
+    "reviews_slider_EnTCee",
+    "image_with_text_3jd3Fg",
+    "image_with_text_EapeUP",
+    "rich_text_YewMnP",
+    "image_infinite_scroll_6YVr3i",
+    "image_with_text_HHyM8a",
+    "image_with_text_83HE6c",
+    "comparison_chart_Ehzkpz",
+    "video_slider_QxaRdC",
+    "newsletter_qKtmmH",
+    "image_banner_eNjqNN"
+  ]
+}

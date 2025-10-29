@@ -1,0 +1,168 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "contact_form_n64yQh": {
+      "type": "contact-form",
+      "custom_css": [],
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Old fashioned service",
+        "heading_size": "h1",
+        "body": "Xtendlife Natural Products takes pride in our customer service and the ease with which our customers around the world can contact a 'real' person and get answers to questions. You can contact us by filling in and submitting the form below or through our LiveChat service, by telephone, email, or post.",
+        "details": "<p>NZ Phone Toll Free <a href=\"tel:+64508983 35\" title=\"tel:+64508983 35\">0508 983 635</a><br/>Global Phone <a href=\"tel:+6433842116 \" title=\"tel:+6433842116 \">(64) 3 384 2116 </a><br/><a href=\"mailto:customer.service@xtend-life.com\" title=\"mailto:customer.service@xtend-life.com\">customer.service@xtend-life.com</a></p>",
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 80
+      }
+    },
+    "contact_details_e9DUcV": {
+      "type": "contact-details",
+      "blocks": {
+        "location_jzUxTf": {
+          "type": "location",
+          "settings": {
+            "location": "USA & Canada",
+            "details": "<p>Phone Toll Free<br/>1 888 487 9304<br/>Sun–Thu 3:00pm–10:30pm (USEST)</p>"
+          }
+        },
+        "location_AX7BXH": {
+          "type": "location",
+          "settings": {
+            "location": "Australia",
+            "details": "<p>Phone Toll Free<br/>1 800 983 635<br/>Mon-Fri 5:00am-1:30pm (AEST)</p>"
+          }
+        },
+        "location_jqCyym": {
+          "type": "location",
+          "settings": {
+            "location": "New Zealand",
+            "details": "<p>Phone Toll Free<br/>0508 983 635<br/>or +64 3 384 2116<br/>Mon-Fri 8:00am-4:30pm (NZT)</p>"
+          }
+        },
+        "location_X9UHRK": {
+          "type": "location",
+          "settings": {
+            "location": "United Kingdom",
+            "details": "<p>Phone Toll Free<br/>0800 520 0311<br/>Sun-Thu 8:00pm-4:30am (UKEST)</p>"
+          }
+        },
+        "location_rm9HUP": {
+          "type": "location",
+          "settings": {
+            "location": "Thailand Distributors",
+            "details": "<p>Phone +66 2 0260140<br/>Mobile +66 8 14478492<br/>Exclusive Natural Product Company Limited,<br/>Rama 9 Road,<br/>G Tower (Level 32), Huay Kwang District,<br/>Huay Kwang Bangkok 10310, Thailand</p>"
+          }
+        },
+        "location_qRMg8h": {
+          "type": "location",
+          "settings": {
+            "location": "Rest of the World",
+            "details": "<p>Phone Toll Free<br/>0508 983 635<br/>or +64 3 384 2116<br/>Mon-Fri 8:00am-4:30pm (NZT)</p>"
+          }
+        },
+        "location_WKM3xL": {
+          "type": "location",
+          "settings": {
+            "location": "Head Office",
+            "details": "<p>12 Mary Muller Dr. Hillsborough, <br/>Christchurch 8022, New Zealand</p>"
+          }
+        },
+        "location_pda6Yh": {
+          "type": "location",
+          "settings": {
+            "location": "Mailing Address",
+            "details": "<p>PO Box 19640<br/>Woolston<br/>Christchurch 8241<br/>New Zealand</p>"
+          }
+        }
+      },
+      "block_order": [
+        "location_jzUxTf",
+        "location_AX7BXH",
+        "location_jqCyym",
+        "location_X9UHRK",
+        "location_rm9HUP",
+        "location_qRMg8h",
+        "location_WKM3xL",
+        "location_pda6Yh"
+      ],
+      "name": "Contact details",
+      "settings": {
+        "heading": "Telephone and LiveChat",
+        "heading_size": "h2",
+        "body": "<p>Our office hours in New Zealand are 8:00am - 4:30pm Monday to Friday New Zealand time (Saturday - Sunday Closed). Note this is 18 hours ahead of USA Eastern Standard Time and 12 hours ahead of GMT (not taking into account any potential daylight savings time changes).</p><p>After office hours, your call will be diverted to our voicemail system where you can leave us a message. All customers who leave us a message will be responded to by phone or email the next business day.</p>",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "newsletter_F83hpp": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_erdicL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Stay connected",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph_caNE9T": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our Newsletter and get the latest wellness tips, exclusive deals and news from Xtendlife delivered straight to your inbox.</p>"
+          }
+        },
+        "email_form_jUnBfD": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_erdicL",
+        "paragraph_caNE9T",
+        "email_form_jUnBfD"
+      ],
+      "custom_css": [
+        ".newsletter__wrapper {padding: 0 !important; max-width: 100%;}",
+        ".h1 {display: none;}",
+        "@media (max-width: 749px) {.newsletter__right {padding: 0 2rem 4rem; }}",
+        "@media screen and (min-width: 750px) {.h2 {font-size: 4rem; margin: 3rem 0 6rem; } .newsletter__left {min-height: 40rem; height: 30vw; position: relative; } .newsletter__image {object-fit: cover; display: block; max-width: 100%; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }}"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
+        "full_width": true,
+        "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
+        "enable_klaviyo_attach": true,
+        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_source": "newsletter_section",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact_form_n64yQh",
+    "contact_details_e9DUcV",
+    "newsletter_F83hpp"
+  ]
+}

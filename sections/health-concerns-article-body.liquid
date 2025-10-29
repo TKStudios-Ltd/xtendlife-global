@@ -1,0 +1,69 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+
+<article class="hc-article-template hc-article-template-body page-width">
+  <div class="hc-article-template__left">
+    {%- assign bullets = article.metafields.custom.stats_bullets.value -%}
+    {%- if bullets and bullets.size > 0 -%}
+        <div class="stats-card-wrapper">
+            <div class="stats-card">
+                <h4 class="stats-card__title">Key Takeaways</h4>
+                <ul class="stats-card__list" role="list">
+                {%- for line in bullets -%}
+                <li class="stats-card__item">
+                    {% comment %} <span class="stats-card__icon" aria-hidden="true">
+                    <!-- pill icon -->
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.19849 15.575L15.5745 3.19728C16.2245 2.54725 16.9962 2.03162 17.8455 1.67983C18.6948 1.32804 19.6051 1.14697 20.5244 1.14697C21.4436 1.14697 22.3539 1.32804 23.2032 1.67983C24.0525 2.03162 24.8242 2.54725 25.4742 3.19728C26.1243 3.8473 26.6399 4.619 26.9917 5.4683C27.3435 6.3176 27.5245 7.22788 27.5245 8.14715C27.5245 9.06643 27.3435 9.9767 26.9917 10.826C26.6399 11.6753 26.1243 12.447 25.4742 13.097L13.1017 25.4713C12.4519 26.1217 11.6804 26.6377 10.8312 26.9899C9.98197 27.3421 9.07169 27.5235 8.15233 27.524C7.23297 27.5244 6.32254 27.3437 5.47301 26.9922C4.62347 26.6408 3.85148 26.1255 3.20111 25.4757C2.55074 24.8259 2.03472 24.0543 1.68253 23.2051C1.33033 22.3559 1.14884 21.4456 1.14844 20.5262C1.14803 19.6069 1.32871 18.6965 1.68016 17.8469C2.03161 16.9974 2.54869 16.2254 3.19849 15.575ZM19.1725 16.9243L24.2352 11.8615C24.7292 11.3754 25.122 10.7963 25.3911 10.1576C25.6601 9.51896 25.8001 8.83333 25.8028 8.1403C25.8055 7.44727 25.671 6.76055 25.4071 6.11976C25.1431 5.47897 24.7548 4.89679 24.2647 4.4068C23.7746 3.9168 23.1923 3.5287 22.5515 3.26486C21.9106 3.00103 21.2239 2.86669 20.5308 2.86959C19.8378 2.8725 19.1522 3.01258 18.5136 3.28178C17.875 3.55097 17.296 3.94395 16.81 4.43803L11.7472 9.50078L19.1725 16.9243Z" fill="#F4F8FB"/>
+                    </svg>
+                    </span> {% endcomment %}
+                    <span class="stats-card__text">{{ line }}</span>
+                </li>
+                {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    {%- endif -%}
+  </div>
+
+  <div class="hc-article-template__right">
+    <div class="hc-article-template__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ article.content }}
+        {%- assign refs = article.metafields.custom.references.value -%}
+        {%- if refs and refs.size > 0 -%}
+            <div class="hc-article-template__refs">
+                <h5>References</h5>
+                <ul class="refs__list" role="list">
+                    {%- for line in refs -%}
+                        <li class="refs__item">
+                            {{ line }}
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        {%- endif -%}
+    </div>
+  </div>
+
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "HC article body",
+  "tag": "section",
+  "class": "section",
+  "templates": ["article"],
+  "settings": [
+
+  ],
+  "presets": [
+    {
+      "name": "HC article body"
+    }
+  ]
+}
+{% endschema %}

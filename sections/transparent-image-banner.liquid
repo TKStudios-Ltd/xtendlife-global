@@ -1,0 +1,86 @@
+{% style %}
+  #TransparentImageBanner-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+  }
+  .transparent-image-banner-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    position: relative;
+  }
+  .image-wrapper-overlap {
+    position: relative;
+    z-index: 2;
+  }
+{% endstyle %}
+
+<div id="TransparentImageBanner-{{ section.id }}" class="transparent-image-banner">
+  {% if section.settings.image_position == 'top' and section.settings.top_image %}
+      <img
+        src="{{ section.settings.top_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.top_image.alt | escape }}"
+        loading="lazy"
+      >
+  {% endif %}
+  {% if section.settings.image_position == 'bottom' and section.settings.top_image %}
+    <div class="image-wrapper-overlap"  style="margin-top: -{{ section.settings.negative_margin }}vw; margin-bottom: -1px;">
+      <img
+        src="{{ section.settings.top_image | image_url: width: 2000 }}"
+        alt="{{ section.settings.top_image.alt | escape }}"
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Transparent Image Banner",
+  "tag": "section",
+  "class": "section transparent-image-banner-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "top_image",
+      "label": "Transparent Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image Position",
+      "default": "top",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "negative_margin",
+      "label": "Negative Top Margin (vw)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transparent Image Banner"
+    }
+  ]
+}
+{% endschema %}

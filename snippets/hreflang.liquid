@@ -1,0 +1,44 @@
+{% assign domain = request.host %}
+{% assign current_url = request.path | 
+   replace:'/en-ca' %}
+
+
+{%- comment -%} Capture the content for header containing the tracking data 
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- endcomment -%}
+
+{% comment %} Use string splitting to pull the value from content_for_header and apply some string clean up 
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+   replace:'\/','/' | 
+   replace:'%20',' ' | 
+   replace:'\u0026','&' | 
+   replace:'/en-ca'
+-%}
+
+{%- assign url_parameter = "" -%}
+
+  
+   {%- if pageUrl contains "?"-%}
+   {%- assign pageQuerystring = pageUrl | split:'?' | last -%}  
+	{%- assign url_parameter = "?" | append : pageQuerystring -%}
+
+
+  {%- endif -%}
+
+{% endcomment %}
+
+<link rel="alternate" href="https://www.xtend-life.co.nz{{ current_url }}" hreflang="en-nz">
+<link rel="alternate" href="https://www.xtend-life.com.au{{ current_url }}" hreflang="en-au">
+<link rel="alternate" href="https://www.xtend-life.co.uk{{ current_url }}" hreflang="en-gb">
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="en-us">
+<link rel="alternate" href="https://www.xtend-life.com/en-ca{{ current_url }}" hreflang="en-ca">
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="x-default">
+
+{% comment %} <link rel="alternate" href="https://www.xtend-life.co.nz{{ current_url }}{{url_parameter}}" hreflang="en-nz">
+<link rel="alternate" href="https://www.xtend-life.com.au{{ current_url }}{{url_parameter}}" hreflang="en-au">
+<link rel="alternate" href="https://www.xtend-life.co.uk{{ current_url }}{{url_parameter}}" hreflang="en-gb">
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="en-us">
+<link rel="alternate" href="https://www.xtend-life.com{{ current_url }}{{url_parameter}}" hreflang="x-default"> {% endcomment %}
+{% if template contains 'product' %}
+<link rel="alternate" type="application/json+oembed" href="https:/{{domain}}{{ current_url }}.oembed">
+{% endif %}
