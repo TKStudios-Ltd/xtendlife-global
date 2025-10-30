@@ -34,7 +34,7 @@
         "text_fTk6mR": {
           "type": "text",
           "settings": {
-            "text": "<p>Just contact us <a href=\"/pages/contact-us\" title=\"Contact Us\">here</a>.</p>"
+            "text": "<p><a href=\"/pages/contact-us\" title=\"Contact Us\">Contact us</a></p>"
           }
         }
       },
@@ -122,9 +122,9 @@
         "collapsible_row_aX4CdD": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I have more than one serving of *Product* per day?",
+            "heading": "Why does my account look different?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>We’ve upgraded to a new, more secure account system powered by Shopify. It’s designed to better protect your information and make it easier to view your orders. You’ll still have access to all your order history and personal details; the layout just looks a little different. </p>",
             "page": ""
           }
         },
