@@ -23,7 +23,7 @@
         "custom_liquid_7HtAwq": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{%- if product.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = product.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}\n\n{% if product.tags contains 'out-of-stock' %}\n      <div class=\"purchase-details\">\n      <p><strong>Sorry, this product is temporarily out of stock</strong></p>\n      </div>\n{% endif %}"
+            "custom_liquid": "{%- if product.metafields.custom_fields.product_summary != blank -%}\n{%- assign product_summary = product.metafields.custom_fields.product_summary -%}\n{%- endif -%}\n{%- if product_summary != blank -%}\n<div class=\"product-hero__summary\">{{ product_summary }}</div>\n{% endif %}"
           }
         },
         "price": {
@@ -67,19 +67,6 @@
             "custom_liquid": "<h4>Key Benefits</h4>\n{%- assign benefits = product.metafields.custom.key_benefits.value -%}\n\n{%- if benefits != blank -%}\n  <div class=\"product-benefits__icons\">\n    {%- for entry in benefits -%}\n      {%- comment -%}\n        Try multiple access patterns just in case the metaobject fields are exposed as\n        direct fields or under `fields`.\n      {%- endcomment -%}\n      {%- assign text = entry.benefit_text | default: entry['benefit_text'] | default: entry.fields.benefit_text -%}\n      {%- assign icon = entry.icon_image   | default: entry['icon_image']   | default: entry.fields.icon_image   -%}\n\n      <div class=\"product-benefits__icon\">\n        {%- if icon != blank -%}\n          {{ icon | image_url: width: 160 | image_tag: alt: text }}\n        {%- endif -%}\n        {%- if text != blank -%}\n          <p>{{ text }}</p>\n        {%- endif -%}\n      </div>\n    {%- endfor -%}\n  </div>\n{%- endif -%}"
           }
         },
-        "complementary_jVgWrd": {
-          "type": "complementary",
-          "settings": {
-            "block_heading": "Bundle and save",
-            "make_collapsible_row": false,
-            "icon": "none",
-            "product_list_limit": 10,
-            "products_per_page": 2,
-            "pagination_style": "dots",
-            "image_ratio": "square",
-            "enable_quick_add": false
-          }
-        },
         "sticky_bar_UrQJry": {
           "type": "sticky_bar",
           "settings": {
@@ -103,7 +90,6 @@
         "buy_buttons",
         "text_y7ay8t",
         "custom_liquid_dyRLCQ",
-        "complementary_jVgWrd",
         "sticky_bar_UrQJry"
       ],
       "settings": {
@@ -127,13 +113,13 @@
       "name": "Product Tabs & Accordion",
       "settings": {
         "label_details": "Details",
-        "details_image": "{{ product.metafields.custom.details_image.value }}",
+        "details_image": "shopify://shop_images/Placeholder_Image.png",
         "label_ingredients": "Ingredients",
         "ingredients_text": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
         "label_directions": "Directions & Dosage",
-        "directions_image": "{{ product.metafields.custom.dosage_image.value }}",
+        "directions_image": "shopify://shop_images/TBMP_DSC00103_1_53bca5e5-d3de-4bac-a07f-ddf17e2f1c3f.jpg",
         "label_shipping": "Shipping & Returns",
-        "shipping_col1": "<h3>Shipping Information</h3><p>After 25 years and millions of orders to customers around the world, we know how important shipping is. That is why we continue to deliver the following to our customers including a commitment to dispatch your order within one business day.</p><p>For more information please view our <a href=\"/pages/shipping\" title=\"/pages/shipping\">shipping page</a></p>",
+        "shipping_col1": "<h3>Shipping Information</h3><p>After 25 years and millions of orders to customers around the world*, we know how important shipping is. That is why we continue to deliver the following to our customers including a commitment to dispatch your order within one business day.</p><p>For more information please view our <a href=\"/pages/shipping\" title=\"/pages/shipping\">shipping page</a></p>",
         "shipping_col2": "<h3>Not 100% happy with your purchase from us?</h3><p>Send it back within 365 days (a full year) of the purchase for a full refund. Xtendlife does not want you to have any product from us that does not fully meet or exceed your expectations. When requesting a refund, the cost of shipping the items back is the responsibility of the customer, not Xtendlife.</p><p>If you need to return a product for any reason - we make it easy for you. You can either call us on any of our contact numbers or you can email us with the details at <a href=\"mailto:refunds@xtend-life.com\" title=\"mailto:refunds@xtend-life.com\">refunds@xtend-life.com</a>. </p><p>For more information please view our <a href=\"/pages/refunds-and-returns\" target=\"_blank\" title=\"/pages/refunds-and-returns\">refunds and returns page</a></p>"
       }
     },
@@ -223,139 +209,6 @@
         "padding_bottom": 36
       }
     },
-    "product_health_accordions_XC9RBQ": {
-      "type": "product-health-accordions",
-      "blocks": {
-        "collapsible_row_4ecgy9": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "{{ product.metafields.custom.key_feature_heading_1.value }}",
-            "row_content": "<p>{{ product.metafields.custom.key_feature_content_1 | metafield_tag }}</p>",
-            "page": "",
-            "open": true
-          }
-        },
-        "collapsible_row_4gjDTU": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "{{ product.metafields.custom.key_feature_heading_2.value }}",
-            "row_content": "<p>{{ product.metafields.custom.key_feature_content_2 | metafield_tag }}</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_XEHE8W": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "{{ product.metafields.custom.key_feature_heading_3.value }}",
-            "row_content": "<p>{{ product.metafields.custom.key_feature_content_3 | metafield_tag }}</p>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_Bicq6M": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "{{ product.metafields.custom.key_feature_heading_4.value }}",
-            "row_content": "<p>{{ product.metafields.custom.key_feature_content_4 | metafield_tag }}</p>",
-            "page": "",
-            "open": false
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_4ecgy9",
-        "collapsible_row_4gjDTU",
-        "collapsible_row_XEHE8W",
-        "collapsible_row_Bicq6M"
-      ],
-      "custom_css": [
-        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
-        ".image-with-text__heading {margin-bottom: 6rem;}",
-        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
-        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.2rem; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
-      ],
-      "name": "Product Health Accordions",
-      "settings": {
-        "heading": "{{ product.metafields.custom.key_feature_heading.value }}",
-        "heading_size": "h2",
-        "intro": "<p>{{ product.metafields.custom.key_feature_content | metafield_tag }}</p>",
-        "metafield_namespace": "custom",
-        "metafield_key": "health_benefits",
-        "mo_title_field": "title",
-        "mo_content_field": "content",
-        "open_first": false,
-        "use_blocks": false,
-        "image": "shopify://shop_images/Placeholder_Image_2.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "image_bleed": true,
-        "section_color_scheme": "scheme-4",
-        "color_scheme": "scheme-4",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "product_image_with_text_VYMtEK": {
-      "type": "product-image-with-text",
-      "blocks": {
-        "caption_cBQ3qK": {
-          "type": "caption",
-          "disabled": true,
-          "settings": {
-            "caption": "Add a tagline",
-            "additional_caption": "Add a tagline",
-            "text_style": "subtitle",
-            "text_size": "medium"
-          }
-        },
-        "heading_eETBXC": {
-          "type": "heading",
-          "settings": {
-            "heading": "{{ product.metafields.custom.key_highlight_title.value }}",
-            "heading_size": "h1"
-          }
-        },
-        "text_wLtUKc": {
-          "type": "text",
-          "settings": {
-            "text": "<p>{{ product.metafields.custom.key_highlight_content | metafield_tag }}</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "caption_cBQ3qK",
-        "heading_eETBXC",
-        "text_wLtUKc"
-      ],
-      "custom_css": [
-        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
-        ".image-with-text__media img {border-radius: 10px;}",
-        "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 0; }}"
-      ],
-      "name": "Product Image with Text",
-      "settings": {
-        "image": "{{ product.metafields.custom.key_highlight_image.value }}",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 100,
-        "padding_bottom": 100
-      }
-    },
     "image_with_text_3jd3FP": {
       "type": "image-with-text",
       "blocks": {
@@ -420,7 +273,13 @@
         "collapsible_row_hD4rk6",
         "collapsible_row_wiC4Tk"
       ],
-      "disabled": true,
+      "custom_css": [
+        ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
+        ".image-with-text__heading {margin-bottom: 6rem;}",
+        ".accordion summary .icon-plus {border: 1px solid; border-radius: 50%; padding: 0.4rem; width: 2.4rem; height: 2.4rem; top: calc(50% - 10px);}",
+        "@media (min-width: 750px) {.accordion__content.rte p {font-size: 2rem; line-height: 1.5; } .accordion__title {font-size: 3.2rem; }}",
+        "@media (max-width: 749px) {.image-with-text__content {padding: 2rem 0 4rem; } .accordion__title {font-size: 2rem; }}"
+      ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/Placeholder_Image_2.jpg",
@@ -518,7 +377,6 @@
         "hotspot_EzN4jP",
         "hotspot_mLbTrh"
       ],
-      "disabled": true,
       "custom_css": [
         ".hotspots__inner {padding-top: 100px; padding-bottom: 100px;}"
       ],
@@ -596,45 +454,47 @@
         "padding_bottom": 100
       }
     },
-    "product_image_with_text_d6xTT3": {
-      "type": "product-image-with-text",
+    "image_with_text_KCQTNP": {
+      "type": "image-with-text",
       "blocks": {
-        "caption_E7CfW3": {
+        "caption_bz9N8Y": {
           "type": "caption",
           "settings": {
-            "caption": "{{ product.metafields.custom.key_highlight_subtitle_2.value }}",
-            "additional_caption": "{{ product.metafields.custom.key_highlight_title_2.value }}",
+            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "additional_caption": "Go Beyond Multivitamins",
             "text_style": "subtitle",
             "text_size": "small"
           }
         },
-        "text_R74VX4": {
+        "text_fQHPQr": {
           "type": "text",
           "settings": {
             "text": "<ul><li>Trusted Brand For Over 25 Years</li><li>Made in New Zealand</li><li>365 Days Guarantee</li></ul>",
             "text_style": "body"
           }
         },
-        "button_CTaqmK": {
+        "button_Qekx44": {
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "{{ product.metafields.custom.key_highlight_url_2.value }}",
+            "button_link": "#",
             "button_style_secondary": false
           }
         }
       },
       "block_order": [
-        "caption_E7CfW3",
-        "text_R74VX4",
-        "button_CTaqmK"
+        "caption_bz9N8Y",
+        "text_fQHPQr",
+        "button_Qekx44"
       ],
       "custom_css": [
-        "img {border-radius: 10px;}"
+        "@media screen and (min-width: 750px) {.image-with-text__content {justify-content: center; }}",
+        ".image-with-text__media img {border-radius: 10px;}",
+        "@media screen and (max-width: 749px) {.image-with-text__content {padding: 3rem 0 0; }}"
       ],
-      "name": "Product Image with Text",
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "{{ product.metafields.custom.key_highlight_image_2.value }}",
+        "image": "shopify://shop_images/felix-lam-J7fxkhtOqt0-unsplash_1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -642,11 +502,11 @@
         "image_behavior": "none",
         "image_bleed": false,
         "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
+        "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -660,7 +520,7 @@
         "columns_desktop": 4,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -711,7 +571,7 @@
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
         "enable_klaviyo_attach": true,
-        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_list_id": "TURMy6",
         "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
@@ -780,14 +640,12 @@
     "product_tabs_accordion_YzW3EK",
     "image-with-text",
     "multicolumn",
-    "product_health_accordions_XC9RBQ",
-    "product_image_with_text_VYMtEK",
     "image_with_text_3jd3FP",
     "product_faqs_collapsible_wJ8Q99",
     "1756789925579c1cf4",
     "image_hotspots_Hi6X7P",
     "testimonial_slider_xafpPP",
-    "product_image_with_text_d6xTT3",
+    "image_with_text_KCQTNP",
     "related-products",
     "featured_blog_rTpRWP",
     "newsletter_qKtmmP",
