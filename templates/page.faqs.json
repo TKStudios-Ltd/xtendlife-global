@@ -131,27 +131,45 @@
         "collapsible_row_Heczkt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Lorem ipsum dolor sit amet?",
+            "heading": "How do I log in to my account?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>Our new login process is password-free. When you sign in, you’ll receive a one-time access code by email. Enter that code to log in securely, no password needed</p>",
             "page": ""
           }
         },
         "collapsible_row_ymq6Jc": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor in reprehenderit?",
+            "heading": "What can I do in my account?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>You can view your personal details, and a history of your past orders. For security reasons, subscription management now happens separately through the <strong>Manage Subscriptions</strong> link on the login page. </p>",
             "page": ""
           }
         },
         "collapsible_row_arMyAk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Excepteur sint occaecat cupidatat non proident?",
+            "heading": "How do I manage my subscription?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page before signing in. This will take you to your secure subscription portal, where you can update delivery dates, payment details, or cancel your subscription. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6jrMRD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why can’t I manage my subscription directly from my account?",
+            "icon": "none",
+            "row_content": "<p>To keep your payment and subscription information safe, those details are stored in a separate encrypted system. You can access it through the <strong>Manage Subscriptions</strong> button on the login page. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_n4em6t": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Need help logging in or managing your account?",
+            "icon": "none",
+            "row_content": "<p>No problem — our Customer Care team can help. Just<a href=\"https://www.xtend-life.co.nz/pages/contact-us\"> <span style=\"text-decoration:underline\">contact us here</span></a> or email <span style=\"text-decoration:underline\">customer.service@xtend-life.com</span></p>",
             "page": ""
           }
         }
@@ -160,7 +178,9 @@
         "collapsible_row_aX4CdD",
         "collapsible_row_Heczkt",
         "collapsible_row_ymq6Jc",
-        "collapsible_row_arMyAk"
+        "collapsible_row_arMyAk",
+        "collapsible_row_6jrMRD",
+        "collapsible_row_n4em6t"
       ],
       "custom_css": [
         ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
