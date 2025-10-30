@@ -92,12 +92,24 @@
             "button_link_2": "",
             "button_style_secondary_2": false
           }
+        },
+        "button_wG7nQM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Subscribe & Save",
+            "button_link": "#subscribe-save",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
         }
       },
       "block_order": [
         "button_YmfrTG",
         "button_4Uq3Aw",
-        "button_idbXEU"
+        "button_idbXEU",
+        "button_wG7nQM"
       ],
       "custom_css": [
         ".rich-text__blocks {max-width: 100%; border-top: 1px solid rgba(31, 25, 71, 0.3); border-bottom: 1px solid rgba(31, 25, 71, 0.3); padding: 2rem 0; display: flex; justify-content: center;}",
@@ -334,6 +346,73 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collapsible_content_zXqNRk": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_DkzBLx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create a subscription?",
+            "icon": "none",
+            "row_content": "<p>You can start a subscription from any product page by selecting the Subscribe & Save option before adding to your cart. For a full walkthrough, watch our video or download the quick-start guide on this page. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_DfCATa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will tariffs change my order total?",
+            "icon": "none",
+            "row_content": "<p>No. The price shown at checkout is the final amount you pay.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_g8QPtK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will tariffs affect shipping times?",
+            "icon": "none",
+            "row_content": "<p>There may be minor delays as new Customs processes are introduced, but we’re working closely with our shipping partners to minimise any impact.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GgmrQE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need to do anything different when ordering from the US?",
+            "icon": "none",
+            "row_content": "<p>No. All duties and taxes are handled automatically by Xtendlife.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_DkzBLx",
+        "collapsible_row_DfCATa",
+        "collapsible_row_g8QPtK",
+        "collapsible_row_GgmrQE"
+      ],
+      "custom_css": [
+        ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
+        "@media (min-width: 749px) {.icon-caret {display: none; } .collapsible-content__heading {font-size: 3.6rem; margin-bottom: 4rem; }}",
+        "@media (max-width: 749px) {.collapsible-content__heading {text-align: left; } .accordion__title {font-size: 1.6rem; } .accordion summary {}}"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "subscribe-save",
+        "heading": "Subscribe & Save",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "section",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
         "padding_bottom": 100
       }
     },
@@ -447,6 +526,7 @@
     "collapsible_content_VwREVa",
     "collapsible_content_89AQGH",
     "collapsible_content_wrM63W",
+    "collapsible_content_zXqNRk",
     "image_with_text_C9qw4b",
     "newsletter_ymMjqN"
   ]
