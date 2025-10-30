@@ -74,8 +74,8 @@
         "button_4Uq3Aw": {
           "type": "button",
           "settings": {
-            "button_label": "Shipping",
-            "button_link": "#shipping",
+            "button_label": "Orders & Shipping",
+            "button_link": "#orders-shipping",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -209,36 +209,36 @@
         "collapsible_row_3VPFjJ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I have more than one serving of *Product* per day?",
+            "heading": "What if my order goes missing? ",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>There’s no risk to you. If tracking shows that your order hasn’t arrived within the expected timeframe, please contact our<a href=\"https://www.xtend-life.co.nz/pages/contact-us\"> <span style=\"text-decoration:underline\">Customer Care team</span></a> so we can investigate further. Once confirmed, we’ll replace your order free of charge. </p><p> Please note that we can’t take responsibility for packages stolen after delivery. Proof of delivery is based on tracking information from our shipping partners. </p>",
             "page": ""
           }
         },
         "collapsible_row_QnFNQa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Lorem ipsum dolor sit amet?",
+            "heading": "What if I’m not completely happy with my purchase? ",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>We want you to love every Xtendlife product you try. If you’re not 100% happy, you can return it within 365 days of purchase for a full refund. </p><p>Just email us at <span style=\"text-decoration:underline\">refunds@xtend-life.com</span><strong> </strong>or call our customer care team to get started. We’ll guide you through the simple return process and issue a return authorization number. </p><p>A few quick notes: </p><ul><li>Return shipping costs are covered by you. </li><li>We can only refund <strong>one opened bottle or tube per product</strong>. Please don’t open a second if you’re planning to return it. </li><li>All returned items (opened or unopened) need to be sent back to us. </li><li>When your refund is processed, the only deduction is for the original shipping cost (unless your remaining order value is over $150.00). </li></ul><p>Our team will respond within two business days of receiving your email. </p>",
             "page": ""
           }
         },
         "collapsible_row_VxJhBa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor in reprehenderit?",
+            "heading": "Can I change or cancel my order? ",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>If your order hasn’t yet shipped, contact our Customer Care team, preferably by phone, as soon as possible. We’ll do our best to update or cancel it before dispatch. </p>",
             "page": ""
           }
         },
         "collapsible_row_MpjDk9": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Excepteur sint occaecat cupidatat non proident?",
+            "heading": "How long will delivery take?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>Delivery times vary by region. You can view estimated timeframes on our<a href=\"https://www.xtend-life.co.nz/pages/shipping\"> <span style=\"text-decoration:underline\">shipping page</span></a>, during checkout, or in your order confirmation email. </p>",
             "page": ""
           }
         }
@@ -256,8 +256,8 @@
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "caption": "shipping",
-        "heading": "Shipping",
+        "caption": "orders-shipping",
+        "heading": "Orders & Shipping",
         "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "section",
