@@ -26,14 +26,21 @@
         "caption_PbXBpi": {
           "type": "caption",
           "settings": {
-            "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "caption": "Have a question about your order, shipping, or subscription?  You’ll find quick answers below. If you can’t find what you’re looking for, our friendly Customer Care team is always happy to help.",
             "text_style": "subtitle",
             "text_size": "medium"
+          }
+        },
+        "text_fTk6mR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Just contact us <a href=\"/pages/contact-us\" title=\"Contact Us\">here</a>.</p>"
           }
         }
       },
       "block_order": [
-        "caption_PbXBpi"
+        "caption_PbXBpi",
+        "text_fTk6mR"
       ],
       "custom_css": [
         "@media (max-width: 749px) {p {text-align: left; }}"
@@ -344,7 +351,7 @@
       "custom_css": [
         "@media screen and (min-width: 750px) {.image-with-text__media {max-width: 500px; margin: 0 auto; padding-bottom: 90% !important; }}",
         ".image-with-text__content > * + * {margin-top: 1rem !important; max-width: 400px;}",
-        ".image-with-text__content .image-with-text__text + .button {margin-top: 2rem !important;}",
+        ".image-with-text__content .image-with-text__text {margin: 2rem 0 !important;}",
         ".image-with-text__media {border-radius: 16px;}",
         "h2 {line-height: 1;}",
         "@media (max-width: 749px) {.image-with-text .grid {gap: 4rem !important; } .button {max-width: inherit; width: auto; }}"
