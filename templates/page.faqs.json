@@ -85,8 +85,8 @@
         "button_idbXEU": {
           "type": "button",
           "settings": {
-            "button_label": "Subscriptions",
-            "button_link": "#subscriptions",
+            "button_label": "US Tariff Updates",
+            "button_link": "#tariffs",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -276,36 +276,36 @@
         "collapsible_row_TQgQBt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I have more than one serving of *Product* per day?",
+            "heading": "Why am I seeing tariffs at checkout or on my invoice?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>From 27 August 2025 (US time), all parcels shipped from New Zealand to the United States are subject to tariffs (duties and taxes) by US Customs. To make this simple, <strong>Xtendlife is temporarily covering these costs for you.</strong> You may still see tariffs displayed as a line item, but you will not be charged.</p>",
             "page": ""
           }
         },
         "collapsible_row_rWKr7N": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Lorem ipsum dolor sit amet?",
+            "heading": "Will tariffs change my order total?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>No. The price shown at checkout is the final amount you pay.</p>",
             "page": ""
           }
         },
         "collapsible_row_z7P4jJ": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Duis aute irure dolor in reprehenderit?",
+            "heading": "Will tariffs affect shipping times?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>There may be minor delays as new Customs processes are introduced, but we’re working closely with our shipping partners to minimise any impact.</p>",
             "page": ""
           }
         },
         "collapsible_row_qqBzBa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Excepteur sint occaecat cupidatat non proident?",
+            "heading": "Do I need to do anything different when ordering from the US?",
             "icon": "none",
-            "row_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+            "row_content": "<p>No. All duties and taxes are handled automatically by Xtendlife.</p>",
             "page": ""
           }
         }
@@ -323,8 +323,8 @@
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "caption": "subscriptions",
-        "heading": "Subscriptions",
+        "caption": "tariffs",
+        "heading": "US Tariff Updates: What You Need to Know*",
         "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "section",
