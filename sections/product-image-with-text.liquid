@@ -214,6 +214,33 @@
 
 {% endif %}
 
+<script>
+(function() {
+  const sectionEl = document.getElementById('ImageWithText--{{ section.id }}');
+  if (!sectionEl) return;
+
+  const accordions = sectionEl.querySelectorAll('.accordion details');
+
+  accordions.forEach((detailsEl) => {
+    const summary = detailsEl.querySelector('summary');
+    if (!summary) return;
+
+    summary.addEventListener('click', function(e) {
+      e.preventDefault(); // stop native <details> toggle
+
+      const isOpen = detailsEl.hasAttribute('open');
+
+      // close all
+      accordions.forEach(d => d.removeAttribute('open'));
+
+      // if the one we clicked was not already open, open it
+      if (!isOpen) {
+        detailsEl.setAttribute('open', '');
+      }
+    });
+  });
+})();
+</script>
 
 {% schema %}
 {
