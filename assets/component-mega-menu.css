@@ -222,6 +222,10 @@
 .mega-menu__link:hover {
   color: rgba(var(--color-foreground),.75);
 }
+#HeaderMenu-shop-shop-by-benefit.mega-menu__link:hover,
+#HeaderMenu-shop-shop-by-category.mega-menu__link:hover {
+  color: rgba(var(--color-foreground),.1);
+}
 .mega-menu__link--active {
   text-decoration: underline;
 }
