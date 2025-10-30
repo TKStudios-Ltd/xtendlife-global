@@ -364,27 +364,117 @@
         "collapsible_row_DfCATa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Will tariffs change my order total?",
+            "heading": "How do I reschedule or skip my next order?",
             "icon": "none",
-            "row_content": "<p>No. The price shown at checkout is the final amount you pay.</p>",
+            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page to access your subscription portal. From there, you can reschedule or skip your next delivery, you can even gift it to someone else if you prefer.</p>",
             "page": ""
           }
         },
         "collapsible_row_g8QPtK": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Will tariffs affect shipping times?",
+            "heading": "Can I skip only some products in my upcoming order?",
             "icon": "none",
-            "row_content": "<p>There may be minor delays as new Customs processes are introduced, but we’re working closely with our shipping partners to minimise any impact.</p>",
+            "row_content": "<p>Yes. Use the <strong>Manage Subscription</strong> link on the login page to get to your subscription portal, select <strong>View Upcoming Orders</strong>, then choose the specific products you want to skip or reschedule.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_iEarCA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I cancel my Subscription?",
+            "icon": "none",
+            "row_content": "<p>You can cancel anytime. Use the <strong>Manage Subscriptions</strong> link on the login page, then click <strong>Cancel</strong> under the product you wish to stop. </p>",
             "page": ""
           }
         },
         "collapsible_row_GgmrQE": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Do I need to do anything different when ordering from the US?",
+            "heading": "How do I change my payment method or credit card?",
             "icon": "none",
-            "row_content": "<p>No. All duties and taxes are handled automatically by Xtendlife.</p>",
+            "row_content": "<p>Go to the <strong>Manage Subscriptions</strong> link on the login page, then open your secure subscription portal to update your payment information. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fnDm8N": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often can I schedule deliveries?",
+            "icon": "none",
+            "row_content": "<p>You can choose any frequency from <strong>one month up to six months</strong> between deliveries.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_nt8n6L": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I set a specific date for my order to be shipped each month?",
+            "icon": "none",
+            "row_content": "<p>You can’t lock in a fixed date, but you can reschedule any upcoming order to ship on the day that suits you best. If it falls on a weekend or public holiday, it will ship the next business day. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_BtxHxJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I want to edit my upcoming order. What’s the latest time I can do this successfully before it ships?",
+            "icon": "none",
+            "row_content": "<p>Please make any updates by <strong>10:00 pm Eastern Standard Time (EST) </strong>on the day before your scheduled order date. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YtCMdM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When is my payment processed?",
+            "icon": "none",
+            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PCMYB9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I manage multiple subscriptions with different payment methods and/or addresses?",
+            "icon": "none",
+            "row_content": "<p>Yes, you can. You can set up more than one subscription, each with its own payment method, shipping address, and delivery schedule. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PFPmGT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use a coupon code with my subscription?",
+            "icon": "none",
+            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you’d like to use a discount code, place a one-time order instead. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Y9pj4q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What payment methods are available for subscriptions? ",
+            "icon": "none",
+            "row_content": "<p>We accept Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay, and Shop Pay. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_LdyhPA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Have prices changed for subscriptions?",
+            "icon": "none",
+            "row_content": "<p>Prices may change from time to time. If this happens, you’ll be notified before your next scheduled order. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Hin9fL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I reactivate a cancelled subscription?",
+            "icon": "none",
+            "row_content": "<p>You can reactivate it anytime through the <strong>Manage Subscriptions</strong> link on the login page. Simply open your orders and select <em>Reactivate</em>, or contact our Customer Care team and we’ll help you. </p>",
             "page": ""
           }
         }
@@ -393,7 +483,17 @@
         "collapsible_row_DkzBLx",
         "collapsible_row_DfCATa",
         "collapsible_row_g8QPtK",
-        "collapsible_row_GgmrQE"
+        "collapsible_row_iEarCA",
+        "collapsible_row_GgmrQE",
+        "collapsible_row_fnDm8N",
+        "collapsible_row_nt8n6L",
+        "collapsible_row_BtxHxJ",
+        "collapsible_row_YtCMdM",
+        "collapsible_row_PCMYB9",
+        "collapsible_row_PFPmGT",
+        "collapsible_row_Y9pj4q",
+        "collapsible_row_LdyhPA",
+        "collapsible_row_Hin9fL"
       ],
       "custom_css": [
         ".accordion__title {font-size: 2.4rem; font-weight: 400;}",
