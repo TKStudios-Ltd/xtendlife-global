@@ -63,8 +63,8 @@
         "button_YmfrTG": {
           "type": "button",
           "settings": {
-            "button_label": "Orders",
-            "button_link": "#orders",
+            "button_label": "Accounts & Login",
+            "button_link": "#accounts-login",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -169,8 +169,8 @@
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "caption": "orders",
-        "heading": "Orders",
+        "caption": "accounts-login",
+        "heading": "Accounts & Login",
         "heading_size": "h2",
         "heading_alignment": "center",
         "layout": "section",
