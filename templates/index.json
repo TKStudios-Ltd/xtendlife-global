@@ -219,11 +219,11 @@
         "tab_6MHMhU": {
           "type": "tab",
           "settings": {
-            "title": "Gut Protection",
+            "title": "Mind & Focus",
             "button_label": "Shop now",
-            "button_link": "shopify://collections/gut-protection",
+            "button_link": "shopify://collections/mental-and-brain-health",
             "image": "shopify://shop_images/AdobeStock_408280663_2.jpg",
-            "image_text": "Balance begins in the gut; keep yours thriving.",
+            "image_text": "Support focus, memory, and overall cognitive performance.",
             "image_text_color": "#ffffff"
           }
         },
@@ -243,7 +243,7 @@
           "settings": {
             "title": "Digestion",
             "button_label": "Shop now",
-            "button_link": "#",
+            "button_link": "shopify://collections/digestion",
             "image": "shopify://shop_images/iStock-1208575446_2.jpg",
             "image_text": "Ease, comfort, and balance with every meal.",
             "image_text_color": ""
@@ -917,7 +917,7 @@
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
         "full_width": true,
         "enable_klaviyo_attach": true,
-        "klaviyo_list_id": "Ram9Tc",
+        "klaviyo_list_id": "TURMy6",
         "klaviyo_source": "newsletter_section",
         "padding_top": 60,
         "padding_bottom": 100
