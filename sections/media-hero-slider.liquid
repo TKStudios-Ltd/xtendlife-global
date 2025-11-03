@@ -62,8 +62,15 @@
   #MediaHero-{{ section.id }} .banner--stacked .banner__box {
     display: none;
   }
-  #MediaHero-{{ section.id }} .banner--stacked .banner {
-    height: auto;
+  #MediaHero-{{ section.id }} .banner__media { position: relative; }
+  #MediaHero-{{ section.id }} .banner__media img.media-hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
   }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile {
     padding: 4rem 2rem;
