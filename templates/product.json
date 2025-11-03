@@ -127,11 +127,11 @@
       "name": "Product Tabs & Accordion",
       "settings": {
         "label_details": "Details",
-        "details_image": "",
+        "details_image": "{{ product.metafields.custom.details_image.value }}",
         "label_ingredients": "Ingredients",
         "ingredients_text": "<p>We believe you deserve to know exactly what you’re putting in your body, no confusing labels, no hidden fillers, no compromises. </p><p>Every ingredient we use is there for a reason: high-quality, rigorously sourced, and transparently listed. </p>",
         "label_directions": "Directions & Dosage",
-        "directions_image": "",
+        "directions_image": "{{ product.metafields.custom.dosage_image.value }}",
         "label_shipping": "Shipping & Returns",
         "shipping_col1": "<h3>Shipping Information</h3><p>After 25 years and millions of orders to customers around the world, we know how important shipping is. That is why we continue to deliver the following to our customers including a commitment to dispatch your order within one business day.</p><p>For more information please view our <a href=\"/pages/shipping\" title=\"/pages/shipping\">shipping page</a></p>",
         "shipping_col2": "<h3>Not 100% happy with your purchase from us?</h3><p>Send it back within 365 days (a full year) of the purchase for a full refund. Xtendlife does not want you to have any product from us that does not fully meet or exceed your expectations. When requesting a refund, the cost of shipping the items back is the responsibility of the customer, not Xtendlife.</p><p>If you need to return a product for any reason - we make it easy for you. You can either call us on any of our contact numbers or you can email us with the details at <a href=\"mailto:refunds@xtend-life.com\" title=\"mailto:refunds@xtend-life.com\">refunds@xtend-life.com</a>. </p><p>For more information please view our <a href=\"/pages/refunds-and-returns\" target=\"_blank\" title=\"/pages/refunds-and-returns\">refunds and returns page</a></p>"
