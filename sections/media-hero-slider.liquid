@@ -79,6 +79,15 @@
     margin: 1.5rem 0;
     font-size: 1.6rem;
   }
+  #MediaHero-{{ section.id }} .banner__media img.media-hero__img,
+  #MediaHero-{{ section.id }} .banner__media source {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
 }
 
 /* Full-bleed helper */
