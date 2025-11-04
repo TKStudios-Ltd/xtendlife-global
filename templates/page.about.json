@@ -761,39 +761,39 @@
         "padding_bottom": 100
       }
     },
-    "image_banner_eNjqNN": {
-      "type": "image-banner",
+    "video_banner_m4pVit": {
+      "type": "video-banner",
       "blocks": {
-        "heading_hRLdBY": {
+        "heading_L7RCVj": {
           "type": "heading",
           "settings": {
             "heading": "Join Us on the Journey",
             "heading_size": "h1"
           }
         },
-        "text_kJGkfw": {
+        "text_KGGh9f": {
           "type": "text",
           "settings": {
             "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
             "text_style": "subtitle"
           }
         },
-        "buttons_XN8C3J": {
+        "buttons_U7QLnz": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Learn More About Subscribe and Save",
+            "button_label_1": "Learn More About Subscribe & Save",
             "button_link_1": "shopify://pages/subscribe-and-save",
             "button_style_secondary_1": false,
             "button_label_2": "",
-            "button_link_2": "#",
+            "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_hRLdBY",
-        "text_kJGkfw",
-        "buttons_XN8C3J"
+        "heading_L7RCVj",
+        "text_KGGh9f",
+        "buttons_U7QLnz"
       ],
       "custom_css": [
         ".banner__content {padding: 3rem 2rem 3.5rem;}",
@@ -801,20 +801,18 @@
         ".subtitle {line-height: 1.2; max-width: 740px;}",
         "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Video banner",
       "settings": {
-        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
+        "video_mp4": "https://cdn.shopify.com/videos/c/o/v/c3f89d671e3b4a42b83491336841441e.mp4",
+        "image_overlay_opacity": 10,
         "image_height": "large",
         "wide_container": false,
-        "image_behavior": "none",
+        "show_text_box": false,
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme": "scheme-3"
       }
     }
   },
@@ -837,6 +835,6 @@
     "rich_text_cYkFfa",
     "multicolumn_KgjtXM",
     "newsletter_qKtmmH",
-    "image_banner_eNjqNN"
+    "video_banner_m4pVit"
   ]
 }
