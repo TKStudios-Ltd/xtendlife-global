@@ -14,6 +14,7 @@
       "blocks": {
         "slide_Bwck6W": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
@@ -34,6 +35,7 @@
         },
         "slide_4TWen8": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/iStock-1208575446_5.jpg",
             "image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
@@ -50,11 +52,32 @@
             "button_link_2": "",
             "button_style_secondary_2": true
           }
+        },
+        "slide_Mdp9gj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "body",
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": true
+          }
         }
       },
       "block_order": [
         "slide_Bwck6W",
-        "slide_4TWen8"
+        "slide_4TWen8",
+        "slide_Mdp9gj"
       ],
       "custom_css": [
         "@media (max-width: 749px) {.banner__buttons {justify-content: center; }}"
