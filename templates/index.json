@@ -221,7 +221,7 @@
           "settings": {
             "title": "Mind & Focus",
             "button_label": "Shop now",
-            "button_link": "shopify://collections/mental-and-brain-health",
+            "button_link": "shopify://collections/brain-health",
             "image": "shopify://shop_images/AdobeStock_408280663_2.jpg",
             "image_text": "Support focus, memory, and overall cognitive performance.",
             "image_text_color": "#ffffff"
