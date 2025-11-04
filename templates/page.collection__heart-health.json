@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Nutrition for your Heart",
+            "heading": "Support for a Strong, Healthy Heart",
             "heading_size": "h1"
           }
         },
@@ -709,6 +709,8 @@
             "row3_ticks": 3,
             "row4_ticks": 3,
             "row5_ticks": 1,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
             "row6_text": "3"
           }
         },
@@ -721,6 +723,8 @@
             "row3_ticks": 1,
             "row4_ticks": 3,
             "row5_ticks": 3,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
             "row6_text": "1-2"
           }
         },
@@ -733,6 +737,8 @@
             "row3_ticks": 3,
             "row4_ticks": 1,
             "row5_ticks": 1,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
             "row6_text": "3"
           }
         },
@@ -745,6 +751,8 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 3,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
             "row6_text": "1"
           }
         }
@@ -765,6 +773,8 @@
         "row3_label": "Blood Circulation ",
         "row4_label": "Inflammation",
         "row5_label": "Statin Support ",
+        "row6extra_label": "",
+        "row7extra_label": "",
         "row6_label": "Dosage Per Day ",
         "shop_cta": "Shop now",
         "col_width": 300,
