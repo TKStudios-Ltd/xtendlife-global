@@ -37,7 +37,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_1_25c6a730-9b9a-4854-9de5-601b625a8366.jpg",
+        "image": "shopify://shop_images/aboutus--banner.jpg",
         "image_overlay_opacity": 10,
         "image_height": "medium",
         "wide_container": false,
