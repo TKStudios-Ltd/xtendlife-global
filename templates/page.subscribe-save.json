@@ -23,14 +23,14 @@
         "heading_TTkdGx": {
           "type": "heading",
           "settings": {
-            "heading": "Subscribe & save",
+            "heading": "Set your health on autopilot.",
             "heading_size": "h0"
           }
         },
         "caption_mC97Kh": {
           "type": "caption",
           "settings": {
-            "caption": "Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.",
+            "caption": "Simplify your wellness routine with Subscribe & Save and enjoy 15% off every order, flexible delivery schedules, and exclusive access to subscriber-only offers and updates.",
             "text_style": "subtitle",
             "text_size": "medium"
           }
@@ -164,7 +164,7 @@
         "text_hiq8D3": {
           "type": "text",
           "settings": {
-            "text": "<p>Select the \"Subscribe & Save\" option before adding your favourite products to your cart, and see the 10% savings! Plus enjoy free shipping on all NZ orders with all ongoing subscription orders.</p>",
+            "text": "<p>Select the Subscribe & Save option when adding your favourite products to your cart. You’ll automatically get 15% off every recurring order, with the option to edit or update your subscription at any time.</p>",
             "text_style": "subtitle"
           }
         }
@@ -213,7 +213,7 @@
         "text_fmbkeg": {
           "type": "text",
           "settings": {
-            "text": "<p>Choose how often you want your product delivered to you. As often as 3 weeks, every 4 weeks, every 6 weeks, or as far out as every 8 weeks. We’ll deliver your product to your doorstep, regularly and automatically. We'll send you an email 3 days prior to your next order as a reminder.</p>",
+            "text": "<p>Choose how often you’d like your products delivered: monthly, every 2 months, or up to every 6 months. You’ll get a reminder before each shipment, so you can review, skip, or adjust your order before it’s sent.</p>",
             "text_style": "subtitle"
           }
         }
@@ -255,14 +255,14 @@
         "heading_9jky9T": {
           "type": "heading",
           "settings": {
-            "heading": "3. Skip, pause or cancel anytime",
+            "heading": "3. Skip, or cancel anytime",
             "heading_size": "h1"
           }
         },
         "text_BWFTk7": {
           "type": "text",
           "settings": {
-            "text": "<p>Manage your subscription orders easily with our customer portal. You can reschedule, move forward, or push back orders, and even try new flavours. If for any reason you no longer require your Two Islands subscription you are able to cancel at any time for free. Simply sign in to your account to make changes.</p>",
+            "text": "<p>You’re always in control. Need a break or want to make a change? Simply click Manage Subscriptions on our website's login page to manage your account. No contracts, no commitments, just complete flexibility.</p>",
             "text_style": "subtitle"
           }
         }
@@ -296,55 +296,6 @@
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 0
-      }
-    },
-    "image_with_text_VqfQk4": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_AdGPhV": {
-          "type": "heading",
-          "settings": {
-            "heading": "Earn Xtendlife Rewards",
-            "heading_size": "h1"
-          }
-        },
-        "text_6RKJdQ": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Subscriptions not only save you time and money but they also earn you more through our loyalty programme, Xtendlife Rewards. You can then turn these points into vouchers to redeem on your subscription orders.</p>",
-            "text_style": "subtitle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_AdGPhV",
-        "text_6RKJdQ"
-      ],
-      "custom_css": [
-        ".image-with-text__media {border-radius: 10px !important;}",
-        ".subtitle {font-size: 20px; line-height: 1.35;}",
-        ".image-with-text {padding-top: 3.6rem; border-top: 1px solid rgba(31, 25, 71, 0.3);}",
-        ".image-with-text__text p {margin-bottom: 2rem;}",
-        "@media (min-width: 750px) {.image-with-text__content {padding: 0 6rem 0 0; } h2 {font-size: 4rem !important; line-height: 1; }}",
-        "@media (max-width: 749px) {.image-with-text__content {padding-bottom: 1rem; } h2 {font-size: 2.4rem; } .subtitle {font-size: 1.6rem; } .grid {flex-direction: column-reverse; }}"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Placeholder_Image_b103c10a-699f-4dbb-a601-5d1b6fcaacb8.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "image_replacement_text": "",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "image_bleed": false,
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_collection_tab_grid_bgqKeg": {
@@ -389,22 +340,22 @@
     "multicolumn_DymD7U": {
       "type": "multicolumn",
       "blocks": {
-        "column_gea4K6": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.png",
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": "",
-            "video_url": "https://player.vimeo.com/video/1105988172"
-          }
-        },
         "column_VnqTUe": {
           "type": "column",
           "settings": {
-            "title": "How to Subscribe & Save",
-            "text": "<p>Join us on this video walkthrough where we show you how to:</p><ul><li>Choose your Subscribe and Save products</li><li>Choose your preferred delivery schedule</li><li>Identify Subscribe and Save products in your cart</li><li>Complete checkout to create your Subscribe and Save order subscription</li></ul><p><a href=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/1267/0135/files/How_to_Subscribe_and_Save_2025.pdf?v=1744599305\">Download the PDF version here</a></p>",
+            "title": "Why Subscribe & Save",
+            "text": "<p>Subscribing isn’t just about convenience; it’s about consistency. You’ll:</p><ul><li>Save 15% on every order.</li><li>Never run out of your essentials.</li><li>Get first access to exclusive promotions and product updates.</li></ul>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        },
+        "column_gea4K6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_2.jpg",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -412,17 +363,16 @@
         }
       },
       "block_order": [
-        "column_gea4K6",
-        "column_VnqTUe"
+        "column_VnqTUe",
+        "column_gea4K6"
       ],
       "custom_css": [
         ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
-        ".page-width {border-top: 1px solid rgba(31, 25, 71, 0.3);}",
         ".content-container {height: 100%;}",
         ".multicolumn-card__info {display: flex; align-items: flex-start; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
         "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
         "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
-        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 2rem 0 0; }}"
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 0 0; } .multicolumn-list {gap: 3rem; padding: 0 2rem; }}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
@@ -438,7 +388,100 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 100,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn_NreH4T": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dNHkzd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Ambassador_Dan_405x323_11265ef9-8e3d-4761-a55f-fc03694f810e_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "video_url": "https://player.vimeo.com/video/1105988172"
+          }
+        },
+        "column_qdwHat": {
+          "type": "column",
+          "settings": {
+            "title": "Watch how it works",
+            "text": "<p>See Subscribe & Save in action.</p><p>Watch this quick walkthrough to learn how to:</p><ul><li>Choose your products.</li><li>Set your delivery schedule.</li><li>Manage or change your subscription anytime.</li></ul>",
+            "link_label": "",
+            "link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dNHkzd",
+        "column_qdwHat"
+      ],
+      "custom_css": [
+        ".multicolumn-card__rte {align-items: flex-start; flex-direction: column;}",
+        ".content-container {height: 100%;}",
+        ".multicolumn-card__info {display: flex; padding: 0 6rem; flex-direction: column; height: 100%; justify-content: center;}",
+        "h3 {font-size: 3.6rem; margin-bottom: 3rem; line-height: 1;}",
+        "@media (min-width: 750px) {.multicolumn-card__rte {font-size: 2rem; }}",
+        "@media (max-width: 749px) {h3 {font-size: 2.4rem; } .multicolumn-card__info {padding: 0; } .multicolumn-list {flex-direction: column-reverse; gap: 3rem; padding: 0 2rem; }}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_WDFYxG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fW66rt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Simple. Flexible. Designed around you.",
+            "heading_size": "h1"
+          }
+        },
+        "caption_dJ3J68": {
+          "type": "caption",
+          "settings": {
+            "caption": "Subscribe & Save helps you stay consistent with your supplements, without the hassle. Adjust, skip, or cancel anytime, and enjoy 15% off every order.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fW66rt",
+        "caption_dJ3J68"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.rich-text__wrapper {margin: 4rem 0; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": false,
+        "anchor_id": "",
+        "anchor_offset": 0,
+        "padding_top": 80,
         "padding_bottom": 100
       }
     },
@@ -665,7 +708,7 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 60,
+        "padding_top": 100,
         "padding_bottom": 60
       }
     },
@@ -764,7 +807,7 @@
         "full_width": true,
         "left_image": "shopify://shop_images/iStock-493237716_1.jpg",
         "enable_klaviyo_attach": true,
-        "klaviyo_list_id": "TURMy6",
+        "klaviyo_list_id": "Ram9Tc",
         "klaviyo_source": "newsletter_section",
         "padding_top": 0,
         "padding_bottom": 0
@@ -779,9 +822,10 @@
     "image_with_text_83HE6c",
     "image_with_text_bJ9g4L",
     "image_with_text_kzCdEc",
-    "image_with_text_VqfQk4",
     "featured_collection_tab_grid_bgqKeg",
     "multicolumn_DymD7U",
+    "multicolumn_NreH4T",
+    "rich_text_WDFYxG",
     "collapsible_content_8VjQPY",
     "collapsible_content_tDcJHV",
     "newsletter_qKtmmH"
