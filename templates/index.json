@@ -15,6 +15,9 @@
         "slide_Bwck6W": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
             "video_mp4": "https://cdn.shopify.com/videos/c/o/v/af22fb86efbc401c9beed2fa7c52fe8c.mp4",
             "video_adapt_ratio": 30,
             "heading": "Build a better baseline for your health",
