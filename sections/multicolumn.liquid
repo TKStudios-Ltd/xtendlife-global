@@ -276,12 +276,19 @@
 
   function toVimeoEmbed(url) {
     try {
-      const s = String(url);
-      const m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-      if (m && m[1]) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
-      if (s.includes('player.vimeo.com')) return s.includes('autoplay=') ? s : s + (s.includes('?') ? '&' : '?') + 'autoplay=1';
-    } catch(e) {}
-    return null;
+      const s = String(url).trim();
+
+      // Match both standard and embed Vimeo URLs
+      const match = s.match(/(?:vimeo\.com\/(?:video\/)?|player\.vimeo\.com\/video\/)(\d+)/);
+      if (match && match[1]) {
+        return `https://player.vimeo.com/video/${match[1]}?autoplay=1&muted=1&playsinline=1`;
+      }
+
+      return null;
+    } catch (e) {
+      console.error('Invalid Vimeo URL:', e);
+      return null;
+    }
   }
 
   function openModal(src) {
