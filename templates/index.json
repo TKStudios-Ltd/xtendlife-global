@@ -923,62 +923,6 @@
         "padding_bottom": 100
       }
     },
-    "image_banner_eNjqNa": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_hRLdBY": {
-          "type": "heading",
-          "settings": {
-            "heading": "Join Us on the Journey",
-            "heading_size": "h1"
-          }
-        },
-        "text_wKFbB7": {
-          "type": "text",
-          "settings": {
-            "text": "Your best health shouldn’t be complicated. With Subscribe & Save, you can make wellness effortless. Enjoy 15% off every order, automatic deliveries, and consistent support for your long-term wellbeing.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons_XN8C3J": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Learn More About Subscribe & Save",
-            "button_link_1": "shopify://pages/subscribe-and-save",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_hRLdBY",
-        "text_wKFbB7",
-        "buttons_XN8C3J"
-      ],
-      "custom_css": [
-        ".banner__content {padding: 3rem 2rem 3.5rem;}",
-        ".banner__box {max-width: 125rem; padding: 0; height: 100% !important; display: flex; flex-direction: column; justify-content: center;}",
-        ".subtitle {line-height: 1.2; max-width: 740px;}",
-        "@media (max-width: 749px) {h2 {font-size: 2.4rem; }}"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/AdobeStock_272832590_1.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "wide_container": false,
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "video_banner_m4pVit": {
       "type": "video-banner",
       "blocks": {
@@ -1053,7 +997,6 @@
     "image_hotspots_Hi6X7c",
     "featured_blog_rTpRWK",
     "newsletter_qKtmmH",
-    "image_banner_eNjqNa",
     "video_banner_m4pVit"
   ]
 }
