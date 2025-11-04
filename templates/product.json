@@ -546,6 +546,15 @@
             "quote": "“Dr. Joel Kahn is one of the world's leading cardiologists, clinical professor of medicine, integrative medicine practitioner and promoter of plant-based nutrition. He is a holistic cardiologist who strongly believes in the power of nutrition and supplements to help reduce disease risk, improve markers of heart health, and balance out dietary insufficiencies. Dr. Kahn is also the best-selling author of many popular books on heart health.”"
           }
         },
+        "testimonial_WEYmeK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/6445d52f-c069-4b54-b6ad-e47ff919548e_3354x4696_1.jpg",
+            "name": "Dr. Amanda Wiggins",
+            "role": "Chief Research Scientist",
+            "quote": "“What drew me here is their genuine commitment to creating products powered by science and built on quality ingredients. No fluff, just thoughtful formulations that make a real difference.”"
+          }
+        },
         "testimonial_kyXBjn": {
           "type": "testimonial",
           "settings": {
@@ -576,6 +585,7 @@
       },
       "block_order": [
         "testimonial_3EFxVt",
+        "testimonial_WEYmeK",
         "testimonial_kyXBjn",
         "testimonial_wxPJKG",
         "testimonial_MNbmfK"
