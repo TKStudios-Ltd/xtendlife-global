@@ -591,6 +591,7 @@
         },
         "collapsible_row_UA3RPW": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Can I have more than one address in my country of residence I can use? ",
             "icon": "none",
@@ -619,6 +620,7 @@
         },
         "collapsible_row_D8gQRz": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Can I use a coupon code with my subscription?",
             "icon": "none",
@@ -629,9 +631,9 @@
         "collapsible_row_Pz6dAA": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What payment methods are available for subscriptions? ",
+            "heading": "What payment methods are available for subscriptions?",
             "icon": "none",
-            "row_content": "<p>Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay and Shop Pay.</p>",
+            "row_content": "<p>We accept Mastercard, VISA, AMEX, PayPal, Google Pay, Apple Pay, and Shop Pay. </p>",
             "page": ""
           }
         },
