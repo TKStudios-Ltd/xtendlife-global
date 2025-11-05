@@ -29,9 +29,10 @@
   }
 {%- endstyle -%}
 
-{%- assign faq_html = product.metafields.custom_fields.product_faqs -%}
+{%- assign faq_html = product.metafields.custom_fields.product_faqs | default: '' -%}
+{%- assign faq_plain = faq_html | replace: '&nbsp;', '' | strip_html | strip -%}
 
-{%- if faq_html != blank or section.settings.show_when_empty -%}
+{%- if product and faq_plain != '' -%}
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate content-container content-container--full-width">
     <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
