@@ -583,9 +583,9 @@
         "collapsible_row_niCXW3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What time of day is my payment processed? ",
+            "heading": "When is my payment processed?",
             "icon": "none",
-            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order.</p>",
+            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order. </p>",
             "page": ""
           }
         },
