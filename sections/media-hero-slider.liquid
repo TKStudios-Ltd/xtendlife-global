@@ -24,18 +24,6 @@
   object-fit: cover; object-position: center;
   display: block;
 }
-/* Per-slide text color override */
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] { 
-  color: var(--slide-text-color);
-}
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__heading,
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__text,
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__text p,
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .subtitle,
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .content-container,
-#MediaHero-{{ section.id }} .banner[data-slide-text-color] .mhs-stacked-mobile {
-  color: var(--slide-text-color);
-}
 
 /* Desktop */
 @media (min-width: 750px) {
@@ -44,15 +32,14 @@
     align-items: center;
   }
   #MediaHero-{{ section.id }} .banner__content { padding-top: 125px; }
-  #MediaHero-{{ section.id }} .banner__heading { max-width: var(--heading-max); line-height: 1; }
-  #MediaHero-{{ section.id }} .subtitle { max-width: var(--text-max); }
+  #MediaHero-{{ section.id }} .banner__heading { line-height: 1; }
   #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left { margin: auto; }
   #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
 }
 /* Mobile */
 @media (max-width: 749px) {
-  #MediaHero-{{ section.id }} .banner__heading { max-width: var(--heading-max); margin: 0 auto; }
-  #MediaHero-{{ section.id }} .subtitle { max-width: var(--text-max); margin: 2rem auto 0; }
+  #MediaHero-{{ section.id }} .banner__heading { margin: 0 auto; }
+  #MediaHero-{{ section.id }} .subtitle { margin: 2rem auto 0; }
   #MediaHero-{{ section.id }} .banner--stacked .banner__box { display: none; }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile { padding: 4rem 2rem; }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
@@ -190,10 +177,27 @@
               <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
                 <div class="banner__box content-container content-container--full-width-mobile gradient">
                   {% if b.heading != blank %}
-                    <h2 class="banner__heading inline-richtext {{ b.heading_size }}">{{ b.heading }}</h2>
+                    <h2
+                      class="banner__heading inline-richtext {{ b.heading_size }}"
+                      style="
+                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
+                        {% if b.heading_max_width %}max-width: {{ b.heading_max_width }}px;{% endif %}
+                      "
+                    >
+                      {{ b.heading }}
+                    </h2>
                   {% endif %}
+
                   {% if b.text != blank %}
-                    <div class="banner__text rte {{ b.text_style }}"><p class="subtitle">{{ b.text }}</p></div>
+                    <p
+                      class="subtitle banner__text {{ b.text_style }}"
+                      style="
+                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
+                        {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
+                      "
+                    >
+                      {{ b.text }}
+                    </p>
                   {% endif %}
 
                   {% if b.button_label_1 != blank or b.button_label_2 != blank %}
