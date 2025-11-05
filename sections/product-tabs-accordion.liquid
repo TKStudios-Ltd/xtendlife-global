@@ -31,8 +31,14 @@
       {%- assign shipping_col1 = section.settings.shipping_col1 -%}
       {%- assign shipping_col2 = section.settings.shipping_col2 -%}
 
-      {%- comment -%} Ensure headers always show {%- endcomment -%}
-      {%- assign tabs_array = 'details,ingredients,directions,shipping' | split: ',' -%}
+      {%- comment -%} Build tabs list, skipping Directions if its metafield is blank {%- endcomment -%}
+      {%- assign tabs_string = 'details,ingredients' -%}
+      {%- unless directions_meta == blank -%}
+        {%- assign tabs_string = tabs_string | append: ',directions' -%}
+      {%- endunless -%}
+      {%- assign tabs_string = tabs_string | append: ',shipping' -%}
+      {%- assign tabs_array = tabs_string | split: ',' -%}
+
 
       <div class="pta__tabs-nav" role="tablist" aria-label="Product information tabs">
         <ul class="pta__tabs-nav-list">
