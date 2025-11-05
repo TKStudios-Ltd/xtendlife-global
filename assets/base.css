@@ -4633,3 +4633,7 @@ h2.shipping-dhl-flex img {
   width: 100%;
   height: 30px;
 }
+
+.shopify-block.recharge-subscription-widget recharge-subscription-widget {
+  max-width: 100% !important;
+}
