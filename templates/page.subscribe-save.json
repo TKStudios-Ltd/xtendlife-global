@@ -539,12 +539,13 @@
           "settings": {
             "heading": "How do I change my payment method or credit card?",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Address & Payment details'</li><li>Click on 'Manage Payment Methods'</li><li>Click on 'Edit'</li><li>Click on 'Send Edit Payment Link'</li><li>You will be sent an email to your Inbox.  If you do not see this within a few minutes, please check your Spam/Junk Folder</li></ul>",
+            "row_content": "<p>Go to the <strong>Manage Subscriptions</strong> link on the login page, then open your secure subscription portal to update your payment information. </p>",
             "page": ""
           }
         },
         "collapsible_row_Fn4jbM": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How do I create two or more subscriptions? ",
             "icon": "none",
@@ -555,18 +556,18 @@
         "collapsible_row_wKKFar": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is the longest frequency I can have between orders?",
+            "heading": "How often can I schedule deliveries?",
             "icon": "none",
-            "row_content": "<p>Six months.</p>",
+            "row_content": "<p>You can choose any frequency from <strong>one month up to six months</strong> between deliveries. </p>",
             "page": ""
           }
         },
         "collapsible_row_7ifegW": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I choose to have my order shipped on a particular date every month?",
+            "heading": "Can I set a specific date for my order to be shipped each month?",
             "icon": "none",
-            "row_content": "<p>No, you can’t set your subscription to ship on a certain date each month, but you can log in and reschedule your next order to ship on a specified date if you wish.  If that date falls on a Saturday, Sunday or public holiday it will ship the next business day. Please refer to our FAQ ‘How do I reschedule my order’</p>",
+            "row_content": "<p>You can’t lock in a fixed date, but you can reschedule any upcoming order to ship on the day that suits you best. If it falls on a weekend or public holiday, it will ship the next business day. <br/><br/></p>",
             "page": ""
           }
         },
