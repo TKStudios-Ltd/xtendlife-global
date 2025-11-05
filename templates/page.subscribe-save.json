@@ -657,6 +657,7 @@
         },
         "collapsible_row_bdRrtA": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "I don’t know how to reactivate a subscription for a product; can you help me? Can you do it for me?",
             "icon": "none",
@@ -666,6 +667,7 @@
         },
         "collapsible_row_ACexKP": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Price changes",
             "icon": "none",
