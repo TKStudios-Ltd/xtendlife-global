@@ -640,9 +640,9 @@
         "collapsible_row_Bfr7ee": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I choose two different shipping methods if I have more than one subscription? ",
+            "heading": "How do I reactivate a cancelled subscription?",
             "icon": "none",
-            "row_content": "<p>Please contact our Customer Relations Team <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">here</a>.</p>",
+            "row_content": "<p>You can reactivate it anytime through the <strong>Manage Subscriptions</strong> link on the login page. Simply open your orders and select <em>Reactivate</em>, or contact our Customer Care team and we’ll help you. <br/><br/></p>",
             "page": ""
           }
         },
