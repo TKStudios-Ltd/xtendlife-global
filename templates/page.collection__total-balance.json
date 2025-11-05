@@ -453,33 +453,6 @@
             "page": "",
             "open": false
           }
-        },
-        "collapsible_row_pmKgf3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Joints",
-            "row_content": "<ul><li>Joint comfort</li><li>Improved mobility</li><li>Cartilage regeneration</li></ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_WPT7dp": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Digestion",
-            "row_content": "<ul><li>Enzymes to assist digestion</li><li>Maintain function of gut lining</li><li>Encourage regular bowel movements</li><li>Reduce gas and bloating</li></ul>",
-            "page": "",
-            "open": false
-          }
-        },
-        "collapsible_row_Fc4Pki": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Sexual & Hormonal Health",
-            "row_content": "<ul><li>Prostate support (Men’s)</li><li>Testosterone support (Men’s)</li><li>Menopause relief (Women’s)</li><li>PMS support (Women’s)</li><li>Libido (Men & Women’s)</li></ul>",
-            "page": "",
-            "open": false
-          }
         }
       },
       "block_order": [
@@ -489,10 +462,7 @@
         "collapsible_row_mNwhUk",
         "collapsible_row_hD4rk6",
         "collapsible_row_nq449P",
-        "collapsible_row_PbVEn9",
-        "collapsible_row_pmKgf3",
-        "collapsible_row_WPT7dp",
-        "collapsible_row_Fc4Pki"
+        "collapsible_row_PbVEn9"
       ],
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
