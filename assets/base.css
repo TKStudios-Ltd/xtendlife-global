@@ -4620,3 +4620,13 @@ main#MainContent > .section:first-of-type .nav__offset_bg {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+h2.shipping-dhl-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+h2.shipping-dhl-flex img {
+  width: 100%;
+  height: 30px;
+}
