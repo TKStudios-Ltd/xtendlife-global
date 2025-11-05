@@ -500,14 +500,15 @@
         "collapsible_row_fp9kgF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How do I reschedule my next order?",
+            "heading": "How do I reschedule or skip my next order?",
             "icon": "none",
-            "row_content": "<ul><li>Log in to your account</li><li>Under the Subscribe and Save menu, click 'Manage Orders'</li><li>Click on 'Reschedule'</li><li>Choose how you wish to reschedule by selecting the most suitable option for your needs and Save Changes.</li></ul>",
+            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page to access your subscription portal. From there, you can reschedule or skip your next delivery, you can even gift it to someone else if you prefer.</p>",
             "page": ""
           }
         },
         "collapsible_row_Cnj6hi": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "How do I skip my next order?",
             "icon": "none",
@@ -518,7 +519,7 @@
         "collapsible_row_erfxjF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I skip some of the products in my schedule but have the remaining sent?",
+            "heading": "Can I skip only some products in my upcoming order?",
             "icon": "none",
             "row_content": "<p>All commission payments are made via PayPal. Simply enter your PayPal email in the settings section of your Affiliate Admin.</p><p>If you don't have an existing PayPal account, sign up for a personal PayPal account here <a href=\"https://www.paypal.com/kn/webapps/mpp/account-selection\" title=\"https://www.paypal.com/kn/webapps/mpp/account-selection\">https://www.paypal.com/kn/webapps/mpp/account-selection</a>.</p>",
             "page": ""
