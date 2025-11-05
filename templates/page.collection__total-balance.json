@@ -403,8 +403,8 @@
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "General Health",
-            "row_content": "<ul><li>Liver health</li><li>Lung health</li><li>Skin elasticity & hydration</li><li>Strong bones</li><li>Exercise recovery</li><li>Sharp vision & eye protection</li></ul>",
+            "heading": "Whole-Body Wellness",
+            "row_content": "<p>Total Balance supports your health from the inside out, with nutrients that work in harmony to maintain vitality, support organ function, and help you feel your best every day.</p><p>From energy and recovery to healthy skin and strong bones, it’s daily support for a healthier you.</p>",
             "page": "",
             "open": true
           }
@@ -412,8 +412,8 @@
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Cardiovascular",
-            "row_content": "<ul><li>Healthy blood vessels</li><li>Blood flow</li><li>Healthy blood pressure</li><li>Vasodilation</li><li>Healthy cholesterol & triglycerides</li></ul>",
+            "heading": "Heart & Circulation",
+            "row_content": "<p>Formulated to support healthy circulation, blood pressure, and cholesterol levels already within the normal range, Total Balance supports the systems that keep your heart and blood vessels in good condition, for long-term cardiovascular wellbeing.<br/><br/></p>",
             "page": "",
             "open": false
           }
@@ -421,8 +421,8 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Telomeres & Anti-Aging",
-            "row_content": "<ul><li>Telomere protection</li><li>Antioxidant protection for cells & DNA</li><li>Anti-inflammatory</li><li>Cellular energy</li><li>Positive outlook</li></ul>",
+            "heading": "Mind, Mood & Energy",
+            "row_content": "<p>Nutrients in Total Balance help support mental clarity, focus, and a balanced mood, while also contributing to healthy energy levels and resilience. It’s designed to help you think clearly, feel balanced, and stay energised through every stage of life.</p>",
             "page": "",
             "open": false
           }
@@ -430,8 +430,8 @@
         "collapsible_row_hD4rk6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Mental Health & Brain",
-            "row_content": "<ul><li>Memory, cognition & focus</li><li>Anti-aging vitamins for brain</li><li>Neuroprotection</li><li>Positive outlook</li></ul>",
+            "heading": "Cellular Health & Healthy Aging",
+            "row_content": "<p>Your body renews itself daily, cell by cell. Total Balance provides antioxidants and essential nutrients that help protect against oxidative stress, supporting healthy DNA, cellular energy, and overall vitality as you age.</p>",
             "page": "",
             "open": false
           }
@@ -439,8 +439,8 @@
         "collapsible_row_nq449P": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Immunity",
-            "row_content": "<ul><li>Innate immunity</li><li>Acquired immunity</li><li>Anti-viral defenses</li></ul>",
+            "heading": "Digestive, Immune & Joint Support",
+            "row_content": "<p>A strong foundation starts with balance. Total Balance supports digestive comfort and nutrient absorption while providing nutrients that support immunity, joint health, and flexibility, so you can keep moving and feeling well every day.</p>",
             "page": "",
             "open": false
           }
@@ -448,8 +448,8 @@
         "collapsible_row_PbVEn9": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Metabolic",
-            "row_content": "<ul><li>Glycemic control</li><li>Fat burning</li><li>Metabolic syndrome</li><li>Weight control</li></ul>",
+            "heading": "Hormonal Balance & Vitality",
+            "row_content": "<p>With tailored versions for men and women, Total Balance includes nutrients that support hormonal balance, reproductive health, and overall vitality, helping you feel your best at every age.</p>",
             "page": "",
             "open": false
           }
