@@ -174,9 +174,7 @@
                         {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
                         {% if b.heading_max_width %}max-width: {{ b.heading_max_width }}px;{% endif %}
                       "
-                    >
-                      {{ b.heading }}
-                    </h2>
+                    >{{ b.heading }}</h2>
                   {% endif %}
 
                   {% if b.text != blank %}
@@ -186,9 +184,7 @@
                         {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
                         {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
                       "
-                    >
-                      {{ b.text }}
-                    </p>
+                    >{{ b.text }}</p>
                   {% endif %}
 
                   {% if b.button_label_1 != blank or b.button_label_2 != blank %}
