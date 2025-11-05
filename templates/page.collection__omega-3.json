@@ -494,7 +494,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Placeholder_Image_1.jpg",
+        "image": "shopify://shop_images/Heart_Health_Overview_image_950_x_731.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
