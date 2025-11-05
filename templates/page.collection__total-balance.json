@@ -212,7 +212,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_3_1_1.jpg",
+        "image": "shopify://shop_images/Total_Balance_Overview_image.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
