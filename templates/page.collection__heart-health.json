@@ -347,7 +347,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Hiking-1185397615_4.jpg",
+        "image": "shopify://shop_images/Heart_Health_Overview_image.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
