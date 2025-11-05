@@ -199,7 +199,8 @@
 }
 
 .mega-menu__link#HeaderMenu-shop-shop-by-category-shop-all,
-.mega-menu__link#HeaderMenu-shop-shop-by-category-subscribe-save {
+.mega-menu__link#HeaderMenu-shop-shop-by-category-subscribe-save,
+.mega-menu__link#HeaderMenu-shop-shop-by-category-subscribe-and-save {
   font-size: 18px;
   font-weight: 500;
 }
