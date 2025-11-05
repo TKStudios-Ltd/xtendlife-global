@@ -140,7 +140,6 @@
     },
     "popup_newsletter_QNXYFP": {
       "type": "popup-newsletter",
-      "disabled": true,
       "name": "Popup newsletter",
       "settings": {
         "color_scheme": "scheme-c386b73c-3983-4df4-a2f1-d5aa15164370",
