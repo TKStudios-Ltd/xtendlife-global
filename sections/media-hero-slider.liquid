@@ -299,7 +299,7 @@
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
         { "type": "color", "id": "text_color", "label": "Text color override (optional)" },
-        { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your headline here" },
+        { "type": "richtext", "id": "heading", "label": "Heading", "default": "<h2>Your headline here</h2>" },
         {
           "type": "select", "id": "heading_size", "label": "Heading size",
           "options": [
@@ -311,7 +311,7 @@
           ],
           "default": "h1"
         },
-        { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Add supporting copy here." },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Add supporting copy here.</p>" },
         {
           "type": "select", "id": "text_style", "label": "Text style",
           "options": [
