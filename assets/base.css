@@ -4625,6 +4625,7 @@ h2.shipping-dhl-flex {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  color: transparent;
 }
 h2.shipping-dhl-flex img {
   width: 100%;
