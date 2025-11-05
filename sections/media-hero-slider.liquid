@@ -25,6 +25,19 @@
   object-fit: cover; object-position: center;
   display: block;
 }
+/* Per-slide text color override */
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] { 
+  color: var(--slide-text-color);
+}
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__heading,
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__text,
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .banner__text p,
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .subtitle,
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .content-container,
+#MediaHero-{{ section.id }} .banner[data-slide-text-color] .mhs-stacked-mobile {
+  color: var(--slide-text-color);
+}
+
 /* Desktop */
 @media (min-width: 750px) {
   #MediaHero-{{ section.id }} .banner--large {
@@ -121,6 +134,7 @@
               {% if section.settings.stack_text_on_mobile %}banner--stacked{% endif %}
               color-{{ section.settings.color_scheme }}
             "
+            {% if b.text_color != blank %}data-slide-text-color style="--slide-text-color: {{ b.text_color }}"{% endif %}
           >
             <div class="banner__media media">
               {% if section.settings.image_height == 'adapt' %}
@@ -284,7 +298,7 @@
         { "type": "image_picker", "id": "video_poster", "label": "Video poster (optional)" },
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
-
+        { "type": "color", "id": "text_color", "label": "Text color override (optional)" },
         { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your headline here" },
         {
           "type": "select", "id": "heading_size", "label": "Heading size",
