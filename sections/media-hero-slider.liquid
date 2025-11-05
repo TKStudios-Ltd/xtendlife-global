@@ -129,7 +129,6 @@
             {% if b.heading_max_width and b.heading_max_width > 0 %}--heading-max: {{ b.heading_max_width }}px;{% endif %}
             {% if b.text_max_width and b.text_max_width > 0 %}--text-max: {{ b.text_max_width }}px;{% endif %}
           {% endcapture %}
-          {% assign _style_stripped = _style | strip %}
 
           <div
             class="
