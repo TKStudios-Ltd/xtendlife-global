@@ -14,7 +14,6 @@
       "blocks": {
         "slide_Bwck6W": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/VIT_D_Promo_Global_UK.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
@@ -25,11 +24,11 @@
             "heading_size": "h1",
             "text": "Spend $50+ and get a free Vitamin D3 + K2. Add it to your cart and use code FREEVITD.",
             "text_style": "body",
-            "button_label_1": "",
+            "button_label_1": "Claim Offer",
             "button_link_1": "shopify://products/vitamin-d3-k2",
             "button_style_secondary_1": false,
-            "button_label_2": "Save More with Bundles",
-            "button_link_2": "shopify://collections/all-bundles",
+            "button_label_2": "",
+            "button_link_2": "",
             "button_style_secondary_2": true
           }
         },
@@ -55,6 +54,7 @@
         },
         "slide_Mdp9gj": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
