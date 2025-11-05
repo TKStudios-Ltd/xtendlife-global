@@ -600,6 +600,7 @@
         },
         "collapsible_row_paiVMj": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Can I have different addresses for different subscriptions?",
             "icon": "none",
@@ -610,7 +611,7 @@
         "collapsible_row_abNe83": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I have two different payment methods if I have more than one subscription?",
+            "heading": "Can I manage multiple subscriptions with different payment methods and/or addresses?",
             "icon": "none",
             "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
             "page": ""
@@ -619,9 +620,9 @@
         "collapsible_row_D8gQRz": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I use a coupon code within my subscription?",
+            "heading": "Can I use a coupon code with my subscription?",
             "icon": "none",
-            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you'd like to use a discount code, you'll need to place a separate order through the checkout.</p>",
+            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you’d like to use a discount code, place a one-time order instead. </p>",
             "page": ""
           }
         },
