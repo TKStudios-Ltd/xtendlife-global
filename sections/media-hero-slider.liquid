@@ -129,6 +129,7 @@
             {% if b.heading_max_width and b.heading_max_width > 0 %}--heading-max: {{ b.heading_max_width }}px;{% endif %}
             {% if b.text_max_width and b.text_max_width > 0 %}--text-max: {{ b.text_max_width }}px;{% endif %}
           {% endcapture %}
+          {% assign _style_stripped = _style | strip %}
 
           <div
             class="
@@ -139,6 +140,7 @@
               color-{{ section.settings.color_scheme }}
             "
             {% if b.text_color != blank %}data-slide-text-color{% endif %}
+            {% if _style_stripped != '' %} style="{{ _style_stripped }}"{% endif %}
           >
             <div class="banner__media media">
               {% if section.settings.image_height == 'adapt' %}
