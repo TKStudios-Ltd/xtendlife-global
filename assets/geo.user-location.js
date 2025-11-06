@@ -36,11 +36,16 @@
 
   var getDomain = function(country)
   {
-    var storeDomain = ".xtendlife.com";
+    var storeDomain = "xtendlife.com";
     if (sites[country.toLowerCase()]) {
       if(sites[country.toLowerCase()].indexOf(".") > -1)
       {
-        return sites[country.toLowerCase()];
+        var marketPaths = ['/en-ca', '/en-au', '/en-gb'];
+        var domain = sites[country.toLowerCase()];
+        for (let i = 0; i < marketPaths.length; i++) {
+          domain = domain.replaceAll(marketPaths[i], '');
+        }
+        return domain;
       }
     }
     return storeDomain;
