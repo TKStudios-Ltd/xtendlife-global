@@ -266,67 +266,67 @@
   </div>
 
   <script>
-(() => {
-  const root = document.currentScript.closest('.multicolumn');
-  if (!root) return;
+  (() => {
+    const root = document.currentScript.closest('.multicolumn');
+    if (!root) return;
 
-  const modal  = root.querySelector('.mc-video-modal');
-  const iframe = modal.querySelector('iframe');
-  const closeBtn = modal.querySelector('.mc-video-close');
+    const modal  = root.querySelector('.mc-video-modal');
+    const iframe = modal.querySelector('iframe');
+    const closeBtn = modal.querySelector('.mc-video-close');
 
-  // MASTER Vimeo parser — supports all URL formats + hash
-  function toVimeoEmbed(url) {
-    try {
-      const s = String(url).trim();
+    // MASTER Vimeo parser — supports all URL formats + hash
+    function toVimeoEmbed(url) {
+      try {
+        const s = String(url).trim();
 
-      // Extract ID from any Vimeo form
-      const idMatch = s.match(/(?:vimeo\.com\/(?:video\/)?|player\.vimeo\.com\/video\/)(\d+)/);
-      if (!idMatch) return null;
+        // Extract ID from any Vimeo form
+        const idMatch = s.match(/(?:vimeo\.com\/(?:video\/)?|player\.vimeo\.com\/video\/)(\d+)/);
+        if (!idMatch) return null;
 
-      const id = idMatch[1];
+        const id = idMatch[1];
 
-      // Preserve h=xxxx hash if present (REQUIRED for private videos)
-      const hashMatch = s.match(/[?&]h=([a-zA-Z0-9]+)/);
-      const hash = hashMatch ? `&h=${hashMatch[1]}` : '';
+        // Preserve h=xxxx hash if present (REQUIRED for private videos)
+        const hashMatch = s.match(/[?&]h=([a-zA-Z0-9]+)/);
+        const hash = hashMatch ? `&h=${hashMatch[1]}` : '';
 
-      return `https://player.vimeo.com/video/${id}?autoplay=1&muted=1&playsinline=1${hash}`;
-    } catch (e) {
-      console.error('Invalid Vimeo URL:', e);
-      return null;
+        return `https://player.vimeo.com/video/${id}?autoplay=1&muted=1&playsinline=1${hash}`;
+      } catch (e) {
+        console.error('Invalid Vimeo URL:', e);
+        return null;
+      }
     }
-  }
 
-  function openModal(src) {
-    const embed = toVimeoEmbed(src);
-    if (!embed) return;
-    iframe.src = embed;
-    modal.setAttribute('aria-hidden', 'false');
-    document.documentElement.classList.add('no-scroll');
-  }
-
-  function closeModal() {
-    modal.setAttribute('aria-hidden', 'true');
-    iframe.removeAttribute('src');
-    document.documentElement.classList.remove('no-scroll');
-  }
-
-  // Open modal on click
-  root.addEventListener('click', (e) => {
-    const link = e.target.closest('.multicolumn-card__video-link');
-    if (link) {
-      e.preventDefault();
-      openModal(link.dataset.videoSrc);
+    function openModal(src) {
+      const embed = toVimeoEmbed(src);
+      if (!embed) return;
+      iframe.src = embed;
+      modal.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('no-scroll');
     }
-    if (e.target === modal) closeModal();
-  });
 
-  closeBtn.addEventListener('click', closeModal);
+    function closeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      iframe.removeAttribute('src');
+      document.documentElement.classList.remove('no-scroll');
+    }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  }, { passive: true });
-})();
-</script>
+    // Open modal on click
+    root.addEventListener('click', (e) => {
+      const link = e.target.closest('.multicolumn-card__video-link');
+      if (link) {
+        e.preventDefault();
+        openModal(link.dataset.videoSrc);
+      }
+      if (e.target === modal) closeModal();
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    }, { passive: true });
+  })();
+  </script>
 
 </div>
 
