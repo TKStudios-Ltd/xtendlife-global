@@ -31,7 +31,7 @@
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "Save More with Bundles",
-            "button_link_2": "shopify://collections/all",
+            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         },
