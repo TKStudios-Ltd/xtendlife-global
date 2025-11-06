@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">Free shipping over $100*</a> | <a href=\"/collections/all\" title=\"All Products\">Shop now</a></p>"
+            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">For Shipping Information Click Here</a> | <a href=\"/collections/supplements\" title=\"Supplements\">Shop Now</a></p>"
           }
         }
       },
