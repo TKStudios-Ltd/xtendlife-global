@@ -84,9 +84,9 @@
           "type": "sticky_bar",
           "settings": {
             "link1_label": "FAQs",
-            "link1_selector": "#shopify-section-template--17170117558359__product_faqs_collapsible_wJ8Q99",
+            "link1_selector": "#shopify-section-template--18034268700790__product_faqs_collapsible_wJ8Q99",
             "link2_label": "Customer Reviews",
-            "link2_selector": "#shopify-block-AZEFrZXlnWHlGWFBOO__klaviyo_reviews_product_reviews_gMycLN",
+            "link2_selector": "#shopify-section-template--18034268700790__1756789925579c1cf4",
             "trigger_selector": "#product-tabs-accordion",
             "trigger_offset": 0
           }
