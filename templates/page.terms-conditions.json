@@ -54,13 +54,23 @@
             "row_content": "<ul><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is only valid on products purchased through Subscribe and Save. </li><li>The discount amount is in USD.  </li><li>The discount code is valid only on your first Subscribe and Save order placed through the Xtendlife website. </li><li>The discount code will expire at 11:59 PM October 31, 2025 EDT.  </li><li>If the order value is below the discount code amount, the balance cannot be transferred, credited, claimed for cash or used on future orders.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.   </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.   </li><li>The discount code cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   </li><li>The discount code is not transferable and may not be resold or redeemed for cash.   </li><li>The discount code will be invalid if any of the terms and conditions are violated.   </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_ytLBrR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Free Vitamin D3 + K2",
+            "icon": "none",
+            "row_content": "<ul><li>Receive a free Vitamin D3 + K2 (1000 IU) when you spend $50 NZD or more on xtend-life.co.nz with the discount code FREEVITD applied at checkout. </li><li>To qualify, the discount code FREEVITD must be entered on the xtend-life.co.nz website in the discount code field at checkout.  </li><li>The Vitamin D3 + K2 (1000 IU) product must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code FREEVITD cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.  Loyalty  Program and Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
         "collapsible_row_rrJqXf",
         "collapsible_row_jrXhpi",
         "collapsible_row_9yKRb8",
-        "collapsible_row_k4dGtr"
+        "collapsible_row_k4dGtr",
+        "collapsible_row_ytLBrR"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
