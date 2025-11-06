@@ -12,5 +12,16 @@
   "context": {
     "market": "us"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "text_y7ay8t": {
+          "settings": {
+            "text": "Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>"
+          }
+        }
+      }
+    }
+  }
 }

@@ -57,7 +57,7 @@
         "text_y7ay8t": {
           "type": "text",
           "settings": {
-            "text": "Free shipping on orders over $100. Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>",
+            "text": "Find shipping details <a href=\"/pages/shipping\" target=\"_blank\" title=\"/pages/shipping\">here</a>",
             "text_style": "body"
           }
         },

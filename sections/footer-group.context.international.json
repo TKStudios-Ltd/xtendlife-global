@@ -8,9 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "product.json",
+  "parent": "footer-group.json",
   "context": {
-    "market": "canada"
+    "market": "international"
   },
   "sections": {}
 }

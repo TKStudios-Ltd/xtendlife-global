@@ -8,9 +8,9 @@
  * ------------------------------------------------------------
  */
 {
-  "parent": "header-group.json",
+  "parent": "product.json",
   "context": {
-    "market": "european-union"
+    "market": "international"
   },
   "sections": {}
 }
