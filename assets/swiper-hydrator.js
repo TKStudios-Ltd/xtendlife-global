@@ -1,3 +1,4 @@
+/* assets/swiper-hydrator.js */
 (function () {
   'use strict';
 
@@ -30,26 +31,33 @@
     return cfg;
   }
 
-  function ensureMinSlidesForLoop(el, minNeeded) {
-    const wrapper = el.querySelector('.swiper-wrapper');
-    if (!wrapper) return 0;
-    const originals = Array.from(wrapper.children).filter(n =>
+  function getOriginalSlides(el) {
+    const wrap = el.querySelector('.swiper-wrapper');
+    if (!wrap) return { wrap: null, originals: [], total: 0 };
+    const originals = Array.from(wrap.children).filter(n =>
       n.nodeType === 1 &&
       n.classList.contains('swiper-slide') &&
       !n.classList.contains('swiper-slide-duplicate')
     );
-    let count = originals.length;
-    if (minNeeded > 0 && count > 0 && count < minNeeded) {
-      let i = 0;
-      while (count < minNeeded) {
-        const clone = originals[i % originals.length].cloneNode(true);
-        clone.removeAttribute('data-swiper-slide-index');
-        wrapper.appendChild(clone);
-        count++;
-        i++;
-      }
+    return { wrap, originals, total: originals.length };
+  }
+
+  function ensureLoopable(el, minOriginals) {
+    const { wrap, originals, total } = getOriginalSlides(el);
+    if (!wrap) return 0;
+    if (total >= minOriginals) return total;
+
+    console.warn('[swiper-hydrator] Duplicating slides to satisfy loop:', { have: total, need: minOriginals });
+    let i = 0;
+    while (wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length < minOriginals) {
+      const src = originals[i % originals.length];
+      const clone = src.cloneNode(true);
+      clone.removeAttribute('data-swiper-slide-index');
+      wrap.appendChild(clone);
+      i++;
     }
-    return count;
+    const newCount = wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
+    return newCount;
   }
 
   function init(el) {
@@ -75,6 +83,8 @@
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
+    const isHero = el.classList.contains('hero-swiper');
+
     const params = {
       effect: 'slide',
       speed,
@@ -91,21 +101,19 @@
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
     if (mode === 'fixed') {
-      params.slidesPerView = 1;
-      params.slidesPerGroup = 1;
+      params.slidesPerView = isHero ? 1 : 'auto';
     } else {
       const cfg = slidesCfg;
-      params.slidesPerView = cfg.base ?? 1.2;
-      params.breakpoints = Object.keys(cfg.bp).length
-        ? cfg.bp
-        : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
+      params.slidesPerView = isHero ? 1 : (cfg.base ?? 1.2);
+      params.breakpoints = isHero
+        ? undefined
+        : (Object.keys(cfg.bp).length
+            ? cfg.bp
+            : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } });
     }
 
     if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
-
     if (allowTouch != null) params.allowTouchMove = allowTouch;
-
-    let slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
 
     params.loop = loop;
     params.rewind = rewind;
@@ -113,15 +121,24 @@
     if (loop) {
       params.rewind = false;
 
-      const minForLoop = 3; // enforce minimum originals to satisfy Swiper loop
-      slideCount = ensureMinSlidesForLoop(el, Math.max(minForLoop, slideCount));
+      const spv = params.slidesPerView === 'auto' ? 1 : Number(params.slidesPerView) || 1;
+      const minOriginals = Math.max(2, spv + 1);
+      const originalCount = ensureLoopable(el, minOriginals);
 
-      params.loopedSlides = slideCount;
+      params.loopedSlides = Math.max(originalCount, minOriginals);
       params.loopedSlidesLimit = false;
-      params.loopAdditionalSlides = slideCount;
+      params.loopAdditionalSlides = Math.max(2, originalCount);
       params.loopFillGroupWithBlank = true;
       params.loopPreventsSlide = false;
       params.centeredSlides = false;
+
+      console.groupCollapsed('[swiper-hydrator] loop config');
+      console.log({ originalCount, spv, minOriginals, params });
+      console.groupEnd();
+    } else {
+      console.groupCollapsed('[swiper-hydrator] non-loop config');
+      console.log({ params });
+      console.groupEnd();
     }
 
     const sw = new Swiper(el, params);
@@ -138,6 +155,19 @@
         node.addEventListener('loadeddata', update, { once: true });
         node.addEventListener('load', update, { once: true });
       }
+    });
+
+    sw.on('loopFix', () => {
+      console.log('[swiper-hydrator] loopFix fired');
+    });
+    sw.on('reachEnd', () => {
+      console.log('[swiper-hydrator] reachEnd');
+    });
+    sw.on('fromEdge', () => {
+      console.log('[swiper-hydrator] fromEdge');
+    });
+    sw.on('slideChange', () => {
+      console.log('[swiper-hydrator] slideChange', { index: sw.realIndex });
     });
   }
 
