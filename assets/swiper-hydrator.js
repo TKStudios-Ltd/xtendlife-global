@@ -44,8 +44,8 @@
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
     const prevSel       = el.dataset.navPrev || '.ts-prev';
     const nextSel       = el.dataset.navNext || '.ts-next';
-    const loop          = toBool(el.dataset.loop || false);
-    const rewind        = toBool(el.dataset.rewind || false);
+    const loopAttr      = toBool(el.dataset.loop || false);
+    const rewindAttr    = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
     const scope = el.closest('[data-swiper-root]') ||
@@ -57,7 +57,24 @@
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      effect: 'slide'
+      slidesPerGroup: 1,
+      effect: 'slide',
+      on: {
+        afterInit(s) {
+          if (s.params.loop && !s.loopedSlides) {
+            if (s.loopCreate) s.loopCreate();
+            s.update();
+          }
+          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
+        },
+        reachEnd(s) {
+          if (!s.params.loop && !s.params.rewind) {
+            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
+            if (s.slideToLoop) s.slideToLoop(0, dur);
+            else s.slideTo(0, dur);
+          }
+        }
+      }
     };
 
     const prevEl = scope.querySelector(prevSel);
@@ -77,16 +94,16 @@
         : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
-    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false };
+    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
 
     if (allowTouch != null) params.allowTouchMove = allowTouch;
 
     const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
 
-    params.loop = loop;
-    params.rewind = rewind;
+    params.loop = loopAttr;
+    params.rewind = rewindAttr;
 
-    if (loop) {
+    if (params.loop) {
       params.rewind = false;
       params.loopedSlides = slideCount;
       params.loopedSlidesLimit = false;
