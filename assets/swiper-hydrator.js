@@ -46,11 +46,7 @@
     const nextSel       = el.dataset.navNext || '.ts-next';
     const loop          = toBool(el.dataset.loop || false);
     const rewind        = toBool(el.dataset.rewind || false);
-    const linear        = toBool(el.dataset.linear || false);
-    const loopExtra     = toInt(el.dataset.loopAdditionalSlides ?? 2, 2);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
-    const linearSpeed   = toInt(el.dataset.linearSpeed ?? 9000, 9000);
-    const linearTouch   = el.dataset.linearAllowTouchMove != null ? toBool(el.dataset.linearAllowTouchMove) : undefined;
 
     const scope = el.closest('[data-swiper-root]') ||
                   el.closest('[data-testimonial-slider]') ||
@@ -60,7 +56,8 @@
     const params = {
       speed,
       spaceBetween: gap,
-      watchOverflow: false
+      watchOverflow: false,
+      effect: 'slide'
     };
 
     const prevEl = scope.querySelector(prevSel);
@@ -82,28 +79,20 @@
 
     if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false };
 
-    params.loop = loop;
-    params.rewind = rewind;
-    if (loopExtra) params.loopAdditionalSlides = loopExtra;
     if (allowTouch != null) params.allowTouchMove = allowTouch;
 
-    if (linear) {
-      params.loop = true;
-      params.rewind = false;
-      params.freeMode = { enabled: true, momentum: false };
-      params.autoplay = { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false };
-      params.speed = linearSpeed;
-      params.allowTouchMove = linearTouch != null ? linearTouch : false;
-      params.loopAdditionalSlides = Math.max(2, loopExtra || 2);
-    }
-
     const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
+
+    params.loop = loop;
+    params.rewind = rewind;
+
     if (loop) {
-      params.loop = true;
       params.rewind = false;
       params.loopedSlides = slideCount;
+      params.loopedSlidesLimit = false;
       params.loopAdditionalSlides = Math.max(2, Math.min(slideCount, 4));
       params.loopPreventsSlide = false;
+      params.centeredSlides = false;
     }
 
     const sw = new Swiper(el, params);
@@ -113,8 +102,13 @@
     if (document.readyState === 'complete') setTimeout(update, 0);
     else window.addEventListener('load', update, { once: true });
 
-    el.querySelectorAll('img').forEach(img => {
-      if (!img.complete) img.addEventListener('load', update, { once: true });
+    el.querySelectorAll('img, source, video').forEach(node => {
+      if (node.tagName === 'IMG') {
+        if (!node.complete) node.addEventListener('load', update, { once: true });
+      } else {
+        node.addEventListener('loadeddata', update, { once: true });
+        node.addEventListener('load', update, { once: true });
+      }
     });
   }
 
