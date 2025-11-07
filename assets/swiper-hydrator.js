@@ -106,19 +106,22 @@
       slidesPerGroup: 1
     };
 
-    if (mode === 'fixed') {
-      params.slidesPerView = isHero ? 1 : 'auto';
-    } else {
-      const cfg = slidesCfg;
-      params.slidesPerView = isHero ? 1 : (cfg.base ?? 1.2);
-      params.breakpoints = isHero ? undefined : (Object.keys(cfg.bp).length ? cfg.bp : {
-        750: { slidesPerView: 2.1 },
-        990: { slidesPerView: 3.1 }
-      });
-    }
-
-    if (mode === 'single') {
+    if (mode === 'single' || isHero) {
       params.slidesPerView = 1;
+      params.breakpoints = undefined;
+    }
+    else if (mode === 'fixed') {
+      params.slidesPerView = 'auto';
+    }
+    else {
+      const cfg = slidesCfg;
+      params.slidesPerView = cfg.base ?? 1.2;
+      params.breakpoints = Object.keys(cfg.bp).length
+        ? cfg.bp
+        : {
+            750: { slidesPerView: 2.1 },
+            990: { slidesPerView: 3.1 }
+          };
     }
 
     let loop = loopRequested;
