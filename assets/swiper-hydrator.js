@@ -97,6 +97,15 @@
       params.loopAdditionalSlides = Math.max(2, loopExtra || 2);
     }
 
+    const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
+    if (loop) {
+      params.loop = true;
+      params.rewind = false;
+      params.loopedSlides = slideCount;
+      params.loopAdditionalSlides = Math.max(2, Math.min(slideCount, 4));
+      params.loopPreventsSlide = false;
+    }
+
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
 
