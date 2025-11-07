@@ -106,10 +106,9 @@
     if (params.loop) {
       params.rewind = false;
       params.loopedSlides = slideCount;
-      params.loopedSlidesLimit = false;
-      params.loopAdditionalSlides = Math.max(2, Math.min(slideCount, 4));
+      params.loopAdditionalSlides = slideCount;
+      params.loopFillGroupWithBlank = true;
       params.loopPreventsSlide = false;
-      params.centeredSlides = false;
     }
 
     const sw = new Swiper(el, params);
