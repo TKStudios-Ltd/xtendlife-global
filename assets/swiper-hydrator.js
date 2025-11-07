@@ -1,4 +1,3 @@
-/* assets/swiper-hydrator.js */
 (function () {
   'use strict';
 
@@ -16,7 +15,6 @@
     const n = parseFloat(s);
     return Number.isNaN(n) ? fallback : n;
   };
-
   const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
@@ -31,33 +29,28 @@
     return cfg;
   }
 
-  function getOriginalSlides(el) {
+  function originals(el) {
     const wrap = el.querySelector('.swiper-wrapper');
-    if (!wrap) return { wrap: null, originals: [], total: 0 };
-    const originals = Array.from(wrap.children).filter(n =>
+    if (!wrap) return { wrap: null, list: [], count: 0 };
+    const list = Array.from(wrap.children).filter(n =>
       n.nodeType === 1 &&
       n.classList.contains('swiper-slide') &&
       !n.classList.contains('swiper-slide-duplicate')
     );
-    return { wrap, originals, total: originals.length };
+    return { wrap, list, count: list.length };
   }
 
-  function ensureLoopable(el, minOriginals) {
-    const { wrap, originals, total } = getOriginalSlides(el);
-    if (!wrap) return 0;
-    if (total >= minOriginals) return total;
-
-    console.warn('[swiper-hydrator] Duplicating slides to satisfy loop:', { have: total, need: minOriginals });
+  function ensureMin(el, min) {
+    const o = originals(el);
+    if (!o.wrap) return 0;
+    if (o.count >= min) return o.count;
     let i = 0;
-    while (wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length < minOriginals) {
-      const src = originals[i % originals.length];
-      const clone = src.cloneNode(true);
-      clone.removeAttribute('data-swiper-slide-index');
-      wrap.appendChild(clone);
+    while (o.wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length < min) {
+      const src = o.list[i % o.list.length];
+      o.wrap.appendChild(src.cloneNode(true));
       i++;
     }
-    const newCount = wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
-    return newCount;
+    return o.wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
   }
 
   function init(el) {
@@ -74,7 +67,7 @@
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
     const prevSel       = el.dataset.navPrev || '.ts-prev';
     const nextSel       = el.dataset.navNext || '.ts-next';
-    const loop          = toBool(el.dataset.loop || false);
+    const loopAttr      = toBool(el.dataset.loop || false);
     const rewind        = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
@@ -85,6 +78,7 @@
 
     const isHero = el.classList.contains('hero-swiper');
 
+    // Base params
     const params = {
       effect: 'slide',
       speed,
@@ -93,54 +87,55 @@
       slidesPerGroup: 1
     };
 
-    const prevEl = scope.querySelector(prevSel);
-    const nextEl = scope.querySelector(nextSel);
-    if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
-
-    const pagEl = scope.querySelector(pagSelector);
-    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
-
+    // Slides per view
     if (mode === 'fixed') {
       params.slidesPerView = isHero ? 1 : 'auto';
     } else {
       const cfg = slidesCfg;
       params.slidesPerView = isHero ? 1 : (cfg.base ?? 1.2);
-      params.breakpoints = isHero
-        ? undefined
-        : (Object.keys(cfg.bp).length
-            ? cfg.bp
-            : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } });
+      params.breakpoints = isHero ? undefined : (Object.keys(cfg.bp).length ? cfg.bp : {
+        750: { slidesPerView: 2.1 },
+        990: { slidesPerView: 3.1 }
+      });
     }
 
-    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
-    if (allowTouch != null) params.allowTouchMove = allowTouch;
-
-    params.loop = loop;
-    params.rewind = rewind;
-
+    // Loop strategy: for hero (spv=1) we only need 2 originals
+    let loop = loopAttr;
     if (loop) {
-      params.rewind = false;
-
       const spv = params.slidesPerView === 'auto' ? 1 : Number(params.slidesPerView) || 1;
-      const minOriginals = Math.max(2, spv + 1);
-      const originalCount = ensureLoopable(el, minOriginals);
-
-      params.loopedSlides = Math.max(originalCount, minOriginals);
-      params.loopedSlidesLimit = false;
-      params.loopAdditionalSlides = Math.max(2, originalCount);
-      params.loopFillGroupWithBlank = true;
+      const minNeeded = Math.max(2, spv + 1 - 0); // for spv=1 => 2
+      const count = ensureMin(el, minNeeded);
+      if (count < 2) loop = false; // cannot loop with <2
+      params.loop = loop;
+      params.rewind = false;
+      params.loopedSlides = Math.max(count, 2);
+      params.loopAdditionalSlides = 1;            // keep small to avoid warnings
       params.loopPreventsSlide = false;
       params.centeredSlides = false;
-
-      console.groupCollapsed('[swiper-hydrator] loop config');
-      console.log({ originalCount, spv, minOriginals, params });
-      console.groupEnd();
     } else {
-      console.groupCollapsed('[swiper-hydrator] non-loop config');
-      console.log({ params });
-      console.groupEnd();
+      params.loop = false;
+      params.rewind = rewind;
     }
 
+    // Pagination
+    const pagEl = scope.querySelector(pagSelector);
+    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
+
+    // Nav
+    const prevEl = scope.querySelector(prevSel);
+    const nextEl = scope.querySelector(nextSel);
+    if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
+
+    // Autoplay
+    if (autoplay) params.autoplay = {
+      delay: autoplayDelay,
+      disableOnInteraction: false,
+      stopOnLastSlide: false
+    };
+
+    if (allowTouch != null) params.allowTouchMove = allowTouch;
+
+    // Init
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
 
@@ -157,18 +152,9 @@
       }
     });
 
-    sw.on('loopFix', () => {
-      console.log('[swiper-hydrator] loopFix fired');
-    });
-    sw.on('reachEnd', () => {
-      console.log('[swiper-hydrator] reachEnd');
-    });
-    sw.on('fromEdge', () => {
-      console.log('[swiper-hydrator] fromEdge');
-    });
-    sw.on('slideChange', () => {
-      console.log('[swiper-hydrator] slideChange', { index: sw.realIndex });
-    });
+    sw.on('loopFix', () => console.log('[swiper-hydrator] loopFix'));
+    sw.on('reachEnd', () => console.log('[swiper-hydrator] reachEnd'));
+    sw.on('slideChange', () => console.log('[swiper-hydrator] slideChange', { index: sw.realIndex }));
   }
 
   function scan(root) {
