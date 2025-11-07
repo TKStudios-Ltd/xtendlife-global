@@ -15,6 +15,7 @@
     const n = parseFloat(s);
     return Number.isNaN(n) ? fallback : n;
   };
+
   const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
@@ -27,50 +28,6 @@
       else cfg.bp[parseInt(k, 10)] = { slidesPerView: parseFloat(v) };
     }
     return cfg;
-  }
-
-  function getWrap(el) {
-    return el.querySelector('.swiper-wrapper');
-  }
-
-  function getOriginalSlides(el) {
-    const wrap = getWrap(el);
-    if (!wrap) return [];
-    return Array.from(wrap.children).filter(n =>
-      n.nodeType === 1 &&
-      n.classList.contains('swiper-slide') &&
-      !n.classList.contains('swiper-slide-duplicate') &&
-      !n.hasAttribute('data-manual-dup')
-    );
-  }
-
-  function removeManualDups(el) {
-    const wrap = getWrap(el);
-    if (!wrap) return;
-    wrap.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
-  }
-
-  function ensureMinSlides(el, minNeeded) {
-    const wrap = getWrap(el);
-    if (!wrap) return 0;
-
-    removeManualDups(el);
-    const originals = getOriginalSlides(el);
-    let count = originals.length;
-
-    if (count === 0) return 0;
-    if (count >= minNeeded) return count;
-
-    let i = 0;
-    while (count < minNeeded) {
-      const src = originals[i % originals.length];
-      const clone = src.cloneNode(true);
-      clone.setAttribute('data-manual-dup', '1');
-      wrap.appendChild(clone);
-      count++;
-      i++;
-    }
-    return count;
   }
 
   function init(el) {
@@ -87,8 +44,8 @@
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
     const prevSel       = el.dataset.navPrev || '.ts-prev';
     const nextSel       = el.dataset.navNext || '.ts-next';
-    const loopRequested = toBool(el.dataset.loop || false);
-    const rewind        = toBool(el.dataset.rewind || false);
+    const loopAttr      = toBool(el.dataset.loop || false);
+    const rewindAttr    = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
     const scope = el.closest('[data-swiper-root]') ||
@@ -96,66 +53,63 @@
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
-    const isHero = el.classList.contains('hero-swiper');
-
     const params = {
-      effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      slidesPerGroup: 1
+      slidesPerGroup: 1,
+      effect: 'slide',
+      on: {
+        afterInit(s) {
+          if (s.params.loop && !s.loopedSlides) {
+            if (s.loopCreate) s.loopCreate();
+            s.update();
+          }
+          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
+        },
+        reachEnd(s) {
+          if (!s.params.loop && !s.params.rewind) {
+            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
+            if (s.slideToLoop) s.slideToLoop(0, dur);
+            else s.slideTo(0, dur);
+          }
+        }
+      }
     };
-
-    if (mode === 'single' || isHero) {
-      params.slidesPerView = 1;
-      params.breakpoints = undefined;
-    }
-    else if (mode === 'fixed') {
-      params.slidesPerView = 'auto';
-    }
-    else {
-      const cfg = slidesCfg;
-      params.slidesPerView = cfg.base ?? 1.2;
-      params.breakpoints = Object.keys(cfg.bp).length
-        ? cfg.bp
-        : {
-            750: { slidesPerView: 2.1 },
-            990: { slidesPerView: 3.1 }
-          };
-    }
-
-    let loop = loopRequested;
-    if (loop) {
-      const spv = params.slidesPerView === 'auto' ? 1 : Number(params.slidesPerView) || 1;
-      const minNeeded = Math.max(3, spv + 2);
-      const count = ensureMinSlides(el, minNeeded);
-      loop = count >= Math.max(2, spv + 1);
-
-      params.loop = loop;
-      params.rewind = false;
-      params.loopedSlides = count;
-      params.loopAdditionalSlides = Math.max(2, Math.min(count, 4));
-      params.loopPreventsSlide = false;
-      params.centeredSlides = false;
-    } else {
-      params.loop = false;
-      params.rewind = rewind;
-    }
-
-    const pagEl = scope.querySelector(pagSelector);
-    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
     const prevEl = scope.querySelector(prevSel);
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
 
-    if (autoplay) params.autoplay = {
-      delay: autoplayDelay,
-      disableOnInteraction: false,
-      stopOnLastSlide: false
-    };
+    const pagEl = scope.querySelector(pagSelector);
+    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
+
+    if (mode === 'fixed') {
+      params.slidesPerView = 'auto';
+    } else {
+      const cfg = slidesCfg;
+      params.slidesPerView = cfg.base ?? 1.2;
+      params.breakpoints = Object.keys(cfg.bp).length
+        ? cfg.bp
+        : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
+    }
+
+    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
 
     if (allowTouch != null) params.allowTouchMove = allowTouch;
+
+    const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
+
+    params.loop = loopAttr;
+    params.rewind = rewindAttr;
+
+    if (params.loop) {
+      params.rewind = false;
+      params.loopedSlides = slideCount;
+      params.loopAdditionalSlides = slideCount;
+      params.loopFillGroupWithBlank = true;
+      params.loopPreventsSlide = false;
+    }
 
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
@@ -172,10 +126,6 @@
         node.addEventListener('load', update, { once: true });
       }
     });
-
-    sw.on('loopFix', () => console.log('[swiper-hydrator] loopFix'));
-    sw.on('reachEnd', () => console.log('[swiper-hydrator] reachEnd'));
-    sw.on('slideChange', () => console.log('[swiper-hydrator] slideChange', { index: sw.realIndex }));
   }
 
   function scan(root) {

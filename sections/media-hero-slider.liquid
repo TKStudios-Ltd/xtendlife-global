@@ -25,12 +25,6 @@
   display: block;
 }
 
-#MediaHero-{{ section.id }} .swiper-slide {
-  width: 100% !important;
-  flex-shrink: 0 !important;
-}
-
-
 /* Desktop */
 @media (min-width: 750px) {
   #MediaHero-{{ section.id }} .banner--large {
@@ -88,7 +82,7 @@
   <div
     class="swiper ts2-swiper hero-swiper is-fullbleed"
     data-swiper
-    data-mode="single"
+    data-mode="fixed"
     data-gap="{{ section.settings.gap | default: 0 }}"
     data-speed="{{ section.settings.speed | default: 500 }}"
     data-autoplay="{{ section.settings.autoplay | default: false }}"
@@ -97,6 +91,7 @@
     data-pagination=".hero-pagination"
     data-loop="{{ section.settings.loop | default: true }}"
     data-rewind="false"
+
   >
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
