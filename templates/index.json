@@ -100,7 +100,7 @@
         "show_text_box": true,
         "color_scheme": "scheme-3",
         "stack_text_on_mobile": false,
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_delay": 4000,
         "loop": true,
         "speed": 500
