@@ -32,6 +32,7 @@
 
   function init(el) {
     if (!el || el.dataset.swiperReady === '1') return;
+    if (el.swiper) return;
     if (!window.Swiper) { setTimeout(() => init(el), 60); return; }
 
     const mode          = (el.dataset.mode || '').toLowerCase();
