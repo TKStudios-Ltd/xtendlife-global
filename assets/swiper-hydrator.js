@@ -29,28 +29,48 @@
     return cfg;
   }
 
-  function originals(el) {
-    const wrap = el.querySelector('.swiper-wrapper');
-    if (!wrap) return { wrap: null, list: [], count: 0 };
-    const list = Array.from(wrap.children).filter(n =>
-      n.nodeType === 1 &&
-      n.classList.contains('swiper-slide') &&
-      !n.classList.contains('swiper-slide-duplicate')
-    );
-    return { wrap, list, count: list.length };
+  function getWrap(el) {
+    return el.querySelector('.swiper-wrapper');
   }
 
-  function ensureMin(el, min) {
-    const o = originals(el);
-    if (!o.wrap) return 0;
-    if (o.count >= min) return o.count;
+  function getOriginalSlides(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return [];
+    return Array.from(wrap.children).filter(n =>
+      n.nodeType === 1 &&
+      n.classList.contains('swiper-slide') &&
+      !n.classList.contains('swiper-slide-duplicate') &&
+      !n.hasAttribute('data-manual-dup')
+    );
+  }
+
+  function removeManualDups(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
+  }
+
+  function ensureMinSlides(el, minNeeded) {
+    const wrap = getWrap(el);
+    if (!wrap) return 0;
+
+    removeManualDups(el);
+    const originals = getOriginalSlides(el);
+    let count = originals.length;
+
+    if (count === 0) return 0;
+    if (count >= minNeeded) return count;
+
     let i = 0;
-    while (o.wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length < min) {
-      const src = o.list[i % o.list.length];
-      o.wrap.appendChild(src.cloneNode(true));
+    while (count < minNeeded) {
+      const src = originals[i % originals.length];
+      const clone = src.cloneNode(true);
+      clone.setAttribute('data-manual-dup', '1');
+      wrap.appendChild(clone);
+      count++;
       i++;
     }
-    return o.wrap.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').length;
+    return count;
   }
 
   function init(el) {
@@ -67,7 +87,7 @@
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
     const prevSel       = el.dataset.navPrev || '.ts-prev';
     const nextSel       = el.dataset.navNext || '.ts-next';
-    const loopAttr      = toBool(el.dataset.loop || false);
+    const loopRequested = toBool(el.dataset.loop || false);
     const rewind        = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
@@ -78,7 +98,6 @@
 
     const isHero = el.classList.contains('hero-swiper');
 
-    // Base params
     const params = {
       effect: 'slide',
       speed,
@@ -87,7 +106,6 @@
       slidesPerGroup: 1
     };
 
-    // Slides per view
     if (mode === 'fixed') {
       params.slidesPerView = isHero ? 1 : 'auto';
     } else {
@@ -99,17 +117,17 @@
       });
     }
 
-    // Loop strategy: for hero (spv=1) we only need 2 originals
-    let loop = loopAttr;
+    let loop = loopRequested;
     if (loop) {
       const spv = params.slidesPerView === 'auto' ? 1 : Number(params.slidesPerView) || 1;
-      const minNeeded = Math.max(2, spv + 1 - 0); // for spv=1 => 2
-      const count = ensureMin(el, minNeeded);
-      if (count < 2) loop = false; // cannot loop with <2
+      const minNeeded = Math.max(3, spv + 2);
+      const count = ensureMinSlides(el, minNeeded);
+      loop = count >= Math.max(2, spv + 1);
+
       params.loop = loop;
       params.rewind = false;
-      params.loopedSlides = Math.max(count, 2);
-      params.loopAdditionalSlides = 1;            // keep small to avoid warnings
+      params.loopedSlides = count;
+      params.loopAdditionalSlides = Math.max(2, Math.min(count, 4));
       params.loopPreventsSlide = false;
       params.centeredSlides = false;
     } else {
@@ -117,16 +135,13 @@
       params.rewind = rewind;
     }
 
-    // Pagination
     const pagEl = scope.querySelector(pagSelector);
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
-    // Nav
     const prevEl = scope.querySelector(prevSel);
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
 
-    // Autoplay
     if (autoplay) params.autoplay = {
       delay: autoplayDelay,
       disableOnInteraction: false,
@@ -135,7 +150,6 @@
 
     if (allowTouch != null) params.allowTouchMove = allowTouch;
 
-    // Init
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
 
