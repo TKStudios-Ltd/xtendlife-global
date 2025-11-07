@@ -60,7 +60,7 @@
     const params = {
       speed,
       spaceBetween: gap,
-      watchOverflow: true
+      watchOverflow: false
     };
 
     const prevEl = scope.querySelector(prevSel);
