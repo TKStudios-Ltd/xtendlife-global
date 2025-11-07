@@ -30,6 +30,28 @@
     return cfg;
   }
 
+  function ensureMinSlidesForLoop(el, minNeeded) {
+    const wrapper = el.querySelector('.swiper-wrapper');
+    if (!wrapper) return 0;
+    const originals = Array.from(wrapper.children).filter(n =>
+      n.nodeType === 1 &&
+      n.classList.contains('swiper-slide') &&
+      !n.classList.contains('swiper-slide-duplicate')
+    );
+    let count = originals.length;
+    if (minNeeded > 0 && count > 0 && count < minNeeded) {
+      let i = 0;
+      while (count < minNeeded) {
+        const clone = originals[i % originals.length].cloneNode(true);
+        clone.removeAttribute('data-swiper-slide-index');
+        wrapper.appendChild(clone);
+        count++;
+        i++;
+      }
+    }
+    return count;
+  }
+
   function init(el) {
     if (!el || el.dataset.swiperReady === '1') return;
     if (!window.Swiper) { setTimeout(() => init(el), 60); return; }
@@ -44,8 +66,8 @@
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
     const prevSel       = el.dataset.navPrev || '.ts-prev';
     const nextSel       = el.dataset.navNext || '.ts-next';
-    const loopAttr      = toBool(el.dataset.loop || false);
-    const rewindAttr    = toBool(el.dataset.rewind || false);
+    const loop          = toBool(el.dataset.loop || false);
+    const rewind        = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
     const scope = el.closest('[data-swiper-root]') ||
@@ -54,27 +76,11 @@
                   el.closest('section') || document;
 
     const params = {
+      effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      slidesPerGroup: 1,
-      effect: 'slide',
-      on: {
-        afterInit(s) {
-          if (s.params.loop && !s.loopedSlides) {
-            if (s.loopCreate) s.loopCreate();
-            s.update();
-          }
-          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
-        },
-        reachEnd(s) {
-          if (!s.params.loop && !s.params.rewind) {
-            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
-            if (s.slideToLoop) s.slideToLoop(0, dur);
-            else s.slideTo(0, dur);
-          }
-        }
-      }
+      slidesPerGroup: 1
     };
 
     const prevEl = scope.querySelector(prevSel);
@@ -98,17 +104,23 @@
 
     if (allowTouch != null) params.allowTouchMove = allowTouch;
 
-    const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
+    let slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
 
-    params.loop = loopAttr;
-    params.rewind = rewindAttr;
+    params.loop = loop;
+    params.rewind = rewind;
 
-    if (params.loop) {
+    if (loop) {
       params.rewind = false;
+
+      const minForLoop = 3; // enforce minimum originals to satisfy Swiper loop
+      slideCount = ensureMinSlidesForLoop(el, Math.max(minForLoop, slideCount));
+
       params.loopedSlides = slideCount;
+      params.loopedSlidesLimit = false;
       params.loopAdditionalSlides = slideCount;
       params.loopFillGroupWithBlank = true;
       params.loopPreventsSlide = false;
+      params.centeredSlides = false;
     }
 
     const sw = new Swiper(el, params);
