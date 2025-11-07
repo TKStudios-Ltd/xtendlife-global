@@ -91,6 +91,11 @@
     data-pagination=".hero-pagination"
     data-loop="{{ section.settings.loop | default: true }}"
     data-rewind="false"
+    
+    data-linear="true"
+    data-linear-speed="9000"
+    data-loop-additional-slides="3"
+    data-allow-touch-move="false"
   >
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
