@@ -117,6 +117,10 @@
       });
     }
 
+    if (mode === 'single') {
+      params.slidesPerView = 1;
+    }
+
     let loop = loopRequested;
     if (loop) {
       const spv = params.slidesPerView === 'auto' ? 1 : Number(params.slidesPerView) || 1;
