@@ -91,7 +91,8 @@
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
     if (mode === 'fixed') {
-      params.slidesPerView = 'auto';
+      params.slidesPerView = 1;
+      params.slidesPerGroup = 1;
     } else {
       const cfg = slidesCfg;
       params.slidesPerView = cfg.base ?? 1.2;
