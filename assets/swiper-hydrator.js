@@ -112,12 +112,15 @@
       centeredSlides: false
     };
 
-    // Force heroes/single to 1-up to keep loop stable
+    // Force heroes/single to 1-up everywhere to keep loop stable
     if (mode === 'single' || isHero) {
       params.slidesPerView = 1;
-    } else if (mode === 'fixed') {
+      params.breakpoints = {}; // <-- REQUIRED so loop doesn't break
+    }
+    else if (mode === 'fixed') {
       params.slidesPerView = 'auto';
-    } else {
+    }
+    else {
       const cfg = slidesCfg;
       params.slidesPerView = cfg.base ?? 1.2;
       params.breakpoints = Object.keys(cfg.bp).length
