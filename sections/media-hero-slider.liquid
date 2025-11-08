@@ -90,7 +90,7 @@
     data-dots="true"
     data-pagination=".hero-pagination"
     data-loop="{{ section.settings.loop | default: true }}"
-    data-rewind="false"
+    {% comment %} data-rewind="false" {% endcomment %}
   >
 
     <div class="swiper-wrapper">
