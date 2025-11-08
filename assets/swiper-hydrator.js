@@ -15,6 +15,7 @@
     const n = parseFloat(s);
     return Number.isNaN(n) ? fallback : n;
   };
+
   const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
@@ -29,40 +30,50 @@
     return cfg;
   }
 
-  function wrap(el) { return el.querySelector('.swiper-wrapper'); }
-  function originals(el) {
-    const w = wrap(el); if (!w) return [];
-    return Array.from(w.children).filter(n =>
+  function getWrap(el) {
+    return el.querySelector('.swiper-wrapper');
+  }
+
+  function getOriginalSlides(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return [];
+    return Array.from(wrap.children).filter(n =>
       n.nodeType === 1 &&
       n.classList.contains('swiper-slide') &&
       !n.classList.contains('swiper-slide-duplicate') &&
       !n.hasAttribute('data-manual-dup')
     );
   }
+
   function removeManualDups(el) {
-    const w = wrap(el); if (!w) return;
-    w.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
+    const wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
   }
-  function ensureMin(el, minNeeded) {
-    const w = wrap(el); if (!w) return 0;
+
+  function ensureMinSlides(el, minNeeded) {
+    const wrap = getWrap(el);
+    if (!wrap) return 0;
     removeManualDups(el);
-    const base = originals(el);
-    let count = base.length;
+    const originals = getOriginalSlides(el);
+    let count = originals.length;
     if (count === 0) return 0;
     if (count >= minNeeded) return count;
     let i = 0;
     while (count < minNeeded) {
-      const src = base[i % base.length];
+      const src = originals[i % originals.length];
       const clone = src.cloneNode(true);
       clone.setAttribute('data-manual-dup', '1');
-      w.appendChild(clone);
-      count++; i++;
+      wrap.appendChild(clone);
+      count++;
+      i++;
     }
     return count;
   }
 
   function init(el) {
-    if (!el || el.dataset.swiperReady === '1' || el.swiper) return;
+    if (!el || el.dataset.swiperReady === '1') return;
+    if (el.swiper) return;
     if (!window.Swiper) { setTimeout(() => init(el), 60); return; }
 
     const mode          = (el.dataset.mode || '').toLowerCase();
@@ -84,32 +95,19 @@
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
-    const isHero = el.classList.contains('hero-swiper') || mode === 'single';
+    const isHero = el.classList.contains('hero-swiper');
 
     const params = {
-      effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
       slidesPerGroup: 1,
-      on: {
-        afterInit(s) {
-          if (s.params.loop && s.loopedSlides && s.loopCreate) s.loopCreate();
-          s.update();
-          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
-        },
-        reachEnd(s) {
-          if (!s.params.loop && !s.params.rewind) {
-            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
-            if (s.slideToLoop) s.slideToLoop(0, dur);
-            else s.slideTo(0, dur);
-          }
-        }
-      }
+      effect: 'slide'
     };
 
-    if (isHero) {
+    if (isHero || mode === 'single') {
       params.slidesPerView = 1;
+      params.breakpoints = undefined;
     } else if (mode === 'fixed') {
       params.slidesPerView = 'auto';
     } else {
@@ -120,6 +118,38 @@
         : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
+    const originalsCount = getOriginalSlides(el).length;
+
+    if (isHero || mode === 'single') {
+      if (loopAttr) {
+        const minNeeded = 3;
+        const total = ensureMinSlides(el, minNeeded);
+        params.loop = true;
+        params.rewind = false;
+        params.loopedSlides = total;
+        params.loopAdditionalSlides = Math.max(2, Math.min(total, 4));
+        params.loopFillGroupWithBlank = false;
+        params.loopPreventsSlide = false;
+        params.centeredSlides = false;
+      } else {
+        params.loop = false;
+        params.rewind = rewindAttr;
+      }
+    } else {
+      params.loop = loopAttr;
+      params.rewind = rewindAttr;
+      if (params.loop) {
+        const totalSlides = getWrap(el)?.querySelectorAll('.swiper-slide').length || originalsCount;
+        params.loopedSlides = totalSlides;
+        params.loopAdditionalSlides = Math.max(2, Math.min(totalSlides, 4));
+        params.loopPreventsSlide = false;
+      }
+    }
+
+    if (autoplay) {
+      params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
+    }
+
     const pagEl = scope.querySelector(pagSelector);
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
@@ -127,23 +157,7 @@
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
 
-    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
     if (allowTouch != null) params.allowTouchMove = allowTouch;
-
-    let loop = loopAttr;
-    if (isHero && loop) {
-      const count = ensureMin(el, 3);
-      loop = count >= 2;
-      params.loop = loop;
-      params.rewind = false;
-      params.loopedSlides = count;
-      params.loopAdditionalSlides = Math.max(2, count);
-      params.loopPreventsSlide = false;
-      params.centeredSlides = false;
-    } else {
-      params.loop = loop;
-      params.rewind = rewindAttr;
-    }
 
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
