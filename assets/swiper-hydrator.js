@@ -1,3 +1,4 @@
+/* assets/swiper-hydrator.js */
 (function () {
   'use strict';
 
@@ -30,10 +31,10 @@
     return cfg;
   }
 
-  function wrapper(el) { return el.querySelector('.swiper-wrapper'); }
+  function wrap(el) { return el.querySelector('.swiper-wrapper'); }
 
-  function originals(el) {
-    const w = wrapper(el);
+  function getOriginalSlides(el) {
+    const w = wrap(el);
     if (!w) return [];
     return Array.from(w.children).filter(n =>
       n.nodeType === 1 &&
@@ -44,30 +45,34 @@
   }
 
   function clearManualDups(el) {
-    const w = wrapper(el);
+    const w = wrap(el);
     if (!w) return;
     w.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
   }
 
-  function ensureMinForLoop(el, minNeeded) {
-    const w = wrapper(el);
+  function prepareForLoop(el, spv) {
+    const w = wrap(el);
     if (!w) return 0;
 
     clearManualDups(el);
-    const base = originals(el);
+    const base = getOriginalSlides(el);
     let count = base.length;
-    if (count === 0) return 0;
 
-    // Swiper loop needs >= 3 when slidesPerView=1 for reliable forward wrap.
-    const target = Math.max(minNeeded, 3);
-    let i = 0;
-    while (count < target) {
-      const src = base[i % base.length];
-      const clone = src.cloneNode(true);
-      clone.setAttribute('data-manual-dup', '1');
-      w.appendChild(clone);
-      count++; i++;
+    // If only one slide, loop cannot work — leave as is.
+    if (count <= 1) return count;
+
+    // For exactly two slides, duplicate BOTH (A,B → A,B,A’,B’) to avoid Swiper disabling loop.
+    if (count === 2) {
+      for (let i = 0; i < 2; i++) {
+        const clone = base[i].cloneNode(true);
+        clone.setAttribute('data-manual-dup', '1');
+        w.appendChild(clone);
+      }
+      count = 4;
+      return count;
     }
+
+    // For 3+ slides, leave as-is.
     return count;
   }
 
@@ -97,18 +102,19 @@
 
     const isHero = el.classList.contains('hero-swiper');
 
+    /** @type {import('swiper').SwiperOptions} */
     const params = {
       effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      slidesPerGroup: 1
+      slidesPerGroup: 1,
+      centeredSlides: false
     };
 
-    // Force hero/single to 1-up to avoid "not enough slides" loop disable
+    // Force heroes/single to 1-up to keep loop stable
     if (mode === 'single' || isHero) {
       params.slidesPerView = 1;
-      params.centeredSlides = false;
     } else if (mode === 'fixed') {
       params.slidesPerView = 'auto';
     } else {
@@ -119,22 +125,28 @@
         : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
-    // Loop handling
+    // Loop / rewind
     params.loop = loopAttr;
     params.rewind = loopAttr ? false : rewindAttr;
 
-    if (params.loop && Number(params.slidesPerView) === 1) {
-      const count = ensureMinForLoop(el, 3);
-      params.loopedSlides = count;
-      params.loopAdditionalSlides = Math.min(Math.max(2, count), 6);
+    // Prepare DOM for loop edge-cases BEFORE init
+    let slideCount = getOriginalSlides(el).length;
+    if (params.loop) {
+      const spv = Number(params.slidesPerView) || 1;
+      slideCount = prepareForLoop(el, spv);
+      // If still < 2, disable loop (nothing to loop)
+      if (slideCount <= 1) params.loop = false;
+      params.loopedSlides = slideCount;
+      params.loopAdditionalSlides = Math.min(Math.max(2, slideCount), 6);
       params.loopPreventsSlide = false;
       params.loopFillGroupWithBlank = false;
     }
 
-    // Pagination / nav
+    // Pagination
     const pagEl = scope.querySelector(pagSelector);
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
+    // Nav
     const prevEl = scope.querySelector(prevSel);
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
