@@ -30,6 +30,47 @@
     return cfg;
   }
 
+  function wrapper(el) { return el.querySelector('.swiper-wrapper'); }
+
+  function originals(el) {
+    const w = wrapper(el);
+    if (!w) return [];
+    return Array.from(w.children).filter(n =>
+      n.nodeType === 1 &&
+      n.classList.contains('swiper-slide') &&
+      !n.classList.contains('swiper-slide-duplicate') &&
+      !n.hasAttribute('data-manual-dup')
+    );
+  }
+
+  function clearManualDups(el) {
+    const w = wrapper(el);
+    if (!w) return;
+    w.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
+  }
+
+  function ensureMinForLoop(el, minNeeded) {
+    const w = wrapper(el);
+    if (!w) return 0;
+
+    clearManualDups(el);
+    const base = originals(el);
+    let count = base.length;
+    if (count === 0) return 0;
+
+    // Swiper loop needs >= 3 when slidesPerView=1 for reliable forward wrap.
+    const target = Math.max(minNeeded, 3);
+    let i = 0;
+    while (count < target) {
+      const src = base[i % base.length];
+      const clone = src.cloneNode(true);
+      clone.setAttribute('data-manual-dup', '1');
+      w.appendChild(clone);
+      count++; i++;
+    }
+    return count;
+  }
+
   function init(el) {
     if (!el || el.dataset.swiperReady === '1') return;
     if (el.swiper) return;
@@ -39,7 +80,7 @@
     const slidesCfg     = parseSlides(el.dataset.slides);
     const gap           = toPx(el.dataset.gap ?? 20, 20);
     const speed         = toInt(el.dataset.speed ?? 500, 500);
-    const autoplay      = toBool(el.dataset.autoplay || false);
+    const autoplayAttr  = toBool(el.dataset.autoplay || false);
     const autoplayDelay = toInt(el.dataset.autoplayDelay ?? 4000, 4000);
     const dots          = toBool(el.dataset.dots || false);
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
@@ -54,38 +95,21 @@
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
+    const isHero = el.classList.contains('hero-swiper');
+
     const params = {
+      effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      slidesPerGroup: 1,
-      effect: 'slide',
-      on: {
-        afterInit(s) {
-          if (s.params.loop && !s.loopedSlides) {
-            if (s.loopCreate) s.loopCreate();
-            s.update();
-          }
-          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
-        },
-        reachEnd(s) {
-          if (!s.params.loop && !s.params.rewind) {
-            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
-            if (s.slideToLoop) s.slideToLoop(0, dur);
-            else s.slideTo(0, dur);
-          }
-        }
-      }
+      slidesPerGroup: 1
     };
 
-    const prevEl = scope.querySelector(prevSel);
-    const nextEl = scope.querySelector(nextSel);
-    if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
-
-    const pagEl = scope.querySelector(pagSelector);
-    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
-
-    if (mode === 'fixed') {
+    // Force hero/single to 1-up to avoid "not enough slides" loop disable
+    if (mode === 'single' || isHero) {
+      params.slidesPerView = 1;
+      params.centeredSlides = false;
+    } else if (mode === 'fixed') {
       params.slidesPerView = 'auto';
     } else {
       const cfg = slidesCfg;
@@ -95,22 +119,36 @@
         : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
-    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
+    // Loop handling
+    params.loop = loopAttr;
+    params.rewind = loopAttr ? false : rewindAttr;
+
+    if (params.loop && Number(params.slidesPerView) === 1) {
+      const count = ensureMinForLoop(el, 3);
+      params.loopedSlides = count;
+      params.loopAdditionalSlides = Math.min(Math.max(2, count), 6);
+      params.loopPreventsSlide = false;
+      params.loopFillGroupWithBlank = false;
+    }
+
+    // Pagination / nav
+    const pagEl = scope.querySelector(pagSelector);
+    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
+
+    const prevEl = scope.querySelector(prevSel);
+    const nextEl = scope.querySelector(nextSel);
+    if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
+
+    // Autoplay
+    if (autoplayAttr) {
+      params.autoplay = {
+        delay: autoplayDelay,
+        disableOnInteraction: false,
+        stopOnLastSlide: false
+      };
+    }
 
     if (allowTouch != null) params.allowTouchMove = allowTouch;
-
-    const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
-
-    params.loop = loopAttr;
-    params.rewind = rewindAttr;
-
-    if (params.loop) {
-      params.rewind = false;
-      params.loopedSlides = slideCount;
-      params.loopAdditionalSlides = slideCount;
-      params.loopFillGroupWithBlank = true;
-      params.loopPreventsSlide = false;
-    }
 
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
