@@ -1,4 +1,3 @@
-/* assets/swiper-hydrator.js */
 (function () {
   'use strict';
 
@@ -16,7 +15,6 @@
     const n = parseFloat(s);
     return Number.isNaN(n) ? fallback : n;
   };
-
   const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
@@ -32,10 +30,8 @@
   }
 
   function wrap(el) { return el.querySelector('.swiper-wrapper'); }
-
-  function getOriginalSlides(el) {
-    const w = wrap(el);
-    if (!w) return [];
+  function originals(el) {
+    const w = wrap(el); if (!w) return [];
     return Array.from(w.children).filter(n =>
       n.nodeType === 1 &&
       n.classList.contains('swiper-slide') &&
@@ -43,49 +39,37 @@
       !n.hasAttribute('data-manual-dup')
     );
   }
-
-  function clearManualDups(el) {
-    const w = wrap(el);
-    if (!w) return;
+  function removeManualDups(el) {
+    const w = wrap(el); if (!w) return;
     w.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
   }
-
-  function prepareForLoop(el, spv) {
-    const w = wrap(el);
-    if (!w) return 0;
-
-    clearManualDups(el);
-    const base = getOriginalSlides(el);
+  function ensureMin(el, minNeeded) {
+    const w = wrap(el); if (!w) return 0;
+    removeManualDups(el);
+    const base = originals(el);
     let count = base.length;
-
-    // If only one slide, loop cannot work — leave as is.
-    if (count <= 1) return count;
-
-    // For exactly two slides, duplicate BOTH (A,B → A,B,A’,B’) to avoid Swiper disabling loop.
-    if (count === 2) {
-      for (let i = 0; i < 2; i++) {
-        const clone = base[i].cloneNode(true);
-        clone.setAttribute('data-manual-dup', '1');
-        w.appendChild(clone);
-      }
-      count = 4;
-      return count;
+    if (count === 0) return 0;
+    if (count >= minNeeded) return count;
+    let i = 0;
+    while (count < minNeeded) {
+      const src = base[i % base.length];
+      const clone = src.cloneNode(true);
+      clone.setAttribute('data-manual-dup', '1');
+      w.appendChild(clone);
+      count++; i++;
     }
-
-    // For 3+ slides, leave as-is.
     return count;
   }
 
   function init(el) {
-    if (!el || el.dataset.swiperReady === '1') return;
-    if (el.swiper) return;
+    if (!el || el.dataset.swiperReady === '1' || el.swiper) return;
     if (!window.Swiper) { setTimeout(() => init(el), 60); return; }
 
     const mode          = (el.dataset.mode || '').toLowerCase();
     const slidesCfg     = parseSlides(el.dataset.slides);
     const gap           = toPx(el.dataset.gap ?? 20, 20);
     const speed         = toInt(el.dataset.speed ?? 500, 500);
-    const autoplayAttr  = toBool(el.dataset.autoplay || false);
+    const autoplay      = toBool(el.dataset.autoplay || false);
     const autoplayDelay = toInt(el.dataset.autoplayDelay ?? 4000, 4000);
     const dots          = toBool(el.dataset.dots || false);
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
@@ -100,27 +84,35 @@
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
-    const isHero = el.classList.contains('hero-swiper');
+    const isHero = el.classList.contains('hero-swiper') || mode === 'single';
 
-    /** @type {import('swiper').SwiperOptions} */
     const params = {
       effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
       slidesPerGroup: 1,
-      centeredSlides: false
+      on: {
+        afterInit(s) {
+          if (s.params.loop && s.loopedSlides && s.loopCreate) s.loopCreate();
+          s.update();
+          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
+        },
+        reachEnd(s) {
+          if (!s.params.loop && !s.params.rewind) {
+            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
+            if (s.slideToLoop) s.slideToLoop(0, dur);
+            else s.slideTo(0, dur);
+          }
+        }
+      }
     };
 
-    // Force heroes/single to 1-up everywhere to keep loop stable
-    if (mode === 'single' || isHero) {
+    if (isHero) {
       params.slidesPerView = 1;
-      params.breakpoints = {}; // <-- REQUIRED so loop doesn't break
-    }
-    else if (mode === 'fixed') {
+    } else if (mode === 'fixed') {
       params.slidesPerView = 'auto';
-    }
-    else {
+    } else {
       const cfg = slidesCfg;
       params.slidesPerView = cfg.base ?? 1.2;
       params.breakpoints = Object.keys(cfg.bp).length
@@ -128,42 +120,30 @@
         : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
     }
 
-    // Loop / rewind
-    params.loop = loopAttr;
-    params.rewind = loopAttr ? false : rewindAttr;
-
-    // Prepare DOM for loop edge-cases BEFORE init
-    let slideCount = getOriginalSlides(el).length;
-    if (params.loop) {
-      const spv = Number(params.slidesPerView) || 1;
-      slideCount = prepareForLoop(el, spv);
-      // If still < 2, disable loop (nothing to loop)
-      if (slideCount <= 1) params.loop = false;
-      params.loopedSlides = slideCount;
-      params.loopAdditionalSlides = Math.min(Math.max(2, slideCount), 6);
-      params.loopPreventsSlide = false;
-      params.loopFillGroupWithBlank = false;
-    }
-
-    // Pagination
     const pagEl = scope.querySelector(pagSelector);
     if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
-    // Nav
     const prevEl = scope.querySelector(prevSel);
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
 
-    // Autoplay
-    if (autoplayAttr) {
-      params.autoplay = {
-        delay: autoplayDelay,
-        disableOnInteraction: false,
-        stopOnLastSlide: false
-      };
-    }
-
+    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
     if (allowTouch != null) params.allowTouchMove = allowTouch;
+
+    let loop = loopAttr;
+    if (isHero && loop) {
+      const count = ensureMin(el, 3);
+      loop = count >= 2;
+      params.loop = loop;
+      params.rewind = false;
+      params.loopedSlides = count;
+      params.loopAdditionalSlides = Math.max(2, count);
+      params.loopPreventsSlide = false;
+      params.centeredSlides = false;
+    } else {
+      params.loop = loop;
+      params.rewind = rewindAttr;
+    }
 
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
