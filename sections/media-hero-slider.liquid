@@ -79,18 +79,16 @@
 
 <section id="MediaHero-{{ section.id }}" class="section section-{{ section.id }}-padding"
          data-swiper-root>
-  <div
-    class="swiper ts2-swiper hero-swiper is-fullbleed"
-    data-swiper
-    data-mode="single"
-    data-gap="{{ section.settings.gap | default: 0 }}"
-    data-speed="{{ section.settings.speed | default: 500 }}"
-    data-autoplay="{{ section.settings.autoplay | default: false }}"
-    data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}"
-    data-dots="true"
-    data-pagination=".hero-pagination"
-    data-loop="{{ section.settings.loop | default: true }}"
-    {% comment %} data-rewind="false" {% endcomment %}
+  <div 
+    class="swiper ts2-swiper hero-swiper is-fullbleed" 
+    data-swiper 
+    data-mode="fixed" 
+    data-gap="{{ section.settings.gap | default: 0 }}" 
+    data-speed="{{ section.settings.speed | default: 500 }}" 
+    data-autoplay="{{ section.settings.autoplay | default: false }}" 
+    data-autoplay-delay="{{ section.settings.autoplay_delay | default: 4000 }}" 
+    data-dots="true" 
+    data-pagination=".hero-pagination" 
   >
 
     <div class="swiper-wrapper">
