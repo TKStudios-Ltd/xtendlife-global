@@ -15,7 +15,6 @@
     const n = parseFloat(s);
     return Number.isNaN(n) ? fallback : n;
   };
-
   const toInt  = (v, d = 0) => (Number.isNaN(parseInt(v, 10)) ? d : parseInt(v, 10));
   const toBool = (v) => String(v).toLowerCase() === 'true';
 
@@ -30,6 +29,50 @@
     return cfg;
   }
 
+  function getWrap(el) {
+    return el.querySelector('.swiper-wrapper');
+  }
+
+  function getOriginalSlides(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return [];
+    return Array.from(wrap.children).filter(n =>
+      n.nodeType === 1 &&
+      n.classList.contains('swiper-slide') &&
+      !n.classList.contains('swiper-slide-duplicate') &&
+      !n.hasAttribute('data-manual-dup')
+    );
+  }
+
+  function removeManualDups(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return;
+    wrap.querySelectorAll('.swiper-slide[data-manual-dup]').forEach(n => n.remove());
+  }
+
+  function ensureMarqueePopulation(el) {
+    const wrap = getWrap(el);
+    if (!wrap) return 0;
+
+    removeManualDups(el);
+    const originals = getOriginalSlides(el);
+    let count = originals.length;
+
+    if (count === 0) return 0;
+
+    const minCount = Math.max(6, count * 3);
+    let i = 0;
+    while (count < minCount) {
+      const src = originals[i % originals.length];
+      const clone = src.cloneNode(true);
+      clone.setAttribute('data-manual-dup', '1');
+      wrap.appendChild(clone);
+      count++;
+      i++;
+    }
+    return count;
+  }
+
   function init(el) {
     if (!el || el.dataset.swiperReady === '1') return;
     if (el.swiper) return;
@@ -39,7 +82,7 @@
     const slidesCfg     = parseSlides(el.dataset.slides);
     const gap           = toPx(el.dataset.gap ?? 20, 20);
     const speed         = toInt(el.dataset.speed ?? 500, 500);
-    const autoplay      = toBool(el.dataset.autoplay || false);
+    const autoplayAttr  = toBool(el.dataset.autoplay || false);
     const autoplayDelay = toInt(el.dataset.autoplayDelay ?? 4000, 4000);
     const dots          = toBool(el.dataset.dots || false);
     const pagSelector   = el.dataset.pagination || '.swiper-pagination';
@@ -49,68 +92,61 @@
     const rewindAttr    = toBool(el.dataset.rewind || false);
     const allowTouch    = el.dataset.allowTouchMove != null ? toBool(el.dataset.allowTouchMove) : undefined;
 
+    const marqueeSpeed  = toInt(el.dataset.marqueeSpeed ?? 16000, 16000);
+
     const scope = el.closest('[data-swiper-root]') ||
                   el.closest('[data-testimonial-slider]') ||
                   el.closest('[data-reviews-slider]') ||
                   el.closest('section') || document;
 
+    const isHero = el.classList.contains('hero-swiper');
+
     const params = {
+      effect: 'slide',
       speed,
       spaceBetween: gap,
       watchOverflow: false,
-      slidesPerGroup: 1,
-      effect: 'slide',
-      on: {
-        afterInit(s) {
-          if (s.params.loop && !s.loopedSlides) {
-            if (s.loopCreate) s.loopCreate();
-            s.update();
-          }
-          if (s.params.autoplay && s.autoplay && s.autoplay.start) s.autoplay.start();
-        },
-        reachEnd(s) {
-          if (!s.params.loop && !s.params.rewind) {
-            const dur = typeof s.params.speed === 'number' ? s.params.speed : 500;
-            if (s.slideToLoop) s.slideToLoop(0, dur);
-            else s.slideTo(0, dur);
-          }
-        }
-      }
+      slidesPerGroup: 1
     };
+
+    if (mode === 'marquee') {
+      const total = ensureMarqueePopulation(el);
+      params.slidesPerView = 1;
+      params.loop = true;
+      params.rewind = false;
+      params.freeMode = { enabled: true, momentum: false };
+      params.autoplay = { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: false };
+      params.speed = marqueeSpeed;
+      params.allowTouchMove = false;
+      params.loopAdditionalSlides = Math.max(4, Math.min(total, 12));
+      params.loopPreventsSlide = false;
+      params.centeredSlides = false;
+    } else if (mode === 'fixed') {
+      params.slidesPerView = isHero ? 1 : 'auto';
+      params.loop = loopAttr;
+      params.rewind = loopAttr ? false : rewindAttr;
+    } else {
+      const cfg = slidesCfg;
+      params.slidesPerView = isHero ? 1 : (cfg.base ?? 1.2);
+      params.breakpoints = isHero ? undefined : (Object.keys(cfg.bp).length
+        ? cfg.bp
+        : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } });
+      params.loop = loopAttr;
+      params.rewind = loopAttr ? false : rewindAttr;
+    }
+
+    if (mode !== 'marquee' && autoplayAttr) {
+      params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
+    }
+
+    const pagEl = scope.querySelector(pagSelector);
+    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
 
     const prevEl = scope.querySelector(prevSel);
     const nextEl = scope.querySelector(nextSel);
     if (prevEl && nextEl) params.navigation = { prevEl, nextEl };
 
-    const pagEl = scope.querySelector(pagSelector);
-    if (dots && pagEl) params.pagination = { el: pagEl, clickable: true };
-
-    if (mode === 'fixed') {
-      params.slidesPerView = 'auto';
-    } else {
-      const cfg = slidesCfg;
-      params.slidesPerView = cfg.base ?? 1.2;
-      params.breakpoints = Object.keys(cfg.bp).length
-        ? cfg.bp
-        : { 750: { slidesPerView: 2.1 }, 990: { slidesPerView: 3.1 } };
-    }
-
-    if (autoplay) params.autoplay = { delay: autoplayDelay, disableOnInteraction: false, stopOnLastSlide: false };
-
-    if (allowTouch != null) params.allowTouchMove = allowTouch;
-
-    const slideCount = el.querySelectorAll('.swiper-wrapper .swiper-slide').length;
-
-    params.loop = loopAttr;
-    params.rewind = rewindAttr;
-
-    if (params.loop) {
-      params.rewind = false;
-      params.loopedSlides = slideCount;
-      params.loopAdditionalSlides = slideCount;
-      params.loopFillGroupWithBlank = true;
-      params.loopPreventsSlide = false;
-    }
+    if (allowTouch != null && mode !== 'marquee') params.allowTouchMove = allowTouch;
 
     const sw = new Swiper(el, params);
     el.dataset.swiperReady = '1';
