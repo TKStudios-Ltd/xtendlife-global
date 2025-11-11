@@ -25,6 +25,12 @@
   endif
 -%}
 
+{% liquid
+  assign title_is_dark = collection.metafields.custom.collection_title_dark
+  assign title_color_mode = title_is_dark | default: false | if: true, 'dark', 'light'
+%}
+
+
 {%- style -%}
   .collection-hero--bg {
     background-size: cover;
@@ -58,7 +64,6 @@
     }
   }
 
-  /* Vertically center text, keep left aligned */
   .collection-hero__inner {
     display: flex;
     align-items: flex-start;
@@ -72,7 +77,9 @@
     }
   }
 
-  /* Minor tweak for small screens so shadows don't overlap */
+  .collection-hero__wrapper[data-title-color="light"] .collection-hero__title { color: #FFFFFF; }
+  .collection-hero__wrapper[data-title-color="dark"]  .collection-hero__title { color: rgb(31, 25, 70); }
+
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
       padding: 2rem;
@@ -88,7 +95,7 @@
 </nav>
 
 {%- comment -%} Banner {%- endcomment -%}
-<div class="collection-hero__wrapper page-width">
+<div class="collection-hero__wrapper page-width" data-title-color="{{ title_color_mode }}">
   <div
     class="collection-hero{% if desktop_img %} collection-hero--with-image collection-hero--bg{% endif %} color-{{ section.settings.color_scheme }}"
   >
