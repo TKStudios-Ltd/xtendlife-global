@@ -24,6 +24,11 @@
   object-fit: cover; object-position: center;
   display: block;
 }
+/* Small text base */
+#MediaHero-{{ section.id }} .banner__smalltext {
+  margin-top: 2000wrem;
+  line-height: 1.2;
+}
 
 /* Desktop */
 @media (min-width: 750px) {
@@ -131,13 +136,19 @@
         %}
         <style>
           @media (min-width: 750px) {
-            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+            .swiper-slide[data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
               font-size: {{ b.subtitle_font_size_desktop | default: 24 }}px !important;
+            }
+            .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__smalltext {
+              font-size: {{ b.small_text_font_size_desktop | default: 12 }}px !important;
             }
           }
           @media (max-width: 749px) {
-            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+            .swiper-slide[data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
               font-size: {{ b.subtitle_font_size_mobile | default: 18 }}px !important;
+            }
+            .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__smalltext {
+              font-size: {{ b.small_text_font_size_mobile | default: 10 }}px !important;
             }
           }
         </style>
@@ -217,6 +228,16 @@
                         {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
                       "
                     >{{ b.text }}</p>
+                  {% endif %}
+
+                  {% if b.small_text != blank %}
+                    <p
+                      class="banner__smalltext"
+                      style="
+                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
+                        {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
+                      "
+                    >{{ b.small_text }}</p>
                   {% endif %}
 
                   {% if b.button_label_1 != blank or b.button_label_2 != blank %}
@@ -328,6 +349,7 @@
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
         { "type": "color", "id": "text_color", "label": "Text color override (optional)" },
+        { "type": "header", "content": "Heading" },
         { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your headline here" },
         {
           "type": "select", "id": "heading_size", "label": "Heading size",
@@ -341,6 +363,7 @@
           "default": "h1"
         },
         { "type": "range", "id": "heading_max_width", "label": "Heading max-width (px)", "min": 200, "max": 1200, "step": 10, "default": 500, "info": "0 uses theme default" },
+        { "type": "header", "content": "Text" },
         { "type": "inline_richtext", "id": "text", "label": "Text", "default": "Add supporting copy here." },
         {
           "type": "select", "id": "text_style", "label": "Text style",
@@ -366,6 +389,22 @@
           "default": 18
         },
         { "type": "range", "id": "text_max_width", "label": "Text max-width (px)", "min": 200, "max": 1200, "step": 10, "default": 350, "info": "0 uses theme default" },
+        { "type": "header", "content": "Small Text (Optional)" },
+        { "type": "inline_richtext", "id": "small_text", "label": "Heading" },
+        {
+          "type": "range",
+          "id": "small_text_font_size_desktop",
+          "label": "Small text font size — desktop (px)",
+          "min": 6, "max": 18, "step": 1,
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "small_text_font_size_mobile",
+          "label": "Small text font size — mobile (px)",
+          "min": 6, "max": 18, "step": 1,
+          "default": 10
+        },
         { "type": "header", "content": "Primary button" },
         { "type": "text", "id": "button_label_1", "label": "Label", "default": "Shop now" },
         { "type": "url", "id": "button_link_1", "label": "Link" },
