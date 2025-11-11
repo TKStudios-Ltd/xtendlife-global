@@ -116,7 +116,7 @@
         "color_scheme": "scheme-3",
         "stack_text_on_mobile": false,
         "autoplay": true,
-        "autoplay_delay": 5000,
+        "autoplay_delay": 4000,
         "loop": false,
         "speed": 700
       }
