@@ -26,8 +26,10 @@
 -%}
 
 {% liquid
-  assign title_is_dark = collection.metafields.custom.collection_title_dark
-  assign title_color_mode = title_is_dark | default: false | if: true, 'dark', 'light'
+  assign title_color_mode = 'light'
+  if collection.metafields.custom.collection_title_dark.value
+    assign title_color_mode = 'dark'
+  endif
 %}
 
 
