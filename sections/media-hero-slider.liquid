@@ -35,10 +35,8 @@
   #MediaHero-{{ section.id }} .banner__heading { line-height: 1; }
   #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left { margin: auto; }
   #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
-
-  /* Subtitle font size (desktop) */
   #MediaHero-{{ section.id }} .subtitle.banner__text {
-    font-size: {{ section.settings.subtitle_font_size_desktop | default: 24 | at_least: 6 | at_most: 32 }}px !important;
+    font-size: 24px;
   }
 }
 
@@ -48,10 +46,8 @@
   #MediaHero-{{ section.id }} .banner__content { height: 100%; align-items: flex-end; }
   #MediaHero-{{ section.id }} .banner__box { padding-bottom: 6rem; text-align: left; width: calc(100vw - 5rem); }
   #MediaHero-{{ section.id }} .banner__heading { font-size: 28px; line-height: 1.2; margin: 0; max-width: 300px !important; }
-
-  /* Subtitle font size (mobile) */
   #MediaHero-{{ section.id }} .subtitle.banner__text {
-    font-size: {{ section.settings.subtitle_font_size_mobile | default: 18 | at_least: 6 | at_most: 32 }}px !important;
+    font-size: 18px;
     margin: 2rem 0 0;
     max-width: 250px !important;
   }
@@ -133,7 +129,19 @@
             assign fetch_priority = 'high'
           endif
         %}
-        <div class="swiper-slide" {{ block.shopify_attributes }}>
+        <style>
+          @media (min-width: 750px) {
+            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+              font-size: {{ b.subtitle_font_size_desktop | default: 24 }}px !important;
+            }
+          }
+          @media (max-width: 749px) {
+            [data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+              font-size: {{ b.subtitle_font_size_mobile | default: 18 }}px !important;
+            }
+          }
+        </style>
+        <div class="swiper-slide" data-slide-id="slide-{{ block.id }}" {{ block.shopify_attributes }}>
 
           <div
             class="
