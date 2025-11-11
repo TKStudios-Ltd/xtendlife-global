@@ -35,14 +35,27 @@
   #MediaHero-{{ section.id }} .banner__heading { line-height: 1; }
   #MediaHero-{{ section.id }} .banner--stacked .banner--content-align-left { margin: auto; }
   #MediaHero-{{ section.id }} .banner--stacked .subtitle { max-width: 30vw; }
+
+  /* Subtitle font size (desktop) */
+  #MediaHero-{{ section.id }} .subtitle.banner__text {
+    font-size: {{ section.settings.subtitle_font_size_desktop | default: 24 | at_least: 6 | at_most: 32 }}px !important;
+  }
 }
+
 /* Mobile */
 @media (max-width: 749px) {
   #MediaHero-{{ section.id }} .banner::after { opacity: 0.15 !important; }
   #MediaHero-{{ section.id }} .banner__content { height: 100%; align-items: flex-end; }
   #MediaHero-{{ section.id }} .banner__box { padding-bottom: 6rem; text-align: left; width: calc(100vw - 5rem); }
   #MediaHero-{{ section.id }} .banner__heading { font-size: 28px; line-height: 1.2; margin: 0; max-width: 300px !important; }
-  #MediaHero-{{ section.id }} .subtitle { font-size: 18px; margin: 2rem 0 0; max-width: 250px !important; }
+
+  /* Subtitle font size (mobile) */
+  #MediaHero-{{ section.id }} .subtitle.banner__text {
+    font-size: {{ section.settings.subtitle_font_size_mobile | default: 18 | at_least: 6 | at_most: 32 }}px !important;
+    margin: 2rem 0 0;
+    max-width: 250px !important;
+  }
+
   #MediaHero-{{ section.id }} .banner__buttons { justify-content: flex-start !important; margin-top: 3rem; width: calc(100% - 0.5rem); }
   #MediaHero-{{ section.id }} .button { width: 100%; font-size: 1.6rem !important; }
   #MediaHero-{{ section.id }} .hero-pagination.swiper-pagination { padding-right: 3rem !important; }
@@ -51,18 +64,21 @@
   #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile p { max-width: calc(100% - 2rem); margin: 1.5rem 0; font-size: 1.6rem; }
 }
+
 /* Full-bleed helper & pagination */
 #MediaHero-{{ section.id }} .is-fullbleed { width: 100vw; }
 .section-{{ section.id }}-padding { overflow-x: clip; }
 #MediaHero-{{ section.id }} .hero-pagination.swiper-pagination{
   position: absolute; right: 0; bottom: 25px; padding-right: 2rem; display: flex; justify-content: flex-end;
 }
+
 /* Overlay per slide */
 #MediaHero-{{ section.id }} .banner::after{
   content:""; position:absolute; inset:0; background:#000;
   opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   pointer-events:none; z-index: 1;
 }
+
 /* Dots */
 #MediaHero-{{ section.id }} .hero-pagination .swiper-pagination-bullet {
   width: 10px; height: 10px; border-radius: 999px; background: #fff; opacity: .4;
@@ -72,6 +88,7 @@
 }
 
 {%- endstyle -%}
+
 
 
 {%- liquid
@@ -325,6 +342,20 @@
             { "value": "caption-with-letter-spacing", "label": "Caption (spaced)" }
           ],
           "default": "body"
+        },
+        {
+          "type": "range",
+          "id": "subtitle_font_size_desktop",
+          "label": "Subtitle font size — desktop (px)",
+          "min": 6, "max": 32, "step": 1,
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "subtitle_font_size_mobile",
+          "label": "Subtitle font size — mobile (px)",
+          "min": 6, "max": 32, "step": 1,
+          "default": 18
         },
         { "type": "range", "id": "text_max_width", "label": "Text max-width (px)", "min": 200, "max": 1200, "step": 10, "default": 350, "info": "0 uses theme default" },
         { "type": "header", "content": "Primary button" },
