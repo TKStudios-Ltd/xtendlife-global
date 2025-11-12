@@ -167,15 +167,6 @@
             "page": ""
           }
         },
-        "collapsible_row_6jrMRD": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Why can’t I manage my subscription directly from my account?",
-            "icon": "none",
-            "row_content": "<p>To keep your payment and subscription information safe, those details are stored in a separate encrypted system. You can access it through the <strong>Manage Subscriptions</strong> button on the login page. </p>",
-            "page": ""
-          }
-        },
         "collapsible_row_n4em6t": {
           "type": "collapsible_row",
           "settings": {
@@ -191,7 +182,6 @@
         "collapsible_row_Heczkt",
         "collapsible_row_ymq6Jc",
         "collapsible_row_arMyAk",
-        "collapsible_row_6jrMRD",
         "collapsible_row_n4em6t"
       ],
       "custom_css": [
