@@ -614,7 +614,7 @@
           "settings": {
             "heading": "Can I manage multiple subscriptions with different payment methods and/or addresses?",
             "icon": "none",
-            "row_content": "<p>Yes, you can. Simply set up two different subscriptions. See FAQ 'How do I create a subscription'.</p>",
+            "row_content": "<p>Yes, you can. You can set up more than one subscription, each with its own payment method, shipping address, and delivery schedule.</p>",
             "page": ""
           }
         },
