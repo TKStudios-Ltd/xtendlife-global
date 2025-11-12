@@ -393,7 +393,7 @@
           "settings": {
             "heading": "How do I change my payment method or credit card?",
             "icon": "none",
-            "row_content": "<p>Go to the <strong>Manage Subscriptions</strong> link on the login page, then open your secure subscription portal to update your payment information. </p>",
+            "row_content": "<p>Log in to your account and open <strong>Manage Subscription</strong> from your dashboard. You can securely update your payment method or credit card details at any time.</p>",
             "page": ""
           }
         },
