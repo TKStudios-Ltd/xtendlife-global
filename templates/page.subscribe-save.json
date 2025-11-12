@@ -530,7 +530,7 @@
           "settings": {
             "heading": "How do I cancel my Subscription? ",
             "icon": "none",
-            "row_content": "<p>You can cancel anytime. Use the <strong>Manage Subscriptions</strong> link on the login page, then click <strong>Cancel</strong> under the product you wish to stop. </p>",
+            "row_content": "<p>Log in to your Xtendlife account and select <strong>Manage Subscription</strong> from your account dashboard. Choose the product you’d like to stop, then click <strong>Cancel</strong>. You can cancel anytime before your next order is processed.</p>",
             "page": ""
           }
         },
