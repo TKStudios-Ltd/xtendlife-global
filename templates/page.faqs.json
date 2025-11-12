@@ -447,7 +447,7 @@
           "settings": {
             "heading": "Can I use a coupon code with my subscription?",
             "icon": "none",
-            "row_content": "<p>Coupon codes can’t be applied to Subscribe & Save orders. If you’d like to use a discount code, place a one-time order instead. </p>",
+            "row_content": "<p>If the promotion allows the use of a discount code against Subscribe and Save, it will state this in the Terms and Conditions.</p>",
             "page": ""
           }
         },
