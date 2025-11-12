@@ -585,7 +585,7 @@
           "settings": {
             "heading": "When is my payment processed?",
             "icon": "none",
-            "row_content": "<p>Payment processing starts at 12:00am Eastern Standard Time (EST) the day of the scheduled date of the order. </p>",
+            "row_content": "<p>Subscribe and Save payments are taken the day before your scheduled shipping day.</p>",
             "page": ""
           }
         },
