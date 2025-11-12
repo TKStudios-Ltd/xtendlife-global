@@ -163,7 +163,7 @@
           "settings": {
             "heading": "How do I manage my subscription?",
             "icon": "none",
-            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page before signing in. This will take you to your secure subscription portal, where you can update delivery dates, payment details, or cancel your subscription. </p>",
+            "row_content": "<p>Log in to your Xtendlife account and go to your account dashboard. Select <strong>Manage Subscription</strong> to view your active orders, update delivery dates, change payment details, or skip or cancel a subscription.</p>",
             "page": ""
           }
         },
