@@ -1,6 +1,8 @@
 {% assign domain = request.host %}
 {% assign current_url = request.path | 
-   replace:'/en-ca' %}
+   replace:'/en-ca' | 
+   replace:'/en-au' | 
+   replace:'/en-gb' %}
 
 
 {%- comment -%} Capture the content for header containing the tracking data 
