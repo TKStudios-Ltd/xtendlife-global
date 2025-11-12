@@ -502,7 +502,7 @@
           "settings": {
             "heading": "How do I reschedule or skip my next order?",
             "icon": "none",
-            "row_content": "<p>Click <strong>Manage Subscriptions</strong> on the login page to access your subscription portal. From there, you can reschedule or skip your next delivery, you can even gift it to someone else if you prefer.</p>",
+            "row_content": "<p>Log in to your Xtendlife account and go to your account dashboard. Select <strong>Manage Subscription</strong> to access your settings, where you can reschedule or skip your next delivery or even gift it to someone else if you prefer.</p>",
             "page": ""
           }
         },
