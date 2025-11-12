@@ -642,7 +642,7 @@
           "settings": {
             "heading": "How do I reactivate a cancelled subscription?",
             "icon": "none",
-            "row_content": "<p>You can reactivate it anytime through the <strong>Manage Subscriptions</strong> link on the login page. Simply open your orders and select <em>Reactivate</em>, or contact our Customer Care team and we’ll help you. </p>",
+            "row_content": "<p>Log in to your Xtendlife account and open <strong>Manage Subscription</strong> from your account dashboard. You can reactivate a product at any time, or contact our Customer Care team if you’d like help reactivating it.</p>",
             "page": ""
           }
         },
