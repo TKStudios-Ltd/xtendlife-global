@@ -12,34 +12,6 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
-        "slide_Mdp9gj": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
-            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
-            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
-            "video_mp4": "",
-            "video_adapt_ratio": 57,
-            "text_color": "#ffffff",
-            "heading": "Build a better baseline for your health",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Bundle up with the essentials you need to keep going.",
-            "text_style": "subtitle",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 350,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
-            "button_label_1": "Shop All Products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Save More with Bundles",
-            "button_link_2": "shopify://collections/all-bundles",
-            "button_style_secondary_2": true
-          }
-        },
         "slide_Bwck6W": {
           "type": "slide",
           "settings": {
@@ -65,6 +37,34 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
+        "slide_Mdp9gj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "#ffffff",
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "subtitle",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 350,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         },
@@ -98,8 +98,8 @@
         }
       },
       "block_order": [
-        "slide_Mdp9gj",
         "slide_Bwck6W",
+        "slide_Mdp9gj",
         "slide_4TWen8"
       ],
       "custom_css": [
