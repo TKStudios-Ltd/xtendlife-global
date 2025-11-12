@@ -31,7 +31,8 @@
     "3.93.233.20", //Crazy Egg
     "52.90.216.115", //Crazy Egg
     "223.25.61.190", //Ken from Duma
-    "103.172.167.10" // Duma web designer
+    "103.172.167.10", // Duma web designer
+    "114.31.215.129" //Auckland office
   ];
 
   var getDomain = function(country)
