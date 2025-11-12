@@ -27,12 +27,29 @@
 
 {% endcomment %}
 
-<link rel="alternate" href="https://xtendlife.co{{current_url}}" hreflang="en-nz" />
-<link rel="alternate" href="https://xtendlife.co/en-au{{current_url}}" hreflang="en-au" />
-<link rel="alternate" href="https://xtendlife.co/en-gb{{current_url}}" hreflang="en-gb" />
-<link rel="alternate" href="https://xtendlife.com/en-ca{{current_url}}" hreflang="en-ca" />
-<link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
-<link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% capture hreflang_default %}
+   <link rel="alternate" href="https://xtendlife.co{{current_url}}" hreflang="en-nz" />
+   <link rel="alternate" href="https://xtendlife.co/en-au{{current_url}}" hreflang="en-au" />
+   <link rel="alternate" href="https://xtendlife.co/en-gb{{current_url}}" hreflang="en-gb" />
+   <link rel="alternate" href="https://xtendlife.com/en-ca{{current_url}}" hreflang="en-ca" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% endcapture %}
+
+{% capture hreflang_blog %}
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="en" />
+   <link rel="alternate" href="https://xtendlife.com{{current_url}}" hreflang="x-default" />
+{% endcapture %}
+
+{% if template.name == 'article' %}
+   {% if blog.handle == 'health-articles' or blog.handle == 'health-videos' %}
+      {{ hreflang_blog }}
+   {% else %}
+      {{ hreflang_default }}
+   {% endif %}
+{% else %}
+   {{ hreflang_default }}
+{% endif %}
 
 {% comment %}
 <link rel="alternate" href="https://www.xtend-life.com{{ current_url }}" hreflang="en-nz">
