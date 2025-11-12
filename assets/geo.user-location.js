@@ -123,108 +123,108 @@
   var redirectLocation = function(country) {
 
     if (window.location.href.indexOf("admin.shopify.com/store") == -1){
-    // Global default subdomain.
-    var marketPaths = ['/en-ca', '/en-au', '/en-gb'];
-    var protocol = "https://";
-    var subDomain = "";
-    var storeDomain = "xtendlife.com";
-    var marketPath = '';
-    var hasMarketPath = false;
-    var incorrectPath = false;
-    var currentMarketPath = '';
-    var currentHasMarketPath = false;
+      // Global default subdomain.
+      var marketPaths = ['/en-ca', '/en-au', '/en-gb'];
+      var protocol = "https://";
+      var subDomain = "";
+      var storeDomain = "xtendlife.com";
+      var marketPath = '';
+      var hasMarketPath = false;
+      var incorrectPath = false;
+      var currentMarketPath = '';
+      var currentHasMarketPath = false;
 
-    var countryUri = storeDomain;      
+      var countryUri = storeDomain;      
 
-    if(window.location.href.indexOf('xtendlife.com/blogs/health-articles') != -1)
-    {
-      console.log("URL is main blog, no redirect, exit.")
-      return;
-    }
-
-    if (sites[country.toLowerCase()]) {        
-      storeDomain = sites[country.toLowerCase()];
-      countryUri = storeDomain;
-    }
-    console.log('Country URL match', countryUri);
-    
-    var uri = new URL(protocol + countryUri);
-    console.log('Country URL', uri);
-    
-    for (let i = 0; i < marketPaths.length; i++) {
-      if(uri.href.indexOf(marketPaths[i]) != -1)
+      if(window.location.href.indexOf('xtendlife.com/blogs/health-articles') != -1)
       {
-        marketPath = marketPaths[i];
-      }
-      if(window.location.href.indexOf(marketPaths[i]) != -1)
-      {
-        currentMarketPath = marketPaths[i];
-      }
-    }
-    console.log('Country URL market path:', marketPath);
-    console.log('Current URL market path:', currentMarketPath);
-    
-    hasMarketPath = marketPath !== '';
-    console.log('Country URL Has market path:', hasMarketPath);
-    
-    currentHasMarketPath = currentMarketPath !== '';
-    console.log('Current URL Has market path:', currentHasMarketPath);
-
-    console.log('Current URL pathname: ', window.location.pathname);
-    console.log('Current URL host: ', window.location.host);
-    
-    if(hasMarketPath){
-      if (window.location.pathname.indexOf(marketPath) != -1) {
-        console.log("Href check passed, no redirect, exit function.")
+        console.log("URL is main blog, no redirect, exit.")
         return;
-      } 
-    }else{
-      if(currentHasMarketPath){
-        if (currentMarketPath === marketPath) {
-          console.log("Market check passed, no redirect, exit function.")
-          return;
+      }
+
+      if (sites[country.toLowerCase()]) {        
+        storeDomain = sites[country.toLowerCase()];
+        countryUri = storeDomain;
+      }
+      console.log('Country URL match', countryUri);
+      
+      var uri = new URL(protocol + countryUri);
+      console.log('Country URL', uri);
+      
+      for (let i = 0; i < marketPaths.length; i++) {
+        if(uri.href.indexOf(marketPaths[i]) != -1)
+        {
+          marketPath = marketPaths[i];
         }
+        if(window.location.href.indexOf(marketPaths[i]) != -1)
+        {
+          currentMarketPath = marketPaths[i];
+        }
+      }
+      console.log('Country URL market path:', marketPath);
+      console.log('Current URL market path:', currentMarketPath);
+      
+      hasMarketPath = marketPath !== '';
+      console.log('Country URL Has market path:', hasMarketPath);
+      
+      currentHasMarketPath = currentMarketPath !== '';
+      console.log('Current URL Has market path:', currentHasMarketPath);
+
+      console.log('Current URL pathname: ', window.location.pathname);
+      console.log('Current URL host: ', window.location.host);
+      
+      if(hasMarketPath){
+        if (window.location.pathname.indexOf(marketPath) != -1) {
+          console.log("Href check passed, no redirect, exit function.")
+          return;
+        } 
       }else{
-        if (window.location.host && window.location.host === uri.host) {
-          console.log("Host check passed, no redirect, exit function.")
-          return;
+        if(currentHasMarketPath){
+          if (currentMarketPath === marketPath) {
+            console.log("Market check passed, no redirect, exit function.")
+            return;
+          }
+        }else{
+          if (window.location.host && window.location.host === uri.host) {
+            console.log("Host check passed, no redirect, exit function.")
+            return;
+          }
+        }      
+      }
+      
+      //Include an anchor if it exists for filtered pages
+      var hashParam = window.location.hash;
+      console.log('Current hash parameter:', hashParam);
+      
+      var path = window.location.pathname;
+      console.log('Current path:', path);
+      
+      for (let i = 0; i < marketPaths.length; i++) {
+        path = path.replaceAll(marketPaths[i], '');
+      }
+      if(!hasMarketPath){
+        path = removeFirstOccurrence(path, '/');
+      }
+      console.log('Current path replaced:', path);
+      
+      if (window.location.search.length) {
+        // query string exists          
+        var location = uri + path + "?" + window.location.search.substring(1) + hashParam;
+        if(!testMode)
+        {
+          window.location = location;
         }
-      }      
-    }
-    
-    //Include an anchor if it exists for filtered pages
-    var hashParam = window.location.hash;
-    console.log('Current hash parameter:', hashParam);
-    
-    var path = window.location.pathname;
-    console.log('Current path:', path);
-    
-    for (let i = 0; i < marketPaths.length; i++) {
-      path = path.replaceAll(marketPaths[i], '');
-    }
-    if(!hasMarketPath){
-      path = removeFirstOccurrence(path, '/');
-    }
-    console.log('Current path replaced:', path);
-    
-    if (window.location.search.length) {
-      // query string exists          
-      var location = uri + path + "?" + window.location.search.substring(1) + hashParam;
-      if(!testMode)
-      {
-        window.location = location;
+        console.log("GEO Redirect to: ", location);
+      } else {
+        // no query string exists
+        var location = uri + path + hashParam;
+        if(!testMode)
+        {
+          window.location = location;
+        }
+        console.log("GEO Redirect to: ", location);
       }
-      console.log("GEO Redirect to: ", location);
-    } else {
-      // no query string exists
-      var location = uri + path + hashParam;
-      if(!testMode)
-      {
-        window.location = location;
-      }
-      console.log("GEO Redirect to: ", location);
     }
-  }
   };
 
   var init = function() {
