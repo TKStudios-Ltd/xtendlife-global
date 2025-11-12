@@ -224,6 +224,9 @@
         }
         console.log("GEO Redirect to: ", location);
       }
+    }else{
+      console.log("Shopify admin detected, return");
+      return;
     }
   };
 
