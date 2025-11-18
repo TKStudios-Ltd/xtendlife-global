@@ -590,6 +590,7 @@
         "testimonial_wxPJKG",
         "testimonial_MNbmfK"
       ],
+      "disabled": true,
       "custom_css": [
         ".ts2-pagination {display: flex; gap: 0.5rem; margin-top: 5rem;}",
         ".ts2-card {padding: 2rem 8rem 2rem 2rem; background: #f4f8fb;}"
