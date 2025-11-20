@@ -28,10 +28,18 @@
             "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
             "video_mp4": "",
             "video_adapt_ratio": 100,
+            "text_color": "",
             "heading": "Your<em> Gift,</em> our<em>Treat!</em>",
             "heading_size": "h1",
+            "heading_max_width": 500,
             "text": "Purchase two or more Kanapa products, one being a cleanser, and receive your choice of Mini Glow Essentials or Mini Hydration Essentials for Men. Gift must be added to cart.",
             "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 350,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
             "button_label_1": "",
             "button_link_1": "",
             "button_style_secondary_1": false,
@@ -67,11 +75,28 @@
     "collection_tabs_grid_QPpXxb": {
       "type": "collection-tabs-grid",
       "blocks": {
+        "tab_HArBQh": {
+          "type": "tab",
+          "settings": {
+            "label": "Supplements",
+            "collection": "supplements",
+            "limit": 15,
+            "view_all": true,
+            "static_enable": true,
+            "static_position": "first",
+            "static_full_row": false,
+            "static_link": "",
+            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
+            "static_alt": "Promo",
+            "static_caption_text": ""
+          }
+        },
         "tab_hNQHfA": {
           "type": "tab",
           "settings": {
-            "label": "Sale",
-            "collection": "sale",
+            "label": "Bundles",
+            "collection": "all-bundles",
             "limit": 15,
             "view_all": true,
             "static_enable": true,
@@ -100,33 +125,16 @@
             "static_alt": "Promo",
             "static_caption_text": ""
           }
-        },
-        "tab_HArBQh": {
-          "type": "tab",
-          "settings": {
-            "label": "Supplements",
-            "collection": "supplements",
-            "limit": 15,
-            "view_all": true,
-            "static_enable": true,
-            "static_position": "first",
-            "static_full_row": false,
-            "static_link": "",
-            "static_image": "shopify://shop_images/DSF6381_2200x_2.jpg",
-            "static_image_mobile": "shopify://shop_images/DSF6381_2200x_2.jpg",
-            "static_alt": "Promo",
-            "static_caption_text": ""
-          }
         }
       },
       "block_order": [
+        "tab_HArBQh",
         "tab_hNQHfA",
-        "tab_R46dJx",
-        "tab_HArBQh"
+        "tab_R46dJx"
       ],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "Promo Collections",
+        "title": "Black Friday Promotion",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
