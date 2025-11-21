@@ -24,7 +24,7 @@
         "slide_fTk4Hh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Kanapa_Promo_Desk.png",
+            "image": "shopify://shop_images/Black_Friday_Sale_HP_Banner_N_18e28884-dfee-460e-aaa8-39863d6278b3.png",
             "image_mobile": "shopify://shop_images/Kanapa_Promo_Mob.png",
             "video_mp4": "",
             "video_adapt_ratio": 100,
@@ -204,7 +204,7 @@
         "featured_collection_RVqwaj": {
           "type": "featured_collection",
           "settings": {
-            "collection": "superfoods",
+            "collection": "all-bundles",
             "custom_title": "",
             "background_color": "rgba(0,0,0,0)"
           }
@@ -215,6 +215,7 @@
         "featured_collection_EpNNwA",
         "featured_collection_RVqwaj"
       ],
+      "disabled": true,
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "Explore",
@@ -331,6 +332,7 @@
         "collapsible_row_qK6UP8",
         "collapsible_row_KrhL6f"
       ],
+      "disabled": true,
       "custom_css": [
         ".accordion__title {font-size: 24px; font-weight: 400;}",
         ".accordion__content p {line-height: 1.4;}",
@@ -391,6 +393,7 @@
         "hotspot_EzN4jP",
         "hotspot_mLbTrh"
       ],
+      "disabled": true,
       "name": "Image Hotspots (Tooltips)",
       "settings": {
         "image": "shopify://shop_images/AdobeStock_524987606_2.png",
