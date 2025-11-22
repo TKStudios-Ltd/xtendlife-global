@@ -43,6 +43,9 @@
   #MediaHero-{{ section.id }} .subtitle.banner__text {
     font-size: 24px;
   }
+  #MediaHero-{{ section.id }} .mhs-mobile-inline-img {
+    display: none;
+  }
 }
 
 /* Mobile */
@@ -64,6 +67,13 @@
   #MediaHero-{{ section.id }} .mhs-stacked-mobile { padding: 4rem 2rem; }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile h2 { max-width: calc(100% - 2rem); margin: 0; font-size: 2.8rem; }
   #MediaHero-{{ section.id }} .mhs-stacked-mobile p { max-width: calc(100% - 2rem); margin: 1.5rem 0; font-size: 1.6rem; }
+
+  #MediaHero-{{ section.id }} .mhs-mobile-inline-img {
+    display: block;
+    width: calc(100% - 2rem);
+    height: auto;
+    margin-bottom: 2rem;
+  }
 }
 
 /* Full-bleed helper & pagination */
@@ -210,6 +220,15 @@
             <div class="banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}">
               <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width">
                 <div class="banner__box content-container content-container--full-width-mobile gradient">
+                  {% if b.mobile_inline_image != blank %}
+                    <img 
+                      class="mhs-mobile-inline-img" 
+                      src="{{ b.mobile_inline_image | image_url: width: 600 }}"
+                      alt="{{ b.mobile_inline_image.alt | escape }}"
+                      loading="lazy"
+                    >
+                  {% endif %}
+
                   {% if b.heading != blank %}
                     <h2
                       class="banner__heading inline-richtext {{ b.heading_size }}"
@@ -345,6 +364,7 @@
         { "type": "image_picker", "id": "image", "label": "Image (desktop, fallback)" },
         { "type": "image_picker", "id": "image_tablet", "label": "Tablet image (750px–990px)" },
         { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (<750px)" },
+        { "type": "image_picker", "id": "mobile_inline_image", "label": "Inline mobile image (above title, mobile only)" },
         { "type": "image_picker", "id": "video_poster", "label": "Video poster (optional)" },
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
