@@ -81,6 +81,15 @@
             "row_content": "<ul><li>This offer is valid from 3:00 PM EST November 20, 2025 to 2:59 PM EST November 23, 2025, or while stocks last. </li><li>Subscribe & Save customers receive 30% off sitewide, when purchasing through the xtendlife.co store.    </li><li>The discount will be automatically applied to existing Subscribe & Save Subscriptions scheduled within the Early Access period. </li><li>The discount is only available to subscriptions that have commenced before the offer begins. New subscriptions created during the offer period are not eligible. </li><li>The discount is valid exclusively for one use per customer on your Xtendlife portal.  </li><li>The discount cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   </li><li>The discount is not transferable and may not be resold or redeemed for cash.  </li><li>The discount will be invalid if any of the terms and conditions are violated.  </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_rndKrP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Black Friday",
+            "icon": "none",
+            "row_content": "<ul><li>Receive 30% off sitewide during the BFCM sales period, excluding Gut Harmony. All promotional prices are reflected on the site automatically; no code is needed.   </li><li>BFCM sales period for 2025 is Sunday, 23 November 3:00 PM EST to Sunday, 30 November 2:59 PM EST.  </li><li>This promotion excludes Gut Harmony. </li><li>Discounts, promotional codes, or offers cannot be used during the BFCM sales period.  </li><li>If you return your order (some or all of your ordered products) placed in the BFCM sales period, refunds will be calculated at the BFCM promotion purchase price minus shipping costs; as per our refund policy.  </li><li>The BFCM offers are not transferable and may not be resold or redeemed for cash.   </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -90,7 +99,8 @@
         "collapsible_row_k4dGtr",
         "collapsible_row_ytLBrR",
         "collapsible_row_bAY7Bq",
-        "collapsible_row_p9NVQc"
+        "collapsible_row_p9NVQc",
+        "collapsible_row_rndKrP"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
