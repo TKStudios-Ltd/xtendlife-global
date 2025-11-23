@@ -12,6 +12,34 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_Gac7DH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
+            "image_tablet": "shopify://shop_images/Sales_Caregory_iPad_950x750_435e15b8-97eb-42c7-bed0-b4a0ce4b786f.png",
+            "image_mobile": "shopify://shop_images/XT_SaleBanner_MobIMG_2.jpg",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "<strong>Black Friday is here</strong>",
+            "heading_size": "h1",
+            "heading_max_width": 290,
+            "text": "30% off almost everything.* Limited time only.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 280,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
@@ -127,6 +155,7 @@
         }
       },
       "block_order": [
+        "slide_Gac7DH",
         "slide_Bwck6W",
         "slide_fyNhkn",
         "slide_Mdp9gj",
