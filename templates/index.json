@@ -43,6 +43,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
@@ -71,6 +72,7 @@
         },
         "slide_fyNhkn": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/VIT_D_Promo_Global_3.png",
             "image_tablet": "shopify://shop_images/VIT_D3__iPad_630x650_5a94fa5e-1e0f-4985-83a2-3d305f44da44.png",
@@ -99,6 +101,7 @@
         },
         "slide_Mdp9gj": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
