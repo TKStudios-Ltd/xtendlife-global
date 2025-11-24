@@ -16,8 +16,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
-            "image_tablet": "shopify://shop_images/BF-Sale-iPad_S.png",
-            "image_mobile": "shopify://shop_images/Black-Friday-Sale-Mob_SCALED.png",
+            "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
+            "image_mobile": "shopify://shop_images/Black_Friday_Sale-Mob_425x500_10.png",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
