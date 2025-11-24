@@ -286,6 +286,10 @@
   justify-self: flex-end;
 }
 
+.product-card-wrapper.underline-links-hover:hover .card__badge.right {
+  display: none;
+}
+
 .card:not(.card--horizontal) > .card__content > .card__badge {
   margin: 1.3rem;
 }
