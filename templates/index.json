@@ -165,7 +165,7 @@
         "slide_4TWen8"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {.banner__buttons {justify-content: center; }}"
+        "@media (max-width: 749px) {.banner__buttons {justify-content: center; } .banner::after {opacity: 0 !important; }}"
       ],
       "name": "Video Hero Slider",
       "settings": {
