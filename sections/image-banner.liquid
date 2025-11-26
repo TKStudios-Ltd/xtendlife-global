@@ -219,7 +219,7 @@
     </div>
   </div>
 </div>
-{% if section.settings.stack_images_on_mobile and section.settings.image != blank %}
+{% comment %} {% if section.settings.stack_images_on_mobile and section.settings.image != blank %}
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'text' -%}
@@ -228,7 +228,7 @@
       </div>
     {%- endcase -%}
   {%- endfor -%}
-{% endif %}
+{% endif %} {% endcomment %}
 {% if section.settings.wide_container %}</div></div>{% endif %}
 
 {% schema %}
