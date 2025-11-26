@@ -57,10 +57,6 @@
     font-size: 10px;
     padding: 0.75rem 1.5rem 0.6rem;
   }
-  .banner--stacked--mobile p,
-  .banner--mobile-bottom h2 {
-    color: #1F1946;
-  }
   @media screen and (max-width: 749px) {
     #Banner-{{ section.id }}.banner--stacked .subtitle {
       display: none;
@@ -102,9 +98,23 @@
 -%}
 
 {% if section.settings.wide_container %}<div class="nav__offset_bg color-{{ section.settings.color_scheme }}"><div class="page-width--wide">{% endif %}
+
 <div
   id="Banner-{{ section.id }}"
-  class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  class="
+    banner
+    color-{{ section.settings.color_scheme }}
+    banner--content-align-{{ section.settings.desktop_content_alignment }}
+    banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}
+    banner--{{ section.settings.image_height }}
+    {% if section.settings.stack_images_on_mobile and section.settings.image != blank %}banner--stacked{% endif %}
+    {% if section.settings.image_height == 'adapt' and section.settings.image != blank %}banner--adapt{% endif %}
+    {% if section.settings.show_text_below %}banner--mobile-bottom{% endif %}
+    {% if section.settings.show_text_box == false %}banner--desktop-transparent{% endif %}
+    {% if settings.animations_reveal_on_scroll %}scroll-trigger animate--fade-in{% endif %}
+  "
+  data-mobile-color-scheme="{{ section.settings.color_scheme_mobile }}"
+  data-stack-images="{{ section.settings.stack_images_on_mobile }}"
 >
   {%- if section.settings.image != blank -%}
     <div class="banner__media media{% if section.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -158,6 +168,7 @@
 
     </div>
   {%- endif -%}
+
   <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {% if section.settings.overlay_image != blank %}
       <div class="hero_banner__h1">
@@ -170,7 +181,7 @@
         >
       </div>
     {% endif %}
-    <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+    <div class="banner__box content-container content-container--full-width-mobile gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -219,17 +230,33 @@
     </div>
   </div>
 </div>
-{% comment %} {% if section.settings.stack_images_on_mobile and section.settings.image != blank %}
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when 'text' -%}
-      <div class="banner--stacked--mobile banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
-        <p>{{ block.settings.text }}</p>
-      </div>
-    {%- endcase -%}
-  {%- endfor -%}
-{% endif %} {% endcomment %}
+
 {% if section.settings.wide_container %}</div></div>{% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var banner = document.getElementById('Banner-{{ section.id }}');
+    if (!banner) return;
+
+    var mobileScheme = banner.dataset.mobileColorScheme;  
+    var stackImages = banner.dataset.stackImages === 'true';
+
+    var isRealMobile = window.matchMedia('(max-width: 749px)').matches;
+
+    if (!isRealMobile || !stackImages || !mobileScheme) return;
+
+    var mobileClass = 'color-' + mobileScheme;
+
+    banner.classList.forEach(function (cls) {
+      if (cls.startsWith('color-scheme')) {
+        banner.classList.remove(cls);
+      }
+    });
+
+    banner.classList.add(mobileClass);
+  });
+</script>
+
 
 {% schema %}
 {
@@ -401,7 +428,7 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Color scheme (desktop)",
       "default": "scheme-1"
     },
     {
@@ -439,6 +466,12 @@
       "id": "show_text_below",
       "default": true,
       "label": "t:sections.image-banner.settings.show_text_below.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_mobile",
+      "label": "Color scheme (mobile)",
+      "default": "scheme-1"
     }
   ],
   "blocks": [
