@@ -14,6 +14,36 @@
       "blocks": {
         "slide_Gac7DH": {
           "type": "slide",
+          "name": "12 Days of Xmas",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
+            "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
+            "image_mobile": "shopify://shop_images/Black_Friday_Sale-Mob_425x500_10.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "BLACK FRIDAY EXTENDED. 30%* Off almost everything",
+            "heading_size": "h1",
+            "heading_max_width": 580,
+            "text": "Ends Soon. Don’t Miss Out!",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 640,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop 30% off",
+            "button_link_1": "shopify://collections/sale",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "slide_UPkjtL": {
+          "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
             "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
@@ -159,6 +189,7 @@
       },
       "block_order": [
         "slide_Gac7DH",
+        "slide_UPkjtL",
         "slide_Bwck6W",
         "slide_fyNhkn",
         "slide_Mdp9gj",
