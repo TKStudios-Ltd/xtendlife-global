@@ -44,6 +44,7 @@
         },
         "slide_UPkjtL": {
           "type": "slide",
+          "name": "BFCM",
           "settings": {
             "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
             "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
