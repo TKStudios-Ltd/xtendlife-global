@@ -269,9 +269,8 @@
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 class="custom--badge custom--badge-sale color-{{ settings.sale_badge_color_scheme }}"
-              >30% off
-                {% comment %}XL-JR Temporary update for BFCM
-                {{- 'products.product.on_sale' | t -}}{% endcomment %}                 
+              >
+                {{- 'products.product.on_sale' | t -}}              
               </span>
             {%- endif -%}
           </div>
