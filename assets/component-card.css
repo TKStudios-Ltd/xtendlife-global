@@ -781,13 +781,10 @@
   position: relative;
   letter-spacing: 0.35px;
 }
-.card__badge .custom--badge-sale {
-  /* XL-JR: Temporary colour update for BFCM
+.card__badge .custom--badge-sale {  
   background: #dbeeff !important;
   color: #1F1946 !important;  
-  /*text-transform: uppercase;*/
-  background: #1F1946 !important;
-  color: #dbeeff !important;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 /* .custom--badge::before {
