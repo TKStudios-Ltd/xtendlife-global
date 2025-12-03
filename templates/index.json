@@ -45,6 +45,7 @@
         "slide_UPkjtL": {
           "type": "slide",
           "name": "BFCM",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
             "image_tablet": "shopify://shop_images/Black_Friday_Sale-iPad_630x650_6.png",
@@ -74,7 +75,6 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
