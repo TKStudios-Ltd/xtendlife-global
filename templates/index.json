@@ -12,6 +12,35 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_Bwck6W": {
+          "type": "slide",
+          "name": "Gut Harmony Launch",
+          "settings": {
+            "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
+            "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
+            "image_mobile": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27.png",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#ffffff",
+            "heading": "Meet Your Gut Harmony",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Our new triple-biotic blend, the missing piece to digestive balance.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 320,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://products/gut-harmony",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
         "slide_Gac7DH": {
           "type": "slide",
           "name": "12 Days of Xmas",
@@ -70,35 +99,6 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
-          }
-        },
-        "slide_Bwck6W": {
-          "type": "slide",
-          "name": "Gut Harmony Launch",
-          "settings": {
-            "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
-            "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
-            "image_mobile": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27.png",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#ffffff",
-            "heading": "Meet Your Gut Harmony",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Our new triple-biotic blend, the missing piece to digestive balance.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 320,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 9,
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://products/gut-harmony",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
           }
         },
         "slide_fyNhkn": {
@@ -189,9 +189,9 @@
         }
       },
       "block_order": [
+        "slide_Bwck6W",
         "slide_Gac7DH",
         "slide_UPkjtL",
-        "slide_Bwck6W",
         "slide_fyNhkn",
         "slide_Mdp9gj",
         "slide_4TWen8"
