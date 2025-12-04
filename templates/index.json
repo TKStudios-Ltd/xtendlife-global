@@ -51,7 +51,7 @@
             "image": "shopify://shop_images/12_Day_of_Xmas_HP_Banner-04.png",
             "image_tablet": "shopify://shop_images/12_Day_of_Xmas_iPad-05.png",
             "mobile_inline_image": "shopify://shop_images/12_Days_of_Xmas_Mobile-06.png",
-            "mobile_inline_bg": "#ffffff",
+            "mobile_inline_bg": "#f4f8fb",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
