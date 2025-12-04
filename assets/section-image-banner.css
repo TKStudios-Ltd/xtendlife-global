@@ -488,9 +488,9 @@
 }
 
 @media screen and (max-width: 749px) {
-  .banner__box > * + .banner__buttons {
+  /* .banner__box > * + .banner__buttons {
     margin-top: 6rem;
-  }
+  } */
   .banner:not(.slideshow) .rte a,
   .banner:not(.slideshow) .inline-richtext a:hover,
   .banner:not(.slideshow) .rte a:hover {
