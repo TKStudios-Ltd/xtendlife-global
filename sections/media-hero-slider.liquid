@@ -74,6 +74,22 @@
     height: auto;
     margin-bottom: 2rem;
   }
+  /* If inline mobile image is used, hide all background media */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image .banner__media {
+    display: none !important;
+  }
+  /* Remove overlay too */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image::after {
+    display: none !important;
+  }
+  /* Apply custom background when inline mobile image is active */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image {
+    background-color: var(--mobile-inline-bg, transparent);
+  }
+  /* Ensure content box doesn’t override it */
+  #MediaHero-{{ section.id }} .banner.has-mobile-inline-image .banner__box {
+    background: transparent;
+  }
 }
 
 /* Full-bleed helper & pagination */
@@ -170,8 +186,12 @@
               banner--{{ section.settings.image_height }}
               {% if section.settings.show_text_box == false %}banner--desktop-transparent{% endif %}
               {% if section.settings.stack_text_on_mobile %}banner--stacked{% endif %}
+              {% if b.mobile_inline_image != blank %}has-mobile-inline-image{% endif %}
               color-{{ section.settings.color_scheme }}
             "
+            {% if b.mobile_inline_image != blank and b.mobile_inline_bg != blank %}
+              style="--mobile-inline-bg: {{ b.mobile_inline_bg }};"
+            {% endif %}
           >
             <div class="banner__media media">
               {% if section.settings.image_height == 'adapt' %}
@@ -365,6 +385,7 @@
         { "type": "image_picker", "id": "image_tablet", "label": "Tablet image (750px–990px)" },
         { "type": "image_picker", "id": "image_mobile", "label": "Mobile image (<750px)" },
         { "type": "image_picker", "id": "mobile_inline_image", "label": "Inline mobile image (above title, mobile only)" },
+        { "type": "color", "id": "mobile_inline_bg", "label": "Mobile inline background color", "default": "#ffffff" },
         { "type": "image_picker", "id": "video_poster", "label": "Video poster (optional)" },
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
