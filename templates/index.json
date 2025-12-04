@@ -15,6 +15,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
@@ -46,7 +47,6 @@
         "slide_Gac7DH": {
           "type": "slide",
           "name": "12 Days of Xmas",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12_Day_of_Xmas_HP_Banner-04.png",
             "image_tablet": "shopify://shop_images/12_Day_of_Xmas_iPad-05.png",
