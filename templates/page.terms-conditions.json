@@ -108,6 +108,15 @@
             "row_content": "<p>This promotion is open to customers who place an order on our website between 2:59 PM EST November 29, 2025 and 2:59 PM EST November 30, 2025. </p><p>The winner will receive a refund equal to the full value of their winning order (excluding shipping fees, if applicable). </p><p>Refunds will be processed to the original payment method used at checkout. </p><p>One winning order will be randomly drawn after the promotion ends at 8:59 AM December 1, 2025. </p><p>The winner will be contacted via the email address associated with their order within 5 days. </p><p>Orders placed outside the promotional period will not be eligible. </p><p>If the winner does not respond within 7 days, a new winner may be drawn. </p><p>This promotion is not transferable, exchangeable, or redeemable for cash beyond the refund value of the order. </p><p>We reserve the right to amend, suspend, or cancel the promotion if necessary. </p><p>By participating, customers agree to these Terms & Conditions. </p>",
             "page": ""
           }
+        },
+        "collapsible_row_jidCxi": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Xtendlife 12 Days of Christmas",
+            "icon": "none",
+            "row_content": "<p>By participating in the Xtendlife 12 Days of Christmas Promotion, you agree to the following Terms and Conditions: </p><p><strong>1. Promotion Period</strong> </p><p>The promotion will run from  9:00 AM NZDT December 5, 2025 to 5:00 PM NZDT December 17, 2025.   </p><p>Each daily offer or competition will be valid from the day it is announced until 5pm Wednesday 17 December NZDT.   </p><p><strong>2. General Eligibility</strong> </p><ul><li>This promotion is open to residents of countries where Xtendlife ships.  </li><li>Employees of Xtendlife and their immediate family members are not eligible to participate. </li><li>Instagram and Facebook giveaways are not sponsored, endorsed, administered by, or associated with Instagram or Facebook. </li></ul><p><strong>3. Daily Offers and Competitions</strong> </p><p><strong>Day 1: Free Purifying Cleansing Cream</strong> </p><ul><li>Receive a free Kanapa Purifying Cleansing Cream with your order when you shop through the Xtendlife website, when applying the specified discount code at checkout.  </li><li>Valid with the specified discount code for purchases made from Day 1 of the 12 Days of Christmas Promotion. </li><li>The free product must be added to cart and the discount code must be entered at checkout to redeem the offer.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code excludes all other products on the Xtendlife online store.   </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged. </li><li>The discount code cannot be applied to previous purchases or be combined with other product discounts.  </li><li>The discount code is not transferable and may not be resold or redeemed for cash. </li><li>The discount code is one-time use only. </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -120,7 +129,8 @@
         "collapsible_row_p9NVQc",
         "collapsible_row_rndKrP",
         "collapsible_row_VPeEdn",
-        "collapsible_row_JgjLy4"
+        "collapsible_row_JgjLy4",
+        "collapsible_row_jidCxi"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
