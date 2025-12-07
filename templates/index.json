@@ -16,9 +16,9 @@
           "type": "slide",
           "name": "12 Days of Xmas",
           "settings": {
-            "image": "shopify://shop_images/12_Day_of_Xmas_HP_Banner-04.png",
-            "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-03.png",
-            "mobile_inline_image": "shopify://shop_images/12_Days_of_Xmas_Mobile-06.png",
+            "image": "shopify://shop_images/12_Day_of_Xmas_HP_Banner-04_ba53e6f2-0c38-4aa7-91cc-474b476eee02.png",
+            "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-03_e5e3793c-a766-4b0c-bd3f-7eb99728e03b.png",
+            "mobile_inline_image": "shopify://shop_images/12_Days_of_Xmas_Mobile-06_972cc303-8f9e-4d39-b08a-0945ac72c38f.png",
             "mobile_inline_bg": "#f4f8fb",
             "video_mp4": "",
             "video_adapt_ratio": 30,
