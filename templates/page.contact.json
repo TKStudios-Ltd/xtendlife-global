@@ -80,7 +80,7 @@
           "type": "location",
           "settings": {
             "location": "Head Office",
-            "details": "<p>12 Mary Muller Dr. Hillsborough, <br/>Christchurch 8022, New Zealand</p>"
+            "details": "<p>12 Mary Muller Dr. Hillsborough, <br/>Christchurch 8022, <br/>New Zealand</p>"
           }
         },
         "location_pda6Yh": {
