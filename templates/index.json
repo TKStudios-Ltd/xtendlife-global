@@ -15,6 +15,7 @@
         "slide_Gac7DH": {
           "type": "slide",
           "name": "12 Days of Xmas",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
@@ -44,6 +45,7 @@
         },
         "slide_exDqCf": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-Omega-3-Banner.png",
             "image_tablet": "shopify://shop_images/12-Days-Omega-3-ipad.png",
@@ -104,7 +106,6 @@
         "slide_JWNKmf": {
           "type": "slide",
           "name": "12 Days of Xmas",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Win-your-order-back_Banner.png",
             "image_tablet": "shopify://shop_images/Win-your-order-back_iPad.png",
@@ -135,6 +136,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
