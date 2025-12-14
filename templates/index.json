@@ -101,6 +101,37 @@
             "button_style_secondary_2": false
           }
         },
+        "slide_JWNKmf": {
+          "type": "slide",
+          "name": "12 Days of Xmas",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Win-your-order-back_Banner.png",
+            "image_tablet": "shopify://shop_images/Win-your-order-back_iPad.png",
+            "mobile_inline_image": "shopify://shop_images/Win-your-order-back_Mob.png",
+            "mobile_inline_bg": "#dbeeff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "Merry Little Wellness to You!",
+            "heading_size": "h1",
+            "heading_max_width": 470,
+            "text": "Win your order back. Simply place an order today and you’re automatically in the draw. ",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 330,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
@@ -257,6 +288,7 @@
         "slide_Gac7DH",
         "slide_exDqCf",
         "slide_KRHPqw",
+        "slide_JWNKmf",
         "slide_Bwck6W",
         "slide_UPkjtL",
         "slide_fyNhkn",
