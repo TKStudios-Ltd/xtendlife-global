@@ -14,6 +14,37 @@
       "blocks": {
         "slide_Gac7DH": {
           "type": "slide",
+          "name": "12 Days of Xmas-20% OFF",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/12-Days-20-off-sitewide_Banner.png",
+            "image_tablet": "shopify://shop_images/12-Days-20-off-sitewide_iPad.png",
+            "mobile_inline_image": "shopify://shop_images/12-Days-20-off-sitewide_Mob.png",
+            "mobile_inline_bg": "#dbeeff",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "Merry Little Wellness to You!",
+            "heading_size": "h1",
+            "heading_max_width": 470,
+            "text": "FREE Purifying Cleansing Cream with every order. Add product to cart and use code: DAY1PURIFY. Plus get free Shipping.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 330,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://products/purifying-cleansing-cream",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "slide_jnA8jG": {
+          "type": "slide",
           "name": "12 Days of Xmas",
           "disabled": true,
           "settings": {
@@ -288,6 +319,7 @@
       },
       "block_order": [
         "slide_Gac7DH",
+        "slide_jnA8jG",
         "slide_exDqCf",
         "slide_KRHPqw",
         "slide_JWNKmf",
