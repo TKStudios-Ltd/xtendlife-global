@@ -121,6 +121,8 @@
                       placeholder="{{ 'newsletter.label' | t }}"
                       required
                     >
+                    <input type="hidden" name="g" value="{{ section.settings.klaviyo_list_id | escape }}">
+                    <input type="hidden" name="email" id="KlaviyoEmailMirror--{{ section.id }}">
                     <label class="field__label" for="FooterEmail--{{ section.id }}">
                       Enter your email
                     </label>
