@@ -15,6 +15,7 @@
         "slide_Gac7DH": {
           "type": "slide",
           "name": "12 Days of Xmas-20% OFF",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-20-off-sitewide_Banner.png",
             "image_tablet": "shopify://shop_images/12-Days-20-off-sitewide_iPad.png",
@@ -45,6 +46,7 @@
         "slide_jnA8jG": {
           "type": "slide",
           "name": "12 Days of Xmas-Purifying Cleansing Cream",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-purifying-cleanser_Banner.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-04.png",
@@ -75,6 +77,7 @@
         "slide_exDqCf": {
           "type": "slide",
           "name": "12 Days of Xmas-Buy 2 Omega 3",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12-Days-Omega-3-Banner.png",
             "image_tablet": "shopify://shop_images/12-Days-Omega-3-ipad.png",
@@ -105,6 +108,7 @@
         "slide_KRHPqw": {
           "type": "slide",
           "name": "12 Days of Xmas",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/12_Day_of_Xmas_HP_Banner-04-04-04.png",
             "image_tablet": "shopify://shop_images/12-Day-of-Xmas_iPad-03_e5e3793c-a766-4b0c-bd3f-7eb99728e03b.png",
@@ -166,7 +170,6 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
@@ -192,6 +195,35 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
+        "slide_Mdp9gj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
+            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
+            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "#ffffff",
+            "heading": "Build a better baseline for your health",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Bundle up with the essentials you need to keep going.",
+            "text_style": "subtitle",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 350,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop All Products",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Save More with Bundles",
+            "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
           }
         },
@@ -256,36 +288,6 @@
             "button_style_secondary_2": true
           }
         },
-        "slide_Mdp9gj": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
-            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
-            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 57,
-            "text_color": "#ffffff",
-            "heading": "Build a better baseline for your health",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Bundle up with the essentials you need to keep going.",
-            "text_style": "subtitle",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 350,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
-            "button_label_1": "Shop All Products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Save More with Bundles",
-            "button_link_2": "shopify://collections/all-bundles",
-            "button_style_secondary_2": true
-          }
-        },
         "slide_4TWen8": {
           "type": "slide",
           "disabled": true,
@@ -323,9 +325,9 @@
         "slide_KRHPqw",
         "slide_JWNKmf",
         "slide_Bwck6W",
+        "slide_Mdp9gj",
         "slide_UPkjtL",
         "slide_fyNhkn",
-        "slide_Mdp9gj",
         "slide_4TWen8"
       ],
       "custom_css": [
