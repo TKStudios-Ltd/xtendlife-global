@@ -46,7 +46,6 @@
         "slide_JWNKmf": {
           "type": "slide",
           "name": "Slide-Omega 3 Give Away",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/3_Omega-3-GIFT_HP-Banner.png",
             "image_tablet": "shopify://shop_images/3_Omega-3-GIFT_HP-iPad.png",
@@ -107,6 +106,7 @@
         },
         "slide_Mdp9gj": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
