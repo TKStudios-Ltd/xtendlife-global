@@ -15,6 +15,7 @@
         "slide_JWNKmf": {
           "type": "slide",
           "name": "Slide-Omega 3 Give Away",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/3_Omega-3-GIFT_HP-Banner.png",
             "image_tablet": "shopify://shop_images/3_Omega-3-GIFT_HP-iPad.png",
@@ -75,7 +76,6 @@
         },
         "slide_Mdp9gj": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
@@ -101,37 +101,6 @@
             "button_label_2": "Save More with Bundles",
             "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
-          }
-        },
-        "slide_UPkjtL": {
-          "type": "slide",
-          "name": "BFCM",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
-            "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
-            "image_mobile": "shopify://shop_images/HP_Banner_Mob_425x500_dc599e38-f694-44a4-b1ad-34239a166bef.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#1f1946",
-            "heading": "Our Gift to You",
-            "heading_size": "h1",
-            "heading_max_width": 580,
-            "text": "Buy any product and add your selected Omega-3 to cart.* Use code OMEGA3GIFT.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 640,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 9,
-            "button_label_1": "Shop 30% off",
-            "button_link_1": "shopify://collections/sale",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
           }
         },
         "slide_fyNhkn": {
@@ -198,7 +167,6 @@
         "slide_JWNKmf",
         "slide_Bwck6W",
         "slide_Mdp9gj",
-        "slide_UPkjtL",
         "slide_fyNhkn",
         "slide_4TWen8"
       ],
