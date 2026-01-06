@@ -186,6 +186,11 @@
           "cards_background": "#ffffff",
           "cards_border_color": "#ffffff"
         }
+      },
+      "11786510964825301166": {
+        "type": "shopify://apps/sm-post-purchase-survey-nps/blocks/survey-script/5a89be3b-263d-4d60-b753-49ddece8cf6a",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
