@@ -26,9 +26,9 @@
     {% unless canonical_url contains '?page' %}
       {%- assign canonical_url_output = canonical_url | split: '?' | first -%}
         {% if canonical_url_output contains 'blog' %}
-          {%- assign canonical_url_output_blog = canonical_url | split: '.xtend-life' | last -%}
-          {% capture new_canonical  %}{{ canonical_url_output | split: ".xtend-life" | first }}{% endcapture %}
-          {% assign new_canonical = new_canonical | replace: new_canonical , 'https://www.xtend-life'| append: canonical_url_output_blog %}
+          {%- assign canonical_url_output_blog = canonical_url | split: 'xtendlife' | last -%}
+          {% capture new_canonical  %}{{ canonical_url_output | split: "xtendlife" | first }}{% endcapture %}
+          {% assign new_canonical = new_canonical | replace: new_canonical , 'https://xtendlife'| append: canonical_url_output_blog %}
           <link rel="canonical" href="{{ new_canonical }}">
           {% else %}
       <link rel="canonical" href="{{ canonical_url_output }}">
