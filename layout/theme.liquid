@@ -575,9 +575,11 @@ powered by <a href="https://www.livechatinc.com/?welcome" rel="noopener" target=
     </script>
   {%- endif -%}
 {%- endif -%}
-
+{% comment %}
+     Removed 14/01/2026 due to 404
 <script src="{{ 'photoswipe.umd.min.js' | asset_url }}"></script>
 <script src="{{ 'photoswipe-lightbox.umd.min.js' | asset_url }}"></script>
+{% endcomment %}
 
 {%- if request.page_type == 'collection' and settings.feature_enabled_product_locale -%}
   <script>try { RestrictedCountries.collection_init && RestrictedCountries.collection_init(); } catch(e) {}</script>
