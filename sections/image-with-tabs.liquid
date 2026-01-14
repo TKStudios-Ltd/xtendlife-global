@@ -297,7 +297,11 @@
 
     document.documentElement.dataset.swiperLoading = '1';
 
+    {% comment %}
+     Removed 14/01/2026 due to 404
     const cssHref = {{ 'swiper-bundle.min.css' | asset_url | json }};
+    {% endcomment %}
+     const cssHref = '';
     const jsSrc  = {{ 'swiper-bundle.min.js'  | asset_url | json }};
 
     const css = document.createElement('link');
