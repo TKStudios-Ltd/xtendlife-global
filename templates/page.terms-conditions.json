@@ -132,6 +132,15 @@
             "row_content": "<ul><li>This offer is valid from 4:00 PM EST December 18, 2025 to 4:00 PM EST January 4, 2026, or while stocks last. </li><li>Use code OMEGAGIFT at checkout to receive your choice of Omega 3 / DHA Plus or Omega 3 / DHA Fish Oil Mini Gels or Vegan Omega 3, with any purchase. </li><li>To qualify, the discount code OMEGAGIFT must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>Your choice of selected Omega product must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code OMEGAGIFT cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.  Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated. </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_DFeJnd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Health Survey",
+            "icon": "none",
+            "row_content": "<ul><li>Survey closes: January 23, 2026, at 11:59 PM EST. </li><li>Discount code valid until: January 25, 2026, at 11:59 PM EST. </li><li>Use the specified discount code at checkout to redeem the offer. </li><li>The discount code cannot be applied retrospectively to completed or charged orders. </li><li>The discount code must be entered on the Xtendlife website in the discount code field at checkout.</li><li>Subscribe & Save customers must place a separate, one-off order to use the discount code. </li><li>The discount code cannot be applied to previous purchases or combined with other product discounts. </li><li>The discount code is not transferable and may not be resold or redeemed for cash. </li><li>The discount code is one-time use only, per customer.  </li><li>Xtendlife reserves the right to invalidate the discount code if these terms and conditions are not met. </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -146,7 +155,8 @@
         "collapsible_row_VPeEdn",
         "collapsible_row_JgjLy4",
         "collapsible_row_jidCxi",
-        "collapsible_row_87CthE"
+        "collapsible_row_87CthE",
+        "collapsible_row_DFeJnd"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
