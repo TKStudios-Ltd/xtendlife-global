@@ -69,7 +69,8 @@
         "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     },
     "multicolumn_A6pqFF": {
@@ -80,7 +81,7 @@
           "settings": {
             "icon": "shopify://shop_images/Icon.svg",
             "title": "",
-            "text": "<p>Trusted Brand for over 25 years</p>",
+            "text": "<p>Trusted Brand for over 26 years</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -91,7 +92,7 @@
           "settings": {
             "icon": "shopify://shop_images/Icon_1.svg",
             "title": "",
-            "text": "<p>Proudly made in New Zealand</p>",
+            "text": "<p>Proudly New Zealand Owned</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -917,7 +918,8 @@
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     }
   },
