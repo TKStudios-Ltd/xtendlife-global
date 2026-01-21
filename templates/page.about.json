@@ -48,7 +48,8 @@
         "color_scheme": "scheme-4a165708-d717-4510-8797-45c22a9dd023",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     },
     "rich_text_hALQxi": {
@@ -89,7 +90,7 @@
           "settings": {
             "icon": "shopify://shop_images/Icon.svg",
             "title": "",
-            "text": "<p>Trusted Brand for over 25 years</p>",
+            "text": "<p>Trusted Brand for over 26 years</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -100,7 +101,7 @@
           "settings": {
             "icon": "shopify://shop_images/Icon_1.svg",
             "title": "",
-            "text": "<p>Proudly made in New Zealand</p>",
+            "text": "<p>Proudly New Zealand Owned</p>",
             "link_label": "",
             "link": "",
             "video_url": ""
@@ -236,7 +237,7 @@
         "text_xWmiWB": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Our Story</strong> We’re not in the supplement business. We’re in the best life business.</p><p>Because when you’re healthy, everything feels easier, more possible, and a whole lot more fun.</p><p>That simple but powerful idea is what got Warren Matthews (Xtendlife’s founder) started. He wanted to feel better and get more out of life. So he dug into the science to create supplements that support long-term wellbeing.</p><p>More than 25 years later, that mission is still going strong. We’re always learning, always finding new ways to help you stay well, feel good, and live fully, whatever your age or stage.</p><p>Xtendlife was never just about adding years to life. It’s about filling those years with more vitality, more adventures, and more of what matters to you.</p><p>From everyday energy to targeted support, we believe it’s never too early, or too late, to feel your best. We’re here for lasting health, not quick fixes or passing fads.</p><p>Every supplement we make blends the best of nature and science. We hand-pick premium, traceable ingredients, back them with research, and combine them in ways your body can truly use. And because we make everything ourselves, we know exactly what goes in and what you get out.</p><p>Most importantly, we’re in it with you. We care deeply. That means real, personal support that lasts well beyond your first order. Many of our customers have been with us for decades. That’s no accident; it’s the result of trust, care, and consistency over time.<br/><br/>Because when you’re feeling good, life opens up. And helping you get there is what we love most.</p>"
+            "text": "<p><strong>Our Story</strong> We’re not in the supplement business. We’re in the best life business.</p><p>Because when you’re healthy, everything feels easier, more possible, and a whole lot more fun.</p><p>That simple but powerful idea is what got Warren Matthews (Xtendlife’s founder) started. He wanted to feel better and get more out of life. So he dug into the science to create supplements that support long-term wellbeing.</p><p>More than 26 years later, that mission is still going strong. We’re always learning, always finding new ways to help you stay well, feel good, and live fully, whatever your age or stage.</p><p>Xtendlife was never just about adding years to life. It’s about filling those years with more vitality, more adventures, and more of what matters to you.</p><p>From everyday energy to targeted support, we believe it’s never too early, or too late, to feel your best. We’re here for lasting health, not quick fixes or passing fads.</p><p>Every supplement we make blends the best of nature and science. We hand-pick premium, traceable ingredients, back them with research, and combine them in ways your body can truly use. And because we make everything ourselves, we know exactly what goes in and what you get out.</p><p>Most importantly, we’re in it with you. We care deeply. That means real, personal support that lasts well beyond your first order. Many of our customers have been with us for decades. That’s no accident; it’s the result of trust, care, and consistency over time.<br/><br/>Because when you’re feeling good, life opens up. And helping you get there is what we love most.</p>"
           }
         }
       },
@@ -460,7 +461,8 @@
         "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
-        "show_text_below": true
+        "show_text_below": true,
+        "color_scheme_mobile": ""
       }
     },
     "rich_text_XRCKpg": {
