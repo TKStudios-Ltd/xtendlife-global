@@ -92,7 +92,7 @@
         search: {{ search.terms | json }},
       };
     </script>
-    <script src="https://static.runconverge.com/pixels/fEt_ee.js" async></script>
+    <script src="https://static.runconverge.com/pixels/{{ pixel_token }}.js" async></script>
     <script>
       window.cvg||(cvg=function(){(cvg.process?cvg.process:((cvg.queue=cvg.queue||[]).push(arguments)))},cvg.queue=[]);
       cvg({method:"track",eventName:"$page_load"});
