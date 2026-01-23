@@ -186,15 +186,6 @@
             "row_content": "<p>Our Customer Relations team is always happy to help. You can contact us at customer.service@xtend-life.com, and we’ll get back to you as soon as possible.</p><p>Looking ahead, we have an exciting new product line-up planned for the year ahead, and we look forward to sharing it with you as we continue to support your health journey.</p><p>Thank you for your continued trust in Xtendlife. Your support allows us to keep doing things properly, today and into the future.</p>",
             "page": ""
           }
-        },
-        "collapsible_row_CP6tcL": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "d",
-            "icon": "none",
-            "row_content": "<p>Yes, in part. Changes in global trade conditions, including recent US tariff updates, have increased the cost of supplying products internationally. As a global brand, these changes affect our overall cost base.</p><p>This pricing update allows us to manage these impacts while continuing to manufacture to the same high standards across all markets, without compromising on quality or consistency.</p>",
-            "page": ""
-          }
         }
       },
       "block_order": [
@@ -215,8 +206,7 @@
         "collapsible_row_PBKpED",
         "collapsible_row_M6mWp7",
         "collapsible_row_B7U6K3",
-        "collapsible_row_AmtRt9",
-        "collapsible_row_CP6tcL"
+        "collapsible_row_AmtRt9"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
