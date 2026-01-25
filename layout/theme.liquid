@@ -67,36 +67,7 @@
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-67KQ7D6DTB');
-    </script>
-
-    {%- comment -%} Converge pixel (domain-mapped token) {%- endcomment -%}
-    {%- assign domain = request.host -%}
-    {% assign path = request.path %}
-    {%- assign pixel_token = '' -%}
-    {%- if path contains '/en-au' -%}
-      {%- assign pixel_token = 'MwFcA_' -%}    
-    {%- elsif path contains '/en-gb' -%}
-      {%- assign pixel_token = '0Wqmzo' -%}
-    {%- elsif domain == 'xtendlife.co' -%}
-      {%- assign pixel_token = 'ord9Jz' -%}
-    {%- else -%}
-      {%- assign pixel_token = 'fEt_ee' -%}
-    {%- endif -%}
-
-    <script>
-      window['__cvg_shopify_info'] = {
-        product: {{ product | json }},
-        variant: {{ product.selected_or_first_available_variant | json }},
-        currency: {{ shop.currency | json }},
-        collection: {{ collection | json }},
-        search: {{ search.terms | json }},
-      };
-    </script>
-    <script src="https://static.runconverge.com/pixels/{{ pixel_token }}.js" async></script>
-    <script>
-      window.cvg||(cvg=function(){(cvg.process?cvg.process:((cvg.queue=cvg.queue||[]).push(arguments)))},cvg.queue=[]);
-      cvg({method:"track",eventName:"$page_load"});
-    </script>
+    </script>    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -419,7 +390,36 @@
       }
       document.documentElement.classList.add('js');
     </script>
+    
+    {%- comment -%} Converge pixel (domain-mapped token) {%- endcomment -%}
+    {%- assign domain = request.host -%}
+    {% assign path = request.path %}
+    {%- assign pixel_token = '' -%}
+    {%- if path contains '/en-au' -%}
+      {%- assign pixel_token = 'MwFcA_' -%}    
+    {%- elsif path contains '/en-gb' -%}
+      {%- assign pixel_token = '0Wqmzo' -%}
+    {%- elsif domain == 'xtendlife.co' -%}
+      {%- assign pixel_token = 'ord9Jz' -%}
+    {%- else -%}
+      {%- assign pixel_token = 'fEt_ee' -%}
+    {%- endif -%}
 
+    <script>
+      window['__cvg_shopify_info'] = {
+        product: {{ product | json }},
+        variant: {{ product.selected_or_first_available_variant | json }},
+        currency: {{ shop.currency | json }},
+        collection: {...{{ collection | json }}, products: {{ collection.products | json }}},
+        search: {{ search.terms | json }},
+      };
+
+    </script>
+    <script src="https://static.runconverge.com/pixels/{{ pixel_token }}.js" async></script>
+    <script>
+      window.cvg||(cvg=function(){cvg.process?cvg.process.apply(cvg,arguments):cvg.queue.push(arguments)},cvg.queue=[]);
+      cvg({method:"track",eventName:"$page_load"});
+    </script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
