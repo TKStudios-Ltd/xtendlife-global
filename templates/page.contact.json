@@ -64,6 +64,7 @@
         },
         "location_rm9HUP": {
           "type": "location",
+          "disabled": true,
           "settings": {
             "location": "Thailand Distributors",
             "details": "<p>Phone +66 2 0260140<br/>Mobile +66 8 14478492<br/>Exclusive Natural Product Company Limited,<br/>Rama 9 Road,<br/>G Tower (Level 32), Huay Kwang District,<br/>Huay Kwang Bangkok 10310, Thailand</p>"
