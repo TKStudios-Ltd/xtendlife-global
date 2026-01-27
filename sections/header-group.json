@@ -14,6 +14,12 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_E3r3QK": {
+          "type": "announcement",
+          "settings": {
+            "content": "<p>Severe weather in parts of the US may temporarily impact delivery times.</p>"
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -22,10 +28,11 @@
         }
       },
       "block_order": [
+        "announcement_E3r3QK",
         "announcement-bar-0"
       ],
       "settings": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "color_scheme": "scheme-4",
         "show_line_separator": false,
