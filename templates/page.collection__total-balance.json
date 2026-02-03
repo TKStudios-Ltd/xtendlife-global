@@ -681,6 +681,93 @@
         "padding_bottom": 60
       }
     },
+    "comparison_chart_zerKjN": {
+      "type": "comparison-chart",
+      "blocks": {
+        "column_aycMcH": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-mens-premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
+            "row6_text": "7"
+          }
+        },
+        "column_cUDBpC": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-mens",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
+            "row6_text": "4"
+          }
+        },
+        "column_tBUth3": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-womens-premium",
+            "row1_ticks": 3,
+            "row2_ticks": 3,
+            "row3_ticks": 3,
+            "row4_ticks": 3,
+            "row5_ticks": 1,
+            "row6extra_ticks": 1,
+            "row7extra_text": "",
+            "row6_text": "7"
+          }
+        },
+        "column_Dp9TyP": {
+          "type": "column",
+          "settings": {
+            "product": "total-balance-womens",
+            "row1_ticks": 1,
+            "row2_ticks": 1,
+            "row3_ticks": 1,
+            "row4_ticks": 1,
+            "row5_ticks": 1,
+            "row6extra_ticks": 0,
+            "row7extra_text": "",
+            "row6_text": "4"
+          }
+        }
+      },
+      "block_order": [
+        "column_aycMcH",
+        "column_cUDBpC",
+        "column_tBUth3",
+        "column_Dp9TyP"
+      ],
+      "name": "Comparison Chart",
+      "settings": {
+        "heading": "Which Total Balance Version is Right for Me?",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "row1_label": "Full Spectrum Multivitamin",
+        "row2_label": "DNA and Cell Repair",
+        "row3_label": "Immunity Support",
+        "row4_label": "Anti-Aging Formula",
+        "row5_label": "Enzymes, Amino Acids",
+        "row6extra_label": "Enteric Coating",
+        "row7extra_label": "",
+        "row6_label": "Dosage Per Day",
+        "shop_cta": "Shop now",
+        "col_width": 300,
+        "gap": 0,
+        "max_ticks": 4,
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    },
     "comparison_chart_Ehzkpz": {
       "type": "comparison-chart",
       "blocks": {
@@ -735,7 +822,7 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "4"
           }
@@ -747,6 +834,7 @@
         "column_7chcQR",
         "column_tQCBEQ"
       ],
+      "disabled": true,
       "name": "Comparison Chart",
       "settings": {
         "heading": "Which Total Balance Version is Right for Me?",
@@ -919,6 +1007,7 @@
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
     "image_with_text_83HE6c",
+    "comparison_chart_zerKjN",
     "comparison_chart_Ehzkpz",
     "video_slider_QxaRdC",
     "newsletter_qKtmmH",
