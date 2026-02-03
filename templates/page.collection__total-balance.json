@@ -707,7 +707,7 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "4"
           }
@@ -735,7 +735,7 @@
             "row3_ticks": 1,
             "row4_ticks": 1,
             "row5_ticks": 1,
-            "row6extra_ticks": 0,
+            "row6extra_ticks": 1,
             "row7extra_text": "",
             "row6_text": "4"
           }
