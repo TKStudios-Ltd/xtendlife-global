@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "SuperDay Daily Nutrition for Every Stage of Life",
+            "heading": "SuperDay - Daily Nutrition for Every Stage of Life",
             "heading_size": "h1"
           }
         },
@@ -62,18 +62,18 @@
         "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
         "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
         "image_mobile": "shopify://shop_images/SuperDay_Mob_yellow.png",
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
         "image_behavior": "none",
         "desktop_content_position": "top-center",
         "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-e9afb411-270e-49f3-abb6-8db621023592",
+        "color_scheme": "scheme-1",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "left",
         "show_text_below": false,
-        "color_scheme_mobile": ""
+        "color_scheme_mobile": "scheme-1"
       }
     },
     "multicolumn_A6pqFF": {
