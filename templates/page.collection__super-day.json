@@ -59,7 +59,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Family-1335399765_4.png",
+        "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
+        "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
+        "image_mobile": "shopify://shop_images/SuperDay_Mob_yellow.png",
         "image_overlay_opacity": 20,
         "image_height": "small",
         "wide_container": true,
@@ -298,7 +300,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/TBMP_340_1113.png",
+        "image": "shopify://shop_images/SD-For-60__FOP_70727bb1-86d7-4188-9ab5-699dd45bcf6e.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
