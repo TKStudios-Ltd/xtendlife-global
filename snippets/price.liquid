@@ -32,6 +32,13 @@
   assign has_selling_plan = false
   if product.selling_plan_groups.size > 0
     assign has_selling_plan = true
+    for group in product.selling_plan_groups
+      for plan in group.selling_plans
+        if plan.name contains 'Pre-order'
+          assign has_selling_plan = false
+        endif
+      endfor
+    endfor    
   endif
 
 -%}
