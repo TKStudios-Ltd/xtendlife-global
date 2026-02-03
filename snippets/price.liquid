@@ -29,6 +29,28 @@
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 
+  assign is_product_page = false
+  if template contains 'product'
+    assign is_product_page = true
+  endif
+
+  assign has_selling_plan = false
+  if product.selling_plan_groups.size > 0
+    assign has_selling_plan = true
+    for group in product.selling_plan_groups
+      for plan in group.selling_plans
+        if plan.name contains 'Pre-order'
+          assign has_selling_plan = false
+        endif
+      endfor
+    endfor    
+  endif
+
+  assign hide_price = false
+  if is_product_page and has_selling_plan
+    assign hide_price = true
+  endif
+
 -%}
 
 {%- liquid
@@ -92,6 +114,7 @@
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
       {%- if show_badges %} price--show-badge{% endif -%}
+      {%- if hide_price %} hidden{% endif -%}  
     "
   >
     <div class="price__container">
