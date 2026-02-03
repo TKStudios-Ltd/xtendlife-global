@@ -28,6 +28,12 @@
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
+
+  assign has_selling_plan = false
+  if product.selling_plan_groups.size > 0
+    assign has_selling_plan = true
+  endif
+
 -%}
 
 {%- liquid
@@ -91,6 +97,7 @@
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
       {%- if show_badges %} price--show-badge{% endif -%}
+      {%- if has_selling_plan %} hidden{% endif -%}  
     "
   >
     <div class="price__container">
