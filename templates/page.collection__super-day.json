@@ -405,6 +405,7 @@
         },
         "text_mnQxG6": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>SuperDay is designed to support how you feel and function day to day, with balanced nutrition that works best when taken consistently.</p>",
             "text_style": "body"
