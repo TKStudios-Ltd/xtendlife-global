@@ -4637,3 +4637,8 @@ h2.shipping-dhl-flex img {
 .shopify-block.recharge-subscription-widget recharge-subscription-widget {
   max-width: 100% !important;
 }
+
+/* Shopify Installments */
+form[id*="product-form-installment"] {
+    display: none !important;
+}
