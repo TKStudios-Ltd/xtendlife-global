@@ -182,8 +182,8 @@
         "collapsible_row_wRt7Wa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Optimised for Men and Women",
-            "row_content": "<p>Our gender-specific formulas support the specific needs of men and women, including prostate and testosterone support for men and support for menopause and PMS for women.</p>",
+            "heading": "Tailored by Life Stage",
+            "row_content": "<p>Nutritional needs change over time. That’s why SuperDay offers targeted formulas for healthy aging, adult wellness, and growing kids, so you get relevant support without overdoing it.</p>",
             "page": "",
             "open": false
           }
@@ -191,7 +191,7 @@
         "text_QNdBXj": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Manufactured in New Zealand</li><li>90+ vitamins, minerals, enzymes, herbs and other ingredients</li><li>Based on science and constantly updated for 20 years</li></ul>",
+            "text": "<ul><li>Built for daily consistency</li><li>Designed for real routines</li><li>Tailored by life stage</li></ul>",
             "text_style": "body"
           }
         }
@@ -237,7 +237,7 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Start Your Wellness Journey",
+        "title": "Choose the Right SuperDay for You",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -245,9 +245,9 @@
         "tab_featured_label": "",
         "tab_full_label": "",
         "tab_alt_label": "",
-        "featured_collection": "total-balance-featured",
+        "featured_collection": "superday",
         "featured_count": 4,
-        "full_collection": "total-balance-range",
+        "full_collection": "superday",
         "full_count": 12,
         "alt_collection": "",
         "alt_count": 12,
@@ -274,14 +274,14 @@
         "heading_zhEGVe": {
           "type": "heading",
           "settings": {
-            "heading": "Total Balance = Your Daily Nutritional Foundation",
+            "heading": "Your Daily Nutritional Foundation",
             "heading_size": "h1"
           }
         },
         "text_bztXa3": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Vitamins</strong><br/>Comprehensive blend of essential vitamins you need each day.<br/><br/><strong>Minerals and Micro Nutrients</strong><br/>Promotes cell growth and builds immunity.<br/><br/><strong>Powerful Antioxidants</strong><br/>Resists the damage caused by free radicals.<br/><br/><strong>Amino Acids</strong><br/>Builds protein and supporting metabolism and cellular health.<br/><br/><strong>Enzymes</strong><br/>Boosts bioavailability of the nutrients and deliver nutrients to cells.<br/><br/><strong>Eye Health Blend</strong><br/>Targeted eye-nourishing nutrients for healthy vision.</p>",
+            "text": "<p>Every SuperDay formula is built as a foundation for daily nutrition, bringing together essential nutrients your body needs regularly, not just occasionally. <br/></p><ul><li>Essential vitamins and minerals for everyday function <br/></li><li>Functional botanicals and antioxidants for daily resilience <br/></li><li>Prebiotic fibre to support gut health and digestion <br/></li><li>Powder format for easy daily use and absorption </li></ul>",
             "text_style": "body"
           }
         }
@@ -397,15 +397,22 @@
         "heading_HLeMWQ": {
           "type": "heading",
           "settings": {
-            "heading": "Benefits of Total Balance",
+            "heading": "Everyday Support That Adds Up Over Time",
             "heading_size": "h2"
+          }
+        },
+        "text_mnQxG6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SuperDay is designed to support how you feel and function day to day, with balanced nutrition that works best when taken consistently.</p>",
+            "text_style": "body"
           }
         },
         "collapsible_row_eJMy84": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Whole-Body Wellness",
-            "row_content": "<p>Total Balance supports your health from the inside out, with nutrients that work in harmony to maintain vitality, support organ function, and help you feel your best every day.</p><p>From energy and recovery to healthy skin and strong bones, it’s daily support for a healthier you.</p>",
+            "heading": "Energy and Vitality Support",
+            "row_content": "<p>SuperDay provides essential nutrients that support normal energy metabolism and nervous system function, helping support steady energy throughout the day without relying on quick fixes.</p>",
             "page": "",
             "open": true
           }
@@ -413,8 +420,8 @@
         "collapsible_row_E3dGpt": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Heart & Circulation",
-            "row_content": "<p>Formulated to support healthy circulation, blood pressure, and cholesterol levels already within the normal range, Total Balance supports the systems that keep your heart and blood vessels in good condition, for long-term cardiovascular wellbeing.<br/><br/></p>",
+            "heading": "Brain and Mental Clarity",
+            "row_content": "<p>With nutrients that support cognitive function and brain health, SuperDay helps maintain mental clarity, focus, and everyday sharpness as part of healthy aging and lifelong wellbeing.</p>",
             "page": "",
             "open": false
           }
@@ -422,8 +429,8 @@
         "collapsible_row_mNwhUk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Mind, Mood & Energy",
-            "row_content": "<p>Nutrients in Total Balance help support mental clarity, focus, and a balanced mood, while also contributing to healthy energy levels and resilience. It’s designed to help you think clearly, feel balanced, and stay energised through every stage of life.</p>",
+            "heading": "Digestive Health Support",
+            "row_content": "<p>Prebiotic fiber and supporting nutrients help maintain healthy digestion and nutrient absorption, so your body can make better use of what you consume each day.</p>",
             "page": "",
             "open": false
           }
@@ -431,8 +438,8 @@
         "collapsible_row_hD4rk6": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Cellular Health & Healthy Aging",
-            "row_content": "<p>Your body renews itself daily, cell by cell. Total Balance provides antioxidants and essential nutrients that help protect against oxidative stress, supporting healthy DNA, cellular energy, and overall vitality as you age.</p>",
+            "heading": "Immune and Cellular Support",
+            "row_content": "<p>Vitamins, minerals, and antioxidants support normal immune function and help protect cells from oxidative stress, contributing to overall resilience and everyday health.</p>",
             "page": "",
             "open": false
           }
@@ -440,14 +447,15 @@
         "collapsible_row_nq449P": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Digestive, Immune & Joint Support",
-            "row_content": "<p>A strong foundation starts with balance. Total Balance supports digestive comfort and nutrient absorption while providing nutrients that support immunity, joint health, and flexibility, so you can keep moving and feeling well every day.</p>",
+            "heading": "Bone and Muscle Support",
+            "row_content": "<p>SuperDay includes nutrients that support bone health, muscle function, and connective tissue, helping maintain strength, mobility, and overall physical wellbeing over time.</p>",
             "page": "",
             "open": false
           }
         },
         "collapsible_row_PbVEn9": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Hormonal Balance & Vitality",
             "row_content": "<p>With tailored versions for men and women, Total Balance includes nutrients that support hormonal balance, reproductive health, and overall vitality, helping you feel your best at every age.</p>",
@@ -458,6 +466,7 @@
       },
       "block_order": [
         "heading_HLeMWQ",
+        "text_mnQxG6",
         "collapsible_row_eJMy84",
         "collapsible_row_E3dGpt",
         "collapsible_row_mNwhUk",
@@ -747,6 +756,7 @@
         "column_7chcQR",
         "column_tQCBEQ"
       ],
+      "disabled": true,
       "name": "Comparison Chart",
       "settings": {
         "heading": "Which Total Balance Version is Right for Me?",
