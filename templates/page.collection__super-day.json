@@ -55,7 +55,8 @@
         "h2 {line-height: 1.1;}",
         ".subtitle {max-width: 460px; margin-top: 2rem;}",
         ".subtitle p {font-size: 20px;}",
-        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}"
+        "@media (max-width: 749px) {.banner__heading {font-size: 24px; line-height: 1; max-width: 160px; }}",
+        ".banner__heading {max-width: 560px;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
