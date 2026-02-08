@@ -64,7 +64,7 @@
             "text_max_width": 360,
             "small_text": "",
             "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
+            "small_text_font_size_mobile": 9,
             "button_label_1": "Shop now",
             "button_link_1": "shopify://collections/heart-health",
             "button_style_secondary_1": false,
