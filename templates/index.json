@@ -45,6 +45,7 @@
         },
         "slide_y3FCKH": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Heart_health_banner.png",
             "image_tablet": "shopify://shop_images/Heart_health_Tablet.png",
