@@ -50,7 +50,6 @@
             "image": "shopify://shop_images/Heart_health_banner.png",
             "image_tablet": "shopify://shop_images/Heart_health_Tablet.png",
             "image_mobile": "shopify://shop_images/Heart_health_Mob.png",
-            "mobile_inline_image": "shopify://shop_images/Heart_health_Mob.png",
             "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 30,
@@ -219,6 +218,84 @@
         "autoplay_delay": 4000,
         "loop": false,
         "speed": 700
+      }
+    },
+    "slideshow_F6q73C": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_VXzRh6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Heart_health_banner.png",
+            "image_tablet": "shopify://shop_images/Heart_health_Tablet.png",
+            "image_mobile": "shopify://shop_images/Heart_health_Mob.png",
+            "image_overlay_opacity": 0,
+            "background_color": "#ffffff",
+            "heading": "Care for your heart, on us",
+            "heading_size": "h1",
+            "heading_max_width": 360,
+            "subheading": "Purchase a selected Heart Health product and get <strong>GG Pure FREE</strong>. Add <strong>GG Pure</strong> to your cart and use code <strong>HEARTGIFT</strong> at checkout.",
+            "subheading_font_size_desktop": 24,
+            "subheading_font_size_mobile": 18,
+            "subheading_max_width": 360,
+            "button_label": "Shop Now",
+            "link": "",
+            "button_style_secondary": false,
+            "button_secondary_label": "",
+            "link_secondary": "",
+            "button_secondary_style_secondary": true,
+            "show_text_box": false,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_pm3XTm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
+            "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
+            "image_mobile": "shopify://shop_images/Gut-Harmony-mob-FINAL-2-27_1c40d0e0-fa2e-40aa-a9f4-96700e38b304.png",
+            "image_overlay_opacity": 0,
+            "background_color": "#34ba93",
+            "heading": "Meet Your Gut Harmony",
+            "heading_size": "h1",
+            "heading_max_width": 340,
+            "subheading": "Our new triple-biotic blend, the missing piece to digestive balance.",
+            "subheading_font_size_desktop": 24,
+            "subheading_font_size_mobile": 18,
+            "subheading_max_width": 360,
+            "button_label": "Shop Now",
+            "link": "shopify://products/gut-harmony",
+            "button_style_secondary": false,
+            "button_secondary_label": "",
+            "link_secondary": "",
+            "button_secondary_style_secondary": true,
+            "show_text_box": false,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_VXzRh6",
+        "slide_pm3XTm"
+      ],
+      "disabled": true,
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "wide_container": true,
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": ""
       }
     },
     "multicolumn_A6pqFE": {
@@ -1182,6 +1259,7 @@
   },
   "order": [
     "media_hero_slider_VC34DA",
+    "slideshow_F6q73C",
     "multicolumn_A6pqFE",
     "rich_text_e8Phjw",
     "featured_collection_jqXfKn",
