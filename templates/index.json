@@ -14,6 +14,7 @@
       "blocks": {
         "slide_y3FCKH": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Heart_health_banner_341d3621-88b3-463f-a0a3-da25a0287bbb.png",
             "image_tablet": "shopify://shop_images/Heart_health_Tablet_1e40f714-2423-4b85-8fce-517a5ddfe2aa.png",
