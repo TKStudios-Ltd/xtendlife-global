@@ -12,35 +12,33 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
-        "slide_JWNKmf": {
+        "slide_y3FCKH": {
           "type": "slide",
-          "name": "Slide-Omega 3 Give Away",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/3_Omega-3-GIFT_HP-Banner.png",
-            "image_tablet": "shopify://shop_images/3_Omega-3-GIFT_HP-iPad.png",
-            "mobile_inline_image": "shopify://shop_images/3_Omega-3-GIFT_HP-Mobile.png",
-            "mobile_inline_bg": "#f4f8fb",
+            "image": "shopify://shop_images/Heart_health_banner_341d3621-88b3-463f-a0a3-da25a0287bbb.png",
+            "image_tablet": "shopify://shop_images/Heart_health_Tablet_1e40f714-2423-4b85-8fce-517a5ddfe2aa.png",
+            "image_mobile": "shopify://shop_images/Heart_health_mob_1cec02c3-17a2-4383-99c9-cad8643f027f.png",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 30,
             "text_color": "#1f1946",
-            "heading": "Our Holiday Gift to You: Free Omega",
+            "heading": "Care for your heart, on us",
             "heading_size": "h1",
-            "heading_max_width": 470,
-            "text": "Buy any product and receive a free selected Omega*. Add to cart & use code: <strong>OMEGAGIFT</strong>",
+            "heading_max_width": 360,
+            "text": "Purchase a selected Heart Health product and get <strong>GG Pure FREE</strong>. Add <strong>GG Pure</strong> to your cart and use code <strong>HEARTGIFT</strong> at checkout.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
-            "text_max_width": 450,
+            "text_max_width": 360,
             "small_text": "",
             "small_text_font_size_desktop": 12,
             "small_text_font_size_mobile": 9,
-            "button_label_1": "Unlock your bonus",
-            "button_link_1": "shopify://collections/omega-3-health",
+            "button_label_1": "Shop now",
+            "button_link_1": "shopify://collections/heart-health",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": true
           }
         },
         "slide_Bwck6W": {
@@ -103,36 +101,6 @@
             "button_style_secondary_2": true
           }
         },
-        "slide_y3FCKH": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Heart_health_banner_341d3621-88b3-463f-a0a3-da25a0287bbb.png",
-            "image_tablet": "shopify://shop_images/Heart_health_Tablet_1e40f714-2423-4b85-8fce-517a5ddfe2aa.png",
-            "image_mobile": "shopify://shop_images/Heart_health_mob_1cec02c3-17a2-4383-99c9-cad8643f027f.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 30,
-            "text_color": "#1f1946",
-            "heading": "Care for your heart, on us",
-            "heading_size": "h1",
-            "heading_max_width": 360,
-            "text": "Purchase a selected Heart Health product and get <strong>GG Pure FREE</strong>. Add <strong>GG Pure</strong> to your cart and use code <strong>HEARTGIFT</strong> at checkout.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 360,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 9,
-            "button_label_1": "Shop now",
-            "button_link_1": "shopify://collections/heart-health",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": true
-          }
-        },
         "slide_fyNhkn": {
           "type": "slide",
           "disabled": true,
@@ -161,6 +129,37 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": true
+          }
+        },
+        "slide_JWNKmf": {
+          "type": "slide",
+          "name": "Slide-Omega 3 Give Away",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/3_Omega-3-GIFT_HP-Banner.png",
+            "image_tablet": "shopify://shop_images/3_Omega-3-GIFT_HP-iPad.png",
+            "mobile_inline_image": "shopify://shop_images/3_Omega-3-GIFT_HP-Mobile.png",
+            "mobile_inline_bg": "#f4f8fb",
+            "video_mp4": "",
+            "video_adapt_ratio": 30,
+            "text_color": "#1f1946",
+            "heading": "Our Holiday Gift to You: Free Omega",
+            "heading_size": "h1",
+            "heading_max_width": 470,
+            "text": "Buy any product and receive a free selected Omega*. Add to cart & use code: <strong>OMEGAGIFT</strong>",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 450,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 9,
+            "button_label_1": "Unlock your bonus",
+            "button_link_1": "shopify://collections/omega-3-health",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         },
         "slide_4TWen8": {
@@ -194,11 +193,11 @@
         }
       },
       "block_order": [
-        "slide_JWNKmf",
+        "slide_y3FCKH",
         "slide_Bwck6W",
         "slide_Mdp9gj",
-        "slide_y3FCKH",
         "slide_fyNhkn",
+        "slide_JWNKmf",
         "slide_4TWen8"
       ],
       "custom_css": [
