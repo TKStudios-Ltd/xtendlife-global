@@ -480,6 +480,7 @@
         "collapsible_row_nq449P",
         "collapsible_row_PbVEn9"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content {padding: 2rem 6rem 6rem 2rem;}",
         ".image-with-text__heading {margin-bottom: 6rem;}",
