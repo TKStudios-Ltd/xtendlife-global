@@ -266,14 +266,14 @@
         "heading_zhEGVe": {
           "type": "heading",
           "settings": {
-            "heading": "Your Daily Nutritional Foundation",
+            "heading": "What’s Inside Every Scoop",
             "heading_size": "h1"
           }
         },
         "text_bztXa3": {
           "type": "text",
           "settings": {
-            "text": "<p>Every SuperDay formula is built as a foundation for daily nutrition, bringing together essential nutrients your body needs regularly, not just occasionally. <br/></p><ul><li>Essential vitamins and minerals for everyday function <br/></li><li>Functional botanicals and antioxidants for daily resilience <br/></li><li>Prebiotic fibre to support gut health and digestion <br/></li><li>Powder format for easy daily use and absorption </li></ul>",
+            "text": "<p>Every SuperDay formula is built as a foundation for daily nutrition, bringing<br/>together essential nutrients your body needs regularly, not just occasionally.<br/></p><ul><li>Essential vitamins and minerals for everyday function <br/></li><li>Functional botanicals and antioxidants for daily resilience <br/></li><li>Prebiotic fibre to support gut health and digestion <br/></li><li>Powder format for easy daily use and absorption </li></ul>",
             "text_style": "body"
           }
         }
@@ -527,16 +527,38 @@
             "image_text": "",
             "image_text_color": ""
           }
+        },
+        "tab_J3BB6p": {
+          "type": "tab",
+          "settings": {
+            "title": "Daily Support",
+            "button_label": "Shop now",
+            "button_link": "",
+            "image_text": "",
+            "image_text_color": ""
+          }
+        },
+        "tab_3FcBqM": {
+          "type": "tab",
+          "settings": {
+            "title": "Daily Support",
+            "button_label": "Shop now",
+            "button_link": "",
+            "image_text": "",
+            "image_text_color": ""
+          }
         }
       },
       "block_order": [
         "tab_9FNQGz",
         "tab_Vhzqma",
-        "tab_igzFEq"
+        "tab_igzFEq",
+        "tab_J3BB6p",
+        "tab_3FcBqM"
       ],
       "name": "Image with Tabs",
       "settings": {
-        "heading": "Shop by Benefit",
+        "heading": "What One Scoop a Day Can Do",
         "heading_size": "h2",
         "layout": "image_first",
         "left_col_width": 1,
