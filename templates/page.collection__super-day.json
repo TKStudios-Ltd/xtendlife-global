@@ -501,20 +501,20 @@
         "tab_9FNQGz": {
           "type": "tab",
           "settings": {
-            "title": "Daily Support",
-            "button_label": "Shop now",
+            "title": "Energy & Vitality",
+            "button_label": "",
             "button_link": "",
-            "image_text": "",
+            "image_text": "Support steady energy and nervous system function, without relying on quick fixes.",
             "image_text_color": ""
           }
         },
         "tab_Vhzqma": {
           "type": "tab",
           "settings": {
-            "title": "Daily Support",
-            "button_label": "Shop now",
+            "title": "Mind & Focus",
+            "button_label": "",
             "button_link": "",
-            "image_text": "",
+            "image_text": "Nutrients that support cognitive function, mental clarity, and everyday sharpness.",
             "image_text_color": ""
           }
         },
