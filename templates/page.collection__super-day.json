@@ -205,7 +205,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Total_Balance_Overview_image.png",
+        "image": "shopify://shop_images/SuperDay_Page_image.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
