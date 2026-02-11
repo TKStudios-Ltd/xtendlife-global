@@ -20,34 +20,22 @@
     "image_banner_pFjbBG": {
       "type": "image-banner",
       "blocks": {
-        "buttons_JR9Vpa": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SERVING 400,000 CUSTOMERS GLOBALLY",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        },
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "SuperDay - Daily Nutrition for Every Stage of Life",
+            "heading": "<strong>Your Daily Dose of Super</strong>",
             "heading_size": "h1"
           }
         },
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Simple, all-in-one daily nutrition to support healthy aging and everyday vitality. With targeted formulas for 60+, adults, and kids, SuperDay makes daily nutrition easier to maintain.",
+            "text": "Delicious daily powders made in New Zealand, packed with nutrients to support your energy, immunity, and everyday wellbeing.",
             "text_style": "subtitle"
           }
         }
       },
       "block_order": [
-        "buttons_JR9Vpa",
         "heading_4P8W9w",
         "text_FxFrdN"
       ],
