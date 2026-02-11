@@ -139,14 +139,14 @@
         "heading_cpFMj7": {
           "type": "heading",
           "settings": {
-            "heading": "Daily Nutrition That Fits Real Life",
+            "heading": "Wellness Made Effortlessfor Every Age",
             "heading_size": "h1"
           }
         },
         "caption_ADqcV9": {
           "type": "caption",
           "settings": {
-            "caption": "If you are going to build one daily nutrition habit, it should be one you can maintain. Many people know they should support their nutrition, especially as they age, but struggle with routines that involve multiple products. SuperDay simplifies daily nutrition into one easy scoop, with targeted formulas for different life stages. Nutrition designed for real routines, not perfect ones.",
+            "caption": "One scoop a day is all it takes. A simple daily habit to help you and your family feel your best, every day.",
             "additional_caption": "",
             "text_style": "subtitle",
             "text_size": "small"
@@ -155,8 +155,8 @@
         "collapsible_row_hhytby": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Built for Daily Consistency",
-            "row_content": "<p>Daily nutrition only works if it becomes a habit. SuperDay is designed to be taken once a day, mixed into water, juice, or a smoothie, making it easier to stay consistent over time.</p>",
+            "heading": "One Scoop, One Habit",
+            "row_content": "<p>Mix into water, juice, or a smoothie, and you're done. SuperDay is designed to fit your routine, not the other way around.</p>",
             "page": "",
             "open": true
           }
@@ -164,8 +164,8 @@
         "collapsible_row_gpjHHf": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Simpler Than Managing Multiple Supplements",
-            "row_content": "<p>Instead of juggling several products to cover energy, digestion, immunity, and overall vitality, SuperDay brings essential daily support together in one balanced blend.</p>",
+            "heading": "Everything in One Blend",
+            "row_content": "<p>No more juggling multiple supplements. Each formula brings together vitamins, minerals, prebiotics, and botanicals for balanced daily support in a single serve.</p>",
             "page": "",
             "open": true
           }
@@ -173,8 +173,8 @@
         "collapsible_row_wRt7Wa": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Tailored by Life Stage",
-            "row_content": "<p>Nutritional needs change over time. That’s why SuperDay offers targeted formulas for healthy aging, adult wellness, and growing kids, so you get relevant support without overdoing it.</p>",
+            "heading": "The Right Formula for Every Age",
+            "row_content": "<p>Nutritional needs change over time. SuperDay offers targeted formulas for Kids, Adults, and 60+, so everyone gets what they need, nothing they don't.</p>",
             "page": "",
             "open": true
           }
