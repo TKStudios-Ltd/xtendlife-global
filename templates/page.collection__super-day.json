@@ -501,8 +501,8 @@
     "image_banner_FapN8F": {
       "type": "image-banner",
       "custom_css": [
-        ".banner {display:flex;}",
-        "@media (min-width: 750px) {.banner {display:none;}}"
+        ".banner {display: none;}",
+        "@media (max-width: 49px) {.banner {display: flex; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
