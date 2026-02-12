@@ -498,6 +498,25 @@
         "padding_bottom": 0
       }
     },
+    "image_banner_FapN8F": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_mobile": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity_759fdfb4-1697-49e3-bcf4-be4211154de2.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "wide_container": false,
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "color_scheme_mobile": ""
+      }
+    },
     "image_with_tabs_e8cxeC": {
       "type": "image-with-tabs",
       "blocks": {
@@ -1080,6 +1099,7 @@
     "image_with_text_HHyM8a",
     "reviews_slider_EnTCee",
     "image_with_text_3jd3Fg",
+    "image_banner_FapN8F",
     "image_with_tabs_e8cxeC",
     "rich_text_YewMnP",
     "image_infinite_scroll_6YVr3i",
