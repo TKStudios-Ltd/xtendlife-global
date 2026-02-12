@@ -313,14 +313,15 @@
         "review_dXy8WH": {
           "type": "review",
           "settings": {
-            "title": "Amazing Product",
-            "description": "<p>I have been using Total Balance Men’s Premium for more than 5 years, and I hope to be using it for the rest of my life.</p>",
-            "person": "Abito, Singapore",
-            "product": "total-balance-mens-premium"
+            "title": "My 6 and 8 year old love them!",
+            "description": "<p>A super easy way for my 6 and 8 year old to get their vitamins! They love the taste, and it’s been so simple to add to our morning routine. It mixes easily with water using the electric mixer, or we add it to a smoothie.<br/><br/></p>",
+            "person": "Kate, New Zealand",
+            "product": ""
           }
         },
         "review_HzjgFA": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "My Doctor Recommended",
             "description": "<p>I suffered from chronic fatigue. I do feel that these vitamins have helped me significantly over the past few years.</p>",
@@ -330,6 +331,7 @@
         },
         "review_KcRaMj": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Checks all the boxes",
             "description": "<p>I have been taking Total Balance Women's for several years now. This one checked all the boxes! This vitamin makes me feel better.</p>",
@@ -339,6 +341,7 @@
         },
         "review_6xy4xw": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Class of its Own",
             "description": "<p>Total Balance Men's Premium is a game changer in supplementation. I’ve used these for about eight years.</p>",
@@ -348,6 +351,7 @@
         },
         "review_HmjwX3": {
           "type": "review",
+          "disabled": true,
           "settings": {
             "title": "Best Vitamins in the World",
             "description": "<p>I reviewed and studied vitamins being sold over the world, and Total Balance Men’s Premium is the best.</p>",
@@ -363,7 +367,6 @@
         "review_6xy4xw",
         "review_HmjwX3"
       ],
-      "disabled": true,
       "custom_css": [
         "h2 {color: #1f1946;}",
         ".ts-btn svg path {fill: #1f1946;}"
