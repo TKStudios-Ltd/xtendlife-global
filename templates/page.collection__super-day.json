@@ -909,6 +909,68 @@
         "padding_bottom": 80
       }
     },
+    "collapsible_content_TbWkbH": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_Xn79B7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_qXUBrc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_gJrwCU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        },
+        "collapsible_row_XnhacR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "row_content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_Xn79B7",
+        "collapsible_row_qXUBrc",
+        "collapsible_row_gJrwCU",
+        "collapsible_row_XnhacR"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "newsletter_qKtmmH": {
       "type": "newsletter",
       "blocks": {
@@ -1014,6 +1076,7 @@
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
     "video_slider_QxaRdC",
+    "collapsible_content_TbWkbH",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
   ]
