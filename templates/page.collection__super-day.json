@@ -508,7 +508,7 @@
             "button_label": "",
             "button_link": "",
             "image": "shopify://shop_images/Benefits_Energy_Vitality.png",
-            "image_text": "Support steady energy and nervous system function, without relying on quick fixes.",
+            "image_text": "Support steady energy and nervous system function.",
             "image_text_color": "#1f1946"
           }
         },
@@ -519,7 +519,7 @@
             "button_label": "",
             "button_link": "",
             "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
-            "image_text": "Nutrients that support cognitive function, mental clarity, and everyday sharpness.",
+            "image_text": "Stay sharp with nutrients for cognitive function and mental clarity.",
             "image_text_color": "#ffffff"
           }
         },
@@ -530,7 +530,7 @@
             "button_label": "",
             "button_link": "",
             "image": "shopify://shop_images/Digestive_Health_Support.png",
-            "image_text": "Prebiotic fibre and nutrients to support healthy digestion and nutrient absorption.",
+            "image_text": "Prebiotic fibre for healthy digestion and nutrient absorption.",
             "image_text_color": ""
           }
         },
@@ -542,7 +542,7 @@
             "button_link": "",
             "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support.png",
             "image_text": "Vitamins, minerals, and antioxidants to support immune function and protect cells.",
-            "image_text_color": ""
+            "image_text_color": "#1f1946"
           }
         },
         "tab_3FcBqM": {
@@ -552,7 +552,7 @@
             "button_label": "",
             "button_link": "",
             "image": "shopify://shop_images/Benefit_Bone_and_Muscle_Support.png",
-            "image_text": "Nutrients that support bone health, muscle function, and connective tissue strength.",
+            "image_text": "Maintain bone, muscle, and connective tissue health.",
             "image_text_color": ""
           }
         }
