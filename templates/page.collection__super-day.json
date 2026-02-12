@@ -502,7 +502,7 @@
       "type": "image-banner",
       "custom_css": [
         ".banner {display: none;}",
-        "@media (max-width: 49px) {.banner {display: flex; }}"
+        "@media (max-width: 749px) {.banner {display: block; display: flex; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
