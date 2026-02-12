@@ -506,6 +506,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
+        "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity_759fdfb4-1697-49e3-bcf4-be4211154de2.png",
+        "image_tablet": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity_759fdfb4-1697-49e3-bcf4-be4211154de2.png",
         "image_mobile": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity_759fdfb4-1697-49e3-bcf4-be4211154de2.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
