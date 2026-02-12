@@ -915,36 +915,45 @@
         "collapsible_row_Xn79B7": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "What is the Xtend-Life SuperDay range?",
+            "icon": "none",
+            "row_content": "<p>SuperDay is a family of all-in-one daily nutrition powders designed to simplify your health routine. The range includes tailored formulas for Kids (ages 5–12), Adults, and 60+, each one supporting daily energy, immunity, digestion, and long-term wellbeing, all in a convenient, great-tasting scoop. Instead of juggling multiple pills, SuperDay helps you build a daily habit that fits into real life.</p>",
             "page": ""
           }
         },
         "collapsible_row_qXUBrc": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "How do I choose the right SuperDay product for me or my family?",
+            "icon": "none",
+            "row_content": "<p>Each SuperDay formula is age-specific: </p><ul><li><strong>SuperDay for Kids</strong> supports growth, immunity, and focus for children aged 5–12 years. </li><li><strong>SuperDay for Adults</strong> provides comprehensive daily support for energy, digestion, immunity, and stress balance. </li><li><strong>SuperDay for 60+</strong> includes additional support for memory, heart health, bones, and joints, specifically for older adults. </li></ul><p>If you’re choosing for a household, SuperDay makes it easy: one for the kids, one for the adults, and one for the over-60s. Each person gets what they need, without the clutter of multiple products. </p>",
             "page": ""
           }
         },
         "collapsible_row_gJrwCU": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Should I take SuperDay if I’m already on a multivitamin like Total Balance?",
+            "icon": "none",
+            "row_content": "<p>Both products provide comprehensive daily nutrition, so you generally wouldn't need both. Taking two broad-spectrum formulas may lead to unnecessary overlap. It comes down to whether you prefer a tablet-based routine or a daily powder with added fibre and botanicals. If you're unsure, check in with your healthcare provider.</p>",
             "page": ""
           }
         },
         "collapsible_row_XnhacR": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "",
+            "heading": "Can I take SuperDay if I’m pregnant or breastfeeding?",
+            "icon": "none",
+            "row_content": "<p>While many ingredients are safe, it’s always best to check with your healthcare provider before using SuperDay if you're pregnant or breastfeeding. </p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dh3TDH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I take SuperDay every day long-term?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. SuperDay is made for daily use, with safe, research-backed ingredients that support consistent wellbeing over time. There’s no need to cycle on or off; it’s something you can take year-round as part of a simple, effective health routine.</p>",
             "page": ""
           }
         }
@@ -953,12 +962,13 @@
         "collapsible_row_Xn79B7",
         "collapsible_row_qXUBrc",
         "collapsible_row_gJrwCU",
-        "collapsible_row_XnhacR"
+        "collapsible_row_XnhacR",
+        "collapsible_row_dh3TDH"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
-        "heading": "Collapsible content",
+        "heading": "SuperDay FAQs",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
