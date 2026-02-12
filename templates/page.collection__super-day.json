@@ -573,7 +573,7 @@
         "right_col_width": 2,
         "autoplay": true,
         "autoplay_delay": 5,
-        "loop": true,
+        "loop": false,
         "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
         "padding_top": 40,
         "padding_bottom": 100
