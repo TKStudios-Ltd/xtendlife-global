@@ -571,7 +571,7 @@
         "layout": "image_first",
         "left_col_width": 1,
         "right_col_width": 1,
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_delay": 5,
         "loop": false,
         "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
