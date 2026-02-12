@@ -290,7 +290,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Ingredients-Op1.png",
+        "image": "shopify://shop_images/Ingredients-Op1_afd7fcc4-26f5-49c1-9d5d-3fd601d12626.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "image_replacement_text": "",
@@ -507,7 +507,7 @@
             "title": "Energy & Vitality",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefits_Energy_Vitality.png",
+            "image": "shopify://shop_images/Benefits_Energy_Vitality_7a86ad48-7bdb-4ec3-9f37-4d7abb2d3ec3.png",
             "image_text": "Support steady energy and nervous system function.",
             "image_text_color": "#1f1946"
           }
@@ -518,7 +518,7 @@
             "title": "Mind & Focus",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
+            "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity_759fdfb4-1697-49e3-bcf4-be4211154de2.png",
             "image_text": "Stay sharp with nutrients for focus and mental clarity.",
             "image_text_color": "#ffffff"
           }
@@ -529,9 +529,9 @@
             "title": "Digestion",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Digestive_Health_Support.png",
+            "image": "shopify://shop_images/Benefits_Digestive_Health_Support.png",
             "image_text": "Prebiotic fibre for healthy digestion and nutrient absorption.",
-            "image_text_color": ""
+            "image_text_color": "#ffffff"
           }
         },
         "tab_J3BB6p": {
@@ -540,9 +540,9 @@
             "title": "Immunity",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support.png",
-            "image_text": "Every day support for your immune system and cells.",
-            "image_text_color": "#1f1946"
+            "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support_58b2f8c3-070a-4976-adf2-76eaf6ec9056.png",
+            "image_text": "Everyday support for your immune system and cells.",
+            "image_text_color": "#ffffff"
           }
         },
         "tab_3FcBqM": {
