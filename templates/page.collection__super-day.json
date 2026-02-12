@@ -505,8 +505,8 @@
           "type": "tab",
           "settings": {
             "title": "Energy & Vitality",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections",
             "image": "shopify://shop_images/SuperDay_Page_image.png",
             "image_text": "Support steady energy and nervous system function, without relying on quick fixes.",
             "image_text_color": ""
@@ -516,8 +516,8 @@
           "type": "tab",
           "settings": {
             "title": "Mind & Focus",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections",
             "image": "shopify://shop_images/SuperDay_Page_image.png",
             "image_text": "Nutrients that support cognitive function, mental clarity, and everyday sharpness.",
             "image_text_color": ""
@@ -527,8 +527,8 @@
           "type": "tab",
           "settings": {
             "title": "Digestion",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections",
             "image": "shopify://shop_images/SuperDay_Page_image.png",
             "image_text": "Prebiotic fibre and nutrients to support healthy digestion and nutrient absorption.",
             "image_text_color": ""
@@ -538,7 +538,7 @@
           "type": "tab",
           "settings": {
             "title": "Immunity",
-            "button_label": "",
+            "button_label": "Shop now",
             "button_link": "",
             "image": "shopify://shop_images/SuperDay_Page_image.png",
             "image_text": "Vitamins, minerals, and antioxidants to support immune function and protect cells.",
@@ -549,8 +549,8 @@
           "type": "tab",
           "settings": {
             "title": "Bone & Muscle",
-            "button_label": "",
-            "button_link": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections",
             "image": "shopify://shop_images/SuperDay_Page_image.png",
             "image_text": "Nutrients that support bone health, muscle function, and connective tissue strength.",
             "image_text_color": ""
