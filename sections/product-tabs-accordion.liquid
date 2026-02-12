@@ -32,7 +32,10 @@
       {%- assign shipping_col2 = section.settings.shipping_col2 -%}
 
       {%- comment -%} Build tabs list, skipping Directions if its metafield is blank {%- endcomment -%}
-      {%- assign tabs_string = 'details,ingredients' -%}
+      {%- assign tabs_string = 'details' -%}
+      {%- unless ingredients_meta == blank -%}
+        {%- assign tabs_string = tabs_string | append: ',ingredients' -%}
+      {%- endunless -%}
       {%- unless directions_meta == blank -%}
         {%- assign tabs_string = tabs_string | append: ',directions' -%}
       {%- endunless -%}
