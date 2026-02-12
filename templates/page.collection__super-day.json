@@ -217,7 +217,7 @@
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -505,31 +505,31 @@
           "type": "tab",
           "settings": {
             "title": "Energy & Vitality",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections",
-            "image": "shopify://shop_images/SuperDay_Page_image.png",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefits_Energy_Vitality.png",
             "image_text": "Support steady energy and nervous system function, without relying on quick fixes.",
-            "image_text_color": ""
+            "image_text_color": "#1f1946"
           }
         },
         "tab_Vhzqma": {
           "type": "tab",
           "settings": {
             "title": "Mind & Focus",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections",
-            "image": "shopify://shop_images/SuperDay_Page_image.png",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefit_Brain_and_Mental_Clarity.png",
             "image_text": "Nutrients that support cognitive function, mental clarity, and everyday sharpness.",
-            "image_text_color": ""
+            "image_text_color": "#ffffff"
           }
         },
         "tab_igzFEq": {
           "type": "tab",
           "settings": {
             "title": "Digestion",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections",
-            "image": "shopify://shop_images/SuperDay_Page_image.png",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Digestive_Health_Support.png",
             "image_text": "Prebiotic fibre and nutrients to support healthy digestion and nutrient absorption.",
             "image_text_color": ""
           }
@@ -538,9 +538,9 @@
           "type": "tab",
           "settings": {
             "title": "Immunity",
-            "button_label": "Shop now",
+            "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/SuperDay_Page_image.png",
+            "image": "shopify://shop_images/Benefit_Immune_and_Cellular_Support.png",
             "image_text": "Vitamins, minerals, and antioxidants to support immune function and protect cells.",
             "image_text_color": ""
           }
@@ -549,9 +549,9 @@
           "type": "tab",
           "settings": {
             "title": "Bone & Muscle",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections",
-            "image": "shopify://shop_images/SuperDay_Page_image.png",
+            "button_label": "",
+            "button_link": "",
+            "image": "shopify://shop_images/Benefit_Bone_and_Muscle_Support.png",
             "image_text": "Nutrients that support bone health, muscle function, and connective tissue strength.",
             "image_text_color": ""
           }
@@ -571,7 +571,7 @@
         "layout": "image_first",
         "left_col_width": 1,
         "right_col_width": 2,
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_delay": 5,
         "loop": false,
         "section_color_scheme": "scheme-a7c6d6e8-52a5-4a70-bb98-c45f6e2c7587",
