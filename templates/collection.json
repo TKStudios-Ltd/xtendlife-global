@@ -96,8 +96,8 @@
         "caption_bz9N8Y": {
           "type": "caption",
           "settings": {
-            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
-            "additional_caption": "Go Beyond Multivitamins",
+            "caption": "Why juggle multiple supplements when one daily blend can cover the essentials? SuperDay combines vitamins, minerals, prebiotics, and botanicals in a single serve, tailored for Kids, Adults, and 60+.",
+            "additional_caption": "One Scoop. Everything You Need.",
             "text_style": "subtitle",
             "text_size": "small"
           }
@@ -113,7 +113,7 @@
           "type": "button",
           "settings": {
             "button_label": "Learn more",
-            "button_link": "shopify://pages/total-balance",
+            "button_link": "shopify://pages/superday",
             "button_style_secondary": false
           }
         }
@@ -367,7 +367,8 @@
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     }
   },
