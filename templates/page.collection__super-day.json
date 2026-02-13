@@ -1092,7 +1092,7 @@
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
-        "color_scheme_mobile": ""
+        "color_scheme_mobile": "scheme-4"
       }
     }
   },
