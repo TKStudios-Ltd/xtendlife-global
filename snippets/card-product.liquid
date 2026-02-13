@@ -123,8 +123,12 @@
                 {% comment %} {% if card_product.metafields.custom.key_feature_content != blank %}
                   <span class="h4">{{ card_product.metafields.custom.key_feature_content }}</span>
                 {% endif %} {% endcomment %}
-                {% if card_product.metafields.global.description_tag != blank %}
-                  <span class="h4">{{ card_product.metafields.global.description_tag }}</span>
+                {% if card_product.metafields.global.description_tag != blank or card_product.metafields.custom.short_description != blank %}
+                  {% if card_product.metafields.custom.short_description != blank %}
+                    <span class="h4">{{ card_product.metafields.custom.short_description }}</span>
+                  {% elsif card_product.metafields.global.description_tag != blank %}
+                    <span class="h4">{{ card_product.metafields.global.description_tag }}</span>
+                  {% endif %}
                 {% endif %}
               </div>
             </div>
