@@ -808,6 +808,16 @@
             "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
           }
         },
+        "video_slide_7KeUat": {
+          "type": "video_slide",
+          "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
+            "video_url": "https://player.vimeo.com/video/903919531",
+            "title": "Manage Healthy Blood Pressure with VasQFlow",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
+          }
+        },
         "ebook_slide_H7afHL": {
           "type": "ebook_slide",
           "settings": {
@@ -821,6 +831,7 @@
       "block_order": [
         "video_slide_cGj3r3",
         "video_slide_AG7drJ",
+        "video_slide_7KeUat",
         "ebook_slide_H7afHL"
       ],
       "name": "Mixed media slider",
