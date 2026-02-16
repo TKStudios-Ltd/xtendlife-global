@@ -798,13 +798,14 @@
             "description": "Learn more about calcification and the ingredients in CX8, Dr. Joel Kahn and Ivor Cummins discuss the importance of key ingredients and the role they play in supporting a healthy cardiovascular system."
           }
         },
-        "video_slide_gEgGW9": {
+        "video_slide_AG7drJ": {
           "type": "video_slide",
           "settings": {
+            "image": "shopify://shop_images/8a4a66f5830770a400ce08756e819c54179bcdc9_d95e7c4c-0336-47b9-9f87-eda44e557587.png",
             "video_url": "https://player.vimeo.com/video/903918402",
-            "title": "Manage Statin Side Effects",
-            "name": "Dr. Kahn",
-            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            "title": "Manage Arterial Calcification with CX8",
+            "name": "With Dr. Kahn and Ivor Cummins",
+            "description": "As we age, the level of nitric oxide declines. Learn more about the importance of nitric oxide and how to boost it to support healthy blood pressure, circulation and energy."
           }
         },
         "ebook_slide_H7afHL": {
@@ -819,13 +820,13 @@
       },
       "block_order": [
         "video_slide_cGj3r3",
-        "video_slide_gEgGW9",
+        "video_slide_AG7drJ",
         "ebook_slide_H7afHL"
       ],
       "name": "Mixed media slider",
       "settings": {
         "heading": "Resources",
-        "bg_color": "#FFFFFF",
+        "bg_color": "#ffffff",
         "tab_video_label": "Videos",
         "tab_ebook_label": "E-books",
         "default_tab": "videos",
