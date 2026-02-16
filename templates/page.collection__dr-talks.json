@@ -34,7 +34,7 @@
         "heading_4P8W9w": {
           "type": "heading",
           "settings": {
-            "heading": "Support for a Strong, Healthy Heart",
+            "heading": "Nutrition For Your Heart",
             "heading_size": "h1"
           }
         },
@@ -148,7 +148,7 @@
       ],
       "name": "Featured collection tab",
       "settings": {
-        "title": "Top Supplements for Heart Health",
+        "title": "Heart Health Summit Specials",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -299,7 +299,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Risks are high",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood.<br/>Heart disease is the leading cause of death worldwide, which causes 1 out of every 4 deaths in the US. Statistics from the Heart Health Foundation show that cardiovascular diseases affect nearly half of American adults.</p>",
             "page": "",
             "open": true
           }
@@ -308,7 +308,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Symptoms might be hidden",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Although cardiovascular diseases can be life-threatening, some symptoms are \"silent\". Risk factors such as arterial calcification, high blood sugar or pressure, or even just \"feeling tired\" can easily go unnoticed, which is why you need to take preventative action.</p>",
             "page": "",
             "open": false
           }
@@ -317,7 +317,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Heart Health and Men",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Men often have a higher risk of developing cardiovascular diseases (CVD), including coronary artery disease, heart attack, stroke, and heart failure, at a younger age compared to women, this is due to various biological, hormonal, lifestyle, and behavioral factors. Men may engage in specific lifestyle behaviors that increase their risk of CAD, such as higher rates of tobacco use, excessive alcohol consumption, unhealthy dietary habits, and inadequate physical activity. These modifiable risk factors can accelerate the development of CAD and contribute to its onset at a younger age.</p>",
             "page": "",
             "open": false
           }
@@ -326,7 +326,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Heart Health and Women",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Cardiovascular health is also critical for women. Although the higher estrogen hormone in women has been associated with some protective cardiovascular effects, however after menopause, when estrogen levels decline, women's risk of cardiovascular diseases may increase dramatically. Additionally, CVD risk in women can be under-recognized because women may experience atypical symptoms of CVD compared to men. These subtler or more diverse symptoms may not always be immediately recognized as signs of heart disease. Hence, understanding heart health risk factors and taking preventive care is vital for women.</p>",
             "page": "",
             "open": false
           }
@@ -387,6 +387,7 @@
         "heading_cpFMj7",
         "text_QNdBXj"
       ],
+      "disabled": true,
       "custom_css": [
         ".image-with-text__media {border-radius: 10px !important;}",
         "h2 {font-size: 3.6rem; line-height: 1.15;}",
