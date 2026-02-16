@@ -827,13 +827,24 @@
             "subtitle": "With Dr. Kahn",
             "description": "Understanding the age of your heart and the impacts it has on your health is so important. Let’s uncover the facts about cholesterol levels, calcification, and supplementation and learn how to reduce your heart’s age by implementing simple but powerful lifestyle changes."
           }
+        },
+        "ebook_slide_ggweKc": {
+          "type": "ebook_slide",
+          "settings": {
+            "image": "shopify://shop_images/Ebook_Cover_-_Energizing_Lives_and_Heart_Health.png",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/1267/0135/files/The_Age_of_Your_Heart_2024.pdf?v=1727395133",
+            "title": "Improving Your Heart Health at Any Age",
+            "subtitle": "With Dr. Kahn",
+            "description": "Understanding the age of your heart and the impacts it has on your health is so important. Let’s uncover the facts about cholesterol levels, calcification, and supplementation and learn how to reduce your heart’s age by implementing simple but powerful lifestyle changes."
+          }
         }
       },
       "block_order": [
         "video_slide_cGj3r3",
         "video_slide_AG7drJ",
         "video_slide_7KeUat",
-        "ebook_slide_H7afHL"
+        "ebook_slide_H7afHL",
+        "ebook_slide_ggweKc"
       ],
       "name": "Mixed media slider",
       "settings": {
