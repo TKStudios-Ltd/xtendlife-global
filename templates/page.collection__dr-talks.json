@@ -785,6 +785,59 @@
         "padding_bottom": 80
       }
     },
+    "mixed_media_slider_z44q96": {
+      "type": "mixed-media-slider",
+      "blocks": {
+        "video_slide_cGj3r3": {
+          "type": "video_slide",
+          "settings": {
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "title": "Manage Statin Side Effects",
+            "name": "Dr. Kahn",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          }
+        },
+        "video_slide_gEgGW9": {
+          "type": "video_slide",
+          "settings": {
+            "video_url": "https://player.vimeo.com/video/903918402",
+            "title": "Manage Statin Side Effects",
+            "name": "Dr. Kahn",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          }
+        },
+        "ebook_slide_H7afHL": {
+          "type": "ebook_slide",
+          "settings": {
+            "pdf_url": "",
+            "title": "Heart Health Guide",
+            "subtitle": "Downloadable PDF",
+            "description": "Short description of the e-book."
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_cGj3r3",
+        "video_slide_gEgGW9",
+        "ebook_slide_H7afHL"
+      ],
+      "name": "Mixed media slider",
+      "settings": {
+        "heading": "Resources",
+        "bg_color": "#FFFFFF",
+        "tab_video_label": "Videos",
+        "tab_ebook_label": "E-books",
+        "default_tab": "videos",
+        "video_pill": "Experts Talk",
+        "ebook_pill": "E-book",
+        "gap": 32,
+        "speed": 500,
+        "autoplay": false,
+        "autoplay_delay": 4000,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "video_slider_QxaRdC": {
       "type": "video-slider",
       "blocks": {
@@ -824,6 +877,7 @@
         "video_slide_mpiyEH",
         "video_slide_Xx7KUJ"
       ],
+      "disabled": true,
       "name": "Video slider",
       "settings": {
         "heading": "",
@@ -936,6 +990,7 @@
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
+    "mixed_media_slider_z44q96",
     "video_slider_QxaRdC",
     "newsletter_qKtmmH",
     "image_banner_eNjqNN"
