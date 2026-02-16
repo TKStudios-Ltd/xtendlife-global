@@ -837,6 +837,16 @@
             "subtitle": "With Dr. Kahn",
             "description": "Understand how to address many cardiac issues simultaneously with a mitochondria centered approach, and boost mitochondrial resilience through healthy habits, diet, and quality supplementation."
           }
+        },
+        "ebook_slide_hxnBkc": {
+          "type": "ebook_slide",
+          "settings": {
+            "image": "shopify://shop_images/Ebook_Cover_-_Energizing_Lives_and_Heart_Health.png",
+            "pdf_url": "https://Ebook_Cover_-_The_Ground_Breaking_Discovery_Of_GG_For_Heart_Health.png",
+            "title": "Improving Your Heart Health at Any Age",
+            "subtitle": "With Dr. Kahn",
+            "description": "Understand how to address many cardiac issues simultaneously with a mitochondria centered approach, and boost mitochondrial resilience through healthy habits, diet, and quality supplementation."
+          }
         }
       },
       "block_order": [
@@ -844,7 +854,8 @@
         "video_slide_AG7drJ",
         "video_slide_7KeUat",
         "ebook_slide_H7afHL",
-        "ebook_slide_ggweKc"
+        "ebook_slide_ggweKc",
+        "ebook_slide_hxnBkc"
       ],
       "name": "Mixed media slider",
       "settings": {
