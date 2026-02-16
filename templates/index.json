@@ -104,7 +104,6 @@
         "slide_BHzj6J": {
           "type": "slide",
           "name": "Slide_SD Launch",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
             "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
