@@ -12,6 +12,37 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_BHzj6J": {
+          "type": "slide",
+          "name": "Slide_SD Launch",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
+            "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
+            "mobile_inline_image": "shopify://shop_images/SD-Mob-INLINE3.png",
+            "mobile_inline_bg": "#f6f190",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "#1f1946",
+            "heading": "Super to the brim",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Experience the daily wellness drink, where refreshing flavor meets lifelong support, built on 26 years of trusted science and innovation.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 18,
+            "text_max_width": 350,
+            "small_text": "",
+            "small_text_font_size_desktop": 12,
+            "small_text_font_size_mobile": 10,
+            "button_label_1": "Shop now",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        },
         "slide_PgUy4A": {
           "type": "slide",
           "settings": {
@@ -98,37 +129,6 @@
             "button_style_secondary_1": false,
             "button_label_2": "Save More with Bundles",
             "button_link_2": "shopify://collections/all-bundles",
-            "button_style_secondary_2": true
-          }
-        },
-        "slide_BHzj6J": {
-          "type": "slide",
-          "name": "Slide_SD Launch",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
-            "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
-            "mobile_inline_image": "shopify://shop_images/SD-Mob-INLINE3.png",
-            "mobile_inline_bg": "#f6f190",
-            "video_mp4": "",
-            "video_adapt_ratio": 57,
-            "text_color": "#1f1946",
-            "heading": "Super to the brim",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Experience the daily wellness drink, where refreshing flavor meets lifelong support, built on 26 years of trusted science and innovation.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 18,
-            "text_max_width": 350,
-            "small_text": "",
-            "small_text_font_size_desktop": 12,
-            "small_text_font_size_mobile": 10,
-            "button_label_1": "Shop now",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
             "button_style_secondary_2": true
           }
         },
@@ -284,10 +284,10 @@
         }
       },
       "block_order": [
+        "slide_BHzj6J",
         "slide_PgUy4A",
         "slide_Bwck6W",
         "slide_Mdp9gj",
-        "slide_BHzj6J",
         "slide_fyNhkn",
         "slide_y3FCKH",
         "slide_GVyYhd",
