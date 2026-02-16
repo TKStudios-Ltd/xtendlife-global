@@ -821,6 +821,7 @@
         "ebook_slide_H7afHL": {
           "type": "ebook_slide",
           "settings": {
+            "image": "shopify://shop_images/Ebook_Cover_-_Age_Of_Your_Heart.png",
             "pdf_url": "",
             "title": "Heart Health Guide",
             "subtitle": "Downloadable PDF",
