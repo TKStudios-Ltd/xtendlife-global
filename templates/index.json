@@ -15,7 +15,6 @@
         "slide_BHzj6J": {
           "type": "slide",
           "name": "Slide_SD Launch",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/SuperDay_Banner_Yellow.png",
             "image_tablet": "shopify://shop_images/SuperDay_Tablet_yellow.png",
@@ -36,7 +35,7 @@
             "small_text_font_size_desktop": 12,
             "small_text_font_size_mobile": 10,
             "button_label_1": "Shop now",
-            "button_link_1": "",
+            "button_link_1": "shopify://pages/superday",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -75,6 +74,7 @@
         "slide_Bwck6W": {
           "type": "slide",
           "name": "Gut Harmony Launch",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Gut-Harmony-HP-Banner-28-28.png",
             "image_tablet": "shopify://shop_images/Gut-Harmony-iPad_425x500_89a08de0-57d4-41b0-a190-b1b0ea616e18.png",
@@ -105,6 +105,7 @@
         },
         "slide_Mdp9gj": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_Banner_Destop_2000x870_dd9cc581-add5-43e0-a3d5-0f78947cc02d.png",
             "image_tablet": "shopify://shop_images/HP_Banner_iPad_630x650_f780515d-4682-4a66-a2a4-7e809d5469d8.png",
