@@ -299,7 +299,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Risks are high",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide, which causes 1 out of every 4 deaths in the US. Statistics from the Heart Health Foundation show that cardiovascular diseases affect nearly half of American adults.</p>",
             "page": "",
             "open": true
           }
@@ -308,7 +308,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Symptoms might be hidden",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Although cardiovascular diseases can be life-threatening, some symptoms are \"silent\". Risk factors such as arterial calcification, high blood sugar or pressure, or even just \"feeling tired\" can easily go unnoticed, which is why you need to take preventative action.</p>",
             "page": "",
             "open": false
           }
@@ -317,7 +317,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Heart Health and Men",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Men often have a higher risk of developing cardiovascular diseases (CVD), including coronary artery disease, heart attack, stroke, and heart failure, at a younger age compared to women, this is due to various biological, hormonal, lifestyle, and behavioral factors. Men may engage in specific lifestyle behaviors that increase their risk of CAD, such as higher rates of tobacco use, excessive alcohol consumption, unhealthy dietary habits, and inadequate physical activity. These modifiable risk factors can accelerate the development of CAD and contribute to its onset at a younger age.</p>",
             "page": "",
             "open": false
           }
@@ -326,7 +326,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Heart Health and Women",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide. Statistics from the Heart Foundation New Zealand show that almost 1 in 3 deaths are caused by cardiovascular disease and 1 in 21 adults are living with cardiovascular diseases.</p>",
+            "row_content": "<p>Cardiovascular health is also critical for women. Although the higher estrogen hormone in women has been associated with some protective cardiovascular effects, however after menopause, when estrogen levels decline, women's risk of cardiovascular diseases may increase dramatically. Additionally, CVD risk in women can be under-recognized because women may experience atypical symptoms of CVD compared to men. These subtler or more diverse symptoms may not always be immediately recognized as signs of heart disease. Hence, understanding heart health risk factors and taking preventive care is vital for women.</p>",
             "page": "",
             "open": false
           }
@@ -532,7 +532,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Circulation and Calcification",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "row_content": "<p>CX8 contains a proprietary blend of protease enzymes (Nattozimes®) and vitamin K2 in MK-7 form, these well-researched ingredients present great evidence to support calcium metabolism and may prevent the buildup of calcium in the arteries.</p>",
             "page": "",
             "open": false
           }
@@ -541,7 +541,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Inflammation and Cellular Support",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "row_content": "<p>It contains DeltaGold® tocotrienol complex, the most potent anti-inflammatory vitamin E, to help prevent lipid oxidation in CVD, and support cardiovascular and metabolic health.</p>",
             "page": "",
             "open": false
           }
@@ -550,7 +550,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Additional Antioxidants",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "row_content": "<p>This unique heart health supplement also contains additional antioxidants sea buckthorn fruit extract (CardiOmegia™, CyanthOx™30), rutin and New Zealand blackcurrant extract, great for supporting healthy inflammation and heart health.</p>",
             "page": "",
             "open": false
           }
@@ -621,8 +621,8 @@
         "collapsible_row_4b8wHk": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Highly Advanced Natural Supplement",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "heading": "Innovative formula backed by science",
+            "row_content": "<p>GG Pure is formulated with the trademarked ingredient GG Gold®, which has been featured in numerous independent studies over the decades for its efficacy and safety.</p>",
             "page": "",
             "open": true
           }
@@ -630,8 +630,8 @@
         "collapsible_row_XxRk8y": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Circulation and Calcification",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "heading": "Support CoQ10 and Cholesterol Synthesis",
+            "row_content": "<p>Geranylgeraniol (GG) is the building block of CoQ10, restoring a healthy level of GG may support your body’s natural production of CoQ10 for better heart health and cholesterol metabolism, and protect organs from age-related physical decline.</p>",
             "page": "",
             "open": false
           }
@@ -639,8 +639,8 @@
         "collapsible_row_VjbeiX": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Inflammation and Cellular Support",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "heading": "Support Muscle Comfort",
+            "row_content": "<p>Muscle pain & deterioration are side effects of statins, which are largely due to the body not being able to carry out the protein prenylation; GG influences skeletal muscle protein synthesis, which may may assist in mitigating these side effects.</p>",
             "page": "",
             "open": false
           }
@@ -648,8 +648,8 @@
         "collapsible_row_LKKWzb": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Additional Antioxidants",
-            "row_content": "<p>CX8 is formulated with highly researched ingredients backed by data to support calcium metabolism, circulation, and inflammation management. The eight potent ingredients formula offers you one of the most effective heart-health products available today.</p>",
+            "heading": "Unique Annatto Seed from the Amazon Forest",
+            "row_content": "<p>GG Pure is formulated with a unique annatto seed extract, one of the most abundant sources of GG in nature. This special extract has been extensively studied for its safety and efficacy, to support the replenishment of GG lost.</p>",
             "page": "",
             "open": false
           }
