@@ -319,6 +319,24 @@
             "product": ""
           }
         },
+        "review_aRbJaP": {
+          "type": "review",
+          "settings": {
+            "title": "SURPRISINGLY TASTY!",
+            "description": "<p>I purchased the SuperDay Adults to help me with a bit of energy, although it's too early to see the full benefit I was surprised at how well they have managed to make all these ingredients come together and taste good.</p>",
+            "person": "Michael, New Zealand",
+            "product": ""
+          }
+        },
+        "review_ArL7Db": {
+          "type": "review",
+          "settings": {
+            "title": "PLEASANTLY SURPRISED!",
+            "description": "<p>I purchased the SuperDay Kids to try and get some extra vitamins and minerals into my 5-year-old's diet since he is only too willing to eat noodles and chicken nuggets without persuasion. I am pleasantly surprised he enjoys it and is asking me when he can have another drink.</p>",
+            "person": "Michael, New Zealand",
+            "product": ""
+          }
+        },
         "review_HzjgFA": {
           "type": "review",
           "disabled": true,
@@ -362,6 +380,8 @@
       },
       "block_order": [
         "review_dXy8WH",
+        "review_aRbJaP",
+        "review_ArL7Db",
         "review_HzjgFA",
         "review_KcRaMj",
         "review_6xy4xw",
