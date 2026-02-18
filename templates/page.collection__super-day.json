@@ -48,8 +48,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/Landing_Page_Banner.png",
-        "image_tablet": "shopify://shop_images/SuperDay_Tablet_FA.png",
+        "image": "shopify://shop_images/Landing_Page_Banner_FA.png",
+        "image_tablet": "shopify://shop_images/Landing_Page_Tablet_FA.png",
         "image_mobile": "shopify://shop_images/SD-Mob-INLINE_FA_7d2a62bf-ef01-413f-8027-b273c6e35ad6.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
