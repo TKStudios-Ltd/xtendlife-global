@@ -102,7 +102,7 @@
           </ul>
 
           {% if skin_blog and skin_blog.articles_count > 0 %}
-            {% paginate skin_sorted.articles by 1000 %}
+            {% paginate skin_blog.articles by 1000 %}
             {% assign skin_sorted = skin_blog.articles | sort: 'title' %}
             <div class="ingredients-list" data-list-for="skincare">
               {% for article in skin_sorted %}
