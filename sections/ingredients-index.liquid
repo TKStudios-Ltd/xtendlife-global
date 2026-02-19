@@ -42,9 +42,10 @@
           </ul>
 
           {% if supp_blog and supp_blog.articles_count > 0 %}
+            {% paginate supp_blog.articles by 1000 %}
             {% assign supp_sorted = supp_blog.articles | sort: 'title' %}
             <div class="ingredients-list" data-list-for="supplements">
-              {% for article in supp_sorted limit: 1000 %}
+              {% for article in supp_sorted%}
                 {% if article.handle != blank %}
                   {% assign first = article.title | slice: 0, 1 | upcase %}
                   {% if first == blank or first contains '0' or first contains '1' or first contains '2' or first contains '3' or first contains '4' or first contains '5' or first contains '6' or first contains '7' or first contains '8' or first contains '9' %}
@@ -83,8 +84,9 @@
                     </div>
                   </article>
                 {% endif %}
-              {% endfor %}
+              {% endfor %}              
             </div>
+            {% endpaginate %}
           {% else %}
             <p>No published articles in <code>{{ supp_handle }}</code>.</p>
           {% endif %}
