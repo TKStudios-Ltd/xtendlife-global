@@ -864,7 +864,7 @@
         "bg_color": "#ffffff",
         "tab_video_label": "Videos",
         "tab_ebook_label": "E-books",
-        "default_tab": "videos",
+        "default_tab": "ebooks",
         "video_pill": "Experts Talk",
         "ebook_pill": "E-book",
         "gap": 32,
