@@ -786,6 +786,16 @@
         "padding_bottom": 80
       }
     },
+    "custom_liquid_Pzcygx": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<style>\n.resource-anchor-offset {\n    display: block;\n    position: relative;\n    visibility: hidden;\n    top: -100px;\n}\n</style>\n<a class=\"resource-anchor-offset\" id=\"resources\" name=\"resources\"></a>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "mixed_media_slider_z44q96": {
       "type": "mixed-media-slider",
       "blocks": {
@@ -1027,6 +1037,7 @@
     "image_with_text_HHyM8a",
     "image_with_text_83HE6c",
     "comparison_chart_Ehzkpz",
+    "custom_liquid_Pzcygx",
     "mixed_media_slider_z44q96",
     "video_slider_QxaRdC",
     "newsletter_qKtmmH",
