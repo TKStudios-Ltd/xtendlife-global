@@ -41,7 +41,7 @@
         "text_FxFrdN": {
           "type": "text",
           "settings": {
-            "text": "Trusted by experts, our heart health formula combines clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness - helping you stay strong at heart.",
+            "text": "Trusted by experts, our heart health formulas combine clinically studied ingredients to support circulation, cholesterol balance, and overall cardiovascular wellness - helping you stay strong at heart.",
             "text_style": "subtitle"
           }
         }
@@ -299,7 +299,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "Risks are high",
-            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood.<br/>Heart disease is the leading cause of death worldwide, which causes 1 out of every 4 deaths in the US. Statistics from the Heart Health Foundation show that cardiovascular diseases affect nearly half of American adults.</p>",
+            "row_content": "<p>A strong heart with a healthy cardiovascular system is vital to our livelihood. Heart disease is the leading cause of death worldwide, which causes 1 out of every 4 deaths in the US. Statistics from the Heart Health Foundation show that cardiovascular diseases affect nearly half of American adults.</p>",
             "page": "",
             "open": true
           }
