@@ -58,7 +58,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/DSF6381_2200x_6.jpg",
+        "image": "shopify://shop_images/Heart_Healt-Dr_Kahn_Desktop.png",
+        "image_tablet": "shopify://shop_images/Heart_Healt-Dr_Kahn_iPad.png",
+        "image_mobile": "shopify://shop_images/Heart_Healt-Dr_Kahn_iPad.png",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "wide_container": true,
