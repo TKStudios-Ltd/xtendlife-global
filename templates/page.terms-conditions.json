@@ -48,6 +48,7 @@
         },
         "collapsible_row_k4dGtr": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Subscribe and Save Welcome Offer",
             "icon": "none",
@@ -117,6 +118,7 @@
         },
         "collapsible_row_jidCxi": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Xtendlife 12 Days of Christmas",
             "icon": "none",
@@ -126,6 +128,7 @@
         },
         "collapsible_row_87CthE": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Omega 3 Promotion",
             "icon": "none",
@@ -135,6 +138,7 @@
         },
         "collapsible_row_DFeJnd": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Health Survey",
             "icon": "none",
@@ -148,6 +152,15 @@
             "heading": "Heart Health Promotion",
             "icon": "none",
             "row_content": "<ul><li>This offer is valid from 4:00 PM EST February 8, 2026 to 4:00 PM EST February 26, 2026, or while stocks last. </li><li>Receive a free GG Pure when purchasing from the Heart Health range through the Xtendlife website with the discount code HEARTGIFT applied at checkout. </li><li>The Heart Health range includes CX8, Xtend-Quinol, VasQFlow, GG Pure, Omega 3 / QH Premium CoQ10. The Heart Health Bundle and Marine Magnesium are excluded.   </li><li>To qualify, the discount code HEARTGIFT must be entered on the xtendlife.com website in the discount code field at checkout.  </li><li>The GG Pure product must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code HEARTGIFT cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "page": ""
+          }
+        },
+        "collapsible_row_B44qPe": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "DrTalks",
+            "icon": "none",
+            "row_content": "<ul><li>Receive 20% off the Heart Health supplement range when you shop through the Xtendlife website, when applying the discount code at checkout.     </li><li>Heart Health supplement range products included in the promotion are CX8, VasQFlow, Xtend-Quinol, GG Pure, Heart Health Bundle, Marine Magnesium with Potassium and Omega 3 / QH Premium CoQ10.   </li><li>The offer is valid from 3:00 PM EST February 22, 2026 to 5:00 PM EDT April 29, 2026. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers, including Subscribe and Save discounts. </li><li>Subscribe and Save customers must place a separate order through the website/checkout to take advantage of the special. The special CANNOT be added to a Subscribe and Save order. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
             "page": ""
           }
         }
@@ -166,7 +179,8 @@
         "collapsible_row_jidCxi",
         "collapsible_row_87CthE",
         "collapsible_row_DFeJnd",
-        "collapsible_row_gmLKqP"
+        "collapsible_row_gmLKqP",
+        "collapsible_row_B44qPe"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
