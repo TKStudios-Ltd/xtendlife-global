@@ -163,6 +163,15 @@
             "row_content": "<ul><li>Receive 20% off the Heart Health supplement range when you shop through the Xtendlife website, when applying the discount code at checkout.     </li><li>Heart Health supplement range products included in the promotion are CX8, VasQFlow, Xtend-Quinol, GG Pure, Heart Health Bundle, Marine Magnesium with Potassium and Omega 3 / QH Premium CoQ10.   </li><li>The offer is valid from 3:00 PM EST February 22, 2026 to 5:00 PM EDT April 29, 2026. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers, including Subscribe and Save discounts. </li><li>Subscribe and Save customers must place a separate order through the website/checkout to take advantage of the special. The special CANNOT be added to a Subscribe and Save order. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_yrUHrB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Omega 3/ DHA Plus Promotion",
+            "icon": "none",
+            "row_content": "<ul><li>This offer is valid from 4:00 PM EST March 1, 2026 to 5:00 PM EDT March 30, 2026, or while stocks last. </li><li>Buy 2 Omega 3/DHA Plus and get the 3rd FREE on the Xtendlife website. Apply code BONUSGIFT at checkout. </li><li>To qualify, the discount code BONUSGIFT must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>All three Omega 3 / DHA Plus must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code BONUSGIFT cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -180,7 +189,8 @@
         "collapsible_row_87CthE",
         "collapsible_row_DFeJnd",
         "collapsible_row_gmLKqP",
-        "collapsible_row_B44qPe"
+        "collapsible_row_B44qPe",
+        "collapsible_row_yrUHrB"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
