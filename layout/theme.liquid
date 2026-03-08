@@ -373,7 +373,7 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'photoswipe.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
     {%- if settings.predictive_search_enabled -%}
       <link
