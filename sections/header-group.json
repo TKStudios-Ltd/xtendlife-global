@@ -14,23 +14,23 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">For Shipping Information Click Here</a> | <a href=\"/collections/all\" title=\"All Products\">Shop Now</a></p>"
+          }
+        },
         "announcement_E3r3QK": {
           "type": "announcement",
           "disabled": true,
           "settings": {
             "content": "<p>Severe weather in parts of the US may temporarily impact delivery times.</p>"
           }
-        },
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "content": "<p><a href=\"/pages/shipping\" title=\"Shipping\">For Shipping Information Click Here</a> | <a href=\"/collections/all\" title=\"All Products\">Shop Now</a></p>"
-          }
         }
       },
       "block_order": [
-        "announcement_E3r3QK",
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_E3r3QK"
       ],
       "disabled": true,
       "settings": {
