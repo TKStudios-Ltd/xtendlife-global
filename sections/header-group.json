@@ -31,6 +31,7 @@
         "announcement_E3r3QK",
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
