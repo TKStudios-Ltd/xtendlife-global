@@ -30,6 +30,7 @@
         },
         "collapsible_row_jrXhpi": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Refer a Friend",
             "icon": "none",
@@ -148,6 +149,7 @@
         },
         "collapsible_row_gmLKqP": {
           "type": "collapsible_row",
+          "disabled": true,
           "settings": {
             "heading": "Heart Health Promotion",
             "icon": "none",
