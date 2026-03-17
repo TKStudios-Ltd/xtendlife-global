@@ -30,6 +30,12 @@
   line-height: 1.2;
 }
 
+/* #MediaHero-{{ section.id }} .button--secondary,
+#MediaHero-{{ section.id }} .button--tertiary {
+  background-color: #fff;
+  color: #1F1946;
+} */
+
 /* Desktop */
 @media (min-width: 750px) {
   #MediaHero-{{ section.id }} .banner--large {
@@ -177,6 +183,32 @@
               font-size: {{ b.small_text_font_size_mobile | default: 10 }}px !important;
             }
           }
+          {% if b.text_color != blank %}
+            @media (min-width: 750px) {
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__heading.inline-richtext {
+                color: {{ b.text_color }} !important;
+              }
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+                color: {{ b.text_color }} !important;
+              }
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__smalltext {
+                color: {{ b.text_color }} !important;
+              }
+            }
+          {% endif %}
+          {% if b.text_color_mobile != blank %}
+            @media (max-width: 749px) {
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__heading.inline-richtext {
+                color: {{ b.text_color_mobile }} !important;
+              }
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .subtitle.banner__text {
+                color: {{ b.text_color_mobile }} !important;
+              }
+              .swiper-slide[data-slide-id="slide-{{ block.id }}"] .banner__smalltext {
+                color: {{ b.text_color_mobile }} !important;
+              }
+            }
+          {% endif %}
         </style>
         <div class="swiper-slide" data-slide-id="slide-{{ block.id }}" {{ block.shopify_attributes }}>
 
@@ -253,7 +285,6 @@
                     <h2
                       class="banner__heading inline-richtext {{ b.heading_size }}"
                       style="
-                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
                         {% if b.heading_max_width %}max-width: {{ b.heading_max_width }}px;{% endif %}
                       "
                     >{{ b.heading }}</h2>
@@ -263,7 +294,6 @@
                     <p
                       class="subtitle banner__text {{ b.text_style }}"
                       style="
-                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
                         {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
                       "
                     >{{ b.text }}</p>
@@ -273,7 +303,6 @@
                     <p
                       class="banner__smalltext"
                       style="
-                        {% if b.text_color != blank %}color: {{ b.text_color }};{% endif %}
                         {% if b.text_max_width %}max-width: {{ b.text_max_width }}px;{% endif %}
                       "
                     >{{ b.small_text }}</p>
@@ -390,6 +419,7 @@
         { "type": "url", "id": "video_mp4", "label": "Hosted MP4 URL (takes priority if set)" },
         { "type": "range", "id": "video_adapt_ratio", "label": "Adapt height ratio for video (%)", "min": 30, "max": 100, "step": 1, "default": 57, "info": "Used only when Banner height is 'Adapt' and slide uses video." },
         { "type": "color", "id": "text_color", "label": "Text color override (optional)" },
+        { "type": "color", "id": "text_color_mobile", "label": "Text color override mobile (optional)" },
         { "type": "header", "content": "Heading" },
         { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Your headline here" },
         {
