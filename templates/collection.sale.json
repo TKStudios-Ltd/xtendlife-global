@@ -27,13 +27,15 @@
             "image": "shopify://shop_images/Sales_Caregory_Desktop.png",
             "image_tablet": "shopify://shop_images/Sales_Caregory_iPad_950x750_435e15b8-97eb-42c7-bed0-b4a0ce4b786f.png",
             "image_mobile": "shopify://shop_images/Sale_Collection_Mob.jpg",
+            "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 100,
             "text_color": "",
-            "heading": "Black Friday is here",
+            "text_color_mobile": "",
+            "heading": "20% Off Storewide",
             "heading_size": "h1",
             "heading_max_width": 500,
-            "text": "30% off almost everything.* Limited time only.",
+            "text": "No code needed. Limited time only.",
             "text_style": "body",
             "subtitle_font_size_desktop": 24,
             "subtitle_font_size_mobile": 18,
@@ -135,7 +137,7 @@
       ],
       "name": "Promo Collection Tabs",
       "settings": {
-        "title": "Black Friday Promotion",
+        "title": "Flash Sale",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -237,7 +239,7 @@
         "caption_bz9N8Y": {
           "type": "caption",
           "settings": {
-            "caption": "If you are going to take one supplement, then this is it. Way beyond a multivitamin, it’s a complete nutrient system with specifically tailored versions for men and women.",
+            "caption": "If you are going to take one supplement, make it Total Balance. Way beyond a multivitamin; it’s a complete nutrient system with specifically tailored versions for men and women.",
             "additional_caption": "Go Beyond Multivitamins",
             "text_style": "subtitle",
             "text_size": "small"
@@ -508,7 +510,8 @@
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "left",
-        "show_text_below": false
+        "show_text_below": false,
+        "color_scheme_mobile": ""
       }
     }
   },
