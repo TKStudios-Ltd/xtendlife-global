@@ -12,6 +12,38 @@
     "media_hero_slider_VC34DA": {
       "type": "media-hero-slider",
       "blocks": {
+        "slide_hwDDwj": {
+          "type": "slide",
+          "name": "Slide_20% Off March_2026",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/20Sale_Desk-F_1920x685_ab1fa1cd-ce8c-41f7-b153-795dc49111e5.png",
+            "image_tablet": "shopify://shop_images/20Sale_Tablet_D_1500x1377_b979632c-5ce1-4fda-b245-6374826d74f8.png",
+            "image_mobile": "shopify://shop_images/20Off_Mob_F_1100x1291_bad549c7-ac3f-4b2c-bfa7-8395d2419c70.png",
+            "mobile_inline_bg": "#ffffff",
+            "video_mp4": "",
+            "video_adapt_ratio": 57,
+            "text_color": "#f4f8fb",
+            "text_color_mobile": "#1f1946",
+            "heading": "20% Off Sitewide*",
+            "heading_size": "h1",
+            "heading_max_width": 500,
+            "text": "Support heart, brain, and whole-body health with premium supplements.",
+            "text_style": "body",
+            "subtitle_font_size_desktop": 24,
+            "subtitle_font_size_mobile": 22,
+            "text_max_width": 260,
+            "small_text": "Ends Sunday.",
+            "small_text_font_size_desktop": 15,
+            "small_text_font_size_mobile": 11,
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://pages/total-balance",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "slide_DXH6Lj": {
           "type": "slide",
           "name": "Slide_O3 Prem_Promo 2026",
@@ -102,38 +134,6 @@
             "button_label_2": "Save More with Bundles",
             "button_link_2": "shopify://collections/all-bundles",
             "button_style_secondary_2": true
-          }
-        },
-        "slide_hwDDwj": {
-          "type": "slide",
-          "name": "Slide_20% Off March_2026",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/20Sale_Desk-F_1920x685_ab1fa1cd-ce8c-41f7-b153-795dc49111e5.png",
-            "image_tablet": "shopify://shop_images/20Sale_Tablet_D_1500x1377_b979632c-5ce1-4fda-b245-6374826d74f8.png",
-            "image_mobile": "shopify://shop_images/20Off_Mob_F_1100x1291_bad549c7-ac3f-4b2c-bfa7-8395d2419c70.png",
-            "mobile_inline_bg": "#ffffff",
-            "video_mp4": "",
-            "video_adapt_ratio": 57,
-            "text_color": "#f4f8fb",
-            "text_color_mobile": "#1f1946",
-            "heading": "20% Off Sitewide*",
-            "heading_size": "h1",
-            "heading_max_width": 500,
-            "text": "Support heart, brain, and whole-body health with premium supplements.",
-            "text_style": "body",
-            "subtitle_font_size_desktop": 24,
-            "subtitle_font_size_mobile": 22,
-            "text_max_width": 260,
-            "small_text": "Ends Sunday.",
-            "small_text_font_size_desktop": 15,
-            "small_text_font_size_mobile": 11,
-            "button_label_1": "Shop 20% Off Now",
-            "button_link_1": "shopify://pages/total-balance",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
           }
         },
         "slide_Bwck6W": {
@@ -263,10 +263,10 @@
         }
       },
       "block_order": [
+        "slide_hwDDwj",
         "slide_DXH6Lj",
         "slide_BHzj6J",
         "slide_Mdp9gj",
-        "slide_hwDDwj",
         "slide_Bwck6W",
         "slide_fyNhkn",
         "slide_GVyYhd",
