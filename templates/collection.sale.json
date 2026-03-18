@@ -26,12 +26,11 @@
           "settings": {
             "image": "shopify://shop_images/20Sale_LAND_Desk-2000x750.png",
             "image_tablet": "shopify://shop_images/20Sale_LAND_Tablet_950x750_b8026e3d-cee8-4d75-8ccf-1d36588892d3.png",
-            "image_mobile": "shopify://shop_images/20Sale_LAND_Mob_488x323_510200df-94fd-407c-a5c6-bd54cb9351d2.png",
             "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 100,
             "text_color": "#ffffff",
-            "text_color_mobile": "#1f1946",
+            "text_color_mobile": "#f4f8fb",
             "heading": "20% Off Sitewide*",
             "heading_size": "h1",
             "heading_max_width": 500,
