@@ -24,10 +24,9 @@
         "slide_fTk4Hh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/20Sale_LAND_Desk-2000x750_a9f68464-cc0a-4791-aebd-eb658f63d1b8.png",
-            "image_tablet": "shopify://shop_images/20Sale_LAND_Tablet_950x750_b353530b-d12a-43c9-8c23-8e94aaa79fcf.png",
-            "image_mobile": "shopify://shop_images/20Sale_LAND_Mob_488x323_dae6dd1a-b4e7-4961-8d3c-a4ac747bf185.png",
-            "mobile_inline_image": "shopify://shop_images/20Sale_LAND_Mob_488x323_dae6dd1a-b4e7-4961-8d3c-a4ac747bf185.png",
+            "image": "shopify://shop_images/20Sale_LAND_Desk-2000x750.png",
+            "image_tablet": "shopify://shop_images/20Sale_LAND_Tablet_950x750_b8026e3d-cee8-4d75-8ccf-1d36588892d3.png",
+            "image_mobile": "shopify://shop_images/20Sale_LAND_Mob_488x323_510200df-94fd-407c-a5c6-bd54cb9351d2.png",
             "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 100,
