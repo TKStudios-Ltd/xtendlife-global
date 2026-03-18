@@ -26,6 +26,7 @@
           "settings": {
             "image": "shopify://shop_images/20Sale_LAND_Desk-2000x750.png",
             "image_tablet": "shopify://shop_images/20Sale_LAND_Tablet_950x750_b8026e3d-cee8-4d75-8ccf-1d36588892d3.png",
+            "mobile_inline_image": "shopify://shop_images/20Off_Mob_F_1100x1291_bad549c7-ac3f-4b2c-bfa7-8395d2419c70.png",
             "mobile_inline_bg": "#ffffff",
             "video_mp4": "",
             "video_adapt_ratio": 100,
