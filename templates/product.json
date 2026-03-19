@@ -28,7 +28,9 @@
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "show_for_selling_plan": true
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
