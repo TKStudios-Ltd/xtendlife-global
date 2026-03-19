@@ -174,6 +174,16 @@
             "row_content": "<ul><li>This offer is valid from 4:00 PM EST March 1, 2026 to 5:00 PM EDT March 30, 2026, or while stocks last. </li><li>Buy 2 Omega 3/DHA Plus and get the 3rd FREE on the Xtendlife website. Apply code BONUSGIFT at checkout. </li><li>To qualify, the discount code BONUSGIFT must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>All three Omega 3 / DHA Plus must be added to your cart to receive the free gift. </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code BONUSGIFT cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_CkyyCT": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Sitewide Promotion",
+            "icon": "none",
+            "row_content": "<ul><li>Receive 20% off sitewide when purchasing through the Xtendlife online store.  All promotional prices are reflected on site automatically, no code is needed.   </li><li>Excludes SuperDay for Kids, SuperDay for Adults, SuperDay for 60+, all bundles and the electric mixer whisk.   </li><li>The 20% discount offer is available from 5:00 PM EDT March 19, 2026 to 5:00 PM EDT March 22, 2026 or until supplies last, whichever occurs first.   </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   Subscribe & Save members must place a new order through checkout.  </li><li>The Omega 3 / DHA Plus and DrTalks promo code cannot be used during the sitewide promotion. </li><li>If you return your product purchased in the discount period, the dollar value of the discounted product will be refunded. </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -192,7 +202,8 @@
         "collapsible_row_DFeJnd",
         "collapsible_row_gmLKqP",
         "collapsible_row_B44qPe",
-        "collapsible_row_yrUHrB"
+        "collapsible_row_yrUHrB",
+        "collapsible_row_CkyyCT"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
