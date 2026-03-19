@@ -156,6 +156,7 @@
                   {%- render 'price',
                     product: product,
                     use_variant: true,
+                    show_for_selling_plan: block.settings.show_for_selling_plan,
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
@@ -937,7 +938,15 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [        
+        {
+          "type": "checkbox",
+          "id": "show_for_selling_plan",
+          "label": "Show for selling plan",
+          "default": false
+        }
+      ]
     },
     {
       "type": "sku",

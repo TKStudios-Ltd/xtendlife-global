@@ -47,7 +47,7 @@
   endif
 
   assign hide_price = false
-  if is_product_page and has_selling_plan
+  if is_product_page and has_selling_plan and show_for_selling_plan == false
     assign hide_price = true
   endif
 
