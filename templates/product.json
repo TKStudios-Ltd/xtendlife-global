@@ -29,7 +29,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "show_for_selling_plan": true
+            "show_for_selling_plan": false
           }
         },
         "variant_picker": {
