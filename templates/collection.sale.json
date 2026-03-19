@@ -56,8 +56,7 @@
         "slide_fTk4Hh"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {.banner__media {height: 100vw; }}",
-        "@media (min-width: 750px) {.subtitle {font-size: 20px; } .banner--content-align-left {width: 100%; } .banner {max-height: 600px; height: 40vw; }}"
+        "@media (max-width: 749px) {.banner__buttons {justify-content: center; } .banner::after {opacity: 0 !important; }}"
       ],
       "name": "Video + Image Hero Slider",
       "settings": {
