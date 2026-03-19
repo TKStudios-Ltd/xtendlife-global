@@ -177,7 +177,6 @@
         },
         "collapsible_row_CkyyCT": {
           "type": "collapsible_row",
-          "disabled": true,
           "settings": {
             "heading": "Sitewide Promotion",
             "icon": "none",
