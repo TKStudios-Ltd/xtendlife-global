@@ -97,6 +97,7 @@
         },
         "tab_hNQHfA": {
           "type": "tab",
+          "disabled": true,
           "settings": {
             "label": "Bundles",
             "collection": "all-bundles",
