@@ -81,7 +81,7 @@
 
     {%- if shop.permanent_domain contains 'xtendlife' -%}
       <!-- MS Clarity -->
-      <script type="text/javascript">window.clarity_domain = {{shop.permanent_domain}}</script>
+      <script type="text/javascript">var window.clarity_domain = {{shop.permanent_domain}}</script>
       <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
