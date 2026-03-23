@@ -15,6 +15,7 @@
         "slide_hwDDwj": {
           "type": "slide",
           "name": "Slide_20% Off March_2026",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/20Sale_Desk-F_1920x685_ab1fa1cd-ce8c-41f7-b153-795dc49111e5.png",
             "image_tablet": "shopify://shop_images/20Sale_Tablet_D_1500x1377_b979632c-5ce1-4fda-b245-6374826d74f8.png",
@@ -46,7 +47,6 @@
         "slide_jdHtG6": {
           "type": "slide",
           "name": "Slide-TB HP HERO Banner",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/HP_TB_Banner2_1920x685_f13be987-e51d-40ae-a4a7-87957ab7fa94.png",
             "image_tablet": "shopify://shop_images/HP_TB_Tablet2_1500x1377_3cf81bdc-cbdd-4266-a9f7-6b7741a09825.png",
@@ -78,7 +78,6 @@
         "slide_DXH6Lj": {
           "type": "slide",
           "name": "Slide_O3 Prem_Promo 2026",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Om-3-Prem-Banner-8.png",
             "image_tablet": "shopify://shop_images/Omega3_Tablet_1500x1377_27c10706-ba6d-4c72-b621-228c6e3ebf96.png",
