@@ -135,7 +135,7 @@
       var currentMarketPath = '';
       var currentHasMarketPath = false;
 
-      var countryUri = storeDomain;      
+      var countryUri = defaultSubDomain + "." + defaultDomain;      
 
       if(window.location.href.indexOf('xtendlife.com/blogs/health-articles') != -1)
       {
