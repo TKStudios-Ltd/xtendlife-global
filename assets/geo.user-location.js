@@ -135,8 +135,7 @@
       var currentMarketPath = '';
       var currentHasMarketPath = false;
 
-      //Set the default fllback URL for countries without a dedicated domain
-      var countryUri = defaultSubDomain + "." + defaultDomain;      
+      var countryUri = storeDomain;      
 
       if(window.location.href.indexOf('xtendlife.com/blogs/health-articles') != -1)
       {
