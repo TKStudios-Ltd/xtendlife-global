@@ -183,6 +183,15 @@
             "row_content": "<ul><li>Receive 20% off sitewide when purchasing through the Xtendlife online store.  All promotional prices are reflected on site automatically, no code is needed.   </li><li>Excludes SuperDay for Kids, SuperDay for Adults, SuperDay for 60+, all bundles and the electric mixer whisk.   </li><li>The 20% discount offer is available from 5:00 PM EDT March 19, 2026 to 11:00 PM EDT March 22, 2026 or until supplies last, whichever occurs first.   </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   Subscribe & Save members must place a new order through checkout.  </li><li>The Omega 3 / DHA Plus and DrTalks promo code cannot be used during the sitewide promotion. </li><li>If you return your product purchased in the discount period, the dollar value of the discounted product will be refunded. </li></ul>",
             "page": ""
           }
+        },
+        "collapsible_row_cADFt4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Sitewide last chance",
+            "icon": "none",
+            "row_content": "<ul><li>The 15% discount offer is available from 5:00 PM EDT March 24, 2026 to 11:00 PM EDT March 26, 2026, or until supplies last, whichever occurs first.  </li><li>Receive 15% off sitewide when you use the specified discount code in the Xtendlife online store. </li><li>Excludes SuperDay for Kids, SuperDay for Adults, SuperDay for 60+, all bundles and the electric mixer whisk.  </li><li>The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers.   Subscribe & Save members must place a new order through checkout. </li><li>The Omega 3 / DHA Plus and DrTalks promo code cannot be used in conjunction with this offer.  </li><li>If you return your product purchased in the discount period, the dollar value of the discounted product will be refunded. </li><li>To qualify, the discount code must be entered on the Xtendlife website in the discount code field at checkout.  </li><li>The discount code is valid exclusively for one use per customer on the Xtendlife checkout.  </li><li>The discount code cannot be deducted retrospectively once the order has been completed and charged.  </li><li> The offer cannot be applied to previous purchases or be combined with other special discounts, discount codes or offers. Subscribe & Save members must place a new order through checkout. </li><li>The discount code is not transferable and may not be resold or redeemed for cash.  </li><li>The discount code will be invalid if any of the terms and conditions are violated.  </li></ul>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -202,7 +211,8 @@
         "collapsible_row_gmLKqP",
         "collapsible_row_B44qPe",
         "collapsible_row_yrUHrB",
-        "collapsible_row_CkyyCT"
+        "collapsible_row_CkyyCT",
+        "collapsible_row_cADFt4"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
